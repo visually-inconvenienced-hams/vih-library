@@ -12,7 +12,7 @@
     "file": "AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip",
     "list": "field-kit",
     "format": "Zip file",
-    "url": "https://www.facebook.com/groups/742838019382868/permalink/3039961369670510/",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip",
     "keywords": [
       "field reference",
       "kit",
@@ -22,7 +22,7 @@
       "ab9mz",
       "download"
     ],
-    "note": "The whole kit in one download: the full book, all 22 sections in all formats, the offline section selector, and the build files. The zip is still on Facebook Files for now — it is not yet in the field-reference repository."
+    "note": "The whole kit in one download: the full book, all 22 sections in all formats, the offline section selector, and the build files. The zip lives in the field-reference repository."
   },
   {
     "category": "FIELD",
@@ -37,7 +37,7 @@
     "file": "READ_ME_FIRST_v2.0-20261116-2218-AB9MZ.txt",
     "list": "field-kit",
     "format": "Plain text",
-    "url": "https://ricis-ai.github.io/field-reference/READ_ME_FIRST.txt",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/READ_ME_FIRST.txt",
     "keywords": [
       "field reference",
       "read me",
@@ -60,7 +60,8 @@
     "file": "AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2218-AB9MZ.pdf",
     "list": "field-kit",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "full book",
@@ -84,7 +85,8 @@
     "file": "AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2218-AB9MZ.docx",
     "list": "field-kit",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "full book",
@@ -108,7 +110,8 @@
     "file": "AB9MZ_Amateur_Radio_Field_Reference-tagged_v2.0-20261116-2218-AB9MZ.pdf",
     "list": "field-kit",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "full book",
@@ -135,7 +138,8 @@
     "subsection": "guide",
     "subsectionTitle": "Using and printing this book",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/guide.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/guide.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "guide",
@@ -163,7 +167,8 @@
     "subsection": "guide",
     "subsectionTitle": "Using and printing this book",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/guide.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/guide.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "guide",
@@ -191,7 +196,8 @@
     "subsection": "guide",
     "subsectionTitle": "Using and printing this book",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/guide.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/guide.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "guide",
@@ -220,7 +226,8 @@
     "subsection": "phonetics",
     "subsectionTitle": "Phonetic alphabet",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/phonetics.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/phonetics.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "phonetics",
@@ -249,7 +256,8 @@
     "subsection": "phonetics",
     "subsectionTitle": "Phonetic alphabet",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/phonetics.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/phonetics.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "phonetics",
@@ -278,7 +286,8 @@
     "subsection": "phonetics",
     "subsectionTitle": "Phonetic alphabet",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/phonetics.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/phonetics.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "phonetics",
@@ -308,7 +317,8 @@
     "subsection": "morse",
     "subsectionTitle": "Morse code and procedural signals",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/morse.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "morse",
@@ -338,7 +348,8 @@
     "subsection": "morse",
     "subsectionTitle": "Morse code and procedural signals",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/morse.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "morse",
@@ -368,7 +379,8 @@
     "subsection": "morse",
     "subsectionTitle": "Morse code and procedural signals",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/morse.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/morse.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "morse",
@@ -399,7 +411,8 @@
     "subsection": "emergency",
     "subsectionTitle": "Emergency operating procedures",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/emergency.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/emergency.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "emergency",
@@ -426,7 +439,8 @@
     "subsection": "emergency",
     "subsectionTitle": "Emergency operating procedures",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/emergency.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/emergency.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "emergency",
@@ -453,7 +467,8 @@
     "subsection": "emergency",
     "subsectionTitle": "Emergency operating procedures",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/emergency.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/emergency.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "emergency",
@@ -481,7 +496,8 @@
     "subsection": "voice",
     "subsectionTitle": "Voice and repeater operation",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/voice.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/voice.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "voice",
@@ -509,7 +525,8 @@
     "subsection": "voice",
     "subsectionTitle": "Voice and repeater operation",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/voice.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/voice.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "voice",
@@ -537,7 +554,8 @@
     "subsection": "voice",
     "subsectionTitle": "Voice and repeater operation",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/voice.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/voice.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "voice",
@@ -566,7 +584,8 @@
     "subsection": "cw",
     "subsectionTitle": "CW abbreviations",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/cw.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cw.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cw",
@@ -594,7 +613,8 @@
     "subsection": "cw",
     "subsectionTitle": "CW abbreviations",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/cw.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cw.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cw",
@@ -622,7 +642,8 @@
     "subsection": "cw",
     "subsectionTitle": "CW abbreviations",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/cw.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/cw.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cw",
@@ -651,7 +672,8 @@
     "subsection": "qsignals",
     "subsectionTitle": "Q signals and net codes",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/qsignals.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/qsignals.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "q signals",
@@ -680,7 +702,8 @@
     "subsection": "qsignals",
     "subsectionTitle": "Q signals and net codes",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/qsignals.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/qsignals.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "q signals",
@@ -709,7 +732,8 @@
     "subsection": "qsignals",
     "subsectionTitle": "Q signals and net codes",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/qsignals.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/qsignals.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "q signals",
@@ -739,7 +763,8 @@
     "subsection": "reports",
     "subsectionTitle": "Signal reporting",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/reports.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reports.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "signal",
@@ -767,7 +792,8 @@
     "subsection": "reports",
     "subsectionTitle": "Signal reporting",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/reports.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reports.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "signal",
@@ -795,7 +821,8 @@
     "subsection": "reports",
     "subsectionTitle": "Signal reporting",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/reports.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/reports.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "signal",
@@ -824,7 +851,8 @@
     "subsection": "bands",
     "subsectionTitle": "US band privileges",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/bands.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/bands.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "bands",
@@ -852,7 +880,8 @@
     "subsection": "bands",
     "subsectionTitle": "US band privileges",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/bands.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/bands.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "bands",
@@ -880,7 +909,8 @@
     "subsection": "bands",
     "subsectionTitle": "US band privileges",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/bands.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/bands.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "bands",
@@ -909,7 +939,8 @@
     "subsection": "digital",
     "subsectionTitle": "Digital modes and linked systems",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/digital.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/digital.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "digital",
@@ -939,7 +970,8 @@
     "subsection": "digital",
     "subsectionTitle": "Digital modes and linked systems",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/digital.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/digital.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "digital",
@@ -969,7 +1001,8 @@
     "subsection": "digital",
     "subsectionTitle": "Digital modes and linked systems",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/digital.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/digital.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "digital",
@@ -1000,7 +1033,8 @@
     "subsection": "station",
     "subsectionTitle": "Antennas, power, and station checks",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/station.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/station.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "station",
@@ -1028,7 +1062,8 @@
     "subsection": "station",
     "subsectionTitle": "Antennas, power, and station checks",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/station.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/station.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "station",
@@ -1056,7 +1091,8 @@
     "subsection": "station",
     "subsectionTitle": "Antennas, power, and station checks",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/station.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/station.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "station",
@@ -1085,7 +1121,8 @@
     "subsection": "deployment",
     "subsectionTitle": "Accessible deployment",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/deployment.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/deployment.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "deployment",
@@ -1113,7 +1150,8 @@
     "subsection": "deployment",
     "subsectionTitle": "Accessible deployment",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/deployment.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/deployment.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "deployment",
@@ -1141,7 +1179,8 @@
     "subsection": "deployment",
     "subsectionTitle": "Accessible deployment",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/deployment.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/deployment.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "deployment",
@@ -1170,7 +1209,8 @@
     "subsection": "ares",
     "subsectionTitle": "ARES",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/ares.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/ares.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "ares",
@@ -1196,7 +1236,8 @@
     "subsection": "ares",
     "subsectionTitle": "ARES",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/ares.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/ares.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "ares",
@@ -1222,7 +1263,8 @@
     "subsection": "ares",
     "subsectionTitle": "ARES",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/ares.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/ares.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "ares",
@@ -1249,7 +1291,8 @@
     "subsection": "races",
     "subsectionTitle": "RACES",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/races.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/races.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "races",
@@ -1275,7 +1318,8 @@
     "subsection": "races",
     "subsectionTitle": "RACES",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/races.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/races.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "races",
@@ -1301,7 +1345,8 @@
     "subsection": "races",
     "subsectionTitle": "RACES",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/races.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/races.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "races",
@@ -1328,7 +1373,8 @@
     "subsection": "mars",
     "subsectionTitle": "MARS",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/mars.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/mars.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "mars",
@@ -1354,7 +1400,8 @@
     "subsection": "mars",
     "subsectionTitle": "MARS",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/mars.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/mars.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "mars",
@@ -1380,7 +1427,8 @@
     "subsection": "mars",
     "subsectionTitle": "MARS",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/mars.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/mars.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "mars",
@@ -1407,7 +1455,8 @@
     "subsection": "cap",
     "subsectionTitle": "Civil Air Patrol",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/cap.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cap.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cap",
@@ -1432,7 +1481,8 @@
     "subsection": "cap",
     "subsectionTitle": "Civil Air Patrol",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/cap.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cap.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cap",
@@ -1457,7 +1507,8 @@
     "subsection": "cap",
     "subsectionTitle": "Civil Air Patrol",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/cap.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/cap.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "cap",
@@ -1483,7 +1534,8 @@
     "subsection": "shares",
     "subsectionTitle": "SHARES",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/shares.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/shares.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "shares",
@@ -1510,7 +1562,8 @@
     "subsection": "shares",
     "subsectionTitle": "SHARES",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/shares.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/shares.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "shares",
@@ -1537,7 +1590,8 @@
     "subsection": "shares",
     "subsectionTitle": "SHARES",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/shares.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/shares.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "shares",
@@ -1565,7 +1619,8 @@
     "subsection": "observer",
     "subsectionTitle": "Official Observer and Volunteer Monitor",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/observer.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/observer.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "observer",
@@ -1593,7 +1648,8 @@
     "subsection": "observer",
     "subsectionTitle": "Official Observer and Volunteer Monitor",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/observer.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/observer.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "observer",
@@ -1621,7 +1677,8 @@
     "subsection": "observer",
     "subsectionTitle": "Official Observer and Volunteer Monitor",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/observer.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/observer.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "observer",
@@ -1650,7 +1707,8 @@
     "subsection": "traffic",
     "subsectionTitle": "National Traffic System",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/traffic.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/traffic.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "traffic",
@@ -1678,7 +1736,8 @@
     "subsection": "traffic",
     "subsectionTitle": "National Traffic System",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/traffic.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/traffic.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "traffic",
@@ -1706,7 +1765,8 @@
     "subsection": "traffic",
     "subsectionTitle": "National Traffic System",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/traffic.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/traffic.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "traffic",
@@ -1735,7 +1795,8 @@
     "subsection": "forms",
     "subsectionTitle": "Message forms, logs, and PACE plan",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/forms.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/forms.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "forms",
@@ -1763,7 +1824,8 @@
     "subsection": "forms",
     "subsectionTitle": "Message forms, logs, and PACE plan",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/forms.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/forms.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "forms",
@@ -1791,7 +1853,8 @@
     "subsection": "forms",
     "subsectionTitle": "Message forms, logs, and PACE plan",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/forms.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/forms.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "forms",
@@ -1820,7 +1883,8 @@
     "subsection": "weather",
     "subsectionTitle": "Weather radio and storm reports",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/weather.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/weather.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "weather",
@@ -1848,7 +1912,8 @@
     "subsection": "weather",
     "subsectionTitle": "Weather radio and storm reports",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/weather.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/weather.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "weather",
@@ -1876,7 +1941,8 @@
     "subsection": "weather",
     "subsectionTitle": "Weather radio and storm reports",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/weather.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/weather.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "weather",
@@ -1905,7 +1971,8 @@
     "subsection": "reference",
     "subsectionTitle": "Glossary and review checklist",
     "format": "Large-print PDF",
-    "url": "https://ricis-ai.github.io/field-reference/sections/reference.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reference.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "glossary",
@@ -1933,7 +2000,8 @@
     "subsection": "reference",
     "subsectionTitle": "Glossary and review checklist",
     "format": "Word document",
-    "url": "https://ricis-ai.github.io/field-reference/sections/reference.docx",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reference.docx",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "glossary",
@@ -1961,7 +2029,8 @@
     "subsection": "reference",
     "subsectionTitle": "Glossary and review checklist",
     "format": "Tagged PDF",
-    "url": "https://ricis-ai.github.io/field-reference/tagged/reference.pdf",
+    "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/reference.pdf",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
     "keywords": [
       "field reference",
       "glossary",
@@ -2056,7 +2125,7 @@
     "section": "Licensing and Exams",
     "list": "lic",
     "format": "Braille",
-    "url": "https://ricis-ai.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf",
+    "url": "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf",
     "version": null,
     "date": "2026-11-16",
     "time": "17:50",
@@ -2097,7 +2166,7 @@
       "reception"
     ],
     "status": "available",
-    "note": "By James L. Tonne, W4ENE, QEX March/April 2017, copyright ARRL. The author hosts it himself, so the page links to his copy rather than hosting one. It is also still in the group's Facebook Files."
+    "note": "By James L. Tonne, W4ENE, QEX March/April 2017, copyright ARRL. The author hosts it himself, so the page links to his copy rather than hosting one."
   },
   {
     "name": "Blind population distribution in the United States",

@@ -15,22 +15,37 @@
  * keeps the PLAIN kit names (the selector loads section files by those
  * names), so the displayed file name and the URL's file name differ for
  * those entries — that is deliberate, and the BUILD-REPORT says so.
+ * The kit zip is the exception: it is uploaded to the field-reference
+ * repository under its STAMPED name, so its URL carries the stamp.
  *
  * URL RULE: files that will live in the new library repository use
  * relative URLs (LIC/..., CNTST/...), so they work whatever the repo is
  * called. Files already on GitHub use absolute Pages URLs. The kit zip
- * lives only on Facebook Files, so it links to its group Files post.
- * The superseded index has url null and no download link.
+ * lives in the field-reference repository, so it links to its Pages URL
+ * there. The superseded index has url null and no download link.
+ *
+ * BRAILLE RULE: the whole book and every section also exist as .brf
+ * files (contracted UEB grade 2) in the field-reference repository's
+ * braille/ folder. Those files carry their own stamp,
+ * _v2.0-20261116-2210-AB9MZ (2210, from the Braille build — not the
+ * 2218 rename stamp), so the generator verifies each .brf name against
+ * the field-reference staging braille/ folder and fails loudly if one
+ * is missing. Entries that have a .brf twin carry a brailleUrl field;
+ * the three format entries of a section share one .brf file, so the
+ * same brailleUrl appears on three entries (69 entries, 23 distinct
+ * .brf files). The kit zip and the read-me have no .brf twin and carry
+ * no brailleUrl.
  */
 "use strict";
 const fs = require("fs");
 const path = require("path");
 
 const STAMP = "_v2.0-20261116-2218-AB9MZ";
-const FR = "https://ricis-ai.github.io/field-reference/";
-const TECH = "https://ricis-ai.github.io/technician-class/";
-/* Renamed kit zip post, uploaded 2026-11-16 22:21 (rename batch 1). */
-const ZIP_POST = "https://www.facebook.com/groups/742838019382868/permalink/3039961369670510/";
+const FR = "https://visually-inconvenienced-hams.github.io/field-reference/";
+const TECH = "https://visually-inconvenienced-hams.github.io/technician-class/";
+/* The kit zip is uploaded to the field-reference repository under its
+ * stamped name (see the first entry below). */
+const ZIP_FILE = "AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip";
 
 const RENAMED_DIR = path.join(process.env.HOME, "workspace/field-reference-files-renamed");
 const renamedOnDisk = new Set(fs.readdirSync(RENAMED_DIR));
@@ -40,6 +55,21 @@ function stamped(stem, ext) {
     throw new Error("renamed file missing from staging: " + name);
   }
   return name;
+}
+
+/* The .brf files carry the Braille build's own stamp (2210, not the
+ * 2218 rename stamp). Verify each one exists in the field-reference
+ * staging braille/ folder, the same way stamped() verifies the
+ * renamed files. */
+const BRF_STAMP = "_v2.0-20261116-2210-AB9MZ";
+const BRF_DIR = path.join(process.env.HOME, "workspace/github-pages-staging/field-reference/braille");
+const brfOnDisk = new Set(fs.readdirSync(BRF_DIR));
+function brailleUrl(stem) {
+  const name = stem + BRF_STAMP + ".brf";
+  if (!brfOnDisk.has(name)) {
+    throw new Error("braille file missing from field-reference staging: " + name);
+  }
+  return FR + "braille/" + name;
 }
 
 /* The 22 field-reference sections in BOOK order (the order in the index
@@ -89,9 +119,9 @@ add(Object.assign({}, FIELD, {
   file: stamped("AB9MZ_Field_Reference_Complete_Kit", ".zip"),
   list: "field-kit",
   format: "Zip file",
-  url: ZIP_POST,
+  url: FR + ZIP_FILE,
   keywords: ["field reference", "kit", "zip", "complete", "whole book", "ab9mz", "download"],
-  note: "The whole kit in one download: the full book, all 22 sections in all formats, the offline section selector, and the build files. The zip is still on Facebook Files for now — it is not yet in the field-reference repository."
+  note: "The whole kit in one download: the full book, all 22 sections in all formats, the offline section selector, and the build files. The zip lives in the field-reference repository."
 }));
 add(Object.assign({}, FIELD, {
   name: "AB9MZ Master Field Reference — read me first",
@@ -108,6 +138,7 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Large-print PDF",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "pdf", "large print", "ab9mz"],
   note: "The full book, all 22 sections, large-print PDF. 22 point text, 28 point headings."
 }));
@@ -117,6 +148,7 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Word document",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.docx",
+  brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "word", "docx", "ab9mz"],
   note: "The full book, all 22 sections, Word document."
 }));
@@ -126,6 +158,7 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Tagged PDF",
   url: FR + "tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "tagged", "pdf", "screen reader", "ab9mz"],
   note: "The full book, all 22 sections, tagged PDF. Screen readers navigate it by heading."
 }));
@@ -159,6 +192,7 @@ SECTIONS.forEach(function (s) {
       subsectionTitle: title,
       format: format,
       url: FR + folder + stem + ext,
+      brailleUrl: brailleUrl(stem),
       keywords: ["field reference"].concat(keys).concat(formatKeys),
       note: formatNote
     }));
@@ -257,7 +291,7 @@ add({
   author: null,
   keywords: ["tonne", "bandpass", "filter", "audio", "morse", "cw", "reception"],
   status: "available",
-  note: "By James L. Tonne, W4ENE, QEX March/April 2017, copyright ARRL. The author hosts it himself, so the page links to his copy rather than hosting one. It is also still in the group's Facebook Files."
+  note: "By James L. Tonne, W4ENE, QEX March/April 2017, copyright ARRL. The author hosts it himself, so the page links to his copy rather than hosting one."
 });
 
 /* ---- Resources: the blind-population reference — Gregory's own graph, hosted ---- */
@@ -295,6 +329,18 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
+/* Braille links: 69 entries carry one (3 whole-book + 66 sections),
+ * sharing 23 distinct .brf files — the three format entries of a
+ * section point at the same .brf file, so brailleUrl is deliberately
+ * NOT unique per entry. */
+const withBraille = entries.filter(function (e) { return e.brailleUrl; });
+if (withBraille.length !== 69) {
+  throw new Error("expected 69 entries with a Braille link, built " + withBraille.length);
+}
+const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
+if (distinctBraille.size !== 23) {
+  throw new Error("expected 23 distinct Braille files, built " + distinctBraille.size);
+}
 
 fs.writeFileSync(
   path.join(__dirname, "library.json"),
@@ -304,3 +350,4 @@ fs.writeFileSync(
 console.log("library.json written: " + entries.length + " entries");
 console.log("by list: " + JSON.stringify(byList));
 console.log("with download links: " + urls.length + "; without: " + (entries.length - urls.length));
+console.log("with Braille links: " + withBraille.length + " entries, " + distinctBraille.size + " distinct .brf files");

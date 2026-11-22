@@ -8,14 +8,19 @@
  * reference. The 46 field-reference Braille and plain-text files are
  * NOT entries here — they are not in the index (they are not in group
  * Files); the page links to their folders in the field-reference
- * repository instead.
+ * repository instead. Since 2026-11-22 each field-reference entry also
+ * carries a brailleUrl to its own .brf file (69 entries, 23 distinct
+ * .brf files); the .brf files are still not entries, only secondary
+ * links next to the main download link.
  *
  * NAME NOTE: field-reference entries carry their RENAMED file names
  * (stamp _v2.0-20261116-2218-AB9MZ), but their download URLs point at
  * the field-reference repository, which keeps the PLAIN kit names (the
  * selector loads section files by those names). So a field-reference
  * entry's file name and its URL's file name deliberately differ, and
- * the checks below assert exactly that.
+ * the checks below assert exactly that. The kit zip is the exception:
+ * it is uploaded to the field-reference repository under its STAMPED
+ * name, so its URL carries the stamp.
  */
 "use strict";
 const fs = require("fs");
@@ -30,7 +35,7 @@ const renamedOnDisk = new Set(
 );
 
 const FACEBOOK = "https://m.facebook.com/groups/742838019382868";
-const FR = "https://ricis-ai.github.io/field-reference/";
+const FR = "https://visually-inconvenienced-hams.github.io/field-reference/";
 const STATUSES = ["available", "pending", "superseded"];
 const LISTS = {
   "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1,
@@ -103,13 +108,50 @@ check("every field-reference entry carries version 2.0, date 2026-11-16, time 22
       && e.time === "22:18" && e.author === "AB9MZ";
   }));
 const fieldUrls = field.filter(function (e) { return e.url.indexOf(FR) === 0; });
-check("70 field-reference entries link into the field-reference repo (the zip links to Facebook)",
-  fieldUrls.length === 70, "got " + fieldUrls.length);
-check("no field-reference repo URL carries the rename stamp (repo keeps plain kit names)",
-  fieldUrls.every(function (e) { return e.url.indexOf("_v2.0-") === -1; }));
+check("all 71 field-reference entries link into the field-reference repo (including the zip)",
+  fieldUrls.length === 71, "got " + fieldUrls.length);
+check("no field-reference repo URL carries the rename stamp, except the kit zip (uploaded under its stamped name)",
+  fieldUrls.filter(function (e) { return e.format !== "Zip file"; })
+    .every(function (e) { return e.url.indexOf("_v2.0-") === -1; }));
 const zip = field.filter(function (e) { return e.format === "Zip file"; });
-check("the kit zip links to its Facebook Files post",
-  zip.length === 1 && zip[0].url.indexOf("facebook.com/groups/742838019382868/permalink/") !== -1);
+check("the kit zip links into the field-reference repo under its stamped name",
+  zip.length === 1
+  && zip[0].url === FR + "AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip");
+
+/* ---- Braille links: per-entry .brf downloads ---- */
+const brfOnDisk = new Set(
+  fs.readdirSync(path.join(process.env.HOME, "workspace/github-pages-staging/field-reference/braille"))
+);
+const withBraille = data.filter(function (e) { return e.brailleUrl; });
+check("69 entries carry a Braille link (3 whole-book + 66 sections)",
+  withBraille.length === 69, "got " + withBraille.length);
+check("23 distinct Braille files (the 3 formats of a section share one .brf)",
+  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 23);
+check("every Braille link points into the field-reference braille/ folder and ends in .brf",
+  withBraille.every(function (e) {
+    return e.brailleUrl.indexOf(FR + "braille/") === 0 && /\.brf$/.test(e.brailleUrl);
+  }));
+check("every Braille file name exists in the field-reference staging braille/ folder",
+  withBraille.every(function (e) { return brfOnDisk.has(e.brailleUrl.split("/").pop()); }));
+const brailleBySub = {};
+withBraille.filter(function (e) { return e.list === "field-sections"; }).forEach(function (e) {
+  (brailleBySub[e.subsection] = brailleBySub[e.subsection] || new Set()).add(e.brailleUrl);
+});
+check("the 3 entries of each section share one Braille link",
+  Object.keys(brailleBySub).length === 22
+  && Object.keys(brailleBySub).every(function (k) { return brailleBySub[k].size === 1; }));
+const kitBraille = withBraille.filter(function (e) { return e.list === "field-kit"; });
+check("the 3 whole-book entries share the whole-book Braille file",
+  kitBraille.length === 3
+  && new Set(kitBraille.map(function (e) { return e.brailleUrl; })).size === 1
+  && kitBraille[0].brailleUrl
+    === FR + "braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf");
+check("the kit zip, the read-me, and all non-field entries carry no Braille link",
+  data.filter(function (e) { return !e.brailleUrl; }).length === 8
+  && !zip[0].brailleUrl
+  && !data.filter(function (e) { return e.file.indexOf("READ_ME_FIRST") === 0; })[0].brailleUrl
+  && data.filter(function (e) { return e.category !== "FIELD"; })
+    .every(function (e) { return !e.brailleUrl; }));
 
 /* ---- group-maintained files ---- */
 const maintained = data.filter(function (e) { return e.maintained; });

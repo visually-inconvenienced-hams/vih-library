@@ -207,8 +207,8 @@
         <p>To come back to the group, use the Back to Visually Inconvenienced Hams link at the top or the bottom of this page. Inside Facebook's own browser that link becomes a close button instead.</p>
 
         <h2 id="field-reference">AB9MZ Master Field Reference — Edition 2.0</h2>
-        <p>Gregory Rosenberg AB9MZ's field reference, 22 sections, 112 pages, in large print (22 point text, 28 point headings). Every section is here in three formats: a large-print PDF, a Word document, and a tagged PDF that screen readers navigate by heading. The collection has its own home page, with an offline section selector that builds a custom edition from the sections you pick: <a href="https://ricis-ai.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
-        <p>Braille and plain-text editions of the whole book and every section are also available, in the field-reference repository: <a href="https://github.com/ricis-ai/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/ricis-ai/field-reference/tree/main/txt">plain-text files (.txt)</a>.</p>
+        <p>Gregory Rosenberg AB9MZ's field reference, 22 sections, 112 pages, in large print (22 point text, 28 point headings). Every section is here in three formats: a large-print PDF, a Word document, and a tagged PDF that screen readers navigate by heading. The collection has its own home page, with an offline section selector that builds a custom edition from the sections you pick: <a href="https://visually-inconvenienced-hams.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
+        <p>Braille and plain-text editions of the whole book and every section are also available, in the field-reference repository: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and every section below also carry their own Braille download link, next to the main download link, so you can grab the .brf file for just the part you want without opening the folder.</p>
         <h3>The whole kit</h3>
         <ul class="doc-list" data-list="field-kit"></ul>
         <h3>Sections</h3>
@@ -258,7 +258,7 @@
 
         <h2 id="about">About this library</h2>
         <p>This page replaces the group's text document index. Facebook does not let a group organize its Files into folders, and its phone app lists files newest first with no sort control at all, so the group keeps its library here instead, where the files sit in real categories, the search box finds them, and the sort order stays the way you set it.</p>
-        <p>Most files on this page are the group's own documents, or public-domain material such as the Technician question pool. Every file on this page has a download link, except the document index itself, which this page replaces. Manufacturer radio manuals are not part of this library; they live on the group's <a href="https://ricis-ai.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
+        <p>Most files on this page are the group's own documents, or public-domain material such as the Technician question pool. Every file on this page has a download link, except the document index itself, which this page replaces. Manufacturer radio manuals are not part of this library; they live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
         <p>If a link on this page stops working, or if you would like a document added to the library, post in the Visually Inconvenienced Hams group and say which file it is. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
         <p class="small">First edition — 16 November 2026. 77 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool in plain text and Braille, the Tonne filter article, and the blind-population reference.</p>
       </main>
@@ -331,14 +331,21 @@
   var currentOrder = loadSort();
 
   /* One browse-list item: the file name as a download link (or plain
-   * bold text when the file has no link yet), then the file name, the
-   * format, the category, the version and date, and any note. */
+   * bold text when the file has no link yet), then a Braille download
+   * link for entries that have a .brf twin (visible text "Braille
+   * (.brf)", with an aria-label naming the entry so a screen reader's
+   * link list tells the 69 Braille links apart), then the file name,
+   * the format, the category, the version and date, and any note. */
   function browseItem(entry) {
     var html = "<li>";
     if (entry.url) {
       html += '<a href="' + esc(entry.url) + '">' + esc(entry.name) + "</a>";
     } else {
       html += "<strong>" + esc(entry.name) + "</strong>";
+    }
+    if (entry.brailleUrl) {
+      html += ' <a href="' + esc(entry.brailleUrl) + '" aria-label="'
+        + esc(entry.name) + ' — Braille (.brf)">Braille (.brf)</a>';
     }
     html += '<span class="label">' + esc(entry.file) + " — " + esc(entry.format) + ". "
       + esc(entry.categoryName) + ". ";

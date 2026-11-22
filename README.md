@@ -1,8 +1,8 @@
 # VIH group document library
 
-The searchable, sortable, accessible front door to the Visually Inconvenienced Hams group's files. Live page: https://ricis-ai.github.io/vih-library/
+The searchable, sortable, accessible front door to the Visually Inconvenienced Hams group's files. Live page: https://visually-inconvenienced-hams.github.io/vih-library/
 
-The page renders its lists from library.json, with a live search box and a sort control (alphabetical by name, and by date) whose choice stays put. The field-reference collection lives in its own repository, ricis-ai/field-reference, and this page links to it. Every file has a download link except the document index itself, which this page supersedes. The Tonne audio bandpass filter article links to the author's own copy at tonnesoftware.com (QEX March/April 2017, copyright ARRL) rather than being hosted here.
+The page renders its lists from library.json, with a live search box and a sort control (alphabetical by name, and by date) whose choice stays put. The field-reference collection lives in its own repository, visually-inconvenienced-hams/field-reference, and this page links to it. Every file has a download link except the document index itself, which this page supersedes. The Tonne audio bandpass filter article links to the author's own copy at tonnesoftware.com (QEX March/April 2017, copyright ARRL) rather than being hosted here.
 
 ## Files in this directory
 

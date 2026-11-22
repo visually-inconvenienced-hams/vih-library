@@ -1,24 +1,8 @@
-CONTESTS AND ON-AIR EVENTS — Tuesday, November 10 to Wednesday, December 9
+CONTESTS AND ON-AIR EVENTS — Tuesday, November 17 to Wednesday, December 16
 
 Thirty days of contests and on-air events, in one place. Our net runs every Saturday. This file is replaced with a fresh edition as new dates are added. All times are 24-hour; contest times are Central with UTC in parentheses.
 
 THIS WEEKEND
-
-Visually Inconvenienced Hams Net — Saturday, November 14 at 19:00 Central, on the Blind Hams Bridge.
-
-ARRL Sweepstakes Contest, CW — logs are due by 21:00 Central on Sunday, November 15 (03:00 UTC November 16). The contest itself ran Saturday, November 7 at 15:00 Central to Sunday, November 8 at 21:00 Central.
-
-WAE DX Contest, RTTY — Friday, November 13 at 18:00 Central to Sunday, November 15 at 17:59 Central (00:00 UTC November 14 to 23:59 UTC November 15). RTTY on 80, 40, 20, 15, and 10 meters. Exchange: RST and a serial number. Single operators may operate up to 36 hours. Logs are due by 17:59 Central on Sunday, November 22 (23:59 UTC November 22).
-
-JIDX Phone Contest — Saturday, November 14 at 01:00 Central to Sunday, November 15 at 07:00 Central (07:00 UTC November 14 to 13:00 UTC November 15). SSB on 160, 80, 40, 20, 15, and 10 meters, working Japanese stations. Exchange: signal report and your CQ zone number; Japanese stations send a prefecture number. Logs are due December 15.
-
-OK/OM DX Contest, CW — Saturday, November 14 at 06:00 Central to Sunday, November 15 at 06:00 Central (12:00 UTC November 14 to 12:00 UTC November 15). CW on 160, 80, 40, 20, 15, and 10 meters, working Czech and Slovak stations. Exchange for stations outside OK and OM: RST and a serial number. Logs are due by 17:59 Central on Sunday, November 22 (23:59 UTC November 22).
-
-SKCC Weekend Sprintathon — Saturday, November 14 at 06:00 Central to Sunday, November 15 at 18:00 Central (12:00 UTC November 14 to 24:00 UTC November 15). CW on 160, 80, 40, 20, 15, 10, and 6 meters, straight-key style. Exchange: RST, your state, province, or country, your name, and your SKCC number, or NONE if you are not a member. Logs are due by 17:59 Central on Sunday, November 22 (23:59 UTC November 22).
-
-Also running this weekend: the PODXS 070 Club Triple Play Low Band Sprint, Friday, November 13 at 18:00 Central to Monday, November 16 at 17:59 Central, PSK31 on 160, 80, and 40 meters; the CQ-WE Contest, with sessions on Saturday, November 14 and Sunday, November 15; the Classic Exchange, Phone, with sessions starting Sunday, November 15 at 08:00 Central and Tuesday, November 17 at 08:00 Central; the first session of the AWA Bruce Kelley 1929 QSO Party, Saturday, November 14 at 17:00 Central to Sunday, November 15 at 21:00 Central; the Homebrew and Oldtime Equipment Party on Sunday, November 15, 07:00 to 09:00 Central on 40 meters and 09:00 to 11:00 Central on 80 meters; the Run for the Bacon QRP Contest on Sunday, November 15 at 17:00 to 19:00 Central; and the RSGB FT4 Contest on Monday, November 16 at 14:00 to 16:00 Central. Earlier this week: the RSGB 80m Autumn Series, SSB, on Wednesday, November 11 at 14:00 to 15:30 Central.
-
-NEXT WEEKEND
 
 Visually Inconvenienced Hams Net — Saturday, November 21 at 19:00 Central, on the Blind Hams Bridge. Sweepstakes is an HF contest and does not affect the net.
 
@@ -26,9 +10,9 @@ ARRL Sweepstakes Contest, SSB — Saturday, November 21 at 15:00 Central to Sund
 
 LZ DX Contest — Saturday, November 21 at 06:00 Central to Sunday, November 22 at 06:00 Central (12:00 UTC November 21 to 12:00 UTC November 22). CW and SSB on 80, 40, 20, 15, and 10 meters, working Bulgarian stations. Exchange for stations outside LZ: signal report and your ITU zone number. Logs are due by 18:00 Central on Sunday, December 6 (00:00 UTC December 7).
 
-Also running that weekend: three 160-meter contests on Saturday, November 21 (the All Austrian 160-Meter Contest, 10:00 to 17:59 Central; the REF 160-Meter Contest, 11:00 to 18:00 Central; and the RSGB 1.8 MHz Contest, 14:00 to 17:00 Central); the South American Integration Contest, CW, Saturday at 12:00 Central to Sunday at 15:00 Central; the Feld Hell Sprint on Saturday at 13:00 to 14:59 Central; and the second session of the AWA Bruce Kelley 1929 QSO Party, Saturday at 17:00 Central to Sunday at 21:00 Central. Earlier that week: the NAQCC CW Sprint on Wednesday, November 18 at 19:30 to 21:30 Central, and the NTC QSO Party on Thursday, November 19 at 13:00 to 14:00 Central.
+Also running this weekend: three 160-meter contests on Saturday, November 21 (the All Austrian 160-Meter Contest, 10:00 to 17:59 Central; the REF 160-Meter Contest, 11:00 to 18:00 Central; and the RSGB 1.8 MHz Contest, 14:00 to 17:00 Central); the NRRL Telephony Contest, with sessions on Saturday, November 21 at 07:00 to 09:00 Central and Sunday, November 22 at 01:00 to 03:00 Central and 07:00 to 09:00 Central; the South American Integration Contest, CW, Saturday at 12:00 Central to Sunday at 15:00 Central; the Feld Hell Sprint on Saturday at 13:00 to 14:59 Central; and the second session of the AWA Bruce Kelley 1929 QSO Party, Saturday at 17:00 Central to Sunday at 21:00 Central. Earlier this week: the Classic Exchange, Phone, with a session running Tuesday, November 17 at 08:00 Central to Wednesday, November 18 at 02:00 Central; the NAQCC CW Sprint on Wednesday, November 18 at 19:30 to 21:30 Central; the NTC QSO Party on Thursday, November 19 at 13:00 to 14:00 Central; and the Walk for the Bacon QRP Contest, with sessions on Wednesday, November 18 at 18:00 to 19:00 Central and Thursday, November 19 at 20:00 to 21:00 Central.
 
-WEEKEND OF NOVEMBER 28 AND 29
+NEXT WEEKEND
 
 Visually Inconvenienced Hams Net — Saturday, November 28 at 19:00 Central, on the Blind Hams Bridge. CQ WW is an HF contest and does not affect the net.
 
@@ -38,7 +22,7 @@ Also running that weekend: the ARRL EME Contest, Friday, November 27 at 18:00 Ce
 
 FIRST DAYS OF DECEMBER
 
-The QCX Challenge runs sessions on Monday, November 30 at 07:00 to 08:00 Central and 13:00 to 14:00 Central, and again at 21:00 to 22:00 Central. The QRP ARCI Topband Sprint runs Wednesday, December 2 at 18:00 to 21:00 Central on 160 meters. The NRAU 10m Activity Contest runs Thursday, December 3 at 12:00 to 16:00 Central, in four mode sessions: CW, SSB, FM, and digital.
+The QCX Challenge runs sessions on Monday, November 30 at 07:00 to 08:00 Central and 13:00 to 14:00 Central, and again at 21:00 to 22:00 Central. The QRP ARCI Topband Sprint runs Wednesday, December 2 at 18:00 to 21:00 Central on 160 meters. The NRAU 10m Activity Contest runs Thursday, December 3 at 12:00 to 16:00 Central, in four mode sessions: CW, SSB, FM, and digital. The SKCC Sprint Europe runs Thursday, December 3 at 14:00 to 16:00 Central. The Walk for the Bacon QRP Contest runs sessions on Wednesday, December 2 at 18:00 to 19:00 Central and Thursday, December 3 at 20:00 to 21:00 Central.
 
 WEEKEND OF DECEMBER 5 AND 6
 
@@ -50,9 +34,19 @@ FT Challenge — Saturday, December 5 at 12:00 Central to Sunday, December 6 at 
 
 Also running that weekend: the Kalbar Contest, SSB, Friday, December 4 at 18:00 Central to Sunday, December 6 at 17:59 Central; the Wake-Up! QRP Sprint on Saturday, December 5 at 00:00 to 02:00 Central, in four half-hour sessions on 40 and 20 meters; the PRO CW Contest, Saturday, December 5 at 06:00 Central to Sunday, December 6 at 05:59 Central; and the INORC Contest, CW, Saturday, December 5 at 08:00 Central to Sunday, December 6 at 07:59 Central.
 
+WEEKEND OF DECEMBER 12 AND 13
+
+Visually Inconvenienced Hams Net — Saturday, December 12 at 19:00 Central, on the Blind Hams Bridge. The ARRL 10-Meter Contest is an HF contest and does not affect the net.
+
+ARRL 10-Meter Contest — Friday, December 11 at 18:00 Central to Sunday, December 13 at 18:00 Central (00:00 UTC December 12 to 24:00 UTC December 13). CW and phone on 10 meters only. Exchange for W/VE stations: signal report and your state or province; DX stations send signal report and a serial number. You may operate up to 36 hours. Logs are due by 18:00 Central on Saturday, December 19 (00:00 UTC December 20).
+
+SKCC Weekend Sprintathon — Saturday, December 12 at 06:00 Central to Sunday, December 13 at 18:00 Central (12:00 UTC December 12 to 24:00 UTC December 13). CW on 160, 80, 40, 20, 15, 10, and 6 meters, straight-key style. Exchange: RST, your state, province, or country, your name, and your SKCC number, or NONE if you are not a member. Logs are due by 17:59 Central on Sunday, December 20 (23:59 UTC December 20).
+
+Also running that weekend: the PODXS 070 Club Triple Play Low Band Sprint, Friday, December 11 at 18:00 Central to Monday, December 14 at 17:59 Central, PSK31 on 160, 80, and 40 meters; the TRC Digi Contest, Saturday, December 12 at 00:00 Central to Sunday, December 13 at 12:00 Central; the ARI 40/80 Contest, Saturday, December 12 at 07:00 Central to Sunday, December 13 at 06:59 Central; the International Naval Contest, Saturday, December 12 at 10:00 Central to Sunday, December 13 at 09:59 Central; the QRP ARCI Holiday Homebrew Sprint on Sunday, December 13 at 14:00 to 17:00 Central; and the 4 States QRP Group Second Sunday Sprint on Sunday, December 13 at 19:00 to 21:00 Central.
+
 LAST DAYS
 
-The ARS Spartan Sprint runs Monday, December 7 at 19:00 to 21:00 Central. The DARC CW-Training Contest runs Tuesday, December 8 at 12:00 to 12:59 Central. The NAQCC CW Sprint runs Tuesday, December 8 at 19:30 to 21:30 Central.
+The ARS Spartan Sprint runs Monday, December 7 at 19:00 to 21:00 Central. The DARC CW-Training Contest runs Tuesday, December 8 at 12:00 to 12:59 Central. The NAQCC CW Sprint runs Tuesday, December 8 at 19:30 to 21:30 Central. The NAQCC CW Sprint runs Tuesday, December 15 at 19:30 to 21:30 Central.
 
 EVERY WEEK
 
@@ -60,8 +54,8 @@ The weekly sprints run at their usual times, including the CWops Tests, the K1US
 
 JUST BEYOND THIS LIST
 
-The ARRL 10-Meter Contest runs Friday, December 11 at 18:00 Central to Sunday, December 13 at 18:00 Central, CW and phone on 10 meters only, and the SKCC Weekend Sprintathon runs Saturday, December 12 at 06:00 Central to Sunday, December 13 at 18:00 Central. Both will be covered in full in the next edition of this file.
+The Feld Hell Sprint runs Friday, December 18 at 18:00 Central to Saturday, December 19 at 17:59 Central, and the OK DX RTTY Contest runs Friday, December 18 at 18:00 Central to Saturday, December 19 at 18:00 Central, RTTY on 80, 40, 20, 15, and 10 meters. The 9A DX Contest runs Saturday, December 19 at 08:00 Central to Sunday, December 20 at 08:00 Central, CW and SSB on 160, 80, 40, 20, 15, and 10 meters. The ARRL Rookie Roundup, CW, runs Sunday, December 20 at 12:00 to 17:59 Central, CW on 80, 40, 20, 15, and 10 meters. All four will be covered in full in the next edition of this file.
 
-Contest dates and times checked against the WA7BNM Contest Calendar and ARRL on November 10. Check the sponsor's own rules before you operate.
+Contest dates and times checked against the WA7BNM Contest Calendar and ARRL on November 17. Check the sponsor's own rules before you operate.
 
 73, Gregg

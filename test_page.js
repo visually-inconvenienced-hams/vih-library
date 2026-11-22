@@ -145,17 +145,32 @@ setTimeout(function () {
     && slot("gen").innerHTML.indexOf("<a href=") === -1);
 
   /* Link targets. */
-  check("kit zip links to its Facebook Files post",
+  check("kit zip links into the field-reference repo under its stamped name",
     slot("field-kit").innerHTML.indexOf(
-      "https://www.facebook.com/groups/742838019382868/permalink/3039961369670510/") !== -1);
+      "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip") !== -1);
   check("question-pool text links to the relative library path",
     slot("lic").innerHTML.indexOf('href="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
   check("question-pool Braille links to the Technician class page",
     slot("lic").innerHTML.indexOf(
-      "https://ricis-ai.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf") !== -1);
+      "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf") !== -1);
   check("a section file links into the field-reference repo with the plain kit name",
     sectionsDiv.innerHTML.indexOf(
-      'href="https://ricis-ai.github.io/field-reference/sections/morse.pdf"') !== -1);
+      'href="https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.pdf"') !== -1);
+
+  /* Per-entry Braille links. */
+  check("kit list links the whole-book Braille file",
+    slot("field-kit").innerHTML.indexOf(
+      "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf") !== -1);
+  check("a section file links its own Braille file",
+    sectionsDiv.innerHTML.indexOf(
+      'href="https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf"') !== -1);
+  check("Braille links carry an aria-label naming the entry",
+    sectionsDiv.innerHTML.indexOf(
+      'aria-label="Morse code and procedural signals — Large-print PDF — Braille (.brf)"') !== -1);
+  const brailleLinks = ((slot("field-kit").innerHTML + sectionsDiv.innerHTML)
+    .match(/>Braille \(\.brf\)<\/a>/g) || []).length;
+  check("browse lists render 69 Braille links (3 whole-book + 66 sections)",
+    brailleLinks === 69, "got " + brailleLinks);
 
   function typeSearch(value) {
     elements["search-input"].value = value;
@@ -208,9 +223,9 @@ setTimeout(function () {
     sectionsDiv.innerHTML.indexOf("<h3") === -1
     && countItems(sectionsDiv) === 66);
   check("sections under name-asc start with the ares tagged file",
-    sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0") !== -1
-    && sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0")
-      < sectionsDiv.innerHTML.indexOf("ares_v2.0"));
+    sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0-20261116-2218-AB9MZ.pdf") !== -1
+    && sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0-20261116-2218-AB9MZ.pdf")
+      < sectionsDiv.innerHTML.indexOf("ares_v2.0-20261116-2218-AB9MZ.pdf"));
 
   /* Search results follow the sort order too */
   typeSearch("question pool");
