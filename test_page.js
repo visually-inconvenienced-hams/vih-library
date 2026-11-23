@@ -296,9 +296,9 @@ setTimeout(function () {
   check("sort choice updated in localStorage",
     storage["vih-library-sort"] === "listed");
 
-  /* Theme toggle, zebra rows, and colored entry buttons (2026-11-23). */
-  check("theme toggle button exists in the header",
-    html.indexOf('id="theme-toggle"') !== -1);
+  /* Accessibility button, zebra rows, and colored entry buttons (2026-11-23). */
+  check("accessibility button exists in the header",
+    html.indexOf('id="accessibility-toggle"') !== -1);
   check("light and dark row colors are defined",
     html.indexOf("--row-odd") !== -1 && html.indexOf("--row-even") !== -1
     && html.indexOf("--row-even: #e0e0e0") !== -1

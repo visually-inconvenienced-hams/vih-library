@@ -18,6 +18,7 @@
         --panel: #0d0d0d;
         --border: #ffffff;
         --muted: #cccccc;
+        --on-focus: #000000;
         --row-odd: #000000;
         --row-even: #222222;
         --panel-hover: #1f1f1f;
@@ -35,6 +36,7 @@
           --panel: #f5f5f5;
           --border: #000000;
           --muted: #555555;
+          --on-focus: #ffffff;
           --row-odd: #fffffc;
           --row-even: #e0e0e0;
           --panel-hover: #e0e0e0;
@@ -51,6 +53,7 @@
         --panel: #0d0d0d;
         --border: #ffffff;
         --muted: #cccccc;
+        --on-focus: #000000;
         --row-odd: #000000;
         --row-even: #222222;
         --panel-hover: #1f1f1f;
@@ -65,10 +68,121 @@
         --panel: #f5f5f5;
         --border: #000000;
         --muted: #555555;
+        --on-focus: #ffffff;
         --row-odd: #fffffc;
         --row-even: #e0e0e0;
         --panel-hover: #e0e0e0;
       }
+      /* Color presets: named foreground/background pairs, in the e-reader
+       * tradition (Kindle, Nook). A preset sets the SAME variables the
+       * theme sets, so the two never fight: the last choice wins. These
+       * blocks come after the theme blocks and win ties, so a stored preset
+       * beats the theme until the theme is picked again. Every pair passes
+       * AAA (7 to 1 or better); the pairs differ in brightness as well as
+       * hue, so they still differ for color-blind readers, and no pair is
+       * red on green or green on red. */
+      :root[data-colors="white-on-black"] {
+        --bg: #000000;
+        --text: #ffffff;
+        --good: #00ff00;
+        --fair: #ffb300;
+        --poor: #ff6666;
+        --focus: #ffff00;
+        --panel: #0d0d0d;
+        --border: #ffffff;
+        --muted: #cccccc;
+        --on-focus: #000000;
+        --row-odd: #000000;
+        --row-even: #222222;
+        --panel-hover: #1f1f1f;
+      }
+      :root[data-colors="black-on-white"] {
+        --bg: #ffffff;
+        --text: #000000;
+        --good: #007a00;
+        --fair: #7a5200;
+        --poor: #b00000;
+        --focus: #005fcc;
+        --panel: #f5f5f5;
+        --border: #000000;
+        --muted: #555555;
+        --on-focus: #ffffff;
+        --row-odd: #fffffc;
+        --row-even: #e0e0e0;
+        --panel-hover: #e0e0e0;
+      }
+      :root[data-colors="yellow-on-black"] {
+        --bg: #000000;
+        --text: #ffff00;
+        --good: #00ff00;
+        --fair: #ffb300;
+        --poor: #ff6666;
+        --focus: #ffff00;
+        --panel: #0d0d0d;
+        --border: #ffffff;
+        --muted: #cccccc;
+        --on-focus: #000000;
+        --row-odd: #000000;
+        --row-even: #222222;
+        --panel-hover: #1f1f1f;
+      }
+      :root[data-colors="black-on-pale-yellow"] {
+        --bg: #fff9c4;
+        --text: #000000;
+        --good: #005a00;
+        --fair: #5c3d00;
+        --poor: #8f0000;
+        --focus: #000000;
+        --panel: #ffe082;
+        --border: #000000;
+        --muted: #333333;
+        --on-focus: #ffffff;
+        --row-odd: #fff9c4;
+        --row-even: #ffe082;
+        --panel-hover: #ffd54f;
+      }
+      :root[data-colors="black-on-sepia"] {
+        --bg: #f4ecd8;
+        --text: #000000;
+        --good: #005a00;
+        --fair: #5c3d00;
+        --poor: #8f0000;
+        --focus: #000000;
+        --panel: #e8dcc0;
+        --border: #000000;
+        --muted: #333333;
+        --on-focus: #ffffff;
+        --row-odd: #f4ecd8;
+        --row-even: #e8dcc0;
+        --panel-hover: #dccfa8;
+      }
+      :root[data-colors="white-on-dark-blue"] {
+        --bg: #000080;
+        --text: #ffffff;
+        --good: #00ff00;
+        --fair: #ffb300;
+        --poor: #ffaaaa;
+        --focus: #ffff00;
+        --panel: #0000a0;
+        --border: #ffffff;
+        --muted: #cccccc;
+        --on-focus: #000000;
+        --row-odd: #000080;
+        --row-even: #0000a0;
+        --panel-hover: #0000c0;
+      }
+      /* Font family and font style, from the accessibility panel. System
+       * font stacks only: nothing is downloaded. Sans-serif is the page
+       * default, so it needs no rule. */
+      :root[data-font="serif"] body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      :root[data-font="mono"] body {
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+      }
+      :root[data-font-attr="bold"] body { font-weight: bold; }
+      :root[data-font-attr="italic"] body { font-style: italic; }
+      :root[data-font-attr="bold-italic"] body { font-weight: bold; font-style: italic; }
       * { box-sizing: border-box; }
       /* 1.25rem is 20px at the standard 16px browser default, and it
        * follows the reader's own browser text-size setting too. The
@@ -99,7 +213,7 @@
         clip-path: inset(50%);
         white-space: nowrap;
         background: var(--focus);
-        color: #000;
+        color: var(--on-focus);
         font-weight: bold;
         z-index: 10;
       }
@@ -285,28 +399,151 @@
       .entry-url a { color: var(--muted); }
       .status { font-size: 1.2rem; font-weight: bold; min-height: 1.8em; margin: 0.5rem 0; }
 
-      /* Text-size control, in the header. The buttons wrap, so the
-       * control never forces horizontal scrolling at a narrow viewport
-       * with large text. A disabled button stays readable (axe exempts
-       * disabled controls from the contrast rule); the dimming is only
-       * a visual cue, and the disabled attribute itself is what a
-       * screen reader reports. */
-      .text-size { margin: 0.75rem 0; }
-      .text-size-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      /* Accessibility button and panel. One button at the top of the page
+       * opens the display settings; the panel holds them as native form
+       * controls. The button follows the group button standard: a
+       * well-understood symbol above a short label, in high-contrast colors
+       * that are the same on all five pages and in both themes. The "aA"
+       * symbol is text, not an image, so it grows with the text size. Bold
+       * black text on gold passes AAA (15.0 to 1); the black border keeps
+       * the button distinct from a light page behind it. */
+      .acc-btn {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.1rem;
+        min-width: 0;
+        min-height: 4.5rem;
+        padding: 0.5rem 0.9rem;
+        font: inherit;
+        font-size: 1.15rem;
+        font-weight: bold;
+        color: #000000;
+        background: #ffd700;
+        border: 3px solid #000000;
+        cursor: pointer;
+      }
+      .acc-btn:hover { background: #e6c200; }
+      .acc-btn:focus-visible {
+        outline: 4px solid #000000;
+        box-shadow: 0 0 0 7px #ffffff;
+        outline-offset: 2px;
+      }
+      .acc-btn .aa-symbol { display: block; line-height: 1; }
+      .acc-btn .aa-small { font-size: 0.75em; font-weight: bold; }
+      .acc-btn .aa-big { font-size: 1.5em; font-weight: bold; }
+      .acc-btn .acc-label { display: block; line-height: 1.2; text-align: center; min-width: 0; overflow-wrap: anywhere; }
+      .acc-panel {
+        border: 3px solid var(--border);
+        background: var(--panel);
+        padding: 1rem 1.25rem;
+        margin: 0.75rem 0;
+        /* Long words break anywhere, so the panel never forces horizontal
+         * scrolling at a narrow viewport with large text (WCAG 1.4.10). */
+        overflow-wrap: anywhere;
+      }
+      .acc-panel h2 { margin-top: 0; }
+      .acc-panel fieldset {
+        border: 2px solid var(--border);
+        padding: 0.75rem 1rem;
+        margin: 0.75rem 0;
+        /* A fieldset's default smallest width is its content's width, which
+         * would push the page wider than the screen at large text sizes. */
+        min-width: 0;
+      }
+      .acc-panel legend { font-weight: bold; font-size: 1.15rem; padding: 0 0.5rem; }
+      .acc-panel label { display: block; padding: 0.4rem 0; font-size: 1.15rem; cursor: pointer; }
+      .acc-panel input[type="radio"] {
+        width: 1.4em;
+        height: 1.4em;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+        accent-color: var(--focus);
+      }
+      .acc-hint { font-size: 1.05rem; color: var(--muted); margin: 0.25rem 0 0.5rem; }
+      .acc-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
+      .acc-size-btn {
+        font: inherit;
+        font-size: 1.15rem;
+        font-weight: bold;
+        color: #000000;
+        background: #ffd700;
+        border: 3px solid #000000;
+        padding: 0.5rem 0.9rem;
+        min-height: 3rem;
+        min-width: 0;
+        cursor: pointer;
+      }
+      .acc-size-btn:hover { background: #e6c200; }
+      .acc-size-btn:focus-visible {
+        outline: 4px solid #000000;
+        box-shadow: 0 0 0 7px #ffffff;
+        outline-offset: 2px;
+      }
+      /* A disabled button stays readable (axe exempts disabled controls
+       * from the contrast rule); the dimming is only a visual cue, and
+       * the disabled attribute itself is what a screen reader reports. */
+      .acc-size-btn:disabled { opacity: 0.55; cursor: default; }
+      .acc-size-btn:disabled:hover { background: #ffd700; }
+      .acc-readout { font-size: 1.15rem; font-weight: bold; margin: 0.5rem 0; }
+      /* Color preset buttons wear their own pair, so each one previews what
+       * it does. The name always carries the meaning; the color is only a
+       * second cue. The border is the button's own foreground color, so on
+       * any page background either the fill or the border stands out. The
+       * pressed preset shows a check mark as well as its pressed state, so
+       * the choice is visible without relying on color. */
+      .acc-preset {
+        font: inherit;
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 0.6rem 0.9rem;
+        min-height: 3rem;
+        min-width: 0;
+        border: 3px solid currentColor;
+        cursor: pointer;
+      }
+      .acc-preset:focus-visible {
+        outline: 4px solid #000000;
+        box-shadow: 0 0 0 7px #ffffff;
+        outline-offset: 2px;
+      }
+      .acc-preset .acc-check { display: none; }
+      .acc-preset[aria-pressed="true"] .acc-check { display: inline; }
+      .acc-preset .acc-check svg { width: 1em; height: 1em; vertical-align: middle; margin-right: 0.25em; }
+      .acc-preset[data-colors="white-on-black"] { background: #000000; color: #ffffff; }
+      .acc-preset[data-colors="black-on-white"] { background: #ffffff; color: #000000; }
+      .acc-preset[data-colors="yellow-on-black"] { background: #000000; color: #ffff00; }
+      .acc-preset[data-colors="black-on-pale-yellow"] { background: #fff9c4; color: #000000; }
+      .acc-preset[data-colors="black-on-sepia"] { background: #f4ecd8; color: #000000; }
+      .acc-preset[data-colors="white-on-dark-blue"] { background: #000080; color: #ffffff; }
       .text-size-note { font-size: 1rem; color: var(--muted); margin: 0.5rem 0 0; }
-      button.btn:disabled { opacity: 0.55; cursor: default; }
-      button.btn:disabled:hover { background: var(--panel); }
     </style>
     <script>
-      /* Apply the stored text size before first paint, so the page never
-       * flashes at the wrong size. The choice lives on this device only
-       * (localStorage); nothing is sent anywhere. A stored value outside
-       * the 16–40 range is ignored and the default size is used. */
+      /* Apply the stored display choices before first paint, so the page
+       * never flashes at the wrong settings. The choices live on this
+       * device only (localStorage); nothing is sent anywhere. A stored
+       * text size outside the 16–40 range is ignored and the default
+       * size is used; font and font style are applied only when they
+       * are values the panel can set, and colors are applied as stored
+       * (the panel script validates them on load). */
       (function () {
         try {
           var theme = window.localStorage.getItem("vih-library-theme");
           if (theme === "light" || theme === "dark") {
             document.documentElement.setAttribute("data-theme", theme);
+          }
+          var colors = window.localStorage.getItem("vih-library-colors");
+          if (colors) {
+            document.documentElement.setAttribute("data-colors", colors);
+          }
+          var font = window.localStorage.getItem("vih-library-font");
+          if (font === "serif" || font === "mono") {
+            document.documentElement.setAttribute("data-font", font);
+          }
+          var attr = window.localStorage.getItem("vih-library-font-attr");
+          if (attr === "bold" || attr === "italic" || attr === "bold-italic") {
+            document.documentElement.setAttribute("data-font-attr", attr);
           }
           var saved = window.localStorage.getItem("vih-library-text-size");
           if (saved !== null) {
@@ -315,7 +552,7 @@
               document.documentElement.style.fontSize = size + "px";
             }
           }
-        } catch (e) { /* storage unavailable — use the default size */ }
+        } catch (e) { /* storage unavailable — use the default settings */ }
       })();
     </script>
   </head>
@@ -326,19 +563,56 @@
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
 
       <h1>Visually Inconvenienced Hams Document Library</h1>
-      <div class="text-size">
-        <div class="text-size-buttons" role="group" aria-label="Text size">
-          <button type="button" class="btn" id="text-smaller">Smaller text</button>
-          <button type="button" class="btn" id="text-larger">Larger text</button>
-          <button type="button" class="btn" id="text-reset">Reset text size</button>
-        </div>
-        <p class="text-size-note">Your text size is saved on this device only. It is never sent anywhere.</p>
-        <p class="visually-hidden" id="text-size-status" aria-live="polite"></p>
+      <button type="button" class="acc-btn" id="accessibility-toggle" aria-expanded="false" aria-controls="accessibility-panel" aria-label="aA Accessibility settings"><span class="aa-symbol" aria-hidden="true"><span class="aa-small">a</span><span class="aa-big">A</span></span> <span class="acc-label">Accessibility</span></button>
+      <div class="acc-panel" id="accessibility-panel" hidden>
+        <h2>Accessibility settings</h2>
+        <fieldset>
+          <legend>One-tap setup</legend>
+          <p class="acc-hint">Sets yellow on black, bold letters, and text size 32 (or keeps your size if it is already larger).</p>
+          <button type="button" class="acc-size-btn" id="low-vision-btn">Low Vision</button>
+        </fieldset>
+        <fieldset>
+          <legend>Light or dark</legend>
+          <label><input type="radio" name="acc-theme" value="light" /> Light</label>
+          <label><input type="radio" name="acc-theme" value="dark" /> Dark</label>
+        </fieldset>
+        <fieldset>
+          <legend>Font</legend>
+          <label><input type="radio" name="acc-font" value="sans" /> Sans-serif</label>
+          <label><input type="radio" name="acc-font" value="serif" /> Serif</label>
+          <label><input type="radio" name="acc-font" value="mono" /> Monospace</label>
+        </fieldset>
+        <fieldset>
+          <legend>Text size</legend>
+          <div class="acc-row">
+            <button type="button" class="acc-size-btn" id="text-smaller">Smaller text</button>
+            <button type="button" class="acc-size-btn" id="text-larger">Larger text</button>
+            <button type="button" class="acc-size-btn" id="text-reset">Reset text size</button>
+          </div>
+          <p class="acc-readout" id="text-size-status" aria-live="polite">Text size 20 pixels</p>
+        </fieldset>
+        <fieldset>
+          <legend>Font style</legend>
+          <label><input type="radio" name="acc-attr" value="regular" /> Regular</label>
+          <label><input type="radio" name="acc-attr" value="bold" /> Bold</label>
+          <label><input type="radio" name="acc-attr" value="italic" /> Italic</label>
+          <label><input type="radio" name="acc-attr" value="bold-italic" /> Bold italic</label>
+        </fieldset>
+        <fieldset>
+          <legend>Colors</legend>
+          <div class="acc-row">
+            <button type="button" class="acc-preset" data-colors="white-on-black" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>White on black</button>
+            <button type="button" class="acc-preset" data-colors="black-on-white" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Black on white</button>
+            <button type="button" class="acc-preset" data-colors="yellow-on-black" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Yellow on black</button>
+            <button type="button" class="acc-preset" data-colors="black-on-pale-yellow" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Black on pale yellow</button>
+            <button type="button" class="acc-preset" data-colors="black-on-sepia" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Black on sepia</button>
+            <button type="button" class="acc-preset" data-colors="white-on-dark-blue" aria-pressed="false"><span class="acc-check" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>White on dark blue</button>
+          </div>
+        </fieldset>
       </div>
-      <p><button type="button" class="btn" id="theme-toggle">Switch to light mode</button></p>
-      <p class="text-size-note">Your light or dark choice is saved on this device only. It is never sent anywhere.</p>
-      <p>Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 78 documents.</p>
-      <p>This page is now the home for the group's documents. The group's Facebook Files section holds only three things: the contest schedule, a short file explaining the move, and the full list of links. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
+      <p class="intro">Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 78 documents.</p>
+      <p class="intro">This page is now the home for the group's documents. The group's Facebook Files section holds only three things: the contest schedule, a short file explaining the move, and the full list of links. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
+      <p class="text-size-note" id="storage-note">Your light or dark choice, your colors, your font, and your text size are saved on this device only. They are never sent anywhere.</p>
       </header>
 
       <form id="search-form" role="search">
@@ -962,18 +1236,31 @@
 <script>
 (function () {
   "use strict";
-  /* ---- Light and dark mode ------------------------------------------------
-   * The page defaults to the bright-on-black palette. A device set to
-   * light mode gets the light palette automatically, and the toggle
-   * button lets anyone pick either way. The choice is remembered on
-   * this device only, under the same key the head script reads before
-   * first paint. */
+  /* ---- Accessibility settings -------------------------------------------
+   * One button opens a panel with every display setting: light or dark,
+   * font family, text size, font style, and color presets. Every choice
+   * is remembered on this device only (localStorage), and the head
+   * script applies stored choices before first paint, so the page never
+   * flashes the wrong settings. Storage may be unavailable (private
+   * browsing), so every read and write is guarded and the page simply
+   * falls back to its defaults. */
   var THEME_KEY = "vih-library-theme";
+  var COLORS_KEY = "vih-library-colors";
+  var FONT_KEY = "vih-library-font";
+  var ATTR_KEY = "vih-library-font-attr";
+  var TEXT_SIZE_KEY = "vih-library-text-size";
+  var TEXT_SIZE_MIN = 16;
+  var TEXT_SIZE_MAX = 40;
+  var TEXT_SIZE_STEP = 4;
+  var TEXT_SIZE_DEFAULT = 20;
+  var LOW_VISION_SIZE = 32;
+
   function systemTheme() {
     if (typeof window !== "undefined" && window.matchMedia
       && window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
     return "dark";
   }
+
   function currentTheme() {
     if (typeof document !== "undefined" && document.documentElement) {
       var t = document.documentElement.getAttribute("data-theme");
@@ -981,66 +1268,142 @@
     }
     return systemTheme();
   }
-  function themeLabel(theme) {
-    return theme === "light" ? "Switch to dark mode" : "Switch to light mode";
+
+  function readStored(key) {
+    try {
+      if (typeof localStorage !== "undefined") return localStorage.getItem(key);
+    } catch (e) { /* private mode: nothing was stored */ }
+    return null;
+  }
+  function store(key, value) {
+    try {
+      if (typeof localStorage !== "undefined") localStorage.setItem(key, value);
+    } catch (e) { /* private mode: the choice just is not remembered */ }
+  }
+  function clearStored(key) {
+    try {
+      if (typeof localStorage !== "undefined") localStorage.removeItem(key);
+    } catch (e) { /* private mode: nothing was stored */ }
+  }
+
+  /* Theme and color presets both set the same foreground/background
+   * variables; the last choice wins. A preset beats the theme until
+   * the theme is picked again, which resets the colors to that
+   * theme's default pair. Picking a preset leaves the theme radio
+   * as it is. */
+  var PRESETS = ["white-on-black", "black-on-white", "yellow-on-black",
+    "black-on-pale-yellow", "black-on-sepia", "white-on-dark-blue"];
+  function defaultColors(theme) {
+    return theme === "light" ? "black-on-white" : "white-on-black";
+  }
+  function currentColors() {
+    if (typeof document !== "undefined" && document.documentElement) {
+      var c = document.documentElement.getAttribute("data-colors");
+      if (PRESETS.indexOf(c) !== -1) return c;
+    }
+    return defaultColors(currentTheme());
+  }
+  function checkRadio(name, value) {
+    var radios = document.querySelectorAll('input[name="' + name + '"]');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].checked = (radios[i].value === value);
+    }
+  }
+  function markPresetButtons(colors) {
+    var btns = document.querySelectorAll(".acc-preset");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute("aria-pressed",
+        btns[i].getAttribute("data-colors") === colors ? "true" : "false");
+    }
+  }
+  function applyColors(colors, remember) {
+    if (typeof document !== "undefined" && document.documentElement) {
+      document.documentElement.setAttribute("data-colors", colors);
+    }
+    markPresetButtons(colors);
+    if (remember) store(COLORS_KEY, colors);
   }
   function applyTheme(theme, remember) {
     if (typeof document !== "undefined" && document.documentElement) {
       document.documentElement.setAttribute("data-theme", theme);
     }
-    var btn = document.getElementById("theme-toggle");
-    if (btn) btn.textContent = themeLabel(theme);
-    if (remember) {
-      try {
-        if (typeof localStorage !== "undefined") {
-          localStorage.setItem(THEME_KEY, theme);
-        }
-      } catch (e) { /* private mode: the choice just is not remembered */ }
-    }
+    checkRadio("acc-theme", theme);
+    /* Picking a theme resets the colors to that theme's default pair. */
+    applyColors(defaultColors(theme), false);
+    clearStored(COLORS_KEY);
+    if (remember) store(THEME_KEY, theme);
   }
-  var themeBtn = document.getElementById("theme-toggle");
-  if (themeBtn) {
-    themeBtn.textContent = themeLabel(currentTheme());
-    themeBtn.addEventListener("click", function () {
-      applyTheme(currentTheme() === "light" ? "dark" : "light", true);
+  function applyFont(font, remember) {
+    if (typeof document !== "undefined" && document.documentElement) {
+      if (font === "sans") document.documentElement.removeAttribute("data-font");
+      else document.documentElement.setAttribute("data-font", font);
+    }
+    checkRadio("acc-font", font);
+    if (remember) store(FONT_KEY, font);
+  }
+  function applyFontAttr(attr, remember) {
+    if (typeof document !== "undefined" && document.documentElement) {
+      if (attr === "regular") document.documentElement.removeAttribute("data-font-attr");
+      else document.documentElement.setAttribute("data-font-attr", attr);
+    }
+    checkRadio("acc-attr", attr);
+    if (remember) store(ATTR_KEY, attr);
+  }
+
+  /* The panel is a disclosure: the button says whether it is open, and
+   * the panel's content is only in the tab order while it is open. */
+  var accBtn = document.getElementById("accessibility-toggle");
+  var accPanel = document.getElementById("accessibility-panel");
+  if (accBtn && accPanel) {
+    accBtn.addEventListener("click", function () {
+      if (accPanel.hasAttribute("hidden")) {
+        accPanel.removeAttribute("hidden");
+        accBtn.setAttribute("aria-expanded", "true");
+      } else {
+        accPanel.setAttribute("hidden", "");
+        accBtn.setAttribute("aria-expanded", "false");
+      }
     });
   }
-  if (typeof window !== "undefined" && window.matchMedia) {
-    var lightQuery = window.matchMedia("(prefers-color-scheme: light)");
-    if (lightQuery.addEventListener) {
-      lightQuery.addEventListener("change", function () {
-        var stored = null;
-        try {
-          if (typeof localStorage !== "undefined") {
-            stored = localStorage.getItem(THEME_KEY);
-          }
-        } catch (e) { stored = null; }
-        if (stored !== "light" && stored !== "dark") {
-          applyTheme(lightQuery.matches ? "light" : "dark", false);
-        }
+
+  /* Radio groups: one listener each, on the change event, so keyboard
+   * users (arrow keys move within a group) and pointer users share
+   * one path. */
+  function wireRadios(name, apply) {
+    var radios = document.querySelectorAll('input[name="' + name + '"]');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener("change", function () {
+        if (this.checked) apply(this.value, true);
       });
     }
   }
+  wireRadios("acc-theme", applyTheme);
+  wireRadios("acc-font", applyFont);
+  wireRadios("acc-attr", applyFontAttr);
 
-  /* ---- Text size -------------------------------------------------------- */
-  /* Three buttons in the header move the root font size in 4px steps
+  /* Color presets: each button applies its pair and leaves the theme
+   * radio as it is. */
+  (function wirePresets() {
+    var btns = document.querySelectorAll(".acc-preset");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        applyColors(this.getAttribute("data-colors"), true);
+      });
+    }
+  })();
+
+  /* ---- Text size --------------------------------------------------------
+   * Three buttons in the panel move the root font size in 4px steps
    * from 16px to 40px (default 20px). The choice is saved on this device
    * only (localStorage, never sent anywhere) under the same key the head
    * script reads before first paint, so the stored size is already in
    * place when the page first appears. Storage may be unavailable
    * (private browsing), so both directions are guarded and the page
    * simply falls back to the default size. */
-  var TEXT_SIZE_KEY = "vih-library-text-size";
-  var TEXT_SIZE_DEFAULT = 20;
-  var TEXT_SIZE_MIN = 16;
-  var TEXT_SIZE_MAX = 40;
-  var TEXT_SIZE_STEP = 4;
-
   var smallerBtn = document.getElementById("text-smaller");
   var largerBtn = document.getElementById("text-larger");
   var resetBtn = document.getElementById("text-reset");
   var statusEl = document.getElementById("text-size-status");
-  if (!smallerBtn || !largerBtn || !resetBtn || !statusEl) return;
 
   /* The size now in force: the inline size the head script applied (or
    * an earlier button press set), or the default when there is none. */
@@ -1056,33 +1419,98 @@
   }
   function applySize(size, announce) {
     document.documentElement.style.fontSize = size + "px";
-    smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
-    largerBtn.disabled = (size >= TEXT_SIZE_MAX);
-    if (announce) statusEl.textContent = "Text size " + size + " pixels";
+    if (smallerBtn) smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
+    if (largerBtn) largerBtn.disabled = (size >= TEXT_SIZE_MAX);
+    if (announce && statusEl) statusEl.textContent = "Text size " + size + " pixels";
   }
-  smallerBtn.addEventListener("click", function () {
-    var size = Math.max(TEXT_SIZE_MIN, currentSize() - TEXT_SIZE_STEP);
-    saveSize(size);
-    applySize(size, true);
-  });
-  largerBtn.addEventListener("click", function () {
-    var size = Math.min(TEXT_SIZE_MAX, currentSize() + TEXT_SIZE_STEP);
-    saveSize(size);
-    applySize(size, true);
-  });
-  resetBtn.addEventListener("click", function () {
-    clearSavedSize();
-    /* Dropping the inline size returns the page to the stylesheet
-     * default (1.25rem, 20px at the standard browser default). */
-    document.documentElement.style.fontSize = "";
-    smallerBtn.disabled = false;
-    largerBtn.disabled = false;
-    statusEl.textContent = "Text size " + TEXT_SIZE_DEFAULT + " pixels";
-  });
-  /* Set the disabled states for the size already in force (the stored
-   * size the head script applied, or the default). No announcement on
-   * load — nothing has changed yet. */
-  applySize(currentSize(), false);
+  if (smallerBtn) {
+    smallerBtn.addEventListener("click", function () {
+      var size = Math.max(TEXT_SIZE_MIN, currentSize() - TEXT_SIZE_STEP);
+      saveSize(size);
+      applySize(size, true);
+    });
+  }
+  if (largerBtn) {
+    largerBtn.addEventListener("click", function () {
+      var size = Math.min(TEXT_SIZE_MAX, currentSize() + TEXT_SIZE_STEP);
+      saveSize(size);
+      applySize(size, true);
+    });
+  }
+  if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+      clearSavedSize();
+      /* Dropping the inline size returns the page to the stylesheet
+       * default (1.25rem, 20px at the standard browser default). */
+      document.documentElement.style.fontSize = "";
+      if (smallerBtn) smallerBtn.disabled = false;
+      if (largerBtn) largerBtn.disabled = false;
+      if (statusEl) statusEl.textContent = "Text size " + TEXT_SIZE_DEFAULT + " pixels";
+    });
+  }
+
+  /* One-tap Low Vision setup: yellow on black, bold letters, and text
+   * size 32 — or the size already in use if it is larger. It never
+   * shrinks the text. */
+  var lowVisionBtn = document.getElementById("low-vision-btn");
+  if (lowVisionBtn) {
+    lowVisionBtn.addEventListener("click", function () {
+      applyColors("yellow-on-black", true);
+      applyFontAttr("bold", true);
+      var size = Math.max(currentSize(), LOW_VISION_SIZE);
+      saveSize(size);
+      applySize(size, true);
+    });
+  }
+
+  /* Follow the device theme if the user has never picked one. A stored
+   * color preset stays in force across a device change; only the theme
+   * radio follows the device. */
+  if (typeof window !== "undefined" && window.matchMedia) {
+    var lightQuery = window.matchMedia("(prefers-color-scheme: light)");
+    if (lightQuery.addEventListener) {
+      lightQuery.addEventListener("change", function () {
+        if (readStored(THEME_KEY) !== "light" && readStored(THEME_KEY) !== "dark") {
+          var t = lightQuery.matches ? "light" : "dark";
+          if (typeof document !== "undefined" && document.documentElement) {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+          checkRadio("acc-theme", t);
+          if (PRESETS.indexOf(readStored(COLORS_KEY)) === -1) {
+            applyColors(defaultColors(t), false);
+          }
+        }
+      });
+    }
+  }
+
+  /* Start-up: resolve every stored choice (or the default), and set
+   * the panel controls to match what is on screen. */
+  (function initSettings() {
+    var theme = readStored(THEME_KEY);
+    if (theme !== "light" && theme !== "dark") theme = systemTheme();
+    if (typeof document !== "undefined" && document.documentElement) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+    checkRadio("acc-theme", theme);
+    var colors = readStored(COLORS_KEY);
+    if (PRESETS.indexOf(colors) === -1) colors = defaultColors(theme);
+    applyColors(colors, false);
+    var font = readStored(FONT_KEY);
+    if (font !== "serif" && font !== "mono") font = "sans";
+    applyFont(font, false);
+    var attr = readStored(ATTR_KEY);
+    if (attr !== "bold" && attr !== "italic" && attr !== "bold-italic") attr = "regular";
+    applyFontAttr(attr, false);
+    /* Set the disabled states and the readout for the size already in
+     * force (the stored size the head script applied, or the default).
+     * The inline size itself is left alone: with no stored size the
+     * page stays at the stylesheet default. */
+    var size = currentSize();
+    if (smallerBtn) smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
+    if (largerBtn) largerBtn.disabled = (size >= TEXT_SIZE_MAX);
+    if (statusEl) statusEl.textContent = "Text size " + size + " pixels";
+  })();
 })();
 </script>
   </body>
