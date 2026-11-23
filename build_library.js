@@ -34,10 +34,11 @@
  * the field-reference staging braille/ folder and fails loudly if one
  * is missing. Entries that have a .brf twin carry a brailleUrl field;
  * the three format entries of a section share one .brf file, so the
- * same brailleUrl appears on three entries (71 entries, 25 distinct
+ * same brailleUrl appears on three entries (72 entries, 26 distinct
  * .brf files: 69 field-reference entries sharing 23 files, plus the
  * FOG link index and the PEP/IPAWS reference, each with its own .brf
- * in this repository's EMERG/ folder). The kit zip and the read-me
+ * in this repository's EMERG/ folder, plus the blind-population chart,
+ * whose .brf twin sits beside it in RES/). The kit zip and the read-me
  * have no .brf twin and carry no brailleUrl.
  *
  * LISTEN RULE: an entry with a plain-text twin carries a textUrl
@@ -49,8 +50,8 @@
  * live in the field-reference repository's txt/ folder, carry the
  * same 2210 stamp as the .brf files, and are verified against staging
  * the same way. The three format entries of a section share one .txt
- * file, so the same textUrl appears on three entries (71 entries,
- * 25 distinct .txt files — the same shape as the Braille twins).
+ * file, so the same textUrl appears on three entries (72 entries,
+ * 26 distinct .txt files — the same shape as the Braille twins).
  */
 "use strict";
 const fs = require("fs");
@@ -113,6 +114,17 @@ function emergFile(name) {
 }
 const FOG_STEM = "Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ";
 const PEP_STEM = "PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ";
+
+/* The blind-population chart's plain-text and Braille twins live
+ * beside it in this repository's RES/ folder. */
+const RES_DIR = path.join(__dirname, "RES");
+const resOnDisk = new Set(fs.readdirSync(RES_DIR));
+function resFile(name) {
+  if (!resOnDisk.has(name)) {
+    throw new Error("RES file missing from staging: " + name);
+  }
+  return "RES/" + name;
+}
 
 /* The 22 field-reference sections in BOOK order (the order in the index
  * and in the book itself), each with its title and search keywords. */
@@ -350,6 +362,8 @@ add({
   list: "res",
   format: "PDF",
   url: "RES/Blind-Population-Distribution.pdf",
+  textUrl: resFile("Blind-Population-Distribution.txt"),
+  brailleUrl: resFile("Blind-Population-Distribution.brf"),
   version: null,
   date: null,
   time: null,
@@ -417,31 +431,32 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
-/* Braille links: 71 entries carry one (3 whole-book + 66 sections,
+/* Braille links: 72 entries carry one (3 whole-book + 66 sections,
  * sharing 23 distinct .brf files — the three format entries of a
  * section point at the same .brf file, so brailleUrl is deliberately
  * NOT unique per entry — plus the FOG link index and the PEP/IPAWS
  * reference, each with its own .brf file in this repository's EMERG/
- * folder). */
+ * folder, plus the blind-population chart, whose .brf sits in RES/). */
 const withBraille = entries.filter(function (e) { return e.brailleUrl; });
-if (withBraille.length !== 71) {
-  throw new Error("expected 71 entries with a Braille link, built " + withBraille.length);
+if (withBraille.length !== 72) {
+  throw new Error("expected 72 entries with a Braille link, built " + withBraille.length);
 }
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
-if (distinctBraille.size !== 25) {
-  throw new Error("expected 25 distinct Braille files, built " + distinctBraille.size);
+if (distinctBraille.size !== 26) {
+  throw new Error("expected 26 distinct Braille files, built " + distinctBraille.size);
 }
-/* Text twins: the same 71 entries carry one (3 whole-book + 66
+/* Text twins: the same 72 entries carry one (3 whole-book + 66
  * sections, sharing 23 distinct .txt files, plus the FOG link index
  * and the PEP/IPAWS reference, each with its own .txt file in this
- * repository's EMERG/ folder). */
+ * repository's EMERG/ folder, plus the blind-population chart, whose
+ * .txt twin sits in RES/). */
 const withText = entries.filter(function (e) { return e.textUrl; });
-if (withText.length !== 71) {
-  throw new Error("expected 71 entries with a text twin, built " + withText.length);
+if (withText.length !== 72) {
+  throw new Error("expected 72 entries with a text twin, built " + withText.length);
 }
 const distinctText = new Set(withText.map(function (e) { return e.textUrl; }));
-if (distinctText.size !== 25) {
-  throw new Error("expected 25 distinct text files, built " + distinctText.size);
+if (distinctText.size !== 26) {
+  throw new Error("expected 26 distinct text files, built " + distinctText.size);
 }
 
 fs.writeFileSync(

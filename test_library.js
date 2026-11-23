@@ -10,12 +10,12 @@
  * NOT entries here — they are not in the index (they are not in group
  * Files); the page links to their folders in the field-reference
  * repository instead. Since 2026-11-22 each field-reference entry also
- * carries a brailleUrl to its own .brf file, and the FOG index and the
- * PEP/IPAWS reference carry one too (71 entries, 25 distinct .brf files);
- * the .brf files are
+ * carries a brailleUrl to its own .brf file, and the FOG index, the
+ * PEP/IPAWS reference, and the blind-population chart carry one too
+ * (72 entries, 26 distinct .brf files); the .brf files are
  * still not entries, only secondary links next to the main download
- * link. The FOG index is also the only entry with a textUrl, which is
- * what its Listen button reads aloud.
+ * link. The same 72 entries carry a textUrl, which is what their
+ * Listen button reads aloud.
  *
  * NAME NOTE: field-reference entries carry their RENAMED file names
  * (stamp _v2.0-20261116-2218-AB9MZ), but their download URLs point at
@@ -129,20 +129,24 @@ const brfOnDisk = new Set(
 const emergOnDisk = new Set(
   fs.readdirSync(path.join(__dirname, "EMERG"))
 );
+const resOnDisk = new Set(
+  fs.readdirSync(path.join(__dirname, "RES"))
+);
 const withBraille = data.filter(function (e) { return e.brailleUrl; });
-check("71 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference)",
-  withBraille.length === 71, "got " + withBraille.length);
-check("25 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf and the PEP .brf)",
-  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 25);
-check("every Braille link ends in .brf and points into the field-reference braille/ folder or this repo's EMERG/ folder",
+check("72 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference + the blind-population chart)",
+  withBraille.length === 72, "got " + withBraille.length);
+check("26 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf, the PEP .brf, and the chart .brf)",
+  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 26);
+check("every Braille link ends in .brf and points into the field-reference braille/ folder or this repo's EMERG/ or RES/ folder",
   withBraille.every(function (e) {
     return /\.brf$/.test(e.brailleUrl)
-      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0);
+      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0 || e.brailleUrl.indexOf("RES/") === 0);
   }));
-check("every Braille file name exists in its staging folder (field-reference braille/ or this repo's EMERG/)",
+check("every Braille file name exists in its staging folder (field-reference braille/ or this repo's EMERG/ or RES/)",
   withBraille.every(function (e) {
     var name = e.brailleUrl.split("/").pop();
     if (e.brailleUrl.indexOf("EMERG/") === 0) return emergOnDisk.has(name);
+    if (e.brailleUrl.indexOf("RES/") === 0) return resOnDisk.has(name);
     return brfOnDisk.has(name);
   }));
 const brailleBySub = {};
@@ -158,11 +162,11 @@ check("the 3 whole-book entries share the whole-book Braille file",
   && new Set(kitBraille.map(function (e) { return e.brailleUrl; })).size === 1
   && kitBraille[0].brailleUrl
     === FR + "braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf");
-check("the kit zip, the read-me, and all non-field entries except the FOG index carry no Braille link",
-  data.filter(function (e) { return !e.brailleUrl; }).length === 8
+check("the kit zip, the read-me, and all non-field entries except the Emergency Communications entries and the chart carry no Braille link",
+  data.filter(function (e) { return !e.brailleUrl; }).length === 7
   && !zip[0].brailleUrl
   && !data.filter(function (e) { return e.file.indexOf("READ_ME_FIRST") === 0; })[0].brailleUrl
-  && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg"; })
+  && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg" && e.list !== "res"; })
     .every(function (e) { return !e.brailleUrl; }));
 
 /* ---- Emergency Communications entries: Listen button and Braille link ---- */

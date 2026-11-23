@@ -2246,6 +2246,8 @@
     "list": "res",
     "format": "PDF",
     "url": "RES/Blind-Population-Distribution.pdf",
+    "textUrl": "RES/Blind-Population-Distribution.txt",
+    "brailleUrl": "RES/Blind-Population-Distribution.brf",
     "version": null,
     "date": null,
     "time": null,

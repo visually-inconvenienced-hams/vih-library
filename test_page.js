@@ -210,6 +210,14 @@ setTimeout(function () {
     "got " + ((slot("field-kit").innerHTML.match(/data-listen-url="/g) || []).length));
   check("a section Listen button reads the field-reference text twin",
     sectionsDiv.innerHTML.indexOf('data-listen-url="https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt"') !== -1);
+  check("blind-population chart renders a Listen button reading its text twin",
+    slot("res").innerHTML.indexOf('data-listen-url="RES/Blind-Population-Distribution.txt"') !== -1);
+  check("blind-population chart renders a Braille button to its .brf twin",
+    slot("res").innerHTML.indexOf('href="RES/Blind-Population-Distribution.brf"') !== -1);
+  check("About names the files that lack a Listen or Braille button, and why",
+    html.indexOf("<h3>Files without a Listen or Braille button</h3>") !== -1
+    && html.indexOf("The complete kit zip file has no Listen or Braille button") !== -1
+    && html.indexOf("The schedule changes each day") !== -1);
 
   function typeSearch(value) {
     elements["search-input"].value = value;
