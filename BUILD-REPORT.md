@@ -2,6 +2,10 @@
 
 Built 2026-11-16, about 22:40 Central, in staging at `~/workspace/github-pages-staging/vih-library/`. Staging only: no repository was created, nothing was deployed, nothing was posted, and Facebook was not touched. Gregory sees the page before anything is deployed.
 
+## Addendum — 2026-11-22: the FOG link index, Listen button, and Braille link
+
+The Emergency Communications Field Operations Guides link index was added as the 78th entry (list `emerg`, folder `EMERG/`): the PDF, its plain-text twin, and a contracted UEB grade 2 `.brf` built with liblouis 3.29.0 (tables en-us-brf.dis + en-ueb-g2.ctb, 40 cells per line, 25 lines per page, 264 lines, 11 pages), validated by a back-translation round-trip with the documented liblouis back-translation artifacts accounted for (caps passages, acronym possessives, `://`, `);`, en-dash). The page renders a Listen button for entries with a plain-text twin: it fetches the text and reads it aloud with the device's own voice (browser speechSynthesis, no audio files — the same approach as the Technician class), URLs skipped, abbreviations spelled out. The entry carries `textUrl` and `brailleUrl`; 70 entries now carry a Braille link, 24 distinct `.brf` files. The empty-categories list lost EMERG (21 items now). The Files sentence on the page was corrected the same day: the library is now the home for the group's documents, and Files holds only the contest schedule and a pointer file. Counts after this change: 78 entries, 77 with a download link, 1 without; `node test_library.js` 55 checks passed, `node test_page.js` 38 checks passed.
+
 ## What was built
 
 - `index.html` — the library page, adapted from the proven manuals page structure: bright text on a black background, headings as skip points, a skip link, back-to-group links top and bottom (close buttons inside Facebook's in-app browser, with the tap-the-X fallback), a live search box, and a sort control whose choice is saved in the browser so it stays put.

@@ -1,6 +1,6 @@
 /* Page-level test: runs index.html's render/search/sort inline script
  * under a minimal DOM stub in Node, loads the real library.json, and
- * checks that the browse lists it renders hold all 77 documents, that
+ * checks that the browse lists it renders hold all 78 documents, that
  * the search box and the sort control behave as specified, and that the
  * superseded entry renders without a download link.
  * Run: node test_page.js (exit 0 only when every check passes).
@@ -55,8 +55,8 @@ elements["search-results"].hidden = true;
 const contentsNav = makeElement("contents-nav");
 const sectionsDiv = makeElement("sections-div");
 
-/* The 6 browse-list slots, in page order, as in index.html. */
-const LIST_KEYS = ["field-kit", "cntst", "gen", "lic", "radio", "res"];
+/* The 7 browse-list slots, in page order, as in index.html. */
+const LIST_KEYS = ["field-kit", "cntst", "gen", "lic", "radio", "res", "emerg"];
 const listStubs = LIST_KEYS.map(function (key) {
   const el = makeElement("ul-" + key);
   el.getAttribute = function (attr) { return attr === "data-list" ? key : null; };
@@ -100,8 +100,8 @@ eval(inlineJs);
 
 /* Let the fetch promise resolve, then drive the page. */
 setTimeout(function () {
-  check("load status reports 77 documents",
-    elements["load-status"].textContent === "Library loaded: 77 documents.",
+  check("load status reports 78 documents",
+    elements["load-status"].textContent === "Library loaded: 78 documents.",
     elements["load-status"].textContent);
 
   check("sort select defaults to the listed order (nothing saved yet)",
@@ -119,7 +119,7 @@ setTimeout(function () {
   const sectionItems = countItems(sectionsDiv);
   check("field sections hold 66 items", sectionItems === 66, "got " + sectionItems);
   const total = listStubs.reduce(function (n, el) { return n + countItems(el); }, 0) + sectionItems;
-  check("rendered browse lists hold 77 items in all", total === 77, "got " + total);
+  check("rendered browse lists hold 78 items in all", total === 78, "got " + total);
 
   /* Section headings: 22, in book order, as skip points. */
   const h3s = [...sectionsDiv.innerHTML.matchAll(/<h3 id="field-([^"]+)">([^<]+)<\/h3>/g)];
@@ -171,6 +171,17 @@ setTimeout(function () {
     .match(/>Braille \(\.brf\)<\/a>/g) || []).length;
   check("browse lists render 69 Braille links (3 whole-book + 66 sections)",
     brailleLinks === 69, "got " + brailleLinks);
+
+  /* The Emergency Communications slot renders the FOG index with its
+   * Braille link, its plain-text link, and its Listen button. */
+  const emergHtml = slot("emerg").innerHTML;
+  check("emergency slot renders the FOG index with a Braille link and a Listen button",
+    emergHtml.indexOf("Emergency Communications Field Operations Guides") !== -1
+    && emergHtml.indexOf(">Braille (.brf)</a>") !== -1
+    && emergHtml.indexOf(">Plain text (.txt)</a>") !== -1
+    && emergHtml.indexOf('class="listen-btn"') !== -1
+    && emergHtml.indexOf('data-listen-url="EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.txt"') !== -1,
+    emergHtml.slice(0, 200));
 
   function typeSearch(value) {
     elements["search-input"].value = value;

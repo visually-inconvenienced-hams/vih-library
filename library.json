@@ -2190,5 +2190,36 @@
     ],
     "status": "available",
     "note": "Made by Gregory AB9MZ from public data: data.gov, the World Health Organization (who.int), and resources from national blind organizations. Data as of May 29, 2025. The disability categories overlap, so the percentages add to more than 100."
+  },
+  {
+    "name": "Emergency Communications Field Operations Guides — link index",
+    "file": "Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.pdf",
+    "category": "EMERG",
+    "categoryName": "Emergency Communications",
+    "section": "Emergency Communications",
+    "list": "emerg",
+    "format": "Link-index PDF",
+    "url": "EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.pdf",
+    "textUrl": "EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.txt",
+    "brailleUrl": "EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.brf",
+    "version": "1.0",
+    "date": "2026-11-22",
+    "time": null,
+    "author": "AB9MZ",
+    "keywords": [
+      "fog",
+      "nifog",
+      "auxfog",
+      "emergency",
+      "communications",
+      "field operations guide",
+      "cisa",
+      "interoperability",
+      "listen",
+      "braille",
+      "emcomm"
+    ],
+    "status": "available",
+    "note": "A link index to the official national and state Field Operations Guides that are publicly available — NIFOG, AUXFOG, and the state guides — linking to the publishers' own copies so you always get the current version. No official audio or Braille version is published for the guides themselves; this index document has its own Listen button and Braille file."
   }
 ]

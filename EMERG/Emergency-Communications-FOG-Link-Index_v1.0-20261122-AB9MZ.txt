@@ -1,0 +1,89 @@
+Emergency Communications Field Operations Guides — A Link Index for Visually Inconvenienced Hams
+By Gregory D. Rosenberg, AB9MZ
+Version 1.0. Checked November 22, 2026.
+
+This index links to the official copies of the national and state Field Operations Guides that are publicly available. It links to the official sources rather than hosting copies, so you always get the current version from the publisher.
+
+1. WHAT A FOG IS
+
+FOG stands for Field Operations Guide. In CISA's words, Field Operations Guides are technical references for emergency communications planning and for radio technicians responsible for radios that will be used in emergency responses.
+
+WARNING: Nothing in any FOG authorizes transmitting on any channel. The guides are references for people operating under proper authorization and licensing.
+
+2. NATIONAL GUIDES
+
+NIFOG — National Interoperability Field Operations Guide
+
+Version 2.02, January 2025. Publisher: CISA, U.S. Department of Homeland Security.
+
+For radio technicians and emergency communications planners, and for federal and non-federal agencies using nationwide mutual-aid and interoperability channels. It covers the rules for interoperability channels, frequency tables, standard channel names, plus information technology, encryption, cybersecurity, and emergency wireless carrier references. New in version 2.02: updated contact information only.
+
+Download NIFOG 2.02 (PDF): https://www.cisa.gov/sites/default/files/2024-12/NIFOG%202.02_508%20FINAL%20VERSION%2012%2003%202024.pdf
+
+Note: an April 2026 newsletter mentioned "NIFOG 2.2". No CISA source corroborates a version 2.2; it is almost certainly a misreading of 2.02.
+
+Also available: the NIFOG Fact Sheet (2025), on the CISA Field Operations Guides page; eNIFOG inside the Public Safety Library app (iOS and Android, usable offline); and print copies on request to NIFOG@cisa.dhs.gov (public safety professionals and authorized officials only).
+
+AUXFOG — Auxiliary Communications Field Operations Guide
+
+Version 1.1, June 2016. Publisher: DHS Office of Emergency Communications (now CISA).
+
+For trained volunteer Auxiliary Communications (AuxComm) personnel — amateur radio volunteers supporting emergency communications — and the agencies they serve. It covers safety, radio service rules, mobilization procedures, U.S. amateur band plans, field-expedient antennas, connectors and cabling, ICS forms, and go-kit lists.
+
+Download AUXFOG 1.1 (PDF): https://www.cisa.gov/sites/default/files/publications/AUXFOG%20June%202016%20-%20508%20Reviewed%20-%20Final%20%282-16-17%29_0.pdf
+
+Status note: the AUXFOG is 10 years old and no newer version exists. It is no longer listed on CISA's Field Operations Guides page, but it is still hosted on cisa.gov and downloadable. eAUXFOG lives inside the Public Safety Library app (the standalone app was retired in May 2023).
+
+Audio and Braille versions: no official audio version or Braille version is published for the NIFOG or the AUXFOG. Both official PDFs are tagged, so they work with a screen reader (VoiceOver, TalkBack, or NVDA). The Public Safety Library app (Section 3) is the mobile route.
+
+3. THE APP ALTERNATIVE
+
+The Public Safety Library app (iOS and Android) carries eNIFOG, eAUXFOG, and state eFOGs, usable offline. Note plainly: the app's VoiceOver and TalkBack behavior is unverified — this index does not claim the app is accessible.
+
+4. STATE GUIDES
+
+The list below gives the state Field Operations Guides that could be verified. Dates are shown plainly so you can judge staleness yourself.
+
+ILLINOIS — Illinois Interoperability Field Operations Guide (I2FOG) — Version 3.0, August 2024 — Publicly downloadable. Marked "UNCONTROLLED UNCLASSIFIED – PUBLIC SAFETY SENSITIVE". Section 6 covers Amateur Radio Resources. Publisher: Illinois Emergency Management Agency and Office of Homeland Security. Link: https://iemaohs.illinois.gov/content/dam/soi/en/web/iemaohs/hs/documents/interoperability/iifog.pdf
+
+KANSAS — Kansas Field Operations Guide (KS-FOG) — Version 3.0, February 2024 — Public. Publisher: Kansas Division of Emergency Management. Link: https://www.kansastag.gov/DocumentCenter/View/3514/State-of-Kansas-Field-Operations-Guide-PDF
+
+OKLAHOMA — Oklahoma Field Operations Guide (OKFOG) — Version 2.0, 2014 — Public via the state digital library. STALE (12 years old). Organized with county pages (Section 4) — the closest thing to county-level coverage in any public FOG. Link: https://digitalprairie.ok.gov/digital/api/collection/stgovpub/id/388357/download
+
+GEORGIA — Georgia Communications Field Operations Guide (COMMFOG) — Version 3.1, August 2021 — Exists, but no working official link found (gainterop.com unreachable). No link available.
+
+ALABAMA — Alabama Tactical Interoperable Communications FOG (ALA-FOG) — Version 1.0, March 2012 — Marked FOUO, but publicly hosted on a state site. Dated. Link: https://afrwc.alabama.gov/wp-content/uploads/2018/11/FOG-ALA.pdf
+
+NORTH CAROLINA — NC Tactical Interoperability Communications FOG (NC TIC-FOG) — Version 1.0, July 2014 — Marked "Public Safety Sensitive", publicly hosted. Dated. Link: https://info.ncdhhs.gov/dhsr/EMS/pdf/ncticfog.pdf
+
+FLORIDA — Florida Field Operations Guide — October 2012 — Public, but very dated and US&R task-force oriented. Link: https://prep.floridadisaster.org/globalassets/importedpdfs/appendix02-communicationsannex.pdf
+
+WEST VIRGINIA — WV Statewide TIC-FOG — Version and date not verified — No public PDF found. Exists only as the WV eFOG in the Public Safety Library app. The 2024 WV SCIP (April 1, 2024) is public. Link (WV SCIP, April 1, 2024): https://sirn.wv.gov/media/238/download?inline
+
+VIRGINIA — Virginia FOG — Not verified — No public PDF found. Virginia's SCIP (October 24, 2023) is public. Link (Virginia SCIP, October 24, 2023): https://www.pshs.virginia.gov/media/governorvirginiagov/secretary-of-public-safety-and-homeland-security/pdf/2024SCIP.Virginia.2023October24_SIEC.signed.pdf
+
+Audio and Braille versions: no official audio version or Braille version is published for any of these state guides. The Illinois and Oklahoma PDFs are tagged and work with a screen reader; tagging was not verified for the other state guides.
+
+5. HOW TO GET YOUR OWN STATE'S GUIDE
+
+Every state has a SWIC (Statewide Interoperability Coordinator). Start at CISA's SAFECOM resources and your state's emergency management site. Many state FOGs are restricted or app-only.
+
+CISA Field Operations Guides page: https://www.cisa.gov/safecom/field-operations-guides
+
+A SCIP (Statewide Communication Interoperability Plan) is a strategic plan, not a frequency reference — a different document. Do not confuse the two.
+
+6. COUNTY AND REGIONAL PLANS
+
+No county-published standalone FOG could be verified as a public document. Counties document interoperability in TICPs (Tactical Interoperable Communications Plans), which are generally not posted publicly because they contain sensitive channel and talkgroup detail. Ask your county emergency management office or your ARES Emergency Coordinator. Oklahoma's county pages (Section 4 of the OKFOG) are the closest public example. Regional Field Operations Guides (RFOG) exist, but no verified link was found for one.
+
+7. RELATED CISA REFERENCES
+
+- National Emergency Communications Plan (2019).
+- Programming Guide and Template for Interoperability Radio Channels (2021, archived) — listed on the CISA Field Operations Guides page.
+- TICP Template — at the CISA emergency communications guidance documents page: https://www.cisa.gov/emergency-communications-guidance-documents-and-publications
+
+8. VERSION-CHECK NOTE
+
+Checked November 22, 2026. Check the CISA Field Operations Guides page for the latest version: https://www.cisa.gov/safecom/field-operations-guides
+
+To request NIFOG print copies, email NIFOG@cisa.dhs.gov (public safety professionals and authorized officials only).

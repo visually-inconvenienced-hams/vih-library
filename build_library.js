@@ -1,8 +1,9 @@
 /* Build library.json for the VIH group document library page.
  *
  * Run: node build_library.js
- * Writes: library.json (77 entries, one per file in the Document Index,
- * third edition, 2026-11-16).
+ * Writes: library.json (78 entries: the 77 files in the Document Index,
+ * third edition, 2026-11-16, plus the Emergency Communications FOG link
+ * index, added 2026-11-22).
  *
  * Source of truth for the inventory: the Document Index at
  * ~/workspace/goals/visually-inconvenienced-hams-automated-group-posts/files/!Document-Index.txt
@@ -32,9 +33,17 @@
  * the field-reference staging braille/ folder and fails loudly if one
  * is missing. Entries that have a .brf twin carry a brailleUrl field;
  * the three format entries of a section share one .brf file, so the
- * same brailleUrl appears on three entries (69 entries, 23 distinct
- * .brf files). The kit zip and the read-me have no .brf twin and carry
+ * same brailleUrl appears on three entries (70 entries, 24 distinct
+ * .brf files: 69 field-reference entries sharing 23 files, plus the
+ * FOG link index with its own .brf in this repository's EMERG/
+ * folder). The kit zip and the read-me have no .brf twin and carry
  * no brailleUrl.
+ *
+ * LISTEN RULE: an entry with a plain-text twin carries a textUrl
+ * field; the page renders a Listen button beside it that reads the
+ * text aloud with the device's own voice (browser speech, no audio
+ * files — the same approach as the Technician class). Only the FOG
+ * link index has one so far.
  */
 "use strict";
 const fs = require("fs");
@@ -71,6 +80,19 @@ function brailleUrl(stem) {
   }
   return FR + "braille/" + name;
 }
+
+/* The FOG link index lives in this repository (EMERG/), with its
+ * plain-text and Braille twins beside it. Verify each file exists in
+ * staging, the same way stamped() verifies the renamed files. */
+const EMERG_DIR = path.join(__dirname, "EMERG");
+const emergOnDisk = new Set(fs.readdirSync(EMERG_DIR));
+function emergFile(name) {
+  if (!emergOnDisk.has(name)) {
+    throw new Error("EMERG file missing from staging: " + name);
+  }
+  return "EMERG/" + name;
+}
+const FOG_STEM = "Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ";
 
 /* The 22 field-reference sections in BOOK order (the order in the index
  * and in the book itself), each with its title and search keywords. */
@@ -313,13 +335,34 @@ add({
   note: "Made by Gregory AB9MZ from public data: data.gov, the World Health Organization (who.int), and resources from national blind organizations. Data as of May 29, 2025. The disability categories overlap, so the percentages add to more than 100."
 });
 
+/* ---- Emergency Communications: the FOG link index ---- */
+add({
+  name: "Emergency Communications Field Operations Guides — link index",
+  file: FOG_STEM + ".pdf",
+  category: "EMERG",
+  categoryName: "Emergency Communications",
+  section: "Emergency Communications",
+  list: "emerg",
+  format: "Link-index PDF",
+  url: emergFile(FOG_STEM + ".pdf"),
+  textUrl: emergFile(FOG_STEM + ".txt"),
+  brailleUrl: emergFile(FOG_STEM + ".brf"),
+  version: "1.0",
+  date: "2026-11-22",
+  time: null,
+  author: "AB9MZ",
+  keywords: ["fog", "nifog", "auxfog", "emergency", "communications", "field operations guide", "cisa", "interoperability", "listen", "braille", "emcomm"],
+  status: "available",
+  note: "A link index to the official national and state Field Operations Guides that are publicly available — NIFOG, AUXFOG, and the state guides — linking to the publishers' own copies so you always get the current version. No official audio or Braille version is published for the guides themselves; this index document has its own Listen button and Braille file."
+});
+
 /* ---- Counts must match the index exactly ---- */
-if (entries.length !== 77) {
-  throw new Error("expected 77 entries, built " + entries.length);
+if (entries.length !== 78) {
+  throw new Error("expected 78 entries, built " + entries.length);
 }
 const byList = {};
 entries.forEach(function (e) { byList[e.list] = (byList[e.list] || 0) + 1; });
-const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 2, "radio": 1, "res": 1 };
+const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 2, "radio": 1, "res": 1, "emerg": 1 };
 Object.keys(expected).forEach(function (k) {
   if (byList[k] !== expected[k]) {
     throw new Error("list " + k + ": expected " + expected[k] + ", built " + (byList[k] || 0));
@@ -329,17 +372,18 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
-/* Braille links: 69 entries carry one (3 whole-book + 66 sections),
+/* Braille links: 70 entries carry one (3 whole-book + 66 sections,
  * sharing 23 distinct .brf files — the three format entries of a
  * section point at the same .brf file, so brailleUrl is deliberately
- * NOT unique per entry. */
+ * NOT unique per entry — plus the FOG link index with its own .brf
+ * file in this repository's EMERG/ folder). */
 const withBraille = entries.filter(function (e) { return e.brailleUrl; });
-if (withBraille.length !== 69) {
-  throw new Error("expected 69 entries with a Braille link, built " + withBraille.length);
+if (withBraille.length !== 70) {
+  throw new Error("expected 70 entries with a Braille link, built " + withBraille.length);
 }
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
-if (distinctBraille.size !== 23) {
-  throw new Error("expected 23 distinct Braille files, built " + distinctBraille.size);
+if (distinctBraille.size !== 24) {
+  throw new Error("expected 24 distinct Braille files, built " + distinctBraille.size);
 }
 
 fs.writeFileSync(

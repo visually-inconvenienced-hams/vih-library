@@ -150,6 +150,17 @@
         cursor: pointer;
       }
       button.secondary:hover { background: #1f1f1f; }
+      button.listen-btn {
+        margin-left: 0.5rem;
+        padding: 0.15rem 0.6rem;
+        font: inherit;
+        font-size: 1.05rem;
+        font-weight: bold;
+        color: var(--text);
+        background: var(--panel);
+        border: 2px solid var(--fair);
+        cursor: pointer;
+      }
       .status { font-size: 1.2rem; font-weight: bold; min-height: 1.8em; margin: 0.5rem 0; }
     </style>
   </head>
@@ -159,8 +170,8 @@
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
 
       <h1>Visually Inconvenienced Hams Document Library</h1>
-      <p>Every document in the group, organized by category, with search and a sort that stays put. First edition — 16 November 2026. 77 documents.</p>
-      <p>The files also live in the group's Facebook Files section. This page is the organized front door: real categories, a search box, and a sort order you choose once and keep, on the phone as well as the desktop.</p>
+      <p>Every document in the group, organized by category, with search and a sort that stays put. First edition — 16 November 2026. 78 documents.</p>
+      <p>The library is now the home for the group's documents. The group's Facebook Files section holds only the contest schedule and a pointer file that links back here. This page is the organized front door: real categories, a search box, and a sort order you choose once and keep, on the phone as well as the desktop.</p>
 
       <form id="search-form" role="search">
         <label for="search-input">Search the library</label>
@@ -178,6 +189,7 @@
         <button type="button" class="secondary" id="clear-search" hidden>Clear search</button>
       </form>
       <p id="load-status" class="status" role="status">Loading the library…</p>
+      <p id="read-status" class="status" role="status"></p>
       <div id="search-results" hidden></div>
 
       <nav class="contents" aria-label="Contents">
@@ -190,6 +202,7 @@
           <li><a href="#licensing">Licensing and Exams</a></li>
           <li><a href="#radios">Radios</a></li>
           <li><a href="#resources">Resources</a></li>
+          <li><a href="#emergency">Emergency Communications</a></li>
           <li><a href="#empty-categories">Categories with no documents yet</a></li>
           <li><a href="#about">About this library</a></li>
         </ul>
@@ -229,6 +242,9 @@
         <h2 id="resources">Resources (RES)</h2>
         <ul class="doc-list" data-list="res"></ul>
 
+        <h2 id="emergency">Emergency Communications (EMERG)</h2>
+        <ul class="doc-list" data-list="emerg"></ul>
+
         <h2 id="empty-categories">Categories with no documents yet</h2>
         <p>These categories are part of the library's structure, and they hold no documents yet. They are listed here so you can see where new documents will land. When a document is added to one of these categories, it appears in its own section above.</p>
         <ul class="doc-list">
@@ -237,7 +253,6 @@
           <li>APRS — APRS. No documents yet.</li>
           <li>ARES — ARES. No documents yet.</li>
           <li>DIGI — Digital Modes. No documents yet.</li>
-          <li>EMERG — Emergency. No documents yet.</li>
           <li>GOVT — Government. No documents yet.</li>
           <li>GOVT-LOC — Local government. No documents yet.</li>
           <li>GOVT-CTY — County government. No documents yet.</li>
@@ -260,7 +275,7 @@
         <p>This page replaces the group's text document index. Facebook does not let a group organize its Files into folders, and its phone app lists files newest first with no sort control at all, so the group keeps its library here instead, where the files sit in real categories, the search box finds them, and the sort order stays the way you set it.</p>
         <p>Most files on this page are the group's own documents, or public-domain material such as the Technician question pool. Every file on this page has a download link, except the document index itself, which this page replaces. Manufacturer radio manuals are not part of this library; they live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
         <p>If a link on this page stops working, or if you would like a document added to the library, post in the Visually Inconvenienced Hams group and say which file it is. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
-        <p class="small">First edition — 16 November 2026. 77 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool in plain text and Braille, the Tonne filter article, and the blind-population reference.</p>
+        <p class="small">First edition — 16 November 2026. 78 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool in plain text and Braille, the Tonne filter article, the blind-population reference, and the Emergency Communications Field Operations Guides link index.</p>
       </main>
 
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
@@ -334,8 +349,11 @@
    * bold text when the file has no link yet), then a Braille download
    * link for entries that have a .brf twin (visible text "Braille
    * (.brf)", with an aria-label naming the entry so a screen reader's
-   * link list tells the 69 Braille links apart), then the file name,
-   * the format, the category, the version and date, and any note. */
+   * link list tells the 70 Braille links apart), then, for entries
+   * with a plain-text twin, a plain-text download link and a Listen
+   * button that reads the text aloud (see the read-aloud block below),
+   * then the file name, the format, the category, the version and date,
+   * and any note. */
   function browseItem(entry) {
     var html = "<li>";
     if (entry.url) {
@@ -346,6 +364,13 @@
     if (entry.brailleUrl) {
       html += ' <a href="' + esc(entry.brailleUrl) + '" aria-label="'
         + esc(entry.name) + ' — Braille (.brf)">Braille (.brf)</a>';
+    }
+    if (entry.textUrl) {
+      html += ' <a href="' + esc(entry.textUrl) + '" aria-label="'
+        + esc(entry.name) + ' — Plain text (.txt)">Plain text (.txt)</a>';
+      html += ' <button type="button" class="listen-btn" data-listen-url="'
+        + esc(entry.textUrl) + '" data-listen-name="' + esc(entry.name)
+        + '">Listen</button>';
     }
     html += '<span class="label">' + esc(entry.file) + " — " + esc(entry.format) + ". "
       + esc(entry.categoryName) + ". ";
@@ -478,6 +503,150 @@
     saveSort(currentOrder);
     rerender();
   });
+
+  /* ---- Read-aloud (browser speech, no audio files) ------------------------ */
+  /* Entries with a plain-text twin (textUrl) carry a Listen button that
+   * reads the text aloud with the voice built into the device — the same
+   * approach as the Technician class. The text is fetched, split into
+   * sentences, and spoken one short utterance at a time, chained by each
+   * utterance's onend event: a single long utterance is unreliable in
+   * several browsers (long pauses, cut-offs). Pressing the button again
+   * while it reads stops it. The lists re-render on search and sort, so
+   * the click handler lives on the document, not on the buttons. */
+  var readStatus = $("read-status");
+  var LISTEN_SUPPORTED = (typeof window !== "undefined")
+    && ("speechSynthesis" in window) && ("SpeechSynthesisUtterance" in window);
+  var listenQueue = [];
+  var listenPointer = 0;
+  var listenReading = false;
+  var listenBtn = null;
+
+  /* Abbreviations the voice misreads, spoken letter by letter. Only the
+   * ones this library's listenable text uses. */
+  var LISTEN_ABBREVIATIONS = {
+    "FOG": "F O G", "NIFOG": "N I F O G", "AUXFOG": "A U X F O G",
+    "OKFOG": "O K F O G", "COMMFOG": "C O M M F O G",
+    "CISA": "C I S A", "SWIC": "S W I C", "SCIP": "S C I P",
+    "TICP": "T I C P", "RFOG": "R F O G", "DHS": "D H S",
+    "UHF": "U H F", "VHF": "V H F", "ICS": "I C S", "FOUO": "F O U O",
+    "ARES": "A R E S"
+  };
+  function prepareListenSpeech(text) {
+    /* Web addresses are not read letter by letter: on a line that holds
+     * a URL, the address is dropped and the rest of the line is kept, so
+     * the listener hears the document named, not a long address spelled
+     * out. A line that is only a link ("Link: <url>") is dropped whole. */
+    text = text.replace(/^.*https?:\/\/\S+.*$/gm, function (line) {
+      var m = line.match(/^(.*?)(https?:\/\/\S+)(.*)$/);
+      if (!m) return line;
+      var before = m[1].replace(/Link:\s*$/i, "").trim();
+      var after = m[3].trim();
+      if (!before && !after) return "";
+      return (before + (before && after ? " " : "") + after).trim();
+    });
+    text = text.replace(/\b([A-Z]{2,})\b/g, function (word) {
+      return LISTEN_ABBREVIATIONS[word] || word;
+    });
+    return text;
+  }
+
+  /* Split a line into sentences. A period between two digits (146.52)
+   * is a decimal point, not a sentence end. Closing quotes or brackets
+   * after the terminator stay with the sentence. */
+  function splitListenSentences(text) {
+    var sentences = [];
+    var start = 0;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      if (ch === "." || ch === "!" || ch === "?") {
+        var prev = text.charAt(i - 1), next = text.charAt(i + 1);
+        if (ch === "." && prev >= "0" && prev <= "9" && next >= "0" && next <= "9") continue;
+        var end = i + 1;
+        while (end < text.length && "\"')]".indexOf(text.charAt(end)) !== -1) end++;
+        if (end >= text.length || /\s/.test(text.charAt(end))) {
+          sentences.push(text.slice(start, end).trim());
+          start = end;
+        }
+      }
+    }
+    var tail = text.slice(start).trim();
+    if (tail) sentences.push(tail);
+    return sentences.filter(Boolean);
+  }
+
+  function listenSetStatus(text) { if (readStatus) readStatus.textContent = text; }
+
+  function listenStop() {
+    listenReading = false;
+    listenQueue = [];
+    listenPointer = 0;
+    if (LISTEN_SUPPORTED) window.speechSynthesis.cancel();
+    if (listenBtn) { listenBtn.textContent = "Listen"; listenBtn = null; }
+    listenSetStatus("");
+  }
+
+  function listenSpeakNext() {
+    if (!listenReading || listenPointer >= listenQueue.length) {
+      var finished = listenReading;
+      listenStop();
+      if (finished) listenSetStatus("Finished reading.");
+      return;
+    }
+    var utterance = new window.SpeechSynthesisUtterance(listenQueue[listenPointer++]);
+    utterance.onend = listenSpeakNext;
+    utterance.onerror = listenSpeakNext;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function listenStart(btn) {
+    var url = btn.getAttribute("data-listen-url");
+    var name = btn.getAttribute("data-listen-name") || "this document";
+    listenSetStatus("Loading " + name + " to read aloud…");
+    fetch(url).then(function (response) {
+      if (!response.ok) throw new Error("fetch failed: " + response.status);
+      return response.text();
+    }).then(function (text) {
+      listenQueue = [];
+      var lines = prepareListenSpeech(text).split("\n");
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line) continue;
+        var sentences = splitListenSentences(line);
+        for (var s = 0; s < sentences.length; s++) listenQueue.push(sentences[s]);
+      }
+      if (listenQueue.length === 0) {
+        listenSetStatus("Nothing to read in " + name + ".");
+        return;
+      }
+      listenReading = true;
+      listenPointer = 0;
+      listenBtn = btn;
+      btn.textContent = "Stop";
+      listenSetStatus("Reading " + name + ".");
+      listenSpeakNext();
+    }).catch(function () {
+      listenSetStatus("Could not load " + name + " to read aloud. Check your connection and try again.");
+    });
+  }
+
+  if (typeof document !== "undefined" && document.addEventListener) {
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+      if (!target || !target.getAttribute) return;
+      if (!target.getAttribute("data-listen-url")) return;
+      if (!LISTEN_SUPPORTED) {
+        listenSetStatus("Read-aloud is not supported in this browser.");
+        return;
+      }
+      if (listenReading && listenBtn === target) {
+        listenStop();
+        listenSetStatus("Stopped.");
+        return;
+      }
+      if (listenReading) listenStop();
+      listenStart(target);
+    });
+  }
 
   /* ---- Load the library list (same site, no outside service) ------------ */
   fetch("library.json").then(function (response) {
