@@ -179,9 +179,29 @@ setTimeout(function () {
     emergHtml.indexOf("Emergency Communications Field Operations Guides") !== -1
     && emergHtml.indexOf(">Braille (.brf)</a>") !== -1
     && emergHtml.indexOf(">Plain text (.txt)</a>") !== -1
-    && emergHtml.indexOf('class="listen-btn"') !== -1
+    && emergHtml.indexOf('listen-btn') !== -1
     && emergHtml.indexOf('data-listen-url="EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.txt"') !== -1,
     emergHtml.slice(0, 200));
+
+  /* The decided entry layout: document name as a heading, the three
+   * buttons, then the direct URL below the buttons. */
+  check("emergency entries render the document name as a heading",
+    emergHtml.indexOf("<h3>Emergency Communications Field Operations Guides — link index</h3>") !== -1);
+  check("emergency entries render an Open button naming the document",
+    emergHtml.indexOf('aria-label="Open Emergency Communications Field Operations Guides — link index">Open</a>') !== -1);
+  check("emergency entries put the direct URL below the buttons",
+    emergHtml.indexOf('class="entry-url"') !== -1
+    && emergHtml.indexOf('>EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.pdf</a>') !== -1);
+  check("page has header and footer landmarks",
+    html.indexOf("<header>") !== -1 && html.indexOf("<footer>") !== -1);
+
+  /* Listen appears on documents that are themselves plain text. */
+  check("contest schedule carries a Listen button reading its own text",
+    slot("cntst").innerHTML.indexOf('data-listen-url="CNTST/$Contest-Schedule.txt"') !== -1);
+  check("question-pool text carries a Listen button reading its own text",
+    slot("lic").innerHTML.indexOf('data-listen-url="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
+  check("read-me carries a Listen button reading its own text",
+    slot("field-kit").innerHTML.indexOf('data-listen-url="https://visually-inconvenienced-hams.github.io/field-reference/READ_ME_FIRST.txt"') !== -1);
 
   function typeSearch(value) {
     elements["search-input"].value = value;
@@ -230,9 +250,10 @@ setTimeout(function () {
     kitAsc.indexOf("AB9MZ_Amateur_Radio_Field_Reference-tagged_v2.0") !== -1
     && kitAsc.indexOf("AB9MZ_Amateur_Radio_Field_Reference-tagged_v2.0")
       < kitAsc.indexOf("AB9MZ_Field_Reference_Complete_Kit"));
-  check("sections under name-asc render as one flat list with no headings",
-    sectionsDiv.innerHTML.indexOf("<h3") === -1
-    && countItems(sectionsDiv) === 66);
+  check("sections under name-asc render as one flat list with no subsection headings",
+    sectionsDiv.innerHTML.indexOf('id="field-') === -1
+    && countItems(sectionsDiv) === 66
+    && (sectionsDiv.innerHTML.match(/<h3>/g) || []).length === 66);
   check("sections under name-asc start with the ares tagged file",
     sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0-20261116-2218-AB9MZ.pdf") !== -1
     && sectionsDiv.innerHTML.indexOf("ares-tagged_v2.0-20261116-2218-AB9MZ.pdf")
@@ -252,6 +273,9 @@ setTimeout(function () {
   const h3sBack = [...sectionsDiv.innerHTML.matchAll(/<h3 /g)];
   check("returning to the listed order restores the 22 section headings",
     h3sBack.length === 22, "got " + h3sBack.length);
+  check("listed order renders each section entry as an h4 heading",
+    (sectionsDiv.innerHTML.match(/<h4>/g) || []).length === 66,
+    "got " + ((sectionsDiv.innerHTML.match(/<h4>/g) || []).length));
   check("sort choice updated in localStorage",
     storage["vih-library-sort"] === "listed");
 

@@ -28,20 +28,37 @@
         font-family: Verdana, Geneva, "Segoe UI", Tahoma, sans-serif;
         line-height: 1.5;
         padding: 1rem;
+        /* Reflow: long words break anywhere, so nothing forces
+         * horizontal scrolling at a narrow viewport with large text
+         * (WCAG 1.4.10). overflow-wrap inherits, so this covers the
+         * whole page. */
+        overflow-wrap: anywhere;
       }
       .wrap { max-width: 46rem; margin: 0 auto; }
 
       .skip-link {
         position: absolute;
-        left: -9999px;
-        top: 0;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
         background: var(--focus);
         color: #000;
         font-weight: bold;
-        padding: 0.75rem 1rem;
         z-index: 10;
       }
-      .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+      .skip-link:focus {
+        left: 0.5rem;
+        top: 0.5rem;
+        width: auto;
+        height: auto;
+        padding: 0.75rem 1rem;
+        overflow: visible;
+        clip-path: none;
+        white-space: normal;
+      }
 
       a { color: var(--fair); }
       a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
@@ -150,9 +167,14 @@
         cursor: pointer;
       }
       button.secondary:hover { background: #1f1f1f; }
-      button.listen-btn {
-        margin-left: 0.5rem;
-        padding: 0.15rem 0.6rem;
+      .doc-list h3, .doc-list h4 { margin: 0.2rem 0 0.3rem; }
+      .doc-list h4 { font-size: 1.1rem; }
+      .entry-actions { margin: 0.3rem 0; }
+      a.btn, button.btn {
+        display: inline-block;
+        min-height: 2.75rem;
+        padding: 0.45rem 0.9rem;
+        margin: 0.15rem 0.5rem 0.15rem 0;
         font: inherit;
         font-size: 1.05rem;
         font-weight: bold;
@@ -160,18 +182,25 @@
         background: var(--panel);
         border: 2px solid var(--fair);
         cursor: pointer;
+        text-decoration: none;
+        text-align: center;
       }
+      a.btn:hover, button.btn:hover { background: #1f1f1f; }
+      .entry-url { font-size: 0.9rem; margin: 0.2rem 0; overflow-wrap: anywhere; }
+      .entry-url a { color: var(--muted); }
       .status { font-size: 1.2rem; font-weight: bold; min-height: 1.8em; margin: 0.5rem 0; }
     </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the document library</a>
     <div class="wrap">
+      <header>
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
 
       <h1>Visually Inconvenienced Hams Document Library</h1>
-      <p>Every document in the group, organized by category, with search and a sort that stays put. First edition — 16 November 2026. 79 documents.</p>
-      <p>The library is now the home for the group's documents. The group's Facebook Files section holds only the contest schedule and a pointer file that links back here. This page is the organized front door: real categories, a search box, and a sort order you choose once and keep, on the phone as well as the desktop.</p>
+      <p>Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 79 documents.</p>
+      <p>This page is now the home for the group's documents. The group's Facebook Files section holds only two things: the contest schedule, and a pointer file that links back here. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
+      </header>
 
       <form id="search-form" role="search">
         <label for="search-input">Search the library</label>
@@ -210,18 +239,21 @@
 
       <main id="main">
         <h2 id="how-to-use">How to use this library</h2>
-        <p>Find the category for what you want, or type a word in the search box above. The search looks at every file's name, category, format, and keywords, and it filters as you type.</p>
-        <p>Every file shows its name, its format, its category, and its version, revision date, and author where the file name carries them. File names carry a version stamp, like v2.0-20261116-2218-AB9MZ, which reads as version 2.0, revised 16 November 2026 at 22:18 Central, by AB9MZ. The stamp tells you at a glance whether the file you found is the current one.</p>
-        <p>Two kinds of file label appear on this page:</p>
+        <p>Find the topic for what you want. Or type a word in the search box above. The search looks at each file's name, topic, format, and key words. It narrows the list as you type.</p>
+        <p>Each file shows its name, its format, and its topic. It also shows its version, its date, and its author, when the file name holds them. File names hold a version stamp, like v2.0-20261116-2218-AB9MZ. That stamp means version 2.0, changed 16 November 2026 at 22:18 Central, by AB9MZ. The stamp tells you at a glance if the file you found is the newest one.</p>
+        <p>Each file has up to three buttons:</p>
         <ul class="doc-list">
-          <li><span class="fmt-text">A download link.</span> Tap the file name to download it.</li>
+          <li><span class="fmt-text">Open.</span> Opens the file.</li>
+          <li><span class="fmt-text">Listen.</span> Reads the file out loud with your device's own voice. Some files do not have this button yet.</li>
+          <li><span class="fmt-text">Braille.</span> Downloads the file in Braille. Some files do not have this button yet.</li>
           <li><span class="fmt-superseded">Superseded by this page.</span> The old text index is no longer updated, because this page is the index now.</li>
         </ul>
-        <p>To come back to the group, use the Back to Visually Inconvenienced Hams link at the top or the bottom of this page. Inside Facebook's own browser that link becomes a close button instead.</p>
+        <p>Below the buttons is the direct link to the file. It is there as a backup, in case a button does not work.</p>
+        <p>To go back to the group, use the Back link at the top or the bottom of this page. Inside Facebook's own browser, that link is a close button instead.</p>
 
         <h2 id="field-reference">AB9MZ Master Field Reference — Edition 2.0</h2>
-        <p>Gregory Rosenberg AB9MZ's field reference, 22 sections, 112 pages, in large print (22 point text, 28 point headings). Every section is here in three formats: a large-print PDF, a Word document, and a tagged PDF that screen readers navigate by heading. The collection has its own home page, with an offline section selector that builds a custom edition from the sections you pick: <a href="https://visually-inconvenienced-hams.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
-        <p>Braille and plain-text editions of the whole book and every section are also available, in the field-reference repository: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and every section below also carry their own Braille download link, next to the main download link, so you can grab the .brf file for just the part you want without opening the folder.</p>
+        <p>This is Gregory Rosenberg AB9MZ's field reference. It has 22 parts and 112 pages, in large print (22 point text, 28 point headings). Each part is here in three forms: a large-print PDF, a Word file, and a tagged PDF that screen readers can move through by heading. The book has its own home page too. There you can pick parts and build your own edition to use offline: <a href="https://visually-inconvenienced-hams.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
+        <p>Braille and plain-text copies of the whole book and each part are also in the field-reference file store: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and each part below also have their own Braille button, next to the Open button, so you can get the .brf file for just the part you want.</p>
         <h3>The whole kit</h3>
         <ul class="doc-list" data-list="field-kit"></ul>
         <h3>Sections</h3>
@@ -246,7 +278,7 @@
         <ul class="doc-list" data-list="emerg"></ul>
 
         <h2 id="empty-categories">Categories with no documents yet</h2>
-        <p>These categories are part of the library's structure, and they hold no documents yet. They are listed here so you can see where new documents will land. When a document is added to one of these categories, it appears in its own section above.</p>
+        <p>These topics are part of the library. They hold no files yet. They are listed here so you can see where new files will go. When a file is added to one of these topics, it shows up in its own section above.</p>
         <ul class="doc-list">
           <li>ACCESS — Accessibility. No documents yet.</li>
           <li>ANT — Antennas. No documents yet.</li>
@@ -272,13 +304,15 @@
         </ul>
 
         <h2 id="about">About this library</h2>
-        <p>This page replaces the group's text document index. Facebook does not let a group organize its Files into folders, and its phone app lists files newest first with no sort control at all, so the group keeps its library here instead, where the files sit in real categories, the search box finds them, and the sort order stays the way you set it.</p>
-        <p>Most files on this page are the group's own documents, or public-domain material such as the Technician question pool. Every file on this page has a download link, except the document index itself, which this page replaces. Manufacturer radio manuals are not part of this library; they live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
-        <p>If a link on this page stops working, or if you would like a document added to the library, post in the Visually Inconvenienced Hams group and say which file it is. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
+        <p>This page takes the place of the group's old text index. Facebook does not let a group put its Files into folders. Its phone app lists files newest first, with no sort control at all. So the group keeps its library here instead. Here the files sit in real topics, the search box finds them, and the sort order stays the way you set it.</p>
+        <p>Most files here are the group's own work. Others are free public material, like the Technician question pool. Each file on this page has an Open button, except the old document index, which this page replaces. Radio manuals from the makers are not part of this library. They live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
+        <p>If a link on this page stops working, post in the Visually Inconvenienced Hams group and say which file it is. If you would like a document added to the library, post in the group too. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
         <p class="small">First edition — 16 November 2026. 79 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool in plain text and Braille, the Tonne filter article, the blind-population reference, the Emergency Communications Field Operations Guides link index, and the PEP/IPAWS emergency alerting reference.</p>
       </main>
 
+      <footer>
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
+      </footer>
     </div>
 
     <script src="library.js"></script>
@@ -345,32 +379,48 @@
   }
   var currentOrder = loadSort();
 
-  /* One browse-list item: the file name as a download link (or plain
-   * bold text when the file has no link yet), then a Braille download
-   * link for entries that have a .brf twin (visible text "Braille
-   * (.brf)", with an aria-label naming the entry so a screen reader's
-   * link list tells the 70 Braille links apart), then, for entries
-   * with a plain-text twin, a plain-text download link and a Listen
-   * button that reads the text aloud (see the read-aloud block below),
-   * then the file name, the format, the category, the version and date,
-   * and any note. */
-  function browseItem(entry) {
+  /* One browse-list item, in the decided order: the document name as
+   * a heading (h3 under a section heading, h4 under a subsection
+   * heading), then the three buttons — Open, Listen, Braille — then
+   * the direct URL below the buttons as the least important line
+   * (there for search engines and as a fallback if a button breaks),
+   * then the file name, the format, the category, the version and
+   * date, and any note. Open and Braille are links styled as buttons;
+   * Listen is a real button that reads the text aloud (see the
+   * read-aloud block below). Listen appears whenever the entry has a
+   * plain-text twin, or whenever the document itself is plain text
+   * (its download link ends in .txt); in the second case the button
+   * reads the download link itself. */
+  function browseItem(entry, level) {
+    var tag = (level === 4) ? "h4" : "h3";
     var html = "<li>";
+    html += "<" + tag + ">" + esc(entry.name) + "</" + tag + ">";
+    var listenUrl = entry.textUrl || null;
+    if (!listenUrl && entry.url && /\.txt$/i.test(entry.url)) listenUrl = entry.url;
+    if (entry.url || listenUrl || entry.brailleUrl) {
+      html += '<p class="entry-actions">';
+      if (entry.url) {
+        html += '<a class="btn" href="' + esc(entry.url) + '" aria-label="Open '
+          + esc(entry.name) + '">Open</a>';
+      }
+      if (listenUrl) {
+        html += ' <button type="button" class="btn listen-btn" data-listen-url="'
+          + esc(listenUrl) + '" data-listen-name="' + esc(entry.name)
+          + '">Listen</button>';
+      }
+      if (entry.brailleUrl) {
+        html += ' <a class="btn" href="' + esc(entry.brailleUrl) + '" aria-label="'
+          + esc(entry.name) + ' — Braille (.brf)">Braille (.brf)</a>';
+      }
+      html += "</p>";
+    }
     if (entry.url) {
-      html += '<a href="' + esc(entry.url) + '">' + esc(entry.name) + "</a>";
-    } else {
-      html += "<strong>" + esc(entry.name) + "</strong>";
-    }
-    if (entry.brailleUrl) {
-      html += ' <a href="' + esc(entry.brailleUrl) + '" aria-label="'
-        + esc(entry.name) + ' — Braille (.brf)">Braille (.brf)</a>';
-    }
-    if (entry.textUrl) {
-      html += ' <a href="' + esc(entry.textUrl) + '" aria-label="'
-        + esc(entry.name) + ' — Plain text (.txt)">Plain text (.txt)</a>';
-      html += ' <button type="button" class="listen-btn" data-listen-url="'
-        + esc(entry.textUrl) + '" data-listen-name="' + esc(entry.name)
-        + '">Listen</button>';
+      html += '<p class="entry-url"><a href="' + esc(entry.url) + '">' + esc(entry.url) + "</a>";
+      if (entry.textUrl && entry.textUrl !== entry.url) {
+        html += ' <a href="' + esc(entry.textUrl) + '" aria-label="'
+          + esc(entry.name) + ' — Plain text (.txt)">Plain text (.txt)</a>';
+      }
+      html += "</p>";
     }
     html += '<span class="label">' + esc(entry.file) + " — " + esc(entry.format) + ". "
       + esc(entry.categoryName) + ". ";
@@ -403,13 +453,13 @@
       for (var g = 0; g < groups.length; g++) {
         html += '<h3 id="field-' + esc(groups[g].subsection) + '">' + esc(groups[g].title) + "</h3>";
         html += '<ul class="doc-list">';
-        for (var i = 0; i < groups[g].entries.length; i++) html += browseItem(groups[g].entries[i]);
+        for (var i = 0; i < groups[g].entries.length; i++) html += browseItem(groups[g].entries[i], 4);
         html += "</ul>";
       }
     } else {
       items = L.sortLibrary(items, order);
       html += '<ul class="doc-list">';
-      for (var i = 0; i < items.length; i++) html += browseItem(items[i]);
+      for (var i = 0; i < items.length; i++) html += browseItem(items[i], 3);
       html += "</ul>";
     }
     container.innerHTML = html;
@@ -425,7 +475,7 @@
       }
       items = L.sortLibrary(items, order);
       var html = "";
-      for (var k = 0; k < items.length; k++) html += browseItem(items[k]);
+      for (var k = 0; k < items.length; k++) html += browseItem(items[k], 3);
       lists[i].innerHTML = html;
     }
     renderFieldSections(order);
@@ -453,7 +503,7 @@
         html += "<h3>" + esc(groups[g].section) + "</h3>";
         html += '<ul class="doc-list">';
         for (var i = 0; i < entries.length; i++) {
-          html += browseItem(entries[i]);
+          html += browseItem(entries[i], 4);
         }
         html += "</ul>";
       }
@@ -529,7 +579,9 @@
     "CISA": "C I S A", "SWIC": "S W I C", "SCIP": "S C I P",
     "TICP": "T I C P", "RFOG": "R F O G", "DHS": "D H S",
     "UHF": "U H F", "VHF": "V H F", "ICS": "I C S", "FOUO": "F O U O",
-    "ARES": "A R E S"
+    "ARES": "A R E S", "UTC": "U T C", "ARRL": "A R R L", "CW": "C W",
+    "SSB": "S S B", "FM": "F M", "AM": "A M", "DX": "D X", "CQ": "C Q",
+    "PDF": "P D F"
   };
   function prepareListenSpeech(text) {
     /* Web addresses are not read letter by letter: on a line that holds

@@ -334,7 +334,7 @@ add({
   author: null,
   keywords: ["blind", "population", "distribution", "statistics", "reference"],
   status: "available",
-  note: "Made by Gregory AB9MZ from public data: data.gov, the World Health Organization (who.int), and resources from national blind organizations. Data as of May 29, 2025. The disability categories overlap, so the percentages add to more than 100."
+  note: "Made by Gregory AB9MZ from public data. Sources: data.gov, the World Health Organization (who.int), and national blind groups. Data as of May 29, 2025. The disability groups overlap, so the numbers add to more than 100."
 });
 
 /* ---- Emergency Communications: the FOG link index ---- */
@@ -355,7 +355,7 @@ add({
   author: "AB9MZ",
   keywords: ["fog", "nifog", "auxfog", "emergency", "communications", "field operations guide", "cisa", "interoperability", "listen", "braille", "emcomm"],
   status: "available",
-  note: "A link index to the official national and state Field Operations Guides that are publicly available — NIFOG, AUXFOG, and the state guides — linking to the publishers' own copies so you always get the current version. No official audio or Braille version is published for the guides themselves; this index document has its own Listen button and Braille file."
+  note: "Links to the official Field Operations Guides from the nation and the states. These are the NIFOG, AUXFOG, and state guides. Each link goes to the publisher's own copy, so you always get the newest one. No one makes an official audio or Braille copy of the guides. This index has its own Listen button and Braille file."
 });
 
 /* ---- Emergency Communications: the PEP/IPAWS reference ---- */
@@ -376,7 +376,7 @@ add({
   author: "AB9MZ",
   keywords: ["pep", "ipaws", "eas", "wea", "wireless emergency alerts", "emergency", "communications", "fema", "primary entry point", "text to 911", "satellite", "listen", "braille", "emcomm"],
   status: "available",
-  note: "FEMA's Primary Entry Point station table — all 73 entries with frequencies — plus explainers on IPAWS, the Emergency Alert System, and Wireless Emergency Alerts, emergency alert settings for iOS, Android, GrapheneOS, and Linux, satellite configuration, and texting to 911. Includes a Listen button and a Braille file."
+  note: "FEMA's list of PEP radio stations. All 73 are here, with their frequencies. PEP means Primary Entry Point. It also explains IPAWS, the Emergency Alert System, and Wireless Emergency Alerts. It covers alert settings for iPhone, Android, GrapheneOS, and Linux. It also covers satellite setup and texting to 911. Includes a Listen button and a Braille file."
 });
 
 /* ---- Counts must match the index exactly ---- */
