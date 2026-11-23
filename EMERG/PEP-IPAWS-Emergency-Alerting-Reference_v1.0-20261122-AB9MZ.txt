@@ -1,0 +1,358 @@
+FEMA Primary Entry Point Stations and the IPAWS Emergency Alert System
+A Reference for Visually Inconvenienced Hams
+Compiled November 22, 2026, by Nova for Gregory D. Rosenberg, AB9MZ
+
+About this document
+
+This document reproduces FEMA's Primary Entry Point (PEP) station table with every station's frequency and city, and explains the systems that carry emergency alerts to the American public: the Integrated Public Alert and Warning System (IPAWS), the Emergency Alert System (EAS), Wireless Emergency Alerts (WEA), the emergency settings on current phones and computers, satellite emergency features, and texting to 911. It is a companion to the Emergency Communications FOG Link Index (the field operating guides for interoperable radio), which covers how responders talk to each other; this document covers how warnings reach the public. The station list is FEMA's own interactive table, read November 22, 2026, with every frequency cross-checked against the station's own record. Where sources disagree, the disagreement is stated in the open rather than smoothed over; the count discrepancy is explained at the top of Section 2.
+
+1. The big picture: IPAWS
+
+The Integrated Public Alert and Warning System (IPAWS) is FEMA's national aggregator and distributor for alert information. It was created under a 2006 executive order directing the government to build an effective, reliable, integrated, flexible, and comprehensive public warning system. IPAWS itself does not decide what to warn you about: authorized alerting authorities (the President, FEMA, the National Weather Service, and state, local, tribal, and territorial officials) originate alerts, and IPAWS carries them to the public over several independent paths at once, so that no single failure silences the warning. The paths are the Emergency Alert System (EAS) over broadcast radio and television, Wireless Emergency Alerts (WEA) to mobile phones, NOAA Weather Radio, and internet-based distribution through IPAWS-OPEN, the IPAWS Open Platform for Emergency Networks, which uses the XML-based Common Alerting Protocol (CAP). IPAWS is jointly coordinated by FEMA, the Federal Communications Commission (FCC), and the National Oceanic and Atmospheric Administration (NOAA). The FCC's rules require broadcasters to keep the older SAME-based daisy chain working as a backup distribution path, because IPAWS depends on internet connectivity that may not survive the disaster it is warning about.
+
+2. The Primary Entry Point stations
+
+The National Public Warning System (NPWS) is the part of IPAWS that does not depend on the internet at all. It is a network of high-power radio broadcast stations called Primary Entry Point (PEP) stations. When the President activates the system for a national emergency, FEMA transmits the message to the PEP stations by satellite, the PEP stations broadcast it, and every other broadcaster in the country receives it through EAS and rebroadcasts it. The PEP stations are equipped with backup communications equipment and power generators, are hardened against physical and environmental threats, and are designed to keep broadcasting through the disaster. FEMA says the network can reach nearly 90 percent of the United States population within minutes, even under the most degraded conditions. Beginning with WJR Detroit and WLW Cincinnati in 2016, FEMA has been building transportable studio shelters at the transmitters of 33 PEP stations, with broadcasting equipment, emergency provisions, a rest area, and air filtration; the shelters are designed to expand the stations' survivability to an all-hazards platform, meaning chemical, biological, radiological, and electromagnetic pulse protection.
+
+A note on the count, and on sources: FEMA's own page gives two different numbers. The page text states there are 77 PEP stations, but the interactive table on the same page (last updated November 12, 2026, read November 22, 2026) contains 73 entries covering 72 distinct call signs, because WOKV in Jacksonville appears twice, once on 104.5 FM and once on 690 AM. A roster compiled from state EAS plans yields 78 stations. The table below is FEMA's interactive table, reproduced in full and in its displayed order, because it is the authoritative roster; the eight stations named in state EAS plans that do not appear on FEMA's table are listed separately in the appendix that follows, with an explanation. FEMA's table gives call sign, city, state, and frequency, and the cities below are FEMA's as listed: in several cases FEMA names the transmitter site or the market rather than the city of license (WTIC in Farmington rather than Hartford, WJR in Riverview rather than Detroit, WBAP in Arlington rather than Fort Worth, KFI in La Mirada rather than Los Angeles, KTWG in Piti rather than Hagatna), and one entry carries an apparent data error, WABC shown as New York, NJ, although the station is licensed to New York, New York and its transmitter is in Lodi, New Jersey. Every frequency below was cross-checked against the station's own record and matches.
+
+How to use this list: find the station that covers your area and note its frequency, because it is the station your local broadcasters monitor for the national message, and because a battery-powered AM radio tuned to a PEP station is the most resilient way to receive a national alert when the power, the cell network, and the internet are all down. For Gregory and for members in the Chicago area, the local PEP is WLS, 890 kHz, Chicago, covering Northwest Indiana and Northern Illinois; southern Illinois is covered by KMOX, 1120 kHz, St. Louis. Most PEP stations are 50,000-watt clear-channel AM stations, which is why so few transmitters cover so much ground: one clear-channel signal covers several states after dark. Twelve of the 73 entries are FM stations, mostly public radio stations in areas where no suitable clear-channel AM station exists.
+
+The stations (FEMA's interactive table, in its displayed order):
+
+WWL - 870 AM - New Orleans, LA
+WWFE - 670 AM - Miami, FL
+WVUV - 648 AM - Pago Pago, Am Samoa
+WTMJ - 620 AM - Milwaukee, WI
+WTIC - 1080 AM - Farmington, CT
+WTEL - 610 AM - Philadelphia, PA
+WTAR - 850 AM - Norfolk, VA
+WTAM - 1100 AM - Cleveland, OH
+WSTA - 1340 AM - St. Thomas, USVI
+WSRV - 97.1 FM - Atlanta, GA
+WSM - 650 AM - Nashville, TN
+WSFL - 106.5 FM - New Bern, NC
+WRXL - 102.1 FM - Richmond, VA
+WROW - 590 AM - Albany, NY
+WREC - 600 AM - Memphis, TN
+WQDR - 94.7 FM - Raleigh, NC
+WPLY - 610 AM - Roanoke, VA
+WOKV - 104.5 FM - Jacksonville, FL
+WOKV - 690 AM - Jacksonville, FL
+WMSI - 102.9 FM - Jackson, MS
+WMAC - 940 AM - Macon, GA
+WLW - 700 AM - Cincinnati, OH
+WLS - 890 AM - Chicago, IL
+WKVG - 94.5 FM - Greenville, SC
+WKAQ - 580 AM - San Juan, Puerto Rico
+WJXB - 97.5 FM - Knoxville, TN
+WJR - 760 AM - Riverview, MI
+WJOX - 690 AM - Birmingham, AL
+WJCW - 910 AM - Johnson City, TN
+WHO - 1040 AM - Des Moines, IA
+WHB - 810 AM - Kansas City, MO
+WHAM - 1180 AM - Rochester, NY
+WGAN - 560 AM - Portland, ME
+WFLF - 540 AM - Maitland, FL
+WFED - 1500 AM - Washington, DC
+WCOS - 97.5 FM - Columbia, SC
+WCHS - 580 AM - Charleston, WV
+WCCO - 830 AM - Minneapolis, MN
+WBZ - 1030 AM - Boston, MA
+WBT - 1110 AM - Charlotte, NC
+WBNW - 105.7 FM - Endicott, NY
+WBAP - 820 AM - Arlington, TX
+WBAL - 1090 AM - Baltimore, MD
+WABC - 770 AM - New York, NJ
+KXNT - 840 AM - Las Vegas, NV
+KWKH - 1130 AM - Shreveport, LA
+KTWO - 1030 AM - Casper, WY
+KTWG - 801 AM - Piti, Guam
+KTRH - 740 AM - Houston, TX
+KSL - 1160 AM - Salt Lake City, UT
+KRVN - 880 AM - Lexington, NE
+KROD - 600 AM - El Paso, TX
+KRMG - 740 AM - Tulsa, OK
+KPNW - 1120 AM - Eugene, OR
+KOPB - 91.5 FM - Portland, OR
+KOA - 850 AM - Denver, CO
+KMOX - 1120 AM - St. Louis, MO
+KMJ - 580 AM - Fresno, CA
+KLBJ - 590 AM - Austin, TX
+KKOH - 780 AM - Reno, NV
+KKOB - 770 AM - Albuquerque, NM
+KIRO - 710 AM - Seattle, WA
+KHTS - 93.3 FM - San Diego, CA
+KHKA - 1500 AM - Honolulu, HI
+KFYR - 550 AM - Bismarck, ND
+KFQD - 750 AM - Anchorage, AK
+KFI - 640 AM - La Mirada, CA
+KERR - 750 AM - Polson, MT
+KDRI - 830 AM - Tucson, AZ
+KDKA - 1020 AM - Pittsburgh, PA
+KCBS - 740 AM - San Francisco, CA
+KBOI - 670 AM - Boise, ID
+KAAY - 1090 AM - Little Rock, AR
+
+Appendix: stations named as PEP stations in state EAS plans that do NOT appear on FEMA's current table. These eight are most likely National Primary stations, which carry the national message into a state but are not PEP stations, or former PEP stations that have been replaced; they are listed here so that anyone comparing this document against a state EAS plan is not confused by the difference. WHEN, 620 kHz, Syracuse, New York (North Central New York). WHYY-FM, 90.9 MHz, Philadelphia, Pennsylvania (Delaware and Eastern Pennsylvania; FEMA's table lists only WTEL, 610 kHz, for that area). WAQI, 710 kHz, Miami, Florida (South Florida; FEMA's table lists WWFE, 670 kHz, Miami, instead). KTXY, 106.9 MHz, Jefferson City, Missouri (Central Missouri). KSCS, 96.3 MHz, Fort Worth, Texas (North Texas; FEMA's table lists only WBAP, 820 kHz, for that area). KOKC, 1520 kHz, Oklahoma City, Oklahoma (Oklahoma; FEMA's table lists only KRMG, 740 kHz, Tulsa, for that area). KOGO, 600 kHz, San Diego, California (San Diego area; FEMA's table lists KHTS, 93.3 MHz, San Diego, instead). KNX, 1070 kHz, Los Angeles, California (Southern California; FEMA's table lists only KFI, 640 kHz, for that area). Three further differences between FEMA's table and other sources are worth noting. WPLY: FEMA lists 610 kHz in Roanoke, Virginia, while the station's own article describes WPLY as 1390 kHz in Lynchburg, Virginia, which simulcast with the Roanoke 610 signal until September 30, 2025; the PEP is the Roanoke 610 signal. WVUV: FEMA lists 648 kHz AM in Pago Pago, American Samoa, while the published roster lists WVUV-FM, 103.1 MHz; the PEP is the AM signal. KHKA: FEMA's table confirms 1500 kHz in Honolulu, Hawaii; older references listing 940 kHz are out of date.
+
+National entry routes that are not stations: NPR, Premiere Networks, and SiriusXM also carry the national message, and stations outside the reach of a PEP signal can monitor those networks instead. NPR affiliates receive the message on the NPR Squawk Channel, Premiere affiliates on the Premiere FEMA Channel, and SiriusXM subscribers on the Barker Channel; stations connected to any of those become recognized National Primary sources.
+
+3. How the Emergency Alert System works
+
+The Emergency Alert System (EAS) became operational on January 1, 1997, replacing the Emergency Broadcast System (EBS), which had replaced CONELRAD. Its distinctive feature is Specific Area Message Encoding (SAME), the digitally encoded audio signal that produces the screeching or beeping sounds at the start and end of each message. The SAME header encodes who originated the alert, what kind of event it is, the areas affected (up to 32 counties or states), the expected duration, the date and time issued in UTC, and the originating station. The header is repeated three times for redundancy, because it carries no error detection codes; decoders compare the received headers and accept the message when any two match exactly. The header is followed by an attention signal (on commercial stations, the two-tone signal of 853 Hz and 960 Hz sine waves, the same signal the older Emergency Broadcast System used; on NOAA Weather Radio, a 1,050 Hz tone), then the voice message, then three bursts of the end-of-message marker. The two tones were chosen specifically for their ability to draw attention, because they are unpleasant to the human ear; playing them outside a real emergency is illegal and draws fines.
+
+Once a PEP station puts the national message on the air, it spreads by daisy chain: each EAS participant is required to monitor at least two other participants, and when a station receives the message it forwards it to the stations monitoring it, creating many redundant paths so the message survives individual station failures. The rules define the rungs of that chain: a PEP is the primary source of initial broadcast for a Presidential Alert (47 CFR 11.18), a National Primary carries the national message into a state, and each State EAS Plan names Local Primary stations, numbered LP-1, LP-2, and so on, which serve as the monitoring assignments for everyone else in their area. The FEMA National Radio System (FNARS), with its net control station at the Mount Weather Emergency Operations Center, provides the emergency presidential link into EAS. The government has stated the system would allow a president to speak during a national emergency within 10 minutes. In practice the national activation has never been used for a real presidential address; the system is used at regional scale for tornadoes, flash floods, AMBER Alerts, and other civil emergencies, and is tested nationally from time to time.
+
+4. Wireless Emergency Alerts (WEA)
+
+Wireless Emergency Alerts (WEA) are geographically targeted, text-like messages sent to mobile phones in a threatened area. WEA was established by the Warning, Alert, and Response Network (WARN) Act in 2008 and became operational in April 2012; since then it has been used nearly 96,000 times. WEA is a public-private partnership between FEMA, the FCC, and the wireless industry, and wireless carriers volunteer to participate. Alerts are free, no sign-up is required, and any WEA-capable phone in the alert zone receives the alert, including visitors and roamers, because the alert is broadcast from the cell towers covering the threatened area rather than addressed to individual phones.
+
+WEA uses Cell Broadcast technology, not SMS: the message goes out once from each tower in the target area and every capable phone in range receives it simultaneously, which is why WEA keeps working when the network is congested with ordinary calls and texts, and why WEA does not know or track who receives it. There are four alert types: National Alerts (issued by the President or the FEMA Administrator), Imminent Threat alerts (split into Extreme and Severe), AMBER Alerts, and Public Safety Messages. Participating carriers may let subscribers block every type except National Alerts. When an alert arrives, the phone plays a unique attention signal and a vibration cadence, repeated twice, even if the ringer is off, and displays the message as text; the message is preserved on the phone for at least 24 hours. The FCC notes that the attention signal and vibration cadence are particularly helpful to people with hearing or vision-related disabilities, and with VoiceOver or TalkBack running, the phone reads the alert text aloud.
+
+WEA has improved in three generations. WEA 1.0 carried messages of up to 90 characters, in English only. WEA 2.0 expanded messages to 360 characters and added Spanish-language alerts. WEA 3.0 added device-based geo-targeting: the phone receives the alert together with the geographic boundary and uses its own location to decide whether it is inside the target zone, so alerts reach the threatened area with no more than one-tenth of a mile of overshoot. The National Weather Service sends WEA messages for tornado, tsunami, hurricane, typhoon, storm surge, extreme wind, dust storm, and snow squall warnings, for flash floods only when the damage threat is considerable or catastrophic, and for severe thunderstorms only when the damage threat is destructive. Two changes are coming: starting in December 2026, WEA-capable phones will be able to display a location-aware map showing your position relative to the alert area, and starting in March 2028, alert originators will be able to send silent alerts that do not trigger the audio attention signal or vibration, under an FCC rule adopted in February 2025.
+
+The sections that follow cover the emergency features built into the operating systems in current use in late 2026: Apple iOS 26 and 27, Google Android 15 and 16, the current GrapheneOS stable release (based on Android 16), and current mobile Linux (Phosh, postmarketOS, PureOS). Every settings path was confirmed against a source listed at the end; anything that could not be verified is flagged in the "Could not verify" section rather than stated as fact.
+
+5. Emergency settings by operating system
+
+5.1 Apple iOS (iOS 26 and 27)
+
+Government alerts (Wireless Emergency Alerts) live under Settings > Notifications: scroll to the bottom of the Notifications screen to the Government Alerts section, where AMBER Alerts, Emergency Alerts, and Public Safety Alerts each have their own switch, and all of them are turned on by default. Some government alerts cannot be turned off at all, and Apple refers users to their local government's emergency alert policy for which ones; the alerts require a SIM or eSIM from a supported carrier. Test alerts are off by default and can be turned on from the same Notifications screen on iOS 15.6 or later, or by dialing *5005*25371# in the Phone app and tapping Call. New in iOS 26.2 and later: Enhanced Safety Alerts, available in the United States and Taiwan, provide supplemental safety alerts for emergencies like earthquakes or floods based on information from alert originators, and they are configured under Settings > Notifications > Enhanced Alerts > Enhanced Safety Alerts, where Earthquake Alerts and Imminent Threat Alerts are turned on by default and Improve Alert Delivery is turned off by default. With Enhanced Safety Alerts, an iPhone can receive earthquake alerts and broadcast them anonymously to nearby Apple devices, and turning on Improve Alert Delivery shares your approximate location with Apple to improve alert timeliness and reliability.
+
+Emergency SOS is configured under Settings > Emergency SOS. The two triggers are Call with Hold and Release (press and hold the side button and either volume button until the countdown ends, then release) and Call with 5 Presses (rapidly press the side button five times to start the countdown), and there is also a Call Quietly switch that silences the warning alarm and flashes during the countdown. By default the iPhone plays a warning sound, runs a countdown, then calls the local emergency number. After an emergency call ends, the iPhone texts your emergency contacts with your current location unless you choose to cancel, and your contacts keep receiving location updates for a period of time after you enter SOS mode. You can also dial the emergency number from a locked iPhone by tapping Emergency on the passcode screen, and you can text emergency services from the Messages app by typing 911 (or your local emergency number) in the To field. On iPhone 14 or later, Emergency SOS Live Video lets you stream live video or upload existing photos and videos to emergency services if they request it during a call.
+
+Medical ID is set up in the Health app: open Health, tap your profile picture or initials at the top right, then tap Medical ID. It holds medications, allergies, medical conditions, blood type, and notes, plus your emergency contacts. Two switches matter: Show When Locked (turned on by default) lets anyone view your Medical ID from the lock screen by tapping Emergency and then Medical ID on the passcode screen, and Share During Emergency Call automatically sends your Medical ID information to emergency services when you call or text 911 or use Emergency SOS (United States only, via a secure third-party service; Apple says it cannot read your Medical ID information when it is shared). For Medical ID sharing to work, Emergency Calls and SOS must be turned on under Settings > Privacy and Security > Location Services > System Services. Emergency contacts are added in the same Medical ID screen under Edit, and they are the people who get the text message after an Emergency SOS call.
+
+Crash Detection is built into iPhone 14 or later (all models) running iOS 16 or later, and Apple Watch Series 8 or later, Apple Watch SE (2nd generation), and Apple Watch Ultra or later running watchOS 9 or later. It is designed to detect severe car crashes (front-impact, side-impact, rear-end collisions, and rollovers) in passenger cars, and it is turned on by default. When a severe crash is detected, the device shows an alert for 10 seconds, then starts a 10-second countdown, then calls emergency services if you do not respond, and it can also notify your emergency contacts. To turn it off, go to Settings > Emergency SOS and turn off Call After Severe Crash; turning it off on one paired device turns it off on the other as well. Fall Detection is an Apple Watch feature (Apple Watch SE or later, Series 4 or later, and Ultra or later): if the watch detects a hard fall, it taps your wrist, sounds an alarm, and displays an alert, and if you do not respond it calls emergency services. Fall Detection is turned on automatically if your age in your Health profile or Medical ID is 55 or over, it is available only to users 18 or older, and Wrist Detection must be turned on for the watch to call automatically. To change it, open the Watch app on your iPhone, tap the My Watch tab, tap Emergency SOS, and turn Fall Detection on or off, choosing Always on or Only on during workouts.
+
+For alerts you can see or feel rather than hear: Apple's support page documents LED Flash for Alerts at Settings > Accessibility > Audio/Visual, which flashes the camera LED when a notification arrives (by default it works only while the device is locked, with a Flash on Silent option). Secondary sources report that on iOS 26.2 and later the setting is renamed Flash for Alerts and adds a choice of LED Flash, Screen, or Both, plus Flash While Unlocked and Flash in Silent Mode; that rename and the screen-flash option were not confirmed on Apple's own support page as checked, so treat the newer layout as reported rather than verified.
+
+Accessibility note for screen-reader users: government alerts arrive as a loud tone plus vibration with a text message, and VoiceOver reads the alert text aloud, so keeping Government Alerts turned on is the single most important step. The FCC notes that the unique WEA attention signal and vibration cadence are particularly helpful to people with hearing or vision-related disabilities. Emergency SOS, Medical ID, and Crash Detection are all operable without sight, since the triggers are physical buttons and the countdown is announced by sound; the one visual-only step is aiming the phone at a satellite, which is covered in Section 6.
+
+5.2 Google Android (Android 15 and 16, Pixel and Samsung)
+
+On both Pixel and Samsung phones, most emergency features live under Settings > Safety and emergency (Pixel labels it Safety and emergency in Settings; Samsung uses the same name). Pixel phones also have a Personal Safety app, which appears in the app list simply as Safety, and some options live only there. Menu names vary by manufacturer and Android version, so if a path below does not match your phone, use the search box at the top of the Settings app and search for the feature name.
+
+Emergency SOS is at Settings > Safety and emergency > Emergency SOS, and on first use it walks you through Start setup. It is available on Android 12 and later. On Pixel, pressing the power button five or more times starts it; on Samsung Galaxy phones, pressing the side button five times starts it (older Samsung models call the feature Send SOS messages). After the trigger, the phone runs a countdown (five seconds on Pixel) and then carries out the emergency actions you chose: call emergency services, share your location with your emergency contacts, and record video. You can choose whether actions start automatically after the countdown or wait for you to touch and hold on screen, and you can choose whether an alarm sounds during the countdown. On Samsung you can also require a swipe to place the call and set the countdown length. Emergency SOS does not work in airplane mode or when Battery Saver is on. Samsung's SOS message sends your location, a photo, and a five-second audio clip to your emergency contacts, then keeps sending location updates every 15 minutes for 24 hours.
+
+Medical information and emergency contacts are set up in the same Safety and emergency section. On Pixel, go to Settings > Safety and emergency > Medical information (or open the Safety app, then Your info) and enter blood type, allergies, medications, and conditions; on Samsung, go to Settings > Safety and emergency > Medical info. Emergency contacts are added under Settings > Safety and emergency > Emergency contacts. To make your medical information visible to first responders from the lock screen, on Pixel use the Safety app under Your info > Emergency info access, and on Samsung turn on Show on Lock screen in the Medical info screen. Emergency Location Service (ELS) sends your location to emergency services when you call or text an emergency number; it is at Settings > Safety and emergency > Emergency Location Service on Samsung and on most Pixels, although on some Pixel builds it sits under Settings > Location > Location services instead.
+
+Wireless emergency alerts are managed per category, and the National (Presidential) alert cannot be turned off on stock Android. Google's Android Help documents the path as Settings > Notifications > Wireless emergency alerts, where you can turn alert types on or off, review past alerts, and control sound and vibration; on Samsung phones the same screen is under Settings > Safety and emergency > Wireless emergency alerts, and on some Pixel builds it appears there too. The categories include Extreme threats, Severe threats, AMBER alerts, Public Safety messages, and test alerts. A toggle that lets emergency alerts override Do Not Disturb and other volume settings was reported in the GrapheneOS forum as added in Android 16 QPR1 or QPR2 and disabled by default; that toggle was not confirmed on Google's own help pages as checked, so treat it as reported rather than verified.
+
+Earthquake alerts are at Settings > Safety and emergency > Earthquake alerts and are turned on by default. Your phone can send you alerts about nearby earthquakes of magnitude 4.5 and above using your approximate location; in California, Oregon, and Washington the alerts are based on ShakeAlert data, and in other supported countries they are based on the Android Earthquake Alerts System, which uses the accelerometers in Android phones to detect shaking. You must have Wi-Fi or mobile data turned on to receive them, and you will only receive alerts in supported countries.
+
+Car crash detection is a Pixel-only feature: the Pixel uses location, motion sensors, and ambient audio to detect a possible car crash, then vibrates, sounds an alarm, and asks if you need help, and if you do not respond it contacts emergency services. Google's Safety Center lists it for Pixel 3, Pixel 4, and newer Pixel phones except Pixel 3a, while current guides describe it as available on Pixel 4a and later; turn it on under Settings > Safety and emergency > Car Crash Detection, after adding at least one emergency contact and turning on Emergency Location Service. Samsung phones do not have built-in car crash detection. Other Pixel Safety app features include Safety Check (you set a reason and a duration of up to 24 hours, and the phone checks in with you when the time is up, alerting your emergency contacts if you do not respond), Emergency Sharing (shares your real-time location and battery percentage with your emergency contacts, and shuts off automatically after 24 hours on Pixel), and Crisis alerts (Settings > Safety and emergency > Crisis alerts, on by default, with alerts about public emergencies and natural disasters that link to Google Search results for more information).
+
+Accessibility note for screen-reader users: with TalkBack on, the phone reads emergency alert text out loud. On Samsung Galaxy phones there is also a Speak alert message switch in the wireless emergency alerts preferences, which makes the phone read each alert aloud even without TalkBack running. The FCC notes that the WEA attention signal and vibration cadence are particularly helpful to people with hearing or vision-related disabilities, and WEA messages are preserved on the phone for at least 24 hours so you can review them later.
+
+5.3 GrapheneOS (current stable release, based on Android 16)
+
+GrapheneOS runs only on supported Google Pixel phones, is built from the Android Open Source Project, and ships with no Google apps or services built in; Google Play can be installed as an optional sandboxed app with no system privileges. The standard AOSP emergency features are present, and the paths match stock Android: Settings > Safety and emergency > Wireless emergency alerts, Settings > Safety and emergency > Emergency SOS, and Settings > Safety and emergency for medical information and emergency contacts.
+
+Wireless emergency alerts are a standard AOSP feature and are fully supported on GrapheneOS, with one deliberate difference from stock Android: GrapheneOS adds a toggle for the otherwise mandatory Presidential alert type, so all wireless alerts are completely optional and can be turned off. The GrapheneOS project says this is particularly useful in Canada, where the government sends every alert as a Presidential alert. The alert categories follow the AOSP cell broadcast settings and include Extreme threats, Severe threats, AMBER alerts, Public Safety messages, test alerts, state and local test alerts, and exercise alerts. Wireless emergency alert settings can only be changed from the Owner (admin) profile; secondary user profiles cannot change them. Cell broadcast requires a cellular connection, so alerts do not arrive in airplane mode, and Wi-Fi calling does not deliver them.
+
+Emergency SOS works from Settings > Safety and emergency > Emergency SOS: pressing the power button five times calls for help, and the number it calls can be changed under Call for help in that screen (GrapheneOS only accepts numbers it classifies as emergency numbers, such as 911 or 112). The basic five-press emergency call does not require Google Play services. What GrapheneOS does not have, because it does not ship Google's proprietary Personal Safety app or privileged Google Play services, is the rest of Google's safety suite: there is no Safety Check, no Emergency Sharing, no car crash detection, no Android earthquake alerts, and no Emergency Location Service (Google's help states that Emergency Location Service is available on most devices with Google Play services support). A GrapheneOS forum thread from the Android 14 era also reports that the location-sharing-with-contacts and video-recording parts of Emergency SOS are absent; that report is from 2024 and may be out of date, so it is flagged rather than stated as current fact.
+
+Accessibility note for screen-reader users: whether TalkBack ships by default on GrapheneOS could not be verified from the sources checked, so do not assume it is present; check the device before relying on it. The WEA attention signal and vibration cadence work the same as on stock Android, since they come from the standard AOSP cell broadcast implementation.
+
+5.4 Linux (mobile Linux and desktop Linux)
+
+Mobile Linux (Phosh on the PinePhone, PinePhone Pro, and Purism Librem 5, and other distributions such as postmarketOS, Mobian, and PureOS) is far behind Android and iOS on emergency features, but cell broadcast support has only recently arrived. The Phosh project introduced a daemon called cellbroadcastd that picks up cell broadcast messages from the modem and configures the channel list in the modem, and Phosh 0.48 enabled the cell broadcast dialog by default, with a panel in phosh-mobile-settings to configure which broadcast message categories (severities) are picked up, with the channel values depending on the country the device is in. The postmarketOS 26.06 release (June 21, 2026) brought a ModemManager upgrade that adds emergency cell broadcast support to Linux phones for the first time, with the project's own caveat that modem firmware, network compatibility, and device-specific integration remain limiting factors, so not every device will actually receive emergency alerts yet. In other words, a current mobile Linux phone may receive cell broadcast emergency alerts, but this is new, device-dependent, and not something to rely on without testing on your own device and network.
+
+Emergency calling from the Phosh lock screen exists but is experimental: the Phosh settings key for it (mobi.phosh.shell.emergency-calls, enabled) is documented as experimental, with the instruction to check whether it works with your provider, in your country, and with your SIM card before relying on it. The Phosh lock screen can display the status of ongoing calls, including emergency calls. No Emergency SOS button shortcut, no Medical ID or emergency-information equivalent, no crash detection, no fall detection, no earthquake alerts, and no satellite emergency feature was found on mobile Linux in the sources checked; if you carry a Linux phone as your only phone, you should assume none of those features exist and plan accordingly.
+
+Desktop Linux has no Wireless Emergency Alerts equivalent at all. A desktop or laptop running Linux has no cell broadcast receiver and no built-in emergency alerting or SOS system, so emergency alerts on a desktop Linux machine arrive only through whatever you set up yourself, such as a web browser open to a weather or emergency feed, an email or messaging app, or a dedicated radio receiver. The screen reader on GNOME-based desktop Linux is Orca, which is the default screen reader of the GNOME platform, is provided by default on distributions including Fedora and Ubuntu, and can be started with the Super + Alt + S keyboard shortcut on GNOME desktops; Orca provides speech and braille access to applications that support the AT-SPI accessibility infrastructure. Orca reads what is on the screen, but it cannot create emergency alerts that the operating system never receives, so a desktop Linux machine should never be your only way of receiving warnings.
+
+6. Satellite configuration
+
+6.1 iPhone satellite features (iPhone 14 or later, all models)
+
+Apple's satellite features run on the Globalstar satellite network and are included free for two years with the activation of an iPhone 14 or later (all models). They work only when you have no cellular and Wi-Fi coverage, and they require you to be outside with a clear view of the sky and the horizon; trees with light foliage may slow the connection, dense foliage, hills, mountains, canyons, and tall structures can block it, and satellite connectivity might not work in places above 62 degrees latitude, such as northern parts of Alaska and Norway. Satellite connectivity is not offered on iPhone models purchased in Armenia, Belarus, China mainland, Kyrgyzstan, Kazakhstan, and Russia, and for iPhone models purchased in Hong Kong and Macao it is offered only on iPhone 16e and later.
+
+Emergency SOS via satellite lets you text emergency services when you are outside cellular and Wi-Fi coverage. Before a trip, set up your Medical ID and emergency contacts in the Health app and try the demo: go to Settings > Emergency SOS and tap Try Demo (the demo does not call emergency services). In a real emergency, first try calling 911 or your local emergency number, because even if your carrier's network is unavailable the iPhone will attempt to route the call through other networks; if the call will not connect, tap Emergency Text via Satellite, then tap Report Emergency and answer the on-screen questions by tapping to describe your situation. Once connected, your iPhone starts a text conversation with emergency responders and shares your Medical ID and emergency contact information (if set up), your questionnaire answers, your location including elevation, and your remaining battery life. You can also choose to notify your emergency contacts. If you started a session but do not need help, do not quit the session; wait until a responder answers and explain that you do not need help. If your iPhone or Apple Watch detects a severe car crash or a hard fall and you are unresponsive, the automatic Crash Detection or Fall Detection notification may be sent to emergency services via satellite if you are outside cellular and Wi-Fi coverage.
+
+Messages via satellite, starting in iOS 18, lets you send and receive texts, emoji, and Tapbacks over iMessage and SMS with friends and family when you are off the grid; it is available in the United States, Canada, Mexico, and Japan, and Apple states plainly that it should not be used in emergencies (use Emergency SOS via satellite instead). Before going off the grid, turn on iMessage, set up emergency contacts and Family Sharing (your emergency contacts and Family Sharing members can message you via SMS without you messaging them first), and try the demo under Settings > Apps > Messages > Satellite Connection Demo. When your iPhone detects that you are off the grid, it alerts you on the lock screen and in the Messages app. Roadside Assistance via satellite lets you text a roadside assistance provider when you are off the grid, for example if you are locked out, have a flat tire, or run out of fuel or charge; it requires iOS 17 or later, an active SIM, and no cellular or Wi-Fi coverage, and it is available in the United States (including Puerto Rico) through AAA (iOS 17 or later) or Verizon (iOS 17.2 or later, and a Verizon SIM is required for Verizon roadside assistance), in the United Kingdom through Green Flag (iOS 17 or later), and in Australia through NRMA, RACV, RACQ, RAA, RAC, RACT, and AANT (iOS 18.4 or later). To request it, open Connection Assistant and choose Roadside Assistance, or open Messages, start a new message, type "Roadside" in the address field, and tap Roadside Assistance. Find My via satellite lets you update and share your location when off the grid.
+
+Starting in iOS 18, the Connection Assistant helps you reach satellite features and connect to a satellite: open it in Control Center by swiping down from the top right corner, tapping the Cellular button, then tapping Satellite, or in the Settings app by tapping Satellite. If you have cellular or Wi-Fi coverage, the Satellite option in Settings does not appear and the Satellite option in Control Center opens the Satellite Connection Demo instead. To connect, hold your phone naturally in your hand; you do not need to raise your arm or hold the phone up, but the phone needs a clear line of sight to the sky, and on iPhone 14 Pro or later the Dynamic Island shows indicator dots for connection strength.
+
+Separately from Apple's own satellite features, some carriers now provide satellite service through their own partnerships (for example with Starlink): on iPhone 13 or later with the latest iOS and a supported carrier, carrier-provided satellite features can supply messaging and limited data on select apps when you are outside traditional coverage. You can turn carrier satellite service off under Settings > Cellular > Cellular Data Options > Satellite (or under your carrier or phone number if you have multiple SIMs). Even with carrier satellite service, you can still use Apple's satellite features on iPhone 14 or later through the Connection Assistant or by dialing or texting emergency services when off the grid.
+
+6.2 Google Pixel Satellite SOS (Pixel 9 and later, except Pixel 9a)
+
+Satellite SOS is available on all Pixel devices since the Pixel 9, except the Pixel 9a, and on Pixel Watch 4 LTE and newer. It runs over Skylo's satellite network and routes emergencies to the Garmin Response coordination center. It is available in the United States, Canada, Puerto Rico, Australia, and most of Europe, including the United Kingdom, Norway, Switzerland, and Liechtenstein; Google notes that connectivity depends on network coverage, network conditions, and the government agency of each respective carrier, so the country list does not guarantee coverage. It is included at no extra charge for a limited time after you activate a supported device, and Google has not said what, if anything, it will cost after that. Google Messages must be your default messaging app to use it, and if you switch to another messaging app the phone shows a notification that Satellite SOS will no longer be available.
+
+The feature activates once the necessary software and APIs are updated and the service is registered with the satellite network, and the phone notifies you once it is active; you can check the status under Settings > Safety and emergency > Satellite SOS. To use it in a real emergency, dial your local emergency number (911 in the United States); if you have no mobile or Wi-Fi network, the dialer shows a Satellite SOS option. Tap Satellite SOS, then Use Satellite SOS, then Start, fill out the emergency questionnaire, and choose Notify to alert your emergency contacts or Don't notify to keep your location and emergency information from them. Then follow the on-screen prompts to position the phone toward the satellite: the phone connects to satellites in fixed positions above the earth, so you have to face the correct direction and tilt the device, and trees, terrain, or buildings can block the connection. You can practice with the demo under Settings > Safety and emergency > Satellite SOS, which walks you through the process without contacting emergency services. On the Pixel 10 series, Skylo also powers satellite-based location sharing in Android 16, letting you send your live location from remote areas using Google Maps or Find Hub, with a satellite icon on the shared location pin; Google and Skylo say this feature will come to the Pixel 9 series as well. Pixel Watch 4 is the first smartwatch with standalone satellite SOS and messaging, working without a phone nearby.
+
+6.3 Carrier satellite services (T-Mobile, Verizon, and what is not yet live)
+
+T-Mobile T-Satellite, built on SpaceX Starlink Direct to Cell satellites, launched commercially on July 23, 2025 after a beta phase with nearly two million users, and it is the only carrier satellite service in the United States that is fully live with messaging and app data today. It works with most unlocked smartphones from roughly the last four years (iPhone 14 and later, Galaxy S21 and later, Pixel 9 and later, and others; T-Mobile has an IMEI checker and the T-Life app to confirm your exact model), with no special app, no pointing the phone at the sky, and no change to how you text: the phone hops onto the satellite network on its own when no tower is in range. It carries SMS, MMS, and RCS texting including picture and audio messages, location sharing, free text to 911, and limited data for a fixed list of satellite-ready apps (including WhatsApp, with voice messages, plus AllTrails, AccuWeather, Google Maps, and others; app data was switched on October 1, 2025). It does not carry native voice calls, general web browsing, or video streaming. Coverage is the continental United States, Hawaii, Puerto Rico, and parts of southern Alaska, plus limited international roaming through partner carriers (Rogers in Canada, One NZ in New Zealand, KDDI in Japan), covering more than 500,000 square miles of dead zone. It costs $10 per month per line as a limited-time price (regularly $15), is included at no extra cost on T-Mobile's Experience Beyond and Better Value plans, and is available to customers of other carriers on an unlocked eSIM phone for the same $10 per month. Text to 911 via satellite is free to anyone with a compatible phone, even without a T-Satellite subscription, but phones with satellite emergency service already built in (iPhone 14 and later, and Pixel 9 and later) are not eligible for T-Mobile Text to 911 because they already have it. T-Mobile's own warning applies throughout: satellite service, including text to 911, may be delayed, limited, or unavailable, and it works only in most outdoor areas where you can see the sky.
+
+Verizon satellite SOS and messaging, provided through a partnership with Skylo, is live and free with no extra fee on selected Android phones: Samsung Galaxy S25, S25 Edge, S25+, S25 Ultra, Galaxy Z Fold7, and Galaxy Z Flip7, and Google Pixel 9, 9 Pro, 9 Pro XL, 9 Pro Fold, Pixel 10, 10 Pro, and 10 Pro XL. Verizon launched emergency messaging on Skylo in fall 2024 and opened two-way satellite texting on March 19, 2025. It provides two-way basic SMS text messaging in Google Messages (which must be your default messaging app) and Satellite SOS to 911 via Garmin Response, in non-coverage areas within the continental United States, Hawaii, and Alaska. Multimedia messages, RCS, and attachments are not supported, and Wireless Emergency Alerts are not supported over Skylo. On a Samsung phone you can check satellite status under Settings > Connections > Satellite networks; on a Pixel it is under Settings > Safety and emergency > Satellite SOS.
+
+AT&T and Verizon customers do not yet have a live satellite service of their own. Their satellite partner is AST SpaceMobile, which as of November 2026 has 13 BlueBird satellites in orbit and says it needs about 45 for continuous coverage, a target it moved to mid-2027 in its November 9, 2026 business update. AST says it expects initial, intermittent nationwide coverage in the United States, Canada, Japan, the United Kingdom, and Saudi Arabia before the end of 2026, meaning a phone connects only when a satellite is passing overhead, with carrier beta trials expected in early 2027 and paid commercial service three to six months after beta starts, so spring 2027 at the earliest. AT&T demonstrated a live call handing over from its ground network to AST's satellite network on October 21, 2026 near Granite Falls, Washington, using ordinary smartphones, and the FCC authorized AST in April 2026 to launch and operate up to 248 low-earth-orbit satellites for supplemental coverage in the United States. No consumer pricing or sign-up date has been announced by AT&T or Verizon. Until that service is actually live, AT&T and Verizon customers who want satellite texting today can use T-Mobile's T-Satellite on an unlocked eSIM phone for $10 per month, or use the satellite SOS built into their iPhone 14 or later or Pixel 9 or later.
+
+One more note: Apple Watch Ultra 3 (2025) is reported to include satellite connectivity, but that was not confirmed on Apple's own support pages as checked, so it is listed in the "Could not verify" section rather than stated here as fact.
+
+6.4 Limitations that matter
+
+Satellite messaging is a backup, not a replacement for a normal call. If you have cellular or Wi-Fi signal, call 911 by voice; satellite features only appear when you have no other connection, and Apple and Google both say to use them only when no other means of reaching emergency services is available. Satellite messages are slow: they can take 30 seconds to a few minutes each way, and a conversation with a dispatcher takes much longer than a voice call. You must be outdoors with a clear view of the sky; satellite service does not work indoors, under heavy tree cover, in canyons, or surrounded by tall buildings, and Apple's satellite features may not work above 62 degrees latitude. Satellite texting is text only on most services: no voice calls (except WhatsApp voice messages on T-Satellite), no photos or video on Verizon/Skylo, no group chats on Apple's Messages via satellite, and no Wireless Emergency Alerts over Verizon's Skylo service (T-Mobile did transmit Wireless Emergency Alerts over Starlink Direct to Cell during Hurricanes Helene and Milton and the Los Angeles wildfires under special FCC authority, but that was an emergency authorization, not a standing feature). Availability depends on your country, your carrier, your phone model, and your software version, and free periods end: Apple's satellite features are free for two years after activation of an iPhone 14 or later, and Google's Satellite SOS is free for a limited time after activation, with neither company having announced what happens after.
+
+7. Texting to 911
+
+Text-to-911 lets you reach your local 911 center (the Public Safety Answering Point, or PSAP) by text message when you cannot make a voice call. The guiding rule, stated by the FCC and by state 911 coordinators alike, is: call if you can, text if you can't. A voice call is faster, carries more information (including background noise and vocal cues that help dispatchers assess the scene), and transmits more reliable location data than a text. Texting is for the situations where calling is not safe or not possible: you are deaf or hard of hearing, you have a speech disability, a medical emergency has left you unable to speak, or speaking would put you in danger, for example during a home invasion, an abduction, or domestic violence.
+
+Whether you can text 911 depends entirely on your local PSAP, not on your state or your carrier. The FCC maintains a Text-to-911 PSAP Registry, a public spreadsheet listing every 911 center that has reported it is ready to receive texts (and, since a 2021 update, PSAPs ready to receive real-time text, or RTT, which sends text character by character as you type). You can find it on the FCC website by searching for the Text-to-911 PSAP Registry; the registry file itself is published at fcc.gov/files/text-911-master-psap-registry.xlsx. Search the registry for your county or your 911 center's name, and confirm with your county 911 authority through its non-emergency line, since registry entries can lag operational status and registration is voluntary, so some centers that accept texts may not appear on it. If your PSAP is not on the registry, assume texting 911 will not work there and plan to call instead. Never send a test text to 911: testing ties up emergency resources and may be unlawful misuse of 911 under state law. Remember that your text goes to the PSAP serving your current location, not your home, so check coverage when you travel. If you text 911 where the service is not available, FCC rules require your carrier to send you an automatic bounce-back message telling you that text-to-911 is not available and directing you to make a voice call.
+
+To send an emergency text, open your phone's default text messaging app (the one you use for ordinary SMS messages), type 911 in the To field with no dashes, spaces, or other characters, and send a plain text message. You must use SMS: iMessage-only conversations, WhatsApp, Facebook Messenger, and similar apps are not required to support text-to-911 and generally cannot reach dispatchers. Your first message should include your exact location and the type of emergency, because the dispatcher has no voice cues to work with and may have no location data at all: give a street address and city if you know them, and if you do not, give cross streets, landmarks, a business name, or a floor and room number, then say what help you need (police, fire, or medical) and add one sentence about what is happening right now. Use plain language and complete words, with no abbreviations, slang, emoji, or symbols, and do not send photos or video, which most 911 centers cannot receive by text. Do not include anyone else on the text: a group text to 911 may not go through at all. Stay with your phone, be prepared to answer the dispatcher's questions, and follow their instructions; the dispatcher will likely ask whether you are able to talk. Watch out for autocorrect, especially when typing an address. Text in English unless you know your PSAP supports another language for text, since interpreter services are generally not available for text at this time.
+
+The limitations are real and worth knowing in advance. Location data with a text is less accurate than with a voice call: the FCC has acknowledged that wireless providers are generally unable to provide the same level of dispatchable location for most 911 texts as they can for voice calls, and your text may arrive with little or no location information attached, which is why typing your address in the message itself is the single most important thing you can do. Texts may take longer to receive and respond to than a voice call, may be received out of order, or may not be received at all. You need an active texting plan to text 911 (unlike a voice 911 call, which works from any phone with a signal, even without service), and text-to-911 is not available while roaming.
+
+
+Could not verify, and open questions
+
+The following items could not be verified from the sources checked and are flagged rather than stated as fact in the document above. The station count: FEMA's page text states there are 77 PEP stations, but the interactive table on the same page contains 73 entries (72 distinct call signs), and a roster compiled from state EAS plans yields 78 stations. The document presents FEMA's table as authoritative and lists the eight state-plan stations that do not appear on it in an appendix, with the explanation that they are most likely National Primary stations or former PEP stations; which of those two explanations applies to each of the eight was not determined. The Hawaii entry is resolved: FEMA's table confirms KHKA at 1500 kHz in Honolulu, and older references listing 940 kHz are out of date. Per-station transmitter power is not listed: most PEP stations are 50,000-watt clear-channel AM stations, but power was not verified station by station and is therefore not stated per station. FEMA's table itself carries one apparent data error, WABC shown as New York, NJ; the station is licensed to New York, New York, with its transmitter in Lodi, New Jersey.
+
+The FCC's own text-to-911 consumer page (fcc.gov/textto-911) returned an access-denied error when I tried to open it, so the text-to-911 section rests on an FCC public notice (DA 21-301), the FCC registry, state and county 911 guidance, and secondary sources citing the FCC, rather than on the FCC's consumer page itself. Whether Google's Satellite SOS works on GrapheneOS, with or without sandboxed Google Play installed, could not be verified; Google's Satellite SOS requires Google Messages as the default messaging app and registration with the satellite network through Google's services, and GrapheneOS ships no Google services by default, so do not assume it works. Whether TalkBack ships by default on GrapheneOS could not be verified. Whether the location-sharing and video-recording parts of Emergency SOS are still absent on GrapheneOS could not be verified against a current source; the only report found is a GrapheneOS forum thread from the Android 14 era. The iOS 26.2 rename of LED Flash for Alerts to Flash for Alerts, with a screen-flash option, is reported by secondary sources but was not confirmed on Apple's own support page as checked. The Android 16 toggle that lets emergency alerts override Do Not Disturb was reported in a GrapheneOS forum post as added in Android 16 QPR1 or QPR2 and was not confirmed on Google's help pages. Apple Watch Ultra 3 satellite connectivity is reported by secondary sources but was not confirmed on Apple's support pages as checked. The exact Emergency Location Service settings path on Pixel varies between sources (Settings > Safety and emergency > Emergency Location Service in one guide, Settings > Location > Location services in another), so both locations are given in the draft. The list of Pixel models with car crash detection differs between Google's Safety Center (Pixel 3, Pixel 4, and newer except Pixel 3a) and current guides (Pixel 4a and later), so both are given in the draft.
+
+
+Sources
+
+All sources checked November 22, 2026, unless noted. Official documentation is listed first within each group.
+
+Sections 1-3 (IPAWS, PEP stations, EAS)
+
+FEMA, "National Public Warning System" (page last updated November 12, 2026; the interactive "Explore the PEP Stations" table on this page is the source of the Section 2 roster, read November 22, 2026): https://www.fema.gov/emergency-managers/practitioners/integrated-public-alert-warning-system/national-public-warning-system
+
+FEMA/NCP/IPAWS Division, "National Public Warning System (NPWS) Primary Entry Point (PEP) Station Asset List" (dataset FEMA-0454, last updated September 1, 2025): https://catalog.data.gov/dataset/national-public-warning-system-npws-primary-entry-point-pep-station-asset-list
+
+Wikipedia, "Emergency Alert System" (PEP station roster by operational area; SAME, daisy chain, and FNARS descriptions): https://en.wikipedia.org/wiki/Emergency_Alert_System
+
+Wikipedia, individual station articles (one per station, frequency and city of license verified from each article's lead sentence on November 22, 2026; article titles are recorded in the compilation notes).
+
+N6JET, "Primary Entry Point AM Stations for Emergency Alerts" (updated November 15, 2026): https://www.n6jet.com/primary-entry-point-am-stations.html
+
+Citizens Radio, "Primary Entry Point stations: how a national alert travels": https://citizensradio.org/emergency-broadcasting/primary-entry-point-stations/
+
+Oregon State EAS Plan, Version 15.0 (August 1, 2018) (PEP designations, KOPB-FM and KPNW): https://sbe141.org/wp-content/uploads/2018/10/Oregon-State-EAS-Plan-Version-15-August-1-2018.pdf
+
+Washington State Emergency Management Division, "Monitoring Guidelines for WA-PAWS - Tab C5A" (September 14, 2021) (KIRO as Washington's PEP; NPR, Premiere, and SiriusXM as National Primary sources): https://mil.wa.gov/asset/6144f3a85391d
+
+Section 4 (Wireless Emergency Alerts)
+
+FCC, "Wireless Emergency Alerts (WEA)" consumer guide: https://www.fcc.gov/consumers/guides/wireless-emergency-alerts
+
+National Weather Service, "Weather warnings on the go!" (WEA versions 1.0, 2.0, 3.0; NWS warning types sent by WEA): https://www.weather.gov/wrn/wea
+
+Wikipedia, "Wireless Emergency Alerts": https://en.wikipedia.org/wiki/Wireless_Emergency_Alert
+
+FCC, "WEA-Capable Mobile Devices" consumer guide (360-character messages, location-aware maps from December 2026, silent alerts from March 2028; last reviewed September 12, 2025): https://www.govinfo.gov/content/pkg/GOVPUB-CC-PURL-gpo252939/pdf/GOVPUB-CC-PURL-gpo252939.pdf
+
+Federal Register, Volume 90, Issue 51 (March 18, 2025), "Wireless Emergency Alerts; Emergency Alert System" (Seventh Report and Order, FCC 25-14, silent alerts): https://www.govinfo.gov/content/pkg/FR-2025-03-18/html/2025-04126.htm
+
+
+Sections 5 (Emergency settings by operating system)
+
+Apple Support, "Government, Emergency, and Enhanced Safety Alerts on iPhone": https://support.apple.com/en-us/102516
+
+Apple Support, "Use SOS to contact emergency services on your iPhone" (iPhone User Guide): https://support.apple.com/guide/iphone/contact-emergency-services-iph3c99374c/ios
+
+Apple Support, "Set up your Medical ID in the Health app on your iPhone" (published March 10, 2026): https://support.apple.com/en-us/105072
+
+Apple Support, "Use Crash Detection on iPhone or Apple Watch to call for help in an accident" (published May 7, 2026): https://support.apple.com/en-us/104959
+
+Apple Support, "Use Fall Detection with Apple Watch" (published May 6, 2026): https://support.apple.com/en-us/108896
+
+Apple Support, "Get LED flash alerts on your iPhone or iPad": https://support.apple.com/en-us/111774
+
+Apple Support, "Safety Features": https://support.apple.com/safety-features
+
+Google Android Help, "Get help during an emergency with your Android phone": https://support.google.com/android/answer/9319337?hl=en
+
+Google Pixel Phone Help, "Get help in an emergency using your Pixel phone": https://support.google.com/pixelphone?p=personal_safety_assistant
+
+Google Safety Center, "Google Pixel Privacy and Security Features": https://safety.google/intl/en_us/pixel/
+
+GrapheneOS, "Features overview" (confirms the Presidential alert toggle and the Android 16 base): https://grapheneos.org/features
+
+GrapheneOS Discussion Forum, "Emergency Update?" (emergency alerts are a standard AOSP feature, Settings > Safety and emergency > Emergency alerts): https://discuss.grapheneos.org/d/9456-emergency-update
+
+GrapheneOS Discussion Forum, "Are PlayServices running necessary for the SOS feature?" (basic five-press SOS call; location sharing and video recording absent on Android 14): https://discuss.grapheneos.org/d/10735-are-playservices-running-necessary-for-the-sos-feature
+
+GrapheneOS Discussion Forum, "How to disable Wireless emergency alerts" (all alerts can be disabled on GrapheneOS): https://discuss.grapheneos.org/d/31960-how-to-disable-wireless-emergenecy-alerts
+
+WhistleOut, "How To Set Up Android's Emergency and Safety Features" (Pixel and Samsung paths, including Medical info lock-screen access): https://www.whistleout.com/CellPhones/Guides/how-to-set-up-android-emergency-and-safety-features
+
+Holler, "How to Set Up Emergency SOS on Android" (Pixel and Samsung Emergency SOS, citing Google Android Help and Samsung US support): https://www.holler.run/guides/how-to-set-up-emergency-sos-on-android
+
+How-To Geek, "Set up these 4 Android emergency settings before your life depends on it" (Medical info, Emergency Location Service, car crash detection on Pixel 4a and later): https://www.howtogeek.com/set-up-these-android-emergency-settings-before-life-depends-on-it/
+
+Phosh, "Phosh 2025 in Retrospect" (cellbroadcastd, cell broadcast enabled by default, mobile settings severity configuration): https://phosh.mobi/posts/phosh-2025-in-retrospect/
+
+Debian Manpages, "phosh.gsettings(5)" (cell-broadcast and experimental emergency-calls settings keys): https://manpages.debian.org/unstable/phosh/phosh.gsettings.5.en.html
+
+TechTimes, "Linux Phone OS postmarketOS Ships 26.06" (ModemManager emergency cell broadcast support, June 21, 2026): https://www.techtimes.com/articles/318893/20260623/linux-phone-os-postmarketos-ships-2606-gnome-50-plymouth-254-devices.htm
+
+Wikipedia, "Phosh" (lock screen emergency call status, Phosh 0.58.0 current): https://en.wikipedia.org/wiki/Phosh
+
+Wikipedia, "Orca (assistive technology)" (GNOME default screen reader): https://en.wikipedia.org/wiki/Orca_%28assistive_technology%29
+
+Red Hat Documentation, "Enabling accessibility for visually impaired users" (Orca included by default on RHEL 10 GNOME, Super + Alt + S): https://docs.redhat.com/pt-br/documentation/Red_Hat_Enterprise_Linux/10/html/using_the_gnome_desktop_environment/enabling-accessibility-for-visually-impaired-users
+
+The Blind Bridge, "Emergency Preparedness Without Sight" (VoiceOver reads WEA alerts aloud; TalkBack reads alerts aloud; Samsung Speak alert message; updated November 14, 2026): https://theblindbridge.com/emergency-prep/
+
+FCC, "Wireless Emergency Alerts (WEA)" consumer guide (attention signal and vibration particularly helpful to people with hearing or vision-related disabilities): https://www.fcc.gov/consumers/guides/wireless-emergency-alerts
+
+SolveYourTech, "How to Turn Flash Notifications On or Off on iPhone" (iOS 26.2 Flash for Alerts rename and screen-flash option; secondary source, not confirmed on Apple's page): https://www.solveyourtech.com/turn-flash-notification-iphone-5/
+
+Section 6 (Satellite configuration)
+
+Apple Support, "Connect to a satellite with your iPhone": https://support.apple.com/en-us/105097?cid=general-phone-marcom-08062025
+
+Apple Support, "Use Emergency SOS via satellite on your iPhone": https://support.apple.com/en-us/101573
+
+Apple Support, "About Messages via satellite": https://support.apple.com/en-us/120930
+
+Apple Support, "Use Roadside Assistance via satellite on your iPhone": https://support.apple.com/en-us/105098
+
+Apple Support, "About carrier-provided satellite features on iPhone" (published September 17, 2026): https://support.apple.com/en-us/122339
+
+Google Pixel Phone Help, "Get emergency help through satellite with your Pixel phone": http://support.google.com/pixelphone/answer/15254448?p=satellitesos&rd=1&visit_id=639004966219661290-2617668092
+
+Google, "Making Emergency Calls on Google Products" (Satellite SOS on Pixel 9 and 10 series except 9a, and Pixel Watch 4): https://support.google.com/product-documentation/answer/18791804
+
+IoT Business News, "Google and Skylo Bring Satellite Connectivity to Pixel 10 and Launch Pixel Watch 4 with 2-Way Emergency Messaging" (August 21, 2025; satellite location sharing on Pixel 10, Pixel Watch 4 standalone satellite SOS): https://iotbusinessnews.com/2025/08/21/20265-google-skylo-bring-satellite-connectivity-to-pixel-10-and-launch-pixel-watch-4-with-2-way-emergency-messaging/
+
+T-Mobile, "T-Satellite: Direct to Cell Satellite Phone Service" (pricing, free Text to 911, coverage, limitations): https://www.t-mobile.com/coverage/satellite-phone-service?icid=MGPO_TMO_U_26PPTMIXRC_1246G313230251G0229F0
+
+Verizon Support, "Satellite SOS and messaging FAQs" (Skylo partnership, supported phones, no MMS/RCS/WEA): https://www.verizon.com/support/satellite-faqs/
+
+Starlink, "Direct to Cell Service Now Available" (commercial availability, FCC approval November 2024, emergency WEA transmission during hurricanes and wildfires): https://www.starlink.com/public-files/DIRECT_TO_CELL_SERVICE_FEB_25.pdf?srsltid=AfmBOorrF-snSdlhzuBh-a4Mm4s4oRcO6MKV3k0VmB39FUqnF6e_Z4M2
+
+Telco Magazine, "T-Mobile and Starlink Lead in Satellite-to-Mobile" (commercial launch July 23, 2025; beta of nearly two million users): https://telcomagazine.com/news/t-mobile-and-starlink-lead-in-satellite-to-mobile
+
+Skipcall.io, "Satellite Texting: iPhone, Pixel, Galaxy, Carriers, Costs" (October 2026; Verizon two-way texting opened March 19, 2025): https://skipcall.io/en/blog/satellite-texting-phones
+
+Talk with Tech, "AST SpaceMobile vs Starlink: when AT&T and Verizon users get it" (13 satellites, 45-satellite target moved to mid-2027, beta early 2027): https://talkwithtech.com/ast-spacemobile-vs-starlink-att-verizon/
+
+SatellitePlan, "When will AT&T and Verizon satellite phone service launch? AST says by year-end" (intermittent coverage before end of 2026, FCC authorization April 2026): https://www.satelliteplan.com/news/ast-spacemobile-satellite-phone-service-year-end-att-verizon/
+
+Orbitalpha, "When will AST SpaceMobile start commercial service?" (paid service three to six months after beta; spring 2027 earliest): https://www.orbitalpha.cloud/articles/when-will-ast-spacemobile-start-commercial-service
+
+Pandromeda, "Pixel Satellite SOS: How It Works, Cost and Phones [2026]" (Skylo network, Garmin Response, free for a limited time): https://pandromeda.com/mobile/what-is-pixel-satellite-sos-how-it-works-and-what-it-costs
+
+Android Police, "Don't leave home without checking that this Verizon feature is active" (Verizon Skylo on Galaxy S25 Ultra, Settings > Connections > Satellite networks): https://www.androidpolice.com/verizon-skylo-satellite-messaging/
+
+Section 7 (Texting to 911)
+
+FCC Public Notice DA 21-301 (March 12, 2021), "Public Safety and Homeland Security Bureau Announces Availability of Updated PSAP Text-to-911 Certification and Readiness Form and Registry" (registry URL, RTT readiness): https://docs.fcc.gov/public/attachments/DA-21-301A1.txt
+
+Washington State Military Department, Emergency Management Division, "Texting911" ("Call if you can, text if you can't"; how to text; no photos, video, or emoji; no group texts; text in English only): https://mil.wa.gov/texting911
+
+DuPage County (Illinois), "Text to 911" (call if you can, text if you can't; what to include; bounce-back message; active texting plan required): https://www.dupagecounty.gov/government/departments/etsb/text_to_911.php
+
+Frederick County (Virginia), "Text-to-911" (when texting is appropriate; location and nature of emergency first; no abbreviations or slang; bounce-back required by FCC rules): https://www.fcva.us/departments/public-safety-communications/text-to-911
+
+LegalClarity, "Yes, You Can Text 911 in Alabama: Here's How It Works" (call if you can, text if you can't, citing the FCC; location less accurate for texts; SMS only): https://legalclarity.org/can-you-text-911-in-alabama-how-and-when-to-do-it/
+
+Fransis.ai, "Text-to-911 Availability by State: A Complete Guide" (FCC registry as the authoritative source; registration voluntary; never send a test text; current as of August 2026): https://www.fransis.ai/articles/text-to-911-availability-by-state

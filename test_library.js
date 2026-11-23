@@ -1,7 +1,7 @@
 /* Node tests for library.json + library.js. Run: node test_library.js
  * Exit code 0 only when every check passes.
  *
- * COUNT NOTE: the library holds 78 files: the 77 files in the Document
+ * COUNT NOTE: the library holds 79 files: the 77 files in the Document
  * Index, third edition, 2026-11-16 (the 71-file field-reference
  * collection, the contest schedule, the index itself, the two
  * question-pool files, the Tonne article, and the blind-population
@@ -10,8 +10,9 @@
  * NOT entries here — they are not in the index (they are not in group
  * Files); the page links to their folders in the field-reference
  * repository instead. Since 2026-11-22 each field-reference entry also
- * carries a brailleUrl to its own .brf file, and the FOG index carries
- * one too (70 entries, 24 distinct .brf files); the .brf files are
+ * carries a brailleUrl to its own .brf file, and the FOG index and the
+ * PEP/IPAWS reference carry one too (71 entries, 25 distinct .brf files);
+ * the .brf files are
  * still not entries, only secondary links next to the main download
  * link. The FOG index is also the only entry with a textUrl, which is
  * what its Listen button reads aloud.
@@ -52,7 +53,7 @@ function check(name, cond, detail) {
 }
 
 /* ---- count and fields ---- */
-check("78 library entries", data.length === 78, "got " + data.length);
+check("79 library entries", data.length === 79, "got " + data.length);
 
 let badFields = [];
 data.forEach(function (e, i) {
@@ -79,8 +80,8 @@ check("counts by list match the index (5 kit, 66 sections, 1+1+2+1+1)",
 /* ---- URL rules ---- */
 const withUrl = data.filter(function (e) { return e.url; });
 const withoutUrl = data.filter(function (e) { return !e.url; });
-check("77 entries have a download link, 1 does not",
-  withUrl.length === 77 && withoutUrl.length === 1,
+check("78 entries have a download link, 1 does not",
+  withUrl.length === 78 && withoutUrl.length === 1,
   withUrl.length + " with, " + withoutUrl.length + " without");
 check("the 1 link-less entry is the superseded index",
   withoutUrl.length === 1 && withoutUrl[0].status === "superseded",
@@ -129,10 +130,10 @@ const emergOnDisk = new Set(
   fs.readdirSync(path.join(__dirname, "EMERG"))
 );
 const withBraille = data.filter(function (e) { return e.brailleUrl; });
-check("70 entries carry a Braille link (3 whole-book + 66 sections + the FOG index)",
-  withBraille.length === 70, "got " + withBraille.length);
-check("24 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf)",
-  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 24);
+check("71 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference)",
+  withBraille.length === 71, "got " + withBraille.length);
+check("25 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf and the PEP .brf)",
+  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 25);
 check("every Braille link ends in .brf and points into the field-reference braille/ folder or this repo's EMERG/ folder",
   withBraille.every(function (e) {
     return /\.brf$/.test(e.brailleUrl)
@@ -164,21 +165,26 @@ check("the kit zip, the read-me, and all non-field entries except the FOG index 
   && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg"; })
     .every(function (e) { return !e.brailleUrl; }));
 
-/* ---- the FOG link index: Listen button and Braille link ---- */
-const fog = data.filter(function (e) { return e.list === "emerg"; });
-check("one Emergency Communications entry (the FOG link index)",
-  fog.length === 1, "got " + fog.length);
-check("the FOG entry has a plain-text twin and a Braille twin beside the PDF",
-  fog.length === 1 && fog[0].textUrl === "EMERG/" + fog[0].file.replace(/\.pdf$/, ".txt")
-  && fog[0].brailleUrl === "EMERG/" + fog[0].file.replace(/\.pdf$/, ".brf"));
-check("the FOG text and Braille twins exist in the staging EMERG/ folder",
-  fog.length === 1
-  && emergOnDisk.has(fog[0].textUrl.split("/").pop())
-  && emergOnDisk.has(fog[0].brailleUrl.split("/").pop()));
-check("searching \"listen\" finds the FOG link index",
-  L.searchLibrary(data, "listen").some(function (e) { return e.list === "emerg"; }));
+/* ---- Emergency Communications entries: Listen button and Braille link ---- */
+const emerg = data.filter(function (e) { return e.list === "emerg"; });
+check("two Emergency Communications entries (the FOG link index and the PEP/IPAWS reference)",
+  emerg.length === 2, "got " + emerg.length);
+check("each Emergency Communications entry has a plain-text twin and a Braille twin beside the PDF",
+  emerg.length === 2 && emerg.every(function (e) {
+    return e.textUrl === "EMERG/" + e.file.replace(/\.pdf$/, ".txt")
+      && e.brailleUrl === "EMERG/" + e.file.replace(/\.pdf$/, ".brf");
+  }));
+check("the Emergency Communications text and Braille twins exist in the staging EMERG/ folder",
+  emerg.length === 2 && emerg.every(function (e) {
+    return emergOnDisk.has(e.textUrl.split("/").pop())
+      && emergOnDisk.has(e.brailleUrl.split("/").pop());
+  }));
+check("searching \"listen\" finds both Emergency Communications entries",
+  L.searchLibrary(data, "listen").filter(function (e) { return e.list === "emerg"; }).length === 2);
 check("searching \"fog\" finds the FOG link index",
   L.searchLibrary(data, "fog").some(function (e) { return e.list === "emerg"; }));
+check("searching \"pep\" finds the PEP/IPAWS reference",
+  L.searchLibrary(data, "pep").some(function (e) { return e.file.indexOf("PEP-IPAWS") === 0; }));
 
 /* ---- group-maintained files ---- */
 const maintained = data.filter(function (e) { return e.maintained; });
@@ -214,13 +220,13 @@ check("close-button and deep-link scripts are scoped to a.back-link (the zip lin
 /* ---- grouping ---- */
 const groups = L.groupBySection(data);
 check("groupBySection returns 7 groups", groups.length === 7, "got " + groups.length);
-check("first group is the Field Reference (71), last is Emergency Communications (1)",
+check("first group is the Field Reference (71), last is Emergency Communications (2)",
   groups.length > 0 && groups[0].section === "AB9MZ Master Field Reference"
   && groups[0].entries.length === 71
   && groups[groups.length - 1].section === "Emergency Communications"
-  && groups[groups.length - 1].entries.length === 1);
-check("grouped entries total 78",
-  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 78);
+  && groups[groups.length - 1].entries.length === 2);
+check("grouped entries total 79",
+  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 79);
 const subs = L.groupBySubsection(data.filter(function (e) { return e.list === "field-sections"; }));
 check("groupBySubsection returns 22 groups in book order (guide first, reference last)",
   subs.length === 22 && subs[0].subsection === "guide"
@@ -239,10 +245,10 @@ check("\"morse\" finds the 3 Morse files, the 3 CW files, and the Tonne article"
   && morse.some(function (e) { return e.file.indexOf("Tonne") !== -1; }),
   morse.length + " results");
 
-check("\"braille\" finds the question-pool Braille file and the FOG index (its keywords name Braille; the field-reference Braille links are still not search tokens)",
-  L.searchLibrary(data, "braille").length === 2
+check("\"braille\" finds the question-pool Braille file and both Emergency Communications entries (their keywords name Braille; the field-reference Braille links are still not search tokens)",
+  L.searchLibrary(data, "braille").length === 3
   && L.searchLibrary(data, "braille").some(function (e) { return e.file.indexOf(".brf") !== -1; })
-  && L.searchLibrary(data, "braille").some(function (e) { return e.list === "emerg"; }));
+  && L.searchLibrary(data, "braille").filter(function (e) { return e.list === "emerg"; }).length === 2);
 
 check("\"question pool\" finds both pool files",
   L.searchLibrary(data, "question pool").length === 2);
@@ -255,8 +261,8 @@ check("\"licensing\" finds the 2 pool files",
 
 check("\"zzzzz\" returns zero results", L.searchLibrary(data, "zzzzz").length === 0);
 
-check("blank query returns all 78 entries in data order",
-  L.searchLibrary(data, "   ").length === 78
+check("blank query returns all 79 entries in data order",
+  L.searchLibrary(data, "   ").length === 79
   && L.searchLibrary(data, "").map(function (e) { return e.file; }).join()
     === data.map(function (e) { return e.file; }).join());
 

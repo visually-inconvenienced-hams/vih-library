@@ -1,6 +1,6 @@
 /* Page-level test: runs index.html's render/search/sort inline script
  * under a minimal DOM stub in Node, loads the real library.json, and
- * checks that the browse lists it renders hold all 78 documents, that
+ * checks that the browse lists it renders hold all 79 documents, that
  * the search box and the sort control behave as specified, and that the
  * superseded entry renders without a download link.
  * Run: node test_page.js (exit 0 only when every check passes).
@@ -100,8 +100,8 @@ eval(inlineJs);
 
 /* Let the fetch promise resolve, then drive the page. */
 setTimeout(function () {
-  check("load status reports 78 documents",
-    elements["load-status"].textContent === "Library loaded: 78 documents.",
+  check("load status reports 79 documents",
+    elements["load-status"].textContent === "Library loaded: 79 documents.",
     elements["load-status"].textContent);
 
   check("sort select defaults to the listed order (nothing saved yet)",
@@ -119,7 +119,7 @@ setTimeout(function () {
   const sectionItems = countItems(sectionsDiv);
   check("field sections hold 66 items", sectionItems === 66, "got " + sectionItems);
   const total = listStubs.reduce(function (n, el) { return n + countItems(el); }, 0) + sectionItems;
-  check("rendered browse lists hold 78 items in all", total === 78, "got " + total);
+  check("rendered browse lists hold 79 items in all", total === 79, "got " + total);
 
   /* Section headings: 22, in book order, as skip points. */
   const h3s = [...sectionsDiv.innerHTML.matchAll(/<h3 id="field-([^"]+)">([^<]+)<\/h3>/g)];

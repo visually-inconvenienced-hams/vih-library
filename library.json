@@ -2221,5 +2221,39 @@
     ],
     "status": "available",
     "note": "A link index to the official national and state Field Operations Guides that are publicly available — NIFOG, AUXFOG, and the state guides — linking to the publishers' own copies so you always get the current version. No official audio or Braille version is published for the guides themselves; this index document has its own Listen button and Braille file."
+  },
+  {
+    "name": "FEMA Primary Entry Point Stations and the IPAWS Emergency Alert System — reference",
+    "file": "PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ.pdf",
+    "category": "EMERG",
+    "categoryName": "Emergency Communications",
+    "section": "Emergency Communications",
+    "list": "emerg",
+    "format": "Reference PDF",
+    "url": "EMERG/PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ.pdf",
+    "textUrl": "EMERG/PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ.txt",
+    "brailleUrl": "EMERG/PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ.brf",
+    "version": "1.0",
+    "date": "2026-11-22",
+    "time": null,
+    "author": "AB9MZ",
+    "keywords": [
+      "pep",
+      "ipaws",
+      "eas",
+      "wea",
+      "wireless emergency alerts",
+      "emergency",
+      "communications",
+      "fema",
+      "primary entry point",
+      "text to 911",
+      "satellite",
+      "listen",
+      "braille",
+      "emcomm"
+    ],
+    "status": "available",
+    "note": "FEMA's Primary Entry Point station table — all 73 entries with frequencies — plus explainers on IPAWS, the Emergency Alert System, and Wireless Emergency Alerts, emergency alert settings for iOS, Android, GrapheneOS, and Linux, satellite configuration, and texting to 911. Includes a Listen button and a Braille file."
   }
 ]
