@@ -202,6 +202,14 @@ setTimeout(function () {
     slot("lic").innerHTML.indexOf('data-listen-url="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
   check("read-me carries a Listen button reading its own text",
     slot("field-kit").innerHTML.indexOf('data-listen-url="https://visually-inconvenienced-hams.github.io/field-reference/READ_ME_FIRST.txt"') !== -1);
+  check("field sections render 66 Listen buttons (one per section entry)",
+    (sectionsDiv.innerHTML.match(/data-listen-url="/g) || []).length === 66,
+    "got " + ((sectionsDiv.innerHTML.match(/data-listen-url="/g) || []).length));
+  check("kit list renders 4 Listen buttons (3 whole-book formats + read-me)",
+    (slot("field-kit").innerHTML.match(/data-listen-url="/g) || []).length === 4,
+    "got " + ((slot("field-kit").innerHTML.match(/data-listen-url="/g) || []).length));
+  check("a section Listen button reads the field-reference text twin",
+    sectionsDiv.innerHTML.indexOf('data-listen-url="https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt"') !== -1);
 
   function typeSearch(value) {
     elements["search-input"].value = value;

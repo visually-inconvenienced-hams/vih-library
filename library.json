@@ -62,6 +62,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "full book",
@@ -87,6 +88,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Amateur_Radio_Field_Reference.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "full book",
@@ -112,6 +114,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "full book",
@@ -140,6 +143,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/guide.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/guide_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "guide",
@@ -169,6 +173,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/guide.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/guide_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "guide",
@@ -198,6 +203,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/guide.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/guide_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/guide_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "guide",
@@ -228,6 +234,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/phonetics.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/phonetics_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "phonetics",
@@ -258,6 +265,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/phonetics.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/phonetics_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "phonetics",
@@ -288,6 +296,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/phonetics.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/phonetics_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/phonetics_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "phonetics",
@@ -319,6 +328,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "morse",
@@ -350,6 +360,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "morse",
@@ -381,6 +392,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/morse.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "morse",
@@ -413,6 +425,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/emergency.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/emergency_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "emergency",
@@ -441,6 +454,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/emergency.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/emergency_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "emergency",
@@ -469,6 +483,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/emergency.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/emergency_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/emergency_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "emergency",
@@ -498,6 +513,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/voice.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/voice_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "voice",
@@ -527,6 +543,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/voice.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/voice_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "voice",
@@ -556,6 +573,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/voice.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/voice_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/voice_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "voice",
@@ -586,6 +604,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cw.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cw_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cw",
@@ -615,6 +634,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cw.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cw_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cw",
@@ -644,6 +664,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/cw.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cw_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cw_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cw",
@@ -674,6 +695,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/qsignals.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/qsignals_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "q signals",
@@ -704,6 +726,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/qsignals.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/qsignals_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "q signals",
@@ -734,6 +757,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/qsignals.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/qsignals_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/qsignals_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "q signals",
@@ -765,6 +789,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reports.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reports_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "signal",
@@ -794,6 +819,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reports.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reports_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "signal",
@@ -823,6 +849,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/reports.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reports_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reports_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "signal",
@@ -853,6 +880,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/bands.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/bands_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "bands",
@@ -882,6 +910,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/bands.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/bands_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "bands",
@@ -911,6 +940,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/bands.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/bands_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/bands_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "bands",
@@ -941,6 +971,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/digital.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/digital_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "digital",
@@ -972,6 +1003,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/digital.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/digital_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "digital",
@@ -1003,6 +1035,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/digital.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/digital_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/digital_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "digital",
@@ -1035,6 +1068,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/station.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/station_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "station",
@@ -1064,6 +1098,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/station.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/station_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "station",
@@ -1093,6 +1128,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/station.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/station_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/station_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "station",
@@ -1123,6 +1159,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/deployment.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/deployment_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "deployment",
@@ -1152,6 +1189,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/deployment.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/deployment_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "deployment",
@@ -1181,6 +1219,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/deployment.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/deployment_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/deployment_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "deployment",
@@ -1211,6 +1250,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/ares.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/ares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "ares",
@@ -1238,6 +1278,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/ares.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/ares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "ares",
@@ -1265,6 +1306,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/ares.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/ares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/ares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "ares",
@@ -1293,6 +1335,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/races.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/races_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "races",
@@ -1320,6 +1363,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/races.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/races_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "races",
@@ -1347,6 +1391,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/races.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/races_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/races_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "races",
@@ -1375,6 +1420,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/mars.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/mars_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "mars",
@@ -1402,6 +1448,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/mars.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/mars_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "mars",
@@ -1429,6 +1476,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/mars.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/mars_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/mars_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "mars",
@@ -1457,6 +1505,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cap.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cap_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cap",
@@ -1483,6 +1532,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/cap.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cap_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cap",
@@ -1509,6 +1559,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/cap.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/cap_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/cap_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "cap",
@@ -1536,6 +1587,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/shares.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/shares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "shares",
@@ -1564,6 +1616,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/shares.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/shares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "shares",
@@ -1592,6 +1645,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/shares.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/shares_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/shares_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "shares",
@@ -1621,6 +1675,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/observer.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/observer_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "observer",
@@ -1650,6 +1705,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/observer.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/observer_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "observer",
@@ -1679,6 +1735,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/observer.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/observer_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/observer_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "observer",
@@ -1709,6 +1766,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/traffic.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/traffic_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "traffic",
@@ -1738,6 +1796,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/traffic.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/traffic_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "traffic",
@@ -1767,6 +1826,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/traffic.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/traffic_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/traffic_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "traffic",
@@ -1797,6 +1857,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/forms.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/forms_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "forms",
@@ -1826,6 +1887,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/forms.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/forms_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "forms",
@@ -1855,6 +1917,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/forms.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/forms_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/forms_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "forms",
@@ -1885,6 +1948,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/weather.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/weather_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "weather",
@@ -1914,6 +1978,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/weather.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/weather_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "weather",
@@ -1943,6 +2008,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/weather.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/weather_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/weather_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "weather",
@@ -1973,6 +2039,7 @@
     "format": "Large-print PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reference.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "glossary",
@@ -2002,6 +2069,7 @@
     "format": "Word document",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/sections/reference.docx",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "glossary",
@@ -2031,6 +2099,7 @@
     "format": "Tagged PDF",
     "url": "https://visually-inconvenienced-hams.github.io/field-reference/tagged/reference.pdf",
     "brailleUrl": "https://visually-inconvenienced-hams.github.io/field-reference/braille/reference_v2.0-20261116-2210-AB9MZ.brf",
+    "textUrl": "https://visually-inconvenienced-hams.github.io/field-reference/txt/reference_v2.0-20261116-2210-AB9MZ.txt",
     "keywords": [
       "field reference",
       "glossary",

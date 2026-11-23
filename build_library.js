@@ -44,7 +44,13 @@
  * field; the page renders a Listen button beside it that reads the
  * text aloud with the device's own voice (browser speech, no audio
  * files — the same approach as the Technician class). The FOG link
- * index and the PEP/IPAWS reference have one.
+ * index and the PEP/IPAWS reference have one, and so do the whole
+ * book and every section of the field reference: their .txt twins
+ * live in the field-reference repository's txt/ folder, carry the
+ * same 2210 stamp as the .brf files, and are verified against staging
+ * the same way. The three format entries of a section share one .txt
+ * file, so the same textUrl appears on three entries (71 entries,
+ * 25 distinct .txt files — the same shape as the Braille twins).
  */
 "use strict";
 const fs = require("fs");
@@ -80,6 +86,18 @@ function brailleUrl(stem) {
     throw new Error("braille file missing from field-reference staging: " + name);
   }
   return FR + "braille/" + name;
+}
+
+/* The .txt twins carry the same 2210 stamp as the .brf files. Verify
+ * each one exists in the field-reference staging txt/ folder. */
+const TXT_DIR = path.join(process.env.HOME, "workspace/github-pages-staging/field-reference/txt");
+const txtOnDisk = new Set(fs.readdirSync(TXT_DIR));
+function textTwinUrl(stem) {
+  const name = stem + BRF_STAMP + ".txt";
+  if (!txtOnDisk.has(name)) {
+    throw new Error("text file missing from field-reference staging: " + name);
+  }
+  return FR + "txt/" + name;
 }
 
 /* The FOG link index lives in this repository (EMERG/), with its
@@ -163,6 +181,7 @@ add(Object.assign({}, FIELD, {
   format: "Large-print PDF",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.pdf",
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "pdf", "large print", "ab9mz"],
   note: "The full book, all 22 sections, large-print PDF. 22 point text, 28 point headings."
 }));
@@ -173,6 +192,7 @@ add(Object.assign({}, FIELD, {
   format: "Word document",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.docx",
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "word", "docx", "ab9mz"],
   note: "The full book, all 22 sections, Word document."
 }));
@@ -183,6 +203,7 @@ add(Object.assign({}, FIELD, {
   format: "Tagged PDF",
   url: FR + "tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "tagged", "pdf", "screen reader", "ab9mz"],
   note: "The full book, all 22 sections, tagged PDF. Screen readers navigate it by heading."
 }));
@@ -217,6 +238,7 @@ SECTIONS.forEach(function (s) {
       format: format,
       url: FR + folder + stem + ext,
       brailleUrl: brailleUrl(stem),
+      textUrl: textTwinUrl(stem),
       keywords: ["field reference"].concat(keys).concat(formatKeys),
       note: formatNote
     }));
@@ -408,6 +430,18 @@ if (withBraille.length !== 71) {
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
 if (distinctBraille.size !== 25) {
   throw new Error("expected 25 distinct Braille files, built " + distinctBraille.size);
+}
+/* Text twins: the same 71 entries carry one (3 whole-book + 66
+ * sections, sharing 23 distinct .txt files, plus the FOG link index
+ * and the PEP/IPAWS reference, each with its own .txt file in this
+ * repository's EMERG/ folder). */
+const withText = entries.filter(function (e) { return e.textUrl; });
+if (withText.length !== 71) {
+  throw new Error("expected 71 entries with a text twin, built " + withText.length);
+}
+const distinctText = new Set(withText.map(function (e) { return e.textUrl; }));
+if (distinctText.size !== 25) {
+  throw new Error("expected 25 distinct text files, built " + distinctText.size);
 }
 
 fs.writeFileSync(
