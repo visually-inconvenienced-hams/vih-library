@@ -168,7 +168,7 @@ setTimeout(function () {
     sectionsDiv.innerHTML.indexOf(
       'aria-label="Morse code and procedural signals — Large-print PDF — Braille (.brf)"') !== -1);
   const brailleLinks = ((slot("field-kit").innerHTML + sectionsDiv.innerHTML)
-    .match(/>Braille \(\.brf\)<\/a>/g) || []).length;
+    .match(/>Braille<\/a>/g) || []).length;
   check("browse lists render 69 Braille links (3 whole-book + 66 sections)",
     brailleLinks === 69, "got " + brailleLinks);
 
@@ -177,7 +177,7 @@ setTimeout(function () {
   const emergHtml = slot("emerg").innerHTML;
   check("emergency slot renders the FOG index with a Braille link and a Listen button",
     emergHtml.indexOf("Emergency Communications Field Operations Guides") !== -1
-    && emergHtml.indexOf(">Braille (.brf)</a>") !== -1
+    && emergHtml.indexOf(">Braille</a>") !== -1
     && emergHtml.indexOf(">Plain text (.txt)</a>") !== -1
     && emergHtml.indexOf('listen-btn') !== -1
     && emergHtml.indexOf('data-listen-url="EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.txt"') !== -1,
@@ -295,6 +295,24 @@ setTimeout(function () {
     "got " + ((sectionsDiv.innerHTML.match(/<h4>/g) || []).length));
   check("sort choice updated in localStorage",
     storage["vih-library-sort"] === "listed");
+
+  /* Theme toggle, zebra rows, and colored entry buttons (2026-11-23). */
+  check("theme toggle button exists in the header",
+    html.indexOf('id="theme-toggle"') !== -1);
+  check("light and dark row colors are defined",
+    html.indexOf("--row-odd") !== -1 && html.indexOf("--row-even") !== -1
+    && html.indexOf("--row-even: #e0e0e0") !== -1
+    && html.indexOf("--row-even: #222222") !== -1);
+  check("zebra striping targets the document lists",
+    html.indexOf(".doc-list li:nth-child(odd)") !== -1
+    && html.indexOf(".doc-list li:nth-child(even)") !== -1);
+  check("entry buttons carry their color classes",
+    sectionsDiv.innerHTML.indexOf("btn btn-open") !== -1
+    && sectionsDiv.innerHTML.indexOf("btn listen-btn btn-listen") !== -1
+    && sectionsDiv.innerHTML.indexOf("btn btn-braille") !== -1);
+  check("Braille button label is just Braille (format stays in the aria-label)",
+    sectionsDiv.innerHTML.indexOf(">Braille</a>") !== -1
+    && sectionsDiv.innerHTML.indexOf(">Braille (.brf)</a>") === -1);
 
   console.log("\n" + (failures === 0 ? "ALL PAGE CHECKS PASSED" : failures + " PAGE CHECK(S) FAILED"));
   process.exit(failures === 0 ? 0 : 1);

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="description" content="The document library of Visually Inconvenienced Hams: the AB9MZ Master Field Reference, the contest schedule, the Technician question pool, and every other group document, organized by category, with search and a sort that stays put." />
     <link rel="icon" href="data:," />
     <title>Document Library — Visually Inconvenienced Hams</title>
@@ -18,9 +18,63 @@
         --panel: #0d0d0d;
         --border: #ffffff;
         --muted: #cccccc;
+        --row-odd: #000000;
+        --row-even: #222222;
+        --panel-hover: #1f1f1f;
+      }
+      /* Light mode follows the device setting, unless the toggle has set
+       * a choice. The bright-on-black palette stays the default. */
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #ffffff;
+          --text: #000000;
+          --good: #007a00;
+          --fair: #7a5200;
+          --poor: #b00000;
+          --focus: #005fcc;
+          --panel: #f5f5f5;
+          --border: #000000;
+          --muted: #555555;
+          --row-odd: #fffffc;
+          --row-even: #e0e0e0;
+          --panel-hover: #e0e0e0;
+        }
+      }
+      /* A choice from the toggle beats the device setting either way. */
+      :root[data-theme="dark"] {
+        --bg: #000000;
+        --text: #ffffff;
+        --good: #00ff00;
+        --fair: #ffb300;
+        --poor: #ff6666;
+        --focus: #ffff00;
+        --panel: #0d0d0d;
+        --border: #ffffff;
+        --muted: #cccccc;
+        --row-odd: #000000;
+        --row-even: #222222;
+        --panel-hover: #1f1f1f;
+      }
+      :root[data-theme="light"] {
+        --bg: #ffffff;
+        --text: #000000;
+        --good: #007a00;
+        --fair: #7a5200;
+        --poor: #b00000;
+        --focus: #005fcc;
+        --panel: #f5f5f5;
+        --border: #000000;
+        --muted: #555555;
+        --row-odd: #fffffc;
+        --row-even: #e0e0e0;
+        --panel-hover: #e0e0e0;
       }
       * { box-sizing: border-box; }
-      html { font-size: 20px; }
+      /* 1.25rem is 20px at the standard 16px browser default, and it
+       * follows the reader's own browser text-size setting too. The
+       * text-size control sets an inline pixel size on <html> instead,
+       * which wins over this rule while it is set. */
+      html { font-size: 1.25rem; }
       body {
         margin: 0;
         background: var(--bg);
@@ -60,6 +114,21 @@
         white-space: normal;
       }
 
+      /* Visually hidden, but still read by screen readers: the same
+       * technique as the skip link above. Used for the text-size
+       * announcement line. */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+
       a { color: var(--fair); }
       a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
         outline: 4px solid var(--focus);
@@ -84,7 +153,7 @@
         margin: 1rem 0 0.5rem;
         min-height: 3.5rem;
       }
-      .back-link:hover { background: #1f1f1f; }
+      .back-link:hover { background: var(--panel-hover); }
       button.back-link {
         font: inherit;
         cursor: pointer;
@@ -115,8 +184,13 @@
       }
 
       .doc-list { list-style: none; margin: 0.5rem 0; padding: 0; font-size: 1.1rem; }
-      .doc-list li { padding: 0.6rem 0; border-bottom: 1px solid #444; }
+      .doc-list li { padding: 0.6rem 0.5rem; border-bottom: 1px solid #444; }
       .doc-list li:last-child { border-bottom: none; }
+      /* Alternating row backgrounds, so a low-vision reader can track
+       * which entry they are on. A lightness step, not a hue step, so
+       * it reads the same for every kind of color blindness. */
+      .doc-list li:nth-child(odd) { background: var(--row-odd); }
+      .doc-list li:nth-child(even) { background: var(--row-even); }
       .doc-list .label { display: block; margin-top: 0.2rem; font-size: 1rem; }
 
       .fmt-text { color: var(--good); font-weight: bold; }
@@ -136,7 +210,7 @@
         font: inherit;
         font-size: 1.4rem;
         color: var(--text);
-        background: #111111;
+        background: var(--panel);
         border: 3px solid var(--border);
         margin: 0.25rem 0 0.75rem;
       }
@@ -148,7 +222,7 @@
         font: inherit;
         font-size: 1.25rem;
         color: var(--text);
-        background: #111111;
+        background: var(--panel);
         border: 3px solid var(--border);
         margin: 0.25rem 0 0.75rem;
       }
@@ -166,7 +240,7 @@
         border: 3px solid var(--fair);
         cursor: pointer;
       }
-      button.secondary:hover { background: #1f1f1f; }
+      button.secondary:hover { background: var(--panel-hover); }
       .doc-list h3, .doc-list h4 { margin: 0.2rem 0 0.3rem; }
       .doc-list h4 { font-size: 1.1rem; }
       .entry-actions { margin: 0.3rem 0; }
@@ -185,11 +259,65 @@
         text-decoration: none;
         text-align: center;
       }
-      a.btn:hover, button.btn:hover { background: #1f1f1f; }
+      a.btn:hover, button.btn:hover { background: var(--panel-hover); }
+      /* The three entry buttons each have their own color, drawn from
+       * the Okabe-Ito color-blind-safe families, so low-vision readers
+       * can tell them apart at a glance. The text label always carries
+       * the meaning; the color is only a second cue. The colors are
+       * the same in light and dark mode, so the link between color and
+       * function never changes. Bold black text on each passes AAA
+       * (12.0, 16.6, and 8.8 to 1). The black border keeps each button
+       * distinct from the row behind it — the orange button in
+       * particular would blend into a pale gray row without it. The
+       * focus ring is black with a white outer ring, so it reads on
+       * the light button fill in both modes. */
+      a.btn-open { background: #90caf9; color: #000000; border-color: #000000; }
+      button.btn-listen { background: #ffe0b2; color: #000000; border-color: #000000; }
+      a.btn-braille { background: #ce93d8; color: #000000; border-color: #000000; }
+      a.btn-open:hover { background: #64b5f6; }
+      button.btn-listen:hover { background: #ffcc80; }
+      a.btn-braille:hover { background: #c39bd3; }
+      a.btn-open:focus-visible, button.btn-listen:focus-visible, a.btn-braille:focus-visible {
+        outline: 4px solid #000000;
+        box-shadow: 0 0 0 7px #ffffff;
+      }
       .entry-url { font-size: 0.9rem; margin: 0.2rem 0; overflow-wrap: anywhere; }
       .entry-url a { color: var(--muted); }
       .status { font-size: 1.2rem; font-weight: bold; min-height: 1.8em; margin: 0.5rem 0; }
+
+      /* Text-size control, in the header. The buttons wrap, so the
+       * control never forces horizontal scrolling at a narrow viewport
+       * with large text. A disabled button stays readable (axe exempts
+       * disabled controls from the contrast rule); the dimming is only
+       * a visual cue, and the disabled attribute itself is what a
+       * screen reader reports. */
+      .text-size { margin: 0.75rem 0; }
+      .text-size-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .text-size-note { font-size: 1rem; color: var(--muted); margin: 0.5rem 0 0; }
+      button.btn:disabled { opacity: 0.55; cursor: default; }
+      button.btn:disabled:hover { background: var(--panel); }
     </style>
+    <script>
+      /* Apply the stored text size before first paint, so the page never
+       * flashes at the wrong size. The choice lives on this device only
+       * (localStorage); nothing is sent anywhere. A stored value outside
+       * the 16–40 range is ignored and the default size is used. */
+      (function () {
+        try {
+          var theme = window.localStorage.getItem("vih-library-theme");
+          if (theme === "light" || theme === "dark") {
+            document.documentElement.setAttribute("data-theme", theme);
+          }
+          var saved = window.localStorage.getItem("vih-library-text-size");
+          if (saved !== null) {
+            var size = parseInt(saved, 10);
+            if (!isNaN(size) && size >= 16 && size <= 40) {
+              document.documentElement.style.fontSize = size + "px";
+            }
+          }
+        } catch (e) { /* storage unavailable — use the default size */ }
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the document library</a>
@@ -198,8 +326,19 @@
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
 
       <h1>Visually Inconvenienced Hams Document Library</h1>
+      <div class="text-size">
+        <div class="text-size-buttons" role="group" aria-label="Text size">
+          <button type="button" class="btn" id="text-smaller">Smaller text</button>
+          <button type="button" class="btn" id="text-larger">Larger text</button>
+          <button type="button" class="btn" id="text-reset">Reset text size</button>
+        </div>
+        <p class="text-size-note">Your text size is saved on this device only. It is never sent anywhere.</p>
+        <p class="visually-hidden" id="text-size-status" aria-live="polite"></p>
+      </div>
+      <p><button type="button" class="btn" id="theme-toggle">Switch to light mode</button></p>
+      <p class="text-size-note">Your light or dark choice is saved on this device only. It is never sent anywhere.</p>
       <p>Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 78 documents.</p>
-      <p>This page is now the home for the group's documents. The group's Facebook Files section holds only two things: the contest schedule, and a pointer file that links back here. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
+      <p>This page is now the home for the group's documents. The group's Facebook Files section holds only three things: the contest schedule, a short file explaining the move, and the full list of links. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
       </header>
 
       <form id="search-form" role="search">
@@ -408,17 +547,17 @@
     if (entry.url || listenUrl || entry.brailleUrl) {
       html += '<p class="entry-actions">';
       if (entry.url) {
-        html += '<a class="btn" href="' + esc(entry.url) + '" aria-label="Open '
+        html += '<a class="btn btn-open" href="' + esc(entry.url) + '" aria-label="Open '
           + esc(entry.name) + '">Open</a>';
       }
       if (listenUrl) {
-        html += ' <button type="button" class="btn listen-btn" data-listen-url="'
+        html += ' <button type="button" class="btn listen-btn btn-listen" data-listen-url="'
           + esc(listenUrl) + '" data-listen-name="' + esc(entry.name)
           + '">Listen</button>';
       }
       if (entry.brailleUrl) {
-        html += ' <a class="btn" href="' + esc(entry.brailleUrl) + '" aria-label="'
-          + esc(entry.name) + ' — Braille (.brf)">Braille (.brf)</a>';
+        html += ' <a class="btn btn-braille" href="' + esc(entry.brailleUrl) + '" aria-label="'
+          + esc(entry.name) + ' — Braille (.brf)">Braille</a>';
       }
       html += "</p>";
     }
@@ -818,6 +957,132 @@
       });
     }
   }
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  /* ---- Light and dark mode ------------------------------------------------
+   * The page defaults to the bright-on-black palette. A device set to
+   * light mode gets the light palette automatically, and the toggle
+   * button lets anyone pick either way. The choice is remembered on
+   * this device only, under the same key the head script reads before
+   * first paint. */
+  var THEME_KEY = "vih-library-theme";
+  function systemTheme() {
+    if (typeof window !== "undefined" && window.matchMedia
+      && window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
+    return "dark";
+  }
+  function currentTheme() {
+    if (typeof document !== "undefined" && document.documentElement) {
+      var t = document.documentElement.getAttribute("data-theme");
+      if (t === "light" || t === "dark") return t;
+    }
+    return systemTheme();
+  }
+  function themeLabel(theme) {
+    return theme === "light" ? "Switch to dark mode" : "Switch to light mode";
+  }
+  function applyTheme(theme, remember) {
+    if (typeof document !== "undefined" && document.documentElement) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+    var btn = document.getElementById("theme-toggle");
+    if (btn) btn.textContent = themeLabel(theme);
+    if (remember) {
+      try {
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem(THEME_KEY, theme);
+        }
+      } catch (e) { /* private mode: the choice just is not remembered */ }
+    }
+  }
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.textContent = themeLabel(currentTheme());
+    themeBtn.addEventListener("click", function () {
+      applyTheme(currentTheme() === "light" ? "dark" : "light", true);
+    });
+  }
+  if (typeof window !== "undefined" && window.matchMedia) {
+    var lightQuery = window.matchMedia("(prefers-color-scheme: light)");
+    if (lightQuery.addEventListener) {
+      lightQuery.addEventListener("change", function () {
+        var stored = null;
+        try {
+          if (typeof localStorage !== "undefined") {
+            stored = localStorage.getItem(THEME_KEY);
+          }
+        } catch (e) { stored = null; }
+        if (stored !== "light" && stored !== "dark") {
+          applyTheme(lightQuery.matches ? "light" : "dark", false);
+        }
+      });
+    }
+  }
+
+  /* ---- Text size -------------------------------------------------------- */
+  /* Three buttons in the header move the root font size in 4px steps
+   * from 16px to 40px (default 20px). The choice is saved on this device
+   * only (localStorage, never sent anywhere) under the same key the head
+   * script reads before first paint, so the stored size is already in
+   * place when the page first appears. Storage may be unavailable
+   * (private browsing), so both directions are guarded and the page
+   * simply falls back to the default size. */
+  var TEXT_SIZE_KEY = "vih-library-text-size";
+  var TEXT_SIZE_DEFAULT = 20;
+  var TEXT_SIZE_MIN = 16;
+  var TEXT_SIZE_MAX = 40;
+  var TEXT_SIZE_STEP = 4;
+
+  var smallerBtn = document.getElementById("text-smaller");
+  var largerBtn = document.getElementById("text-larger");
+  var resetBtn = document.getElementById("text-reset");
+  var statusEl = document.getElementById("text-size-status");
+  if (!smallerBtn || !largerBtn || !resetBtn || !statusEl) return;
+
+  /* The size now in force: the inline size the head script applied (or
+   * an earlier button press set), or the default when there is none. */
+  function currentSize() {
+    var size = parseInt(document.documentElement.style.fontSize, 10);
+    return isNaN(size) ? TEXT_SIZE_DEFAULT : size;
+  }
+  function saveSize(size) {
+    try { window.localStorage.setItem(TEXT_SIZE_KEY, String(size)); } catch (e) { /* ignore */ }
+  }
+  function clearSavedSize() {
+    try { window.localStorage.removeItem(TEXT_SIZE_KEY); } catch (e) { /* ignore */ }
+  }
+  function applySize(size, announce) {
+    document.documentElement.style.fontSize = size + "px";
+    smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
+    largerBtn.disabled = (size >= TEXT_SIZE_MAX);
+    if (announce) statusEl.textContent = "Text size " + size + " pixels";
+  }
+  smallerBtn.addEventListener("click", function () {
+    var size = Math.max(TEXT_SIZE_MIN, currentSize() - TEXT_SIZE_STEP);
+    saveSize(size);
+    applySize(size, true);
+  });
+  largerBtn.addEventListener("click", function () {
+    var size = Math.min(TEXT_SIZE_MAX, currentSize() + TEXT_SIZE_STEP);
+    saveSize(size);
+    applySize(size, true);
+  });
+  resetBtn.addEventListener("click", function () {
+    clearSavedSize();
+    /* Dropping the inline size returns the page to the stylesheet
+     * default (1.25rem, 20px at the standard browser default). */
+    document.documentElement.style.fontSize = "";
+    smallerBtn.disabled = false;
+    largerBtn.disabled = false;
+    statusEl.textContent = "Text size " + TEXT_SIZE_DEFAULT + " pixels";
+  });
+  /* Set the disabled states for the size already in force (the stored
+   * size the head script applied, or the default). No announcement on
+   * load — nothing has changed yet. */
+  applySize(currentSize(), false);
 })();
 </script>
   </body>
