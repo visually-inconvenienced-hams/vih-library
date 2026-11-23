@@ -1,6 +1,6 @@
 /* Page-level test: runs index.html's render/search/sort inline script
  * under a minimal DOM stub in Node, loads the real library.json, and
- * checks that the browse lists it renders hold all 79 documents, that
+ * checks that the browse lists it renders hold all 78 documents, that
  * the search box and the sort control behave as specified, and that the
  * superseded entry renders without a download link.
  * Run: node test_page.js (exit 0 only when every check passes).
@@ -100,8 +100,8 @@ eval(inlineJs);
 
 /* Let the fetch promise resolve, then drive the page. */
 setTimeout(function () {
-  check("load status reports 79 documents",
-    elements["load-status"].textContent === "Library loaded: 79 documents.",
+  check("load status reports 78 documents",
+    elements["load-status"].textContent === "Library loaded: 78 documents.",
     elements["load-status"].textContent);
 
   check("sort select defaults to the listed order (nothing saved yet)",
@@ -113,13 +113,13 @@ setTimeout(function () {
     "got " + countItems(slot("field-kit")));
   check("contests list holds 1 item", countItems(slot("cntst")) === 1);
   check("general list holds 1 item", countItems(slot("gen")) === 1);
-  check("licensing list holds 2 items", countItems(slot("lic")) === 2);
+  check("licensing list holds 1 item", countItems(slot("lic")) === 1);
   check("radios list holds 1 item", countItems(slot("radio")) === 1);
   check("resources list holds 1 item", countItems(slot("res")) === 1);
   const sectionItems = countItems(sectionsDiv);
   check("field sections hold 66 items", sectionItems === 66, "got " + sectionItems);
   const total = listStubs.reduce(function (n, el) { return n + countItems(el); }, 0) + sectionItems;
-  check("rendered browse lists hold 79 items in all", total === 79, "got " + total);
+  check("rendered browse lists hold 78 items in all", total === 78, "got " + total);
 
   /* Section headings: 22, in book order, as skip points. */
   const h3s = [...sectionsDiv.innerHTML.matchAll(/<h3 id="field-([^"]+)">([^<]+)<\/h3>/g)];
@@ -150,7 +150,7 @@ setTimeout(function () {
       "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip") !== -1);
   check("question-pool text links to the relative library path",
     slot("lic").innerHTML.indexOf('href="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
-  check("question-pool Braille links to the Technician class page",
+  check("question-pool Braille button links to the Technician class page",
     slot("lic").innerHTML.indexOf(
       "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf") !== -1);
   check("a section file links into the field-reference repo with the plain kit name",
@@ -278,10 +278,11 @@ setTimeout(function () {
   /* Search results follow the sort order too */
   typeSearch("question pool");
   const r3 = elements["search-results"].innerHTML;
-  check("search under name-asc lists the Braille pool file before the text pool file",
-    r3.indexOf("2 documents found.") !== -1
-    && r3.indexOf(".brf") !== -1 && r3.indexOf(".txt") !== -1
-    && r3.indexOf(".brf") < r3.indexOf(".txt"));
+  check("search for the question pool returns the single grouped entry with all three buttons",
+    r3.indexOf("1 document found.") !== -1
+    && r3.indexOf('href="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1
+    && r3.indexOf("technician-class/braille/Technician-Question-Pool-2026-2030.brf") !== -1
+    && r3.indexOf('data-listen-url="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
   elements["clear-search"]._listeners.click();
 
   /* Sort back to the listed order restores the section headings */

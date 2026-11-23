@@ -1,21 +1,23 @@
 /* Node tests for library.json + library.js. Run: node test_library.js
  * Exit code 0 only when every check passes.
  *
- * COUNT NOTE: the library holds 79 files: the 77 files in the Document
+ * COUNT NOTE: the library holds 78 entries: the 77 files in the Document
  * Index, third edition, 2026-11-16 (the 71-file field-reference
  * collection, the contest schedule, the index itself, the two
  * question-pool files, the Tonne article, and the blind-population
- * reference), plus the Emergency Communications FOG link index, added
- * 2026-11-22. The 46 field-reference Braille and plain-text files are
+ * reference), plus the Emergency Communications FOG link index and the
+ * PEP/IPAWS reference, both added 2026-11-22, minus one — the question
+ * pool's two files are a single entry. The 46 field-reference Braille
+ * and plain-text files are
  * NOT entries here — they are not in the index (they are not in group
  * Files); the page links to their folders in the field-reference
  * repository instead. Since 2026-11-22 each field-reference entry also
  * carries a brailleUrl to its own .brf file, and the FOG index, the
- * PEP/IPAWS reference, and the blind-population chart carry one too
- * (72 entries, 26 distinct .brf files); the .brf files are
- * still not entries, only secondary links next to the main download
- * link. The same 72 entries carry a textUrl, which is what their
- * Listen button reads aloud.
+ * PEP/IPAWS reference, the blind-population chart, and the question
+ * pool carry one too (73 entries, 27 distinct .brf files); the .brf
+ * files are still not entries, only secondary links next to the main
+ * download link. The same 73 entries carry a textUrl, which is what
+ * their Listen button reads aloud.
  *
  * NAME NOTE: field-reference entries carry their RENAMED file names
  * (stamp _v2.0-20261116-2218-AB9MZ), but their download URLs point at
@@ -43,7 +45,7 @@ const FR = "https://visually-inconvenienced-hams.github.io/field-reference/";
 const STATUSES = ["available", "pending", "superseded"];
 const LISTS = {
   "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1,
-  "lic": 2, "radio": 1, "res": 1
+  "lic": 1, "radio": 1, "res": 1
 };
 
 let failures = 0;
@@ -53,7 +55,7 @@ function check(name, cond, detail) {
 }
 
 /* ---- count and fields ---- */
-check("79 library entries", data.length === 79, "got " + data.length);
+check("78 library entries", data.length === 78, "got " + data.length);
 
 let badFields = [];
 data.forEach(function (e, i) {
@@ -80,8 +82,8 @@ check("counts by list match the index (5 kit, 66 sections, 1+1+2+1+1)",
 /* ---- URL rules ---- */
 const withUrl = data.filter(function (e) { return e.url; });
 const withoutUrl = data.filter(function (e) { return !e.url; });
-check("78 entries have a download link, 1 does not",
-  withUrl.length === 78 && withoutUrl.length === 1,
+check("77 entries have a download link, 1 does not",
+  withUrl.length === 77 && withoutUrl.length === 1,
   withUrl.length + " with, " + withoutUrl.length + " without");
 check("the 1 link-less entry is the superseded index",
   withoutUrl.length === 1 && withoutUrl[0].status === "superseded",
@@ -132,21 +134,26 @@ const emergOnDisk = new Set(
 const resOnDisk = new Set(
   fs.readdirSync(path.join(__dirname, "RES"))
 );
+const techBrfOnDisk = new Set(
+  fs.readdirSync(path.join(process.env.HOME, "workspace/github-pages-staging/technician-class/braille"))
+);
+const TECH = "https://visually-inconvenienced-hams.github.io/technician-class/";
 const withBraille = data.filter(function (e) { return e.brailleUrl; });
-check("72 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference + the blind-population chart)",
-  withBraille.length === 72, "got " + withBraille.length);
-check("26 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf, the PEP .brf, and the chart .brf)",
-  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 26);
-check("every Braille link ends in .brf and points into the field-reference braille/ folder or this repo's EMERG/ or RES/ folder",
+check("73 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference + the blind-population chart + the question pool)",
+  withBraille.length === 73, "got " + withBraille.length);
+check("27 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf, the PEP .brf, the chart .brf, and the pool .brf)",
+  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 27);
+check("every Braille link ends in .brf and points into the field-reference braille/ folder, this repo's EMERG/ or RES/ folder, or the Technician-class braille/ folder",
   withBraille.every(function (e) {
     return /\.brf$/.test(e.brailleUrl)
-      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0 || e.brailleUrl.indexOf("RES/") === 0);
+      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0 || e.brailleUrl.indexOf("RES/") === 0 || e.brailleUrl.indexOf(TECH + "braille/") === 0);
   }));
-check("every Braille file name exists in its staging folder (field-reference braille/ or this repo's EMERG/ or RES/)",
+check("every Braille file name exists in its staging folder (field-reference braille/, this repo's EMERG/ or RES/, or the Technician-class braille/ folder)",
   withBraille.every(function (e) {
     var name = e.brailleUrl.split("/").pop();
     if (e.brailleUrl.indexOf("EMERG/") === 0) return emergOnDisk.has(name);
     if (e.brailleUrl.indexOf("RES/") === 0) return resOnDisk.has(name);
+    if (e.brailleUrl.indexOf(TECH + "braille/") === 0) return techBrfOnDisk.has(name);
     return brfOnDisk.has(name);
   }));
 const brailleBySub = {};
@@ -162,11 +169,11 @@ check("the 3 whole-book entries share the whole-book Braille file",
   && new Set(kitBraille.map(function (e) { return e.brailleUrl; })).size === 1
   && kitBraille[0].brailleUrl
     === FR + "braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf");
-check("the kit zip, the read-me, and all non-field entries except the Emergency Communications entries and the chart carry no Braille link",
-  data.filter(function (e) { return !e.brailleUrl; }).length === 7
+check("the kit zip, the read-me, and all non-field entries except the Emergency Communications entries, the chart, and the question pool carry no Braille link",
+  data.filter(function (e) { return !e.brailleUrl; }).length === 5
   && !zip[0].brailleUrl
   && !data.filter(function (e) { return e.file.indexOf("READ_ME_FIRST") === 0; })[0].brailleUrl
-  && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg" && e.list !== "res"; })
+  && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg" && e.list !== "res" && e.list !== "lic"; })
     .every(function (e) { return !e.brailleUrl; }));
 
 /* ---- Emergency Communications entries: Listen button and Braille link ---- */
@@ -229,8 +236,8 @@ check("first group is the Field Reference (71), last is Emergency Communications
   && groups[0].entries.length === 71
   && groups[groups.length - 1].section === "Emergency Communications"
   && groups[groups.length - 1].entries.length === 2);
-check("grouped entries total 79",
-  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 79);
+check("grouped entries total 78",
+  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 78);
 const subs = L.groupBySubsection(data.filter(function (e) { return e.list === "field-sections"; }));
 check("groupBySubsection returns 22 groups in book order (guide first, reference last)",
   subs.length === 22 && subs[0].subsection === "guide"
@@ -249,24 +256,24 @@ check("\"morse\" finds the 3 Morse files, the 3 CW files, and the Tonne article"
   && morse.some(function (e) { return e.file.indexOf("Tonne") !== -1; }),
   morse.length + " results");
 
-check("\"braille\" finds the question-pool Braille file and both Emergency Communications entries (their keywords name Braille; the field-reference Braille links are still not search tokens)",
+check("\"braille\" finds the question pool and both Emergency Communications entries (their keywords name Braille; the field-reference Braille links are still not search tokens)",
   L.searchLibrary(data, "braille").length === 3
-  && L.searchLibrary(data, "braille").some(function (e) { return e.file.indexOf(".brf") !== -1; })
+  && L.searchLibrary(data, "braille").some(function (e) { return e.list === "lic" && e.brailleUrl; })
   && L.searchLibrary(data, "braille").filter(function (e) { return e.list === "emerg"; }).length === 2);
 
-check("\"question pool\" finds both pool files",
-  L.searchLibrary(data, "question pool").length === 2);
+check("\"question pool\" finds the single grouped pool entry",
+  L.searchLibrary(data, "question pool").length === 1);
 
 check("\"field reference\" finds all 71 field-reference entries",
   L.searchLibrary(data, "field reference").length === 71);
 
-check("\"licensing\" finds the 2 pool files",
-  L.searchLibrary(data, "licensing").length === 2);
+check("\"licensing\" finds the single grouped pool entry",
+  L.searchLibrary(data, "licensing").length === 1);
 
 check("\"zzzzz\" returns zero results", L.searchLibrary(data, "zzzzz").length === 0);
 
-check("blank query returns all 79 entries in data order",
-  L.searchLibrary(data, "   ").length === 79
+check("blank query returns all 78 entries in data order",
+  L.searchLibrary(data, "   ").length === 78
   && L.searchLibrary(data, "").map(function (e) { return e.file; }).join()
     === data.map(function (e) { return e.file; }).join());
 

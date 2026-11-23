@@ -1,10 +1,11 @@
 /* Build library.json for the VIH group document library page.
  *
  * Run: node build_library.js
- * Writes: library.json (79 entries: the 77 files in the Document Index,
+ * Writes: library.json (78 entries: the 77 files in the Document Index,
  * third edition, 2026-11-16, plus the Emergency Communications FOG link
  * index and the PEP/IPAWS emergency alerting reference, both added
- * 2026-11-22).
+ * 2026-11-22, minus one — the question pool's plain-text and Braille
+ * files are a single entry, not two).
  *
  * Source of truth for the inventory: the Document Index at
  * ~/workspace/goals/visually-inconvenienced-hams-automated-group-posts/files/!Document-Index.txt
@@ -34,12 +35,14 @@
  * the field-reference staging braille/ folder and fails loudly if one
  * is missing. Entries that have a .brf twin carry a brailleUrl field;
  * the three format entries of a section share one .brf file, so the
- * same brailleUrl appears on three entries (72 entries, 26 distinct
+ * same brailleUrl appears on three entries (73 entries, 27 distinct
  * .brf files: 69 field-reference entries sharing 23 files, plus the
  * FOG link index and the PEP/IPAWS reference, each with its own .brf
  * in this repository's EMERG/ folder, plus the blind-population chart,
- * whose .brf twin sits beside it in RES/). The kit zip and the read-me
- * have no .brf twin and carry no brailleUrl.
+ * whose .brf twin sits beside it in RES/, plus the question pool,
+ * whose .brf lives in the Technician-class repository's braille/
+ * folder). The kit zip and the read-me have no .brf twin and carry
+ * no brailleUrl.
  *
  * LISTEN RULE: an entry with a plain-text twin carries a textUrl
  * field; the page renders a Listen button beside it that reads the
@@ -50,8 +53,8 @@
  * live in the field-reference repository's txt/ folder, carry the
  * same 2210 stamp as the .brf files, and are verified against staging
  * the same way. The three format entries of a section share one .txt
- * file, so the same textUrl appears on three entries (72 entries,
- * 26 distinct .txt files — the same shape as the Braille twins).
+ * file, so the same textUrl appears on three entries (73 entries,
+ * 27 distinct .txt files — the same shape as the Braille twins).
  */
 "use strict";
 const fs = require("fs");
@@ -297,9 +300,12 @@ add({
   note: "Group-maintained file. This page is now the document index, so the text file is no longer updated. Everything the index listed is on this page, with search and sort."
 });
 
-/* ---- Licensing and Exams: the Technician question pool ---- */
+/* ---- Licensing and Exams: the Technician question pool ----
+ * One entry for both files (Gregory's decision 2026-11-22): Open and
+ * Listen read the plain-text pool; the Braille button downloads the
+ * same pool in contracted Braille from the Technician-class repo. */
 add({
-  name: "Technician question pool 2026-2030 — plain text",
+  name: "Technician question pool 2026-2030",
   file: "Technician-Question-Pool-2026-2030.txt",
   category: "LIC",
   categoryName: "Licensing and Exams",
@@ -307,30 +313,15 @@ add({
   list: "lic",
   format: "Plain text",
   url: "LIC/Technician-Question-Pool-2026-2030.txt",
+  textUrl: "LIC/Technician-Question-Pool-2026-2030.txt",
+  brailleUrl: TECH + "braille/Technician-Question-Pool-2026-2030.brf",
   version: null,
   date: "2026-11-16",
   time: "17:49",
   author: null,
-  keywords: ["technician", "question pool", "exam", "license", "2026-2030", "questions", "licensing"],
+  keywords: ["technician", "question pool", "exam", "license", "2026-2030", "questions", "braille", "brf", "licensing"],
   status: "available",
-  note: "Public domain. The full 2026-2030 Technician question pool, all 409 questions, in plain text."
-});
-add({
-  name: "Technician question pool 2026-2030 — Braille",
-  file: "Technician-Question-Pool-2026-2030.brf",
-  category: "LIC",
-  categoryName: "Licensing and Exams",
-  section: "Licensing and Exams",
-  list: "lic",
-  format: "Braille",
-  url: TECH + "braille/Technician-Question-Pool-2026-2030.brf",
-  version: null,
-  date: "2026-11-16",
-  time: "17:50",
-  author: null,
-  keywords: ["technician", "question pool", "exam", "license", "2026-2030", "braille", "brf", "licensing"],
-  status: "available",
-  note: "Public domain. The same question pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
+  note: "Public domain. The full 2026-2030 Technician question pool, all 409 questions. The Braille button gives the same pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
 });
 
 /* ---- Radios: the Tonne article — links to the author's own copy ---- */
@@ -416,12 +407,12 @@ add({
 });
 
 /* ---- Counts must match the index exactly ---- */
-if (entries.length !== 79) {
-  throw new Error("expected 79 entries, built " + entries.length);
+if (entries.length !== 78) {
+  throw new Error("expected 78 entries, built " + entries.length);
 }
 const byList = {};
 entries.forEach(function (e) { byList[e.list] = (byList[e.list] || 0) + 1; });
-const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 2, "radio": 1, "res": 1, "emerg": 2 };
+const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 1, "radio": 1, "res": 1, "emerg": 2 };
 Object.keys(expected).forEach(function (k) {
   if (byList[k] !== expected[k]) {
     throw new Error("list " + k + ": expected " + expected[k] + ", built " + (byList[k] || 0));
@@ -431,32 +422,35 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
-/* Braille links: 72 entries carry one (3 whole-book + 66 sections,
+/* Braille links: 73 entries carry one (3 whole-book + 66 sections,
  * sharing 23 distinct .brf files — the three format entries of a
  * section point at the same .brf file, so brailleUrl is deliberately
  * NOT unique per entry — plus the FOG link index and the PEP/IPAWS
  * reference, each with its own .brf file in this repository's EMERG/
- * folder, plus the blind-population chart, whose .brf sits in RES/). */
+ * folder, plus the blind-population chart, whose .brf sits in RES/,
+ * plus the question pool, whose .brf lives in the Technician-class
+ * repository's braille/ folder). */
 const withBraille = entries.filter(function (e) { return e.brailleUrl; });
-if (withBraille.length !== 72) {
-  throw new Error("expected 72 entries with a Braille link, built " + withBraille.length);
+if (withBraille.length !== 73) {
+  throw new Error("expected 73 entries with a Braille link, built " + withBraille.length);
 }
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
-if (distinctBraille.size !== 26) {
-  throw new Error("expected 26 distinct Braille files, built " + distinctBraille.size);
+if (distinctBraille.size !== 27) {
+  throw new Error("expected 27 distinct Braille files, built " + distinctBraille.size);
 }
-/* Text twins: the same 72 entries carry one (3 whole-book + 66
+/* Text twins: the same 73 entries carry one (3 whole-book + 66
  * sections, sharing 23 distinct .txt files, plus the FOG link index
  * and the PEP/IPAWS reference, each with its own .txt file in this
  * repository's EMERG/ folder, plus the blind-population chart, whose
- * .txt twin sits in RES/). */
+ * .txt twin sits in RES/, plus the question pool, whose .txt file is
+ * its own Open link). */
 const withText = entries.filter(function (e) { return e.textUrl; });
-if (withText.length !== 72) {
-  throw new Error("expected 72 entries with a text twin, built " + withText.length);
+if (withText.length !== 73) {
+  throw new Error("expected 73 entries with a text twin, built " + withText.length);
 }
 const distinctText = new Set(withText.map(function (e) { return e.textUrl; }));
-if (distinctText.size !== 26) {
-  throw new Error("expected 26 distinct text files, built " + distinctText.size);
+if (distinctText.size !== 27) {
+  throw new Error("expected 27 distinct text files, built " + distinctText.size);
 }
 
 fs.writeFileSync(

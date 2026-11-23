@@ -2162,7 +2162,7 @@
     "note": "Group-maintained file. This page is now the document index, so the text file is no longer updated. Everything the index listed is on this page, with search and sort."
   },
   {
-    "name": "Technician question pool 2026-2030 — plain text",
+    "name": "Technician question pool 2026-2030",
     "file": "Technician-Question-Pool-2026-2030.txt",
     "category": "LIC",
     "categoryName": "Licensing and Exams",
@@ -2170,6 +2170,8 @@
     "list": "lic",
     "format": "Plain text",
     "url": "LIC/Technician-Question-Pool-2026-2030.txt",
+    "textUrl": "LIC/Technician-Question-Pool-2026-2030.txt",
+    "brailleUrl": "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf",
     "version": null,
     "date": "2026-11-16",
     "time": "17:49",
@@ -2181,36 +2183,12 @@
       "license",
       "2026-2030",
       "questions",
-      "licensing"
-    ],
-    "status": "available",
-    "note": "Public domain. The full 2026-2030 Technician question pool, all 409 questions, in plain text."
-  },
-  {
-    "name": "Technician question pool 2026-2030 — Braille",
-    "file": "Technician-Question-Pool-2026-2030.brf",
-    "category": "LIC",
-    "categoryName": "Licensing and Exams",
-    "section": "Licensing and Exams",
-    "list": "lic",
-    "format": "Braille",
-    "url": "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf",
-    "version": null,
-    "date": "2026-11-16",
-    "time": "17:50",
-    "author": null,
-    "keywords": [
-      "technician",
-      "question pool",
-      "exam",
-      "license",
-      "2026-2030",
       "braille",
       "brf",
       "licensing"
     ],
     "status": "available",
-    "note": "Public domain. The same question pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
+    "note": "Public domain. The full 2026-2030 Technician question pool, all 409 questions. The Braille button gives the same pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
   },
   {
     "name": "Improved audio-frequency bandpass filter for Morse code reception — Tonne",
