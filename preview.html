@@ -249,7 +249,7 @@
         outline-offset: 3px;
       }
 
-      h1 { font-size: 2rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
+      h1 { font-size: 1.8rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
       h2 { font-size: 1.5rem; margin: 1.75rem 0 0.5rem; }
       h3 { font-size: 1.25rem; margin: 1.25rem 0 0.25rem; }
       p { margin: 0.5rem 0; }
@@ -280,14 +280,14 @@
         margin: 0.5rem 0;
       }
 
-      /* Collapsible document sections. Each section heading holds a
-       * real button, so the section opens and closes with a click, a
-       * tap, or the keyboard (Enter or Space). The button says whether
-       * the section is open or closed, in words, so the state never
-       * depends on color alone; aria-expanded says the same thing to
-       * screen readers. The small arrow is decoration only (hidden
-       * from screen readers) — the word carries the meaning. The
-       * button fills the heading, so the whole heading is the target. */
+      /* Collapsible sections. Each section heading holds a real button,
+       * so the section opens and closes with a click, a tap, or the
+       * keyboard (Enter or Space). The button says whether the section
+       * is open or closed, in words, so the state never depends on
+       * color alone; aria-expanded says the same thing to screen
+       * readers. The small arrow is decoration only (hidden from screen
+       * readers) — the word carries the meaning. The button fills the
+       * heading, so the whole heading is the target. */
       .section-toggle {
         display: block;
         width: 100%;
@@ -628,8 +628,7 @@
           </div>
         </fieldset>
       </div>
-      <p class="intro">Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 80 documents.</p>
-      <p class="intro">This page is now the home for the group's documents. The group's Facebook Files section holds only three things: the contest schedule, a short file explaining the move, and the full list of links. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
+      <p class="intro">Every document in the group lives here — 80 of them, sorted by topic. Pick a topic below to open it, or type a word in the search box. If you are new here, open "Start here" below the search box.</p>
       <p class="text-size-note" id="storage-note">Your light or dark choice, your colors, your font, and your text size are saved on this device only. They are never sent anywhere.</p>
       </header>
 
@@ -653,10 +652,15 @@
       <div id="search-results" hidden></div>
 
       <main id="main">
-        <h2 id="how-to-use">How to use this library</h2>
-        <p>Find the topic for what you want. Or type a word in the search box above. The search looks at each file's name, topic, format, and key words. It narrows the list as you type.</p>
-        <p>Each topic starts closed, so you see the list of topics first. Pick a topic heading below to open it. Pick it again to close it. One button below opens every topic at once. Once they are all open, the same button closes them all.</p>
+        <h2 id="start-here"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-start-here"><span class="section-mark" aria-hidden="true"></span>Start here <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-start-here" hidden>
+        <p>The library holds the AB9MZ Master Field Reference in 22 parts, the Technician question pool, the contest schedule, and more.</p>
+        <h3>Find a file</h3>
+        <p>Find the topic for what you want. Each topic starts closed, so you see the list of topics first. Pick a topic heading below to open it. Pick it again to close it.</p>
+        <p>Or type a word in the search box above. The search looks at each file's name, topic, format, and key words. It narrows the list as you type.</p>
+        <p>One button just below this guide opens every section at once. Once they are all open, the same button closes them all.</p>
         <p>Each file shows its name, its format, and its topic. It also shows its version, its date, and its author, when the file name holds them. File names hold a version stamp, like v2.0-20261116-2218-AB9MZ. That stamp means version 2.0, changed 16 November 2026 at 22:18 Central, by AB9MZ. The stamp tells you at a glance if the file you found is the newest one.</p>
+        <h3>The three buttons</h3>
         <p>Each file has up to three buttons:</p>
         <ul class="doc-list">
           <li><span class="fmt-text">Open.</span> Opens the file.</li>
@@ -665,7 +669,13 @@
           <li><span class="fmt-superseded">Superseded by this page.</span> The old text index is no longer updated, because this page is the index now.</li>
         </ul>
         <p>Below the buttons is the direct link to the file. It is there as a backup, in case a button does not work.</p>
+        <h3>On Facebook</h3>
+        <p>The files used to live in the group's Facebook Files section. The list had grown long and hard to search, most of all with a screen reader. So they moved here. Nothing was lost — every file that was in Files is in the library.</p>
+        <p>The group's Facebook Files section still holds the contest schedule and the full list of links, in two formats: a PDF with buttons and a plain text file. The contest schedule is in the library too.</p>
+        <p>When you tap a file in the group's Files on your phone, Facebook shows a small menu with two choices: See Original Post and View File. Tap View File to open the file. See Original Post just takes you to the post that announced the file.</p>
         <p>To go back to the group, use the Back link at the top or the bottom of this page. Inside Facebook's own browser, that link is a close button instead.</p>
+        <p>If you have any trouble finding something, ask in the group or at the Saturday night net and we will help you find it.</p>
+        </div>
 
         <button type="button" class="secondary" id="toggle-all-sections" aria-label="Open all sections of the library">Open all sections</button>
 
@@ -737,7 +747,8 @@
         </ul>
         </div>
 
-        <h2 id="about">About this library</h2>
+        <h2 id="about"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-about"><span class="section-mark" aria-hidden="true"></span>About this library <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-about" hidden>
         <p>This page takes the place of the group's old text index. Facebook does not let a group put its Files into folders. Its phone app lists files newest first, with no sort control at all. So the group keeps its library here instead. Here the files sit in real topics, the search box finds them, and the sort order stays the way you set it.</p>
         <p>Most files here are the group's own work. Others are free public material, like the Technician question pool. Each file on this page has an Open button, except the old document index, which this page replaces. Radio manuals from the makers are not part of this library. They live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
         <p>If a link on this page stops working, post in the Visually Inconvenienced Hams group and say which file it is. If you would like a document added to the library, post in the group too. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
@@ -750,6 +761,7 @@
           <li>The read-me file and the contest schedule have no Braille button yet. Both are plain text already. The schedule changes each day, so a Braille copy would go out of date fast.</li>
         </ul>
         <p class="small">First edition — 16 November 2026. 80 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool, the Tonne filter article, the blind-population reference, the Emergency Communications Field Operations Guides link index, the PEP/IPAWS emergency alerting reference, the weather spotting and weather radio guide, and the digital voice weather and emergency resources list.</p>
+        </div>
       </main>
 
       <footer>
@@ -1178,28 +1190,32 @@
 <script>
 (function () {
   "use strict";
-  /* ---- Collapsible document sections ------------------------------------
-   * Each document section starts closed, so the reader sees the list of
-   * section headings first and drills in: the headings ARE the contents,
-   * so there is no separate contents list to listen through. The section
-   * heading holds a real button (a disclosure): Enter or Space toggles
-   * it, aria-expanded tells a screen reader whether the section is open,
+  /* ---- Collapsible sections -------------------------------------------------
+   * Every section starts closed, so the reader sees the list of section
+   * headings first and drills in: the headings ARE the contents, so
+   * there is no separate contents list to listen through. That covers
+   * the eight document sections, the "Start here" guide, and "About
+   * this library" — the guide text stays out of the way until a reader
+   * wants it, so the files are only a heading away. The section heading
+   * holds a real button (a disclosure): Enter or Space toggles it,
+   * aria-expanded tells a screen reader whether the section is open,
    * and the button's own text says "open" or "closed" in words, so the
    * state never depends on color alone. The section body is hidden with
    * the hidden attribute, so closed sections are out of the tab order
-   * and out of what a screen reader reads. "How to use this library"
-   * and "About this library" are not document sections and stay open as
-   * normal headings. Search hides the whole browse view and shows its
-   * own results, so it is not affected by which sections are open.
+   * and out of what a screen reader reads. Search hides the whole
+   * browse view and shows its own results, so it is not affected by
+   * which sections are open.
    *
    * The single "Open all sections" / "Close all sections" button just
-   * before the first section follows the group button standard: the
-   * visible label names the state the button switches TO, and the full
-   * action is in the aria-label, which contains the visible text. While
-   * any section is closed it reads "Open all sections"; once every
-   * section is open it reads "Close all sections". */
-  var SECTION_IDS = ["field-reference", "contests", "general", "licensing",
-    "radios", "resources", "emergency", "empty-categories"];
+   * before the first document section follows the group button
+   * standard: the visible label names the state the button switches TO,
+   * and the full action is in the aria-label, which contains the
+   * visible text. While any section is closed it reads "Open all
+   * sections"; once every section is open it reads "Close all
+   * sections". */
+  var SECTION_IDS = ["start-here", "field-reference", "contests", "general",
+    "licensing", "radios", "resources", "emergency", "empty-categories",
+    "about"];
 
   function toggleFor(id) {
     var heading = document.getElementById(id);
