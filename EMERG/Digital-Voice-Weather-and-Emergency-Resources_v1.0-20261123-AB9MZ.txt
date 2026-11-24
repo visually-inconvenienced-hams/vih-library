@@ -1,0 +1,355 @@
+Digital Voice Weather and Emergency Resources
+By Gregory D. Rosenberg, AB9MZ
+Version 1.0. November 23, 2026.
+
+This list has digital voice places where hams talk about bad weather and emergencies. Each entry has three parts: the number and the name on one line, and what it is for on the line under it. The list is grouped by mode: DMR, D-Star, System Fusion, and Other Modes.
+
+Skywarn is the National Weather Service program of trained storm spotters. ARES is the Amateur Radio Emergency Service. RACES is the Radio Amateur Civil Emergency Service. Both are groups of hams who help in emergencies.
+
+What the words mean. A talkgroup is a virtual channel on a DMR network. Radios set to the same talkgroup hear each other. A reflector is a computer on the internet with no radio of its own. It links many repeaters and hotspots so they can all hear each other. A reflector has modules, marked by a letter, like A, B, or C. A room is the System Fusion name for the same kind of link. A conference is the EchoLink name for a link that joins many stations at once. A node is one station or repeater on a network like EchoLink or AllStar. Each node has its own number.
+
+Most entries here are regional. They serve one state or one area. A few are national. To find the ones near you, ask your local National Weather Service office or your local ARES group. Talkgroups and rooms can change. Check the source link before you use one. Some entries come from a BrandMeister list made in 2021. Check the BrandMeister wiki for the latest names.
+
+DMR
+
+All talkgroups here are on BrandMeister unless the line says TGIF.
+
+31680	VoIP Hurricane Net DMR Watch
+The VoIP Hurricane Net watches this talkgroup when a hurricane threatens. US-wide. Check their site first.
+
+310	TAC 310
+US tactical. Hams use it for short talks in a crisis. US-wide.
+
+311	TAC 311
+US tactical. The Illinois ARES plan lists it for its digital voice nets. US-wide.
+
+312	TAC 312
+US tactical, for short talks in a crisis. US-wide.
+
+31022	Alaska Skywarn
+Alaska Skywarn net for trained spotters.
+
+31013	ALERT K4NWS
+Alabama ALERT group link to the Weather Service in Birmingham.
+
+31051	Arkansas Weather
+Arkansas weather and Skywarn traffic.
+
+31083	Colorado Severe WX
+Colorado severe weather traffic.
+
+31127	Florida State ARES
+Florida ARES traffic.
+
+31130	Georgia ARES
+Georgia ARES traffic.
+
+31139	Georgia Skywarn
+Georgia Skywarn traffic.
+
+31160	ARES Idaho
+Idaho ARES traffic.
+
+31171	Illinois Link
+Illinois link used by ARES groups.
+
+31173	North Illinois EComm
+EmComm traffic for north Illinois.
+
+31174	East Central Illinois WxOps
+Weather ops for east central Illinois.
+
+31178	WXCTAC
+Weather tactical.
+
+31179	Woodford County IL ARES EmComm
+ARES traffic for Woodford County, Illinois.
+
+31183	Indiana WX Ops
+Indiana weather ops. Skywarn call-outs use it.
+
+31198	NWS DVN
+Link to the Weather Service in Davenport, Iowa. Area: Iowa and Illinois.
+
+31199	NWS DMX SEOC
+Link to the Weather Service in Des Moines and the Iowa ops center.
+
+31205	KC Skywarn
+Kansas City area Skywarn traffic. Area: Kansas and Missouri.
+
+31206	Central Kansas Skywarn
+Central Kansas Skywarn traffic.
+
+31208	Wyandotte County RACES
+RACES traffic for Wyandotte County, Kansas.
+
+31211	Kentucky ARES Statewide
+Kentucky ARES traffic.
+
+31212	Northeast Kentucky WX Spotters
+Weather spotters in northeast Kentucky.
+
+31260	Michigan WX ARES
+Michigan weather and ARES traffic.
+
+31290	Missouri ARES
+Missouri ARES traffic.
+
+31297	Southwest Missouri Skywarn
+Southwest Missouri Skywarn traffic.
+
+31298	Kansas City North ARES
+ARES traffic for the north Kansas City area. Area: Missouri.
+
+3121232	Kentucky Statewide Severe Storm Weather Net
+Kentucky severe storm net, Monday nights in storm season.
+
+31366	NY Metro ARES
+ARES traffic for the New York metro area.
+
+313601	Madison County ARES RACES
+ARES and RACES traffic for Madison County, New York.
+
+313932	NWS Cleveland Skywarn
+Skywarn ops for the Weather Service in Cleveland. Area: Ohio.
+
+31399	Ohio LinkNet
+Ohio LinkNet, linked to the Ohio Link Fusion room. Used by Ohio ARES groups.
+
+31471	Memphis Skywarn
+Memphis area Skywarn. The Weather Service in Memphis watches it. Area: Tennessee and the Mid-South.
+
+31472	Nashville Skywarn
+Nashville area Skywarn. Area: Tennessee.
+
+31473	Morristown Skywarn
+Morristown area Skywarn. Area: Tennessee.
+
+314431	NWS Memphis Skywarn
+Weather Service Memphis Skywarn nets, in bad weather and on the first of each month. Area: the Mid-South.
+
+3125541	New England Reflector System DMR
+New England Skywarn traffic, linked to the New England system.
+
+3026911	Alberta Emergency DMR
+Alberta weekly ARES net, Sunday nights. Area: Canada.
+
+TGIF 31207	Sunflower Network DMR
+TGIF. Kansas Sunflower net, linked to the VoIP Hurricane Net for bad weather. US links.
+
+TGIF 47265	JCARA DMR
+TGIF. Jennings County Skywarn reports. Area: Indiana.
+
+TGIF 2416	District 7 AUXCOMM
+TGIF. Michigan District 7 AUXCOMM weekly net.
+
+D-Star
+
+XLX307W	VoIP Hurricane Net D-Star Wyoming
+XLX, module W. The VoIP Hurricane Net watches this one when a hurricane threatens. US-wide. Check their site first.
+
+XLX735W	VoIP Hurricane Net D-Star New York
+XLX, module W. The VoIP Hurricane Net watches this one when a hurricane threatens. US-wide. Check their site first.
+
+WXNET1	VoIP Hurricane Net Smart Group New York
+D-Star smart group. A smart group links many repeaters at once for the VoIP Hurricane Net. US-wide. Check their site first.
+
+WXNET2	VoIP Hurricane Net Smart Group California
+D-Star smart group. A smart group links many repeaters at once for the VoIP Hurricane Net. US-wide. Check their site first.
+
+XLXOKL C	Sunflower Network D-Star
+XLX, module C. Kansas Sunflower net, linked to the VoIP Hurricane Net. US links.
+
+REF024A	Michigan ARES D-Star Net
+REF, module A. Michigan ARES D-Star net, Monday nights at 8.
+
+REF046B	North Florida ARES
+REF, module B. North Florida ARES traffic.
+
+REF058B	Alabama D-Star Emergency Net
+REF, module B. Alabama EmComm net, used by ALERT and the Weather Service in Birmingham.
+
+REF090C or XRF334C	ALERT Spare Reflectors
+REF or XRF. Spare paths for the Alabama ALERT group.
+
+XLX721A	Kentucky Statewide Severe Storm Weather Net
+XLX, module A. Kentucky severe storm net, Monday nights in storm season.
+
+DCS721A	Kentucky Statewide Severe Storm Weather Net DCS
+DCS, module A. Same Kentucky severe storm net, DCS path.
+
+REF056A	Kentucky Statewide Severe Storm Weather Net REF
+REF, module A. Same Kentucky severe storm net, linked all the time.
+
+System Fusion
+
+YSF 31207	Sunflower Network Fusion
+YSF. Kansas Sunflower net, linked to the VoIP Hurricane Net. US links.
+
+WIRES-X 21565	Illinois Link
+WIRES-X room. Illinois ARES digital voice net room.
+
+YSF 40557	Ohio Link
+YSF. Ohio Link weekly net, Sunday nights at 8:30. Used by Ohio ARES groups.
+
+WIRES-X 40557	Ohio LinkNet
+WIRES-X room. Same Ohio Link net, WIRES-X path.
+
+YSF 47265	JCARA Fusion
+YSF. Jennings County Skywarn reports. Area: Indiana.
+
+YSF 51149	Kentucky Statewide Severe Storm Weather Net
+YSF. Kentucky severe storm net, Monday nights in storm season.
+
+YSF 57618	McClain County ARES
+YSF. McClain County, Oklahoma ARES net, Wednesday nights at 8.
+
+WIRES-X 81281	McClain County ARES
+WIRES-X room. Same McClain County ARES net, WIRES-X path. Area: Oklahoma.
+
+YSF 75056	East Kentucky Weather Network
+YSF. East Kentucky weather and ARES traffic.
+
+YSF 85826	Boyd County ARES
+YSF. Boyd County, Kentucky ARES repeater room.
+
+FCS00377	WXCTAC
+FCS, room 77 on server 3. Weather tactical room. Check the Pi-Star FCS list for current use.
+
+Other Modes
+
+EchoLink 7203	WX-TALK
+EchoLink *WX_TALK*. The VoIP Hurricane Net and VoIP Skywarn net. Weekly prep net and hurricane nets. US-wide.
+
+IRLP 9219	VoIP Hurricane Net IRLP
+IRLP. Same VoIP Hurricane Net, IRLP path. US-wide.
+
+EchoLink 270177	VKEMCOMM
+EchoLink *VKEMCOMM*. Backup for the VoIP Hurricane Net if the main system fails. US-wide.
+
+IRLP 9553	VoIP Hurricane Net Backup IRLP
+IRLP. Backup for the VoIP Hurricane Net if the main system fails. US-wide.
+
+EchoLink 9123	NEW-ENG3
+EchoLink *NEW-ENG3*. New England Skywarn traffic, and a backup for the VoIP Hurricane Net.
+
+IRLP 9123	New England Reflector System IRLP
+IRLP. Same New England Skywarn system, IRLP path.
+
+EchoLink 372418	WX5FWD
+EchoLink *WX5FWD*. Fort Worth Weather Service Skywarn. Spotters use it to send reports. Area: north central Texas.
+
+IRLP 0010	WX5FWD IRLP
+IRLP. Same Fort Worth Skywarn system, IRLP path. Area: north central Texas.
+
+AllStar 614320	WX5FWD AllStar Hub
+AllStar hub. The main AllStar hub for Fort Worth Skywarn. Area: north central Texas.
+
+AllStar 516220	WX5FWD AllStar Hub 2
+AllStar hub. A second AllStar hub for Fort Worth Skywarn. Area: north central Texas.
+
+AllStar 41907	NWS Memphis AllStar
+AllStar. Weather Service Memphis Skywarn, linked to DMR 314431. Area: the Mid-South.
+
+EchoLink 770373	WX4MEM-R
+EchoLink. Weather Service Memphis Skywarn, linked to DMR 314431. Area: the Mid-South.
+
+AllStar 28848	Sunflower Network AllStar
+AllStar. Kansas Sunflower net, linked to the VoIP Hurricane Net. US links.
+
+AllStar 48168	ALERT Alabama AllStar
+AllStar. Alabama ALERT group and the Weather Service in Birmingham.
+
+EchoLink 155003	K4NWS-L
+EchoLink. Alabama ALERT group and the Weather Service in Birmingham.
+
+IRLP 0091	ALERT IRLP
+IRLP. Alabama ALERT group.
+
+P25 31207	Sunflower Network P25
+P25. Kansas Sunflower net, P25 path. US links.
+
+M17-SUN A	Sunflower Network M17
+M17, module A. Kansas Sunflower net, M17 path. US links.
+
+AllStar 471290	JCARA AllStar
+AllStar. Jennings County Skywarn reports. Area: Indiana.
+
+EchoLink 803473	W9ICE-L Central Indiana Skywarn
+EchoLink. Central Indiana Skywarn regional link.
+
+EchoLink 688832	W1GZ-R Central Mass Skywarn
+EchoLink. Central Massachusetts Skywarn net.
+
+IRLP 9122	Central Mass Skywarn IRLP
+IRLP. Same central Massachusetts Skywarn net, IRLP path.
+
+AllStar 602640	Chattanooga Regional Skywarn AllStar
+AllStar. Chattanooga area Skywarn net for Tennessee, Alabama, and Georgia.
+
+EchoLink 859388	W4AM-R Chattanooga Skywarn
+EchoLink. Chattanooga area Skywarn net. Area: Tennessee, Alabama, Georgia.
+
+Hamshack Hotline 94032	Sunflower Network Hotline
+Hamshack Hotline. A phone link to the Sunflower net and the VoIP Hurricane Net. Not a radio mode.
+
+Sources
+
+You can check each source at its link below.
+
+VoIP Hurricane Net, Our Weather Net.
+https://voipwx.net/our-weather-net/
+VoIP Hurricane Net, Dec 2023 (Sunflower links).
+https://voipwx.net/2023/12/
+VoIP Hurricane Net, Nov 2018 (D-Star and DMR watch).
+https://voipwx.net/2018/11/
+NWS Memphis, Skywarn radio.
+https://www.weather.gov/meg/skywarn-radio
+WX5FWD Skywarn Team, Fort Worth.
+http://wx5fwd.org/roip
+BrandMeister wiki, Central Kansas Skywarn.
+https://wiki.brandmeister.network/index.php/TalkGroup/31206
+ARRL North Florida, D-Star.
+https://arrl-nfl.org/dstar/
+ALERT Alabama, Amateur Radio.
+https://alert-alabama.org/blog/?cat=4
+JCARA, Repeaters.
+https://www.jcara.club/repeaters/
+SCARS, Nets (McClain County ARES).
+https://w5nor.org/meetings/?nonamp=1/
+ARES Richland County, Ohio.
+https://www.aresrc.com/home/frequencies-and-those-of-interest/
+Indiana Ham Radio, DMR.
+http://indianahamradio.com/dmr/
+Alaska Skywarn Program.
+https://kl7jft.org/WWW/wp-content/uploads/2022/04/AK-SKYWARN-Program-SOP-27-Mar-22.pdf
+Pi-Star FCS List.
+https://www.pistar.uk/fcs_reflectors.php
+Saginaw County ARES.
+https://ares.saginawradio.com/scares_frequencies.htm
+East Kentucky Weather Net, Broadcastify.
+https://www.broadcastify.com/listen/feed/47634
+Boyd County ARES.
+http://bckyares.net/index.html
+BrandMeister US Talk Groups, Rochester Ham, 2021.
+https://rochesterham.org/documents/learn/BrandMeister%20Talk%20Groups.pdf
+NWS Boston Norton storm message.
+https://wx1box.org/2023/01/23/storm-coordination-message-2-sunday-evening-1-22-23-monday-night-1-23-23-winter-storm-potential/
+RadioReference, Tennessee BrandMeister.
+https://www.radioreference.com/db/sid/9928/db
+RadioReference, Arkansas BrandMeister.
+https://www.radioreference.com/db/sid/9789?siteSort=county
+RadioReference, Missouri BrandMeister.
+https://www.RadioReference.com/db/tgCat/32310
+North Shore Radio Club, System Fusion.
+https://ns9rc.org/technical/fusion
+Illinois ARES Emergency plan.
+https://w9ry.com/IL%20ARES%20Em%20Ops%20All%20Haz%202026-1.pdf
+RepeaterBook, Traverse City (District 7 AUXCOMM).
+https://www.repeaterbook.com/repeaters/details.php?state_id=26&ID=20498
+Chattanooga Skywarn Net reminder.
+https://us10.campaign-archive.com/?u=ce4cbe864d16d0044cb408997&id=53157f34a9
+Kentucky Severe Storm Net (Facebook, March 2026).
+https://www.facebook.com/groups/427025484318156/permalink/2763067244047290/
+Alberta Emergency DMR net (Facebook, Dec 2025).
+https://www.facebook.com/groups/240696126829395/permalink/2144307136468275/

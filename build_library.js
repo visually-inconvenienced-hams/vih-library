@@ -1,10 +1,12 @@
 /* Build library.json for the VIH group document library page.
  *
  * Run: node build_library.js
- * Writes: library.json (78 entries: the 77 files in the Document Index,
+ * Writes: library.json (80 entries: the 77 files in the Document Index,
  * third edition, 2026-11-16, plus the Emergency Communications FOG link
  * index and the PEP/IPAWS emergency alerting reference, both added
- * 2026-11-22, minus one — the question pool's plain-text and Braille
+ * 2026-11-22, plus the weather spotting and weather radio guide and the
+ * digital voice weather and emergency resources list, both added
+ * 2026-11-23, minus one — the question pool's plain-text and Braille
  * files are a single entry, not two).
  *
  * Source of truth for the inventory: the Document Index at
@@ -35,14 +37,14 @@
  * the field-reference staging braille/ folder and fails loudly if one
  * is missing. Entries that have a .brf twin carry a brailleUrl field;
  * the three format entries of a section share one .brf file, so the
- * same brailleUrl appears on three entries (73 entries, 27 distinct
+ * same brailleUrl appears on three entries (75 entries, 29 distinct
  * .brf files: 69 field-reference entries sharing 23 files, plus the
- * FOG link index and the PEP/IPAWS reference, each with its own .brf
- * in this repository's EMERG/ folder, plus the blind-population chart,
- * whose .brf twin sits beside it in RES/, plus the question pool,
- * whose .brf lives in the Technician-class repository's braille/
- * folder). The kit zip and the read-me have no .brf twin and carry
- * no brailleUrl.
+ * FOG link index, the PEP/IPAWS reference, the weather guide, and the
+ * digital voice list, each with its own .brf in this repository's
+ * EMERG/ folder, plus the blind-population chart, whose .brf twin sits
+ * beside it in RES/, plus the question pool, whose .brf lives in the
+ * Technician-class repository's braille/ folder). The kit zip and the
+ * read-me have no .brf twin and carry no brailleUrl.
  *
  * LISTEN RULE: an entry with a plain-text twin carries a textUrl
  * field; the page renders a Listen button beside it that reads the
@@ -53,8 +55,8 @@
  * live in the field-reference repository's txt/ folder, carry the
  * same 2210 stamp as the .brf files, and are verified against staging
  * the same way. The three format entries of a section share one .txt
- * file, so the same textUrl appears on three entries (73 entries,
- * 27 distinct .txt files — the same shape as the Braille twins).
+ * file, so the same textUrl appears on three entries (75 entries,
+ * 29 distinct .txt files — the same shape as the Braille twins).
  */
 "use strict";
 const fs = require("fs");
@@ -117,6 +119,8 @@ function emergFile(name) {
 }
 const FOG_STEM = "Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ";
 const PEP_STEM = "PEP-IPAWS-Emergency-Alerting-Reference_v1.0-20261122-AB9MZ";
+const WX_STEM = "Weather-Spotting-and-Weather-Radio_v1.0-20261123-AB9MZ";
+const DV_STEM = "Digital-Voice-Weather-and-Emergency-Resources_v1.0-20261123-AB9MZ";
 
 /* The blind-population chart's plain-text and Braille twins live
  * beside it in this repository's RES/ folder. */
@@ -406,13 +410,55 @@ add({
   note: "FEMA's list of PEP radio stations. All 73 are here, with their frequencies. PEP means Primary Entry Point. It also explains IPAWS, the Emergency Alert System, and Wireless Emergency Alerts. It covers alert settings for iPhone, Android, GrapheneOS, and Linux. It also covers satellite setup and texting to 911. Includes a Listen button and a Braille file."
 });
 
+/* ---- Emergency Communications: the weather spotting guide ---- */
+add({
+  name: "Weather Spotting and Weather Radio — guide",
+  file: WX_STEM + ".pdf",
+  category: "EMERG",
+  categoryName: "Emergency Communications",
+  section: "Emergency Communications",
+  list: "emerg",
+  format: "Guide PDF",
+  url: emergFile(WX_STEM + ".pdf"),
+  textUrl: emergFile(WX_STEM + ".txt"),
+  brailleUrl: emergFile(WX_STEM + ".brf"),
+  version: "1.0",
+  date: "2026-11-23",
+  time: null,
+  author: "AB9MZ",
+  keywords: ["weather", "skywarn", "spotter", "noaa weather radio", "volmet", "navtex", "stormready", "nwschat", "emergency", "communications", "listen", "braille", "emcomm"],
+  status: "available",
+  note: "How to spot bad weather and report it. Covers Skywarn training, Spotter Network, weather radio channels, and aircraft and marine weather frequencies. Also covers finding classes near you, NWSChat, StormReady, and more places to learn. Includes a Listen button and a Braille file."
+});
+
+/* ---- Emergency Communications: the digital voice list ---- */
+add({
+  name: "Digital Voice Weather and Emergency Resources — list",
+  file: DV_STEM + ".pdf",
+  category: "EMERG",
+  categoryName: "Emergency Communications",
+  section: "Emergency Communications",
+  list: "emerg",
+  format: "List PDF",
+  url: emergFile(DV_STEM + ".pdf"),
+  textUrl: emergFile(DV_STEM + ".txt"),
+  brailleUrl: emergFile(DV_STEM + ".brf"),
+  version: "1.0",
+  date: "2026-11-23",
+  time: null,
+  author: "AB9MZ",
+  keywords: ["dmr", "d-star", "dstar", "system fusion", "c4fm", "wires-x", "echolink", "allstar", "talkgroup", "reflector", "weather", "emergency", "communications", "listen", "braille", "emcomm"],
+  status: "available",
+  note: "A list of 91 digital voice places where hams talk about bad weather and emergencies. Covers DMR talkgroups, D-Star reflectors, System Fusion rooms, and more, including EchoLink and AllStar. Each entry gives the number, the name, and what it is for. Includes a Listen button and a Braille file."
+});
+
 /* ---- Counts must match the index exactly ---- */
-if (entries.length !== 78) {
-  throw new Error("expected 78 entries, built " + entries.length);
+if (entries.length !== 80) {
+  throw new Error("expected 80 entries, built " + entries.length);
 }
 const byList = {};
 entries.forEach(function (e) { byList[e.list] = (byList[e.list] || 0) + 1; });
-const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 1, "radio": 1, "res": 1, "emerg": 2 };
+const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 1, "radio": 1, "res": 1, "emerg": 4 };
 Object.keys(expected).forEach(function (k) {
   if (byList[k] !== expected[k]) {
     throw new Error("list " + k + ": expected " + expected[k] + ", built " + (byList[k] || 0));
@@ -422,35 +468,36 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
-/* Braille links: 73 entries carry one (3 whole-book + 66 sections,
+/* Braille links: 75 entries carry one (3 whole-book + 66 sections,
  * sharing 23 distinct .brf files — the three format entries of a
  * section point at the same .brf file, so brailleUrl is deliberately
- * NOT unique per entry — plus the FOG link index and the PEP/IPAWS
- * reference, each with its own .brf file in this repository's EMERG/
- * folder, plus the blind-population chart, whose .brf sits in RES/,
- * plus the question pool, whose .brf lives in the Technician-class
- * repository's braille/ folder). */
+ * NOT unique per entry — plus the FOG link index, the PEP/IPAWS
+ * reference, the weather guide, and the digital voice list, each with
+ * its own .brf file in this repository's EMERG/ folder, plus the
+ * blind-population chart, whose .brf sits in RES/, plus the question
+ * pool, whose .brf lives in the Technician-class repository's braille/
+ * folder). */
 const withBraille = entries.filter(function (e) { return e.brailleUrl; });
-if (withBraille.length !== 73) {
-  throw new Error("expected 73 entries with a Braille link, built " + withBraille.length);
+if (withBraille.length !== 75) {
+  throw new Error("expected 75 entries with a Braille link, built " + withBraille.length);
 }
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
-if (distinctBraille.size !== 27) {
-  throw new Error("expected 27 distinct Braille files, built " + distinctBraille.size);
+if (distinctBraille.size !== 29) {
+  throw new Error("expected 29 distinct Braille files, built " + distinctBraille.size);
 }
-/* Text twins: the same 73 entries carry one (3 whole-book + 66
- * sections, sharing 23 distinct .txt files, plus the FOG link index
- * and the PEP/IPAWS reference, each with its own .txt file in this
- * repository's EMERG/ folder, plus the blind-population chart, whose
- * .txt twin sits in RES/, plus the question pool, whose .txt file is
- * its own Open link). */
+/* Text twins: the same 75 entries carry one (3 whole-book + 66
+ * sections, sharing 23 distinct .txt files, plus the FOG link index,
+ * the PEP/IPAWS reference, the weather guide, and the digital voice
+ * list, each with its own .txt file in this repository's EMERG/
+ * folder, plus the blind-population chart, whose .txt twin sits in
+ * RES/, plus the question pool, whose .txt file is its own Open link). */
 const withText = entries.filter(function (e) { return e.textUrl; });
-if (withText.length !== 73) {
-  throw new Error("expected 73 entries with a text twin, built " + withText.length);
+if (withText.length !== 75) {
+  throw new Error("expected 75 entries with a text twin, built " + withText.length);
 }
 const distinctText = new Set(withText.map(function (e) { return e.textUrl; }));
-if (distinctText.size !== 27) {
-  throw new Error("expected 27 distinct text files, built " + distinctText.size);
+if (distinctText.size !== 29) {
+  throw new Error("expected 29 distinct text files, built " + distinctText.size);
 }
 
 fs.writeFileSync(

@@ -1,0 +1,145 @@
+Weather Spotting and Weather Radio
+By Gregory D. Rosenberg, AB9MZ
+Version 1.0. November 23, 2026.
+
+What Skywarn Is
+
+Skywarn is a group of trained weather spotters. Spotters watch the sky during bad weather. They report what they see to the National Weather Service. Their reports help the Weather Service warn people sooner. Spotters report things like funnel clouds, hail, heavy rain, and damage from wind. Anyone can become a spotter. Training is free.
+
+Basic Training
+
+Start with basic training. The Weather Service wrote a guide for new spotters. It is called the Weather Spotter's Field Guide. It came out in June 2011. It is the guide to use now. The link is below.
+
+Link: https://www.weather.gov/media/oun/spottertraining/basicspotterguide.pdf
+
+An older guide called NOAA PA 97050 is out of date. Do not use it. Use the Field Guide above instead.
+
+Advanced Training
+
+There is no national advanced guide. Each local Weather Service office makes its own advanced training. The training is often slides from your local office. To find advanced training near you, contact your local Weather Service office. The link to find your office is below.
+
+Link: https://www.weather.gov/
+
+Spotter Network
+
+Spotter Network is a group that helps spotters share reports. It is a non-profit group. It is not part of the Weather Service. It has a deal with the Weather Service to share spotter reports. The link is below.
+
+Link: https://spotternetwork.org
+
+Weather Radio Frequencies
+
+The Weather Service sends weather warnings by radio. These radios are called NOAA Weather Radio. There are 10 channels. The first 7 are used in the United States. The last 3 are Canadian channels.
+
+WX1: 162.550 MHz
+WX2: 162.400 MHz
+WX3: 162.475 MHz
+WX4: 162.425 MHz
+WX5: 162.450 MHz
+WX6: 162.500 MHz
+WX7: 162.525 MHz
+WX8: 161.650 MHz (Canada)
+WX9: 161.775 MHz (Canada)
+WX10: 163.275 MHz (Canada, marine use. This channel was later dropped because of interference with federal radio systems.)
+
+Aircraft Weather Frequencies
+
+Pilots get weather reports by radio too. These reports are called VOLMET. VOLMET uses USB voice. The United States and Canada use these four:
+
+3485 kHz USB
+6604 kHz USB
+10051 kHz USB
+13270 kHz USB
+
+Marine Weather Frequencies
+
+Boats get weather reports by radio too. NAVTEX sends written weather reports to ships. It uses these three:
+
+518 kHz
+490 kHz
+4209.5 kHz
+
+The United States Coast Guard reads weather reports by voice on high frequency radio. Two stations send these reports. Station NMG uses these five:
+
+4426 kHz
+6501 kHz
+8764 kHz
+13089 kHz
+17314 kHz
+
+Station NMC uses these four:
+
+4426 kHz
+8764 kHz
+13089 kHz
+17314 kHz
+
+On VHF marine radio, Channel 16 (156.800 MHz) announces weather broadcasts. Channel 22A (157.100 MHz) carries the broadcasts.
+
+Finding Skywarn Classes Near You
+
+To find a class near you, start with your local Weather Service office. Go to weather.gov and find your office. Your office lists class dates. You can also ask your county emergency office. Classes are free. In Illinois, classes are taught in every county. Some counties hold a class in more than one city. Basic classes teach you how to spot bad weather. Advanced classes go deeper. They cover storm shape and how to read radar. Ask your office when the next class meets.
+
+One big class is the DuPage Advanced Severe Weather Seminar. It is held each year in March near Chicago. DuPage County, the College of DuPage weather lab, and the Chicago Weather Service office put it on. Spotters from all over the Chicago area come to it.
+
+Link: https://www.weather.gov/skywarn
+Link: https://protectdupage.org
+
+NWSChat
+
+NWSChat is a live chat run by the Weather Service. It lets the Weather Service talk with emergency staff, the media, and Skywarn net control staff in bad weather. It is not open to the public. You can join if you work for an emergency office. You can also join if you work in the media. Or if you run a Skywarn net for ARES or RACES. Your local Weather Service office picks who can join. If you hold one of these roles, ask your local office how to join.
+
+StormReady
+
+StormReady is a Weather Service program for towns, cities, and counties. It helps a town get ready to warn its people about bad weather. To earn the name, a town needs a warning point. It must be staffed all day and night. It must have more than one way to get warnings from the Weather Service. And it must have more than one way to warn the public. That can mean sirens, weather radios, or text alerts. Towns must also teach weather safety. And they must hold spotter training. A town that earns the name can post StormReady signs. Tinley Park is part of Cook County's StormReady award. Cook County earned StormReady Gold status in 2014.
+
+Link: https://www.weather.gov/stormready
+
+Two more programs can help your town. Weather-Ready Nation Ambassadors help spread weather safety news. CoCoRaHS volunteers measure rain and snow. They share the numbers with the Weather Service. Anyone can join CoCoRaHS.
+
+Link: https://www.weather.gov/wrn/ambassadors
+Link: https://www.cocorahs.org/
+
+More Weather Resources
+
+These free sites teach skills that help you spot weather safely.
+
+The Weather Service safety pages teach what to do in each kind of bad weather.
+
+Link: https://www.weather.gov/safety/
+
+MetEd has free online weather courses. You can take the online spotter course there.
+
+Link: https://learn.meted.ucar.edu/
+
+JetStream is the Weather Service online weather school. It teaches weather basics in plain words.
+
+Link: https://www.noaa.gov/jetstream
+
+The Skywarn home page has class news and training links.
+
+Link: https://www.weather.gov/skywarn
+
+Sources
+
+Many groups helped with this guide. The Weather Service wrote the Field Guide. The lists come from the Weather Service, the Coast Guard, and ITU radio rules. Spotter Network shared facts about its group. The class notes come from the Weather Service, DuPage County, and the College of DuPage. The StormReady notes come from the Weather Service and Cook County. Thank you to these groups for making this work public. You can check each source at its link below.
+
+National Weather Service
+https://www.weather.gov/
+
+Spotter Network
+https://spotternetwork.org
+
+United States Coast Guard Navigation Center
+https://www.navcen.uscg.gov/maritime-safety-information
+
+ITU
+https://www.itu.int/
+
+DuPage County Office of Homeland Security and Emergency Management
+https://protectdupage.org
+
+College of DuPage weather lab (NEXLAB)
+https://weather.cod.edu/
+
+Cook County Hazard Mitigation Plan
+https://www.cookcountyemergencymanagement.org/hmp
