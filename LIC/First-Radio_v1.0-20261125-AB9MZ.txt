@@ -1,0 +1,50 @@
+Your First Radio
+A practical guide for new hams in Visually Inconvenienced Hams.
+By Gregory D. Rosenberg, AB9MZ
+Version 1.0. November 25, 2026.
+
+You passed your exam, or you are close to it. Now you need a radio. This guide helps you pick one, set it up, and make your first contact. It does not repeat the Technician class lessons. When a lesson already covers a topic, this guide points you to it. The lessons are on the course page at https://visually-inconvenienced-hams.github.io/technician-class/
+
+Part 1. Picking your first radio
+
+Most new hams start with one of three kinds of radio. A handheld radio fits in your hand and runs on a battery. It is small, cheap, and easy to carry. Its short antenna does not reach far, but it is fine for local repeaters. A mobile radio is bigger. It sits on a desk or in a car and runs on house power or a car battery. It sends a stronger signal than a handheld. A 50-watt mobile radio is a good first radio for home use. A base station is a full home setup, often with a bigger radio and an outdoor antenna. Most new hams do not start there. Start small, learn the air, and grow later.
+
+For a blind ham, three things matter most. First, voice prompts. Some radios speak the frequency, the channel number, and the menu choices out loud. A radio that talks to you is far easier to use. Small numbers on a screen are hard to read. Ask the seller or another ham whether a radio speaks its settings. Second, simple memory programming. You will store repeater channels in memory, and you want that job to be easy. Some radios program well from a computer with free software. Others need many keypad steps. Ask how the memories are set before you buy. Third, big, clear controls. A radio with a few large buttons and one main knob is easy to learn by touch. A radio covered in small keys is hard to learn.
+
+You do not need the most costly radio. You need one you can use with ease. Ask on the Saturday net what other blind hams use. They have tried the radios and they know which ones speak well.
+
+Part 2. Power and antenna
+
+Your radio needs power and an antenna. This guide does not repeat the lessons. Lesson 11, Your first station, covers the radio, the antenna, and the feed line. Lesson 12, Power and grounding, covers the power supply, the fuse, and the ground. Lesson 28, Feed lines and SWR, covers the cable and how to check it. Read those three lessons before you buy cables or an antenna.
+
+A few plain facts will help you plan. A handheld radio runs on its own battery pack. A mobile radio needs a power supply that turns house power into the 13.8 volts the radio wants. Your power supply must give enough current for your radio. A 50-watt mobile radio needs 12 amperes, so your supply must give 12 amperes or more. A bigger supply is fine. A smaller one is not safe. Put a fuse in the power wire, close to the power supply. If something goes wrong, the fuse breaks first and your radio stays safe.
+
+For the antenna, start with what your radio came with, then grow. A handheld radio works with its short antenna for nearby repeaters. A mobile radio needs an outside antenna to reach far. A simple vertical antenna on a roof or a pole is a good first outside antenna. Keep the feed line short and use good cable. Water in the connectors and a bad match both add loss, so keep your connectors dry and tight. Lesson 28 shows how to check your antenna with an SWR meter. If the SWR is high, fix the antenna before you talk for long.
+
+Part 3. Programming your radio and making your first contact
+
+Before you can talk, your radio needs to know where to listen and where to send. You store these settings in memory channels. Each memory holds one repeater or one simplex channel. To program a repeater, you need four facts. You need the output frequency, the offset, the tone, and the channel name. The offset is the gap between the frequency you hear and the frequency you send on. On the 2-meter band it is plus or minus 600 kilohertz. On the 70-centimeter band it is plus or minus 5 megahertz. The tone is a low sound, too low to hear, that opens the repeater. Your radio sends it with your voice. Lesson 5, Repeaters, covers all of this in plain words.
+
+You can program memories two ways. You can use the radio keypad, one step at a time. This works, but it is slow and easy to mistype. Or you can use free software on a computer. CHIRP is a free program many hams use to set memories from a computer. You type the channels on the keyboard, then send them to the radio with a cable. For a blind ham, the computer way is often much easier, because a screen reader reads the channel list aloud. Ask another ham to show you the software once. After that, you can do it on your own.
+
+When your radio is set, try a simplex call first. Tune to the national 2-meter calling frequency, 146.52 megahertz. Listen for a bit. Then press the talk button and say your call sign. Say it twice, slowly. Then listen. If no one answers, try again later, or try a repeater. On a repeater, listen first to make sure no one is talking. Then say the other station's call sign, then your own call sign. If you want any contact, say your call sign and the word listening. Keep your first talks short. Say your name and your town. Say you are new. Hams like to help new voices. Lesson 6, Making contacts, covers good manners on the air.
+
+Part 4. Your first shack
+
+A shack is the place where you run your radio. It can be a desk in a spare room, a table in a corner, or a shelf in a closet. You do not need much space. You need a flat spot for the radio, a power supply, and a place to sit and listen. Put the radio where you can reach its knobs with ease. Put the power supply where its fan can breathe. Keep the desk clear so you can find things by touch. A small tray holds the microphone, a pen, and a notepad.
+
+Grounding keeps you and your radio safe. Lesson 12 covers it in full. In short, join the metal cases of your radio and power supply to a ground bar with flat copper straps. Join the bar to a ground rod outside. A ground gives stray current a safe path into the Earth. It also cuts noise in your radio. Do not skip the ground because your station is small. Small stations need it too.
+
+Safety comes first, always. Lesson 30, Electrical safety and lightning, covers it in full. Never work on a radio with the power on. Unplug the feed line from your radio when a storm comes. Let the charge drain from big capacitors before you touch the inside of any gear. Keep water away from your desk. If you climb to work on an antenna, have a friend with you. If a job feels unsafe, stop and ask for help. No contact is worth an injury.
+
+Part 5. Where to get help
+
+You are not alone. The group net meets every Saturday at 19:00 Central time on the Blind Hams Bridge. Join the net and say you are new. Net control will welcome you, and other members will answer your questions. The net is the best place to ask questions. Ask which radio to buy, how to set a memory, or why your signal sounds odd. On the last Saturday of the month, Mark WB6BJN runs a weather net there as part of the VIH net.
+
+Find an elmer. An elmer is an experienced ham who helps a newcomer learn. Your elmer may be a friend in the group or a member of a local radio club. Or you may meet your elmer on the net. Ask your elmer to check your first station and to listen to your signal. Ask your elmer to show you one new skill at a time. Most hams are glad to be asked.
+
+Join a radio club near you. A club meets in person, runs classes and exams, and has members who love to help. A club is also a good place to try a radio before you buy one. Ask in the group for a club near your town, or search for one online.
+
+Use the group library. The library holds reference files you will use again and again. Look for the phonetic alphabet, the Q codes, and the band plan. The course page holds the lessons, the quizzes, and the Braille files. The AB9MZ Master Field Reference is the deep resource for anything technical, with 112 pages in 22 sections. When you want more than this guide gives, start with the library, then ask the group.
+
+You have worked hard to get here. Now enjoy the air. Start with one radio, one repeater, and one contact at a time. The rest will come. 73, Gregg

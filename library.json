@@ -2191,6 +2191,38 @@
     "note": "Public domain. The full 2026-2030 Technician question pool, all 409 questions. The Braille button gives the same pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
   },
   {
+    "name": "Your First Radio — guide",
+    "file": "First-Radio_v1.0-20261125-AB9MZ.pdf",
+    "category": "LIC",
+    "categoryName": "Licensing and Exams",
+    "section": "Licensing and Exams",
+    "list": "lic",
+    "format": "Guide PDF",
+    "url": "LIC/First-Radio_v1.0-20261125-AB9MZ.pdf",
+    "textUrl": "LIC/First-Radio_v1.0-20261125-AB9MZ.txt",
+    "brailleUrl": "LIC/First-Radio_v1.0-20261125-AB9MZ.brf",
+    "version": "1.0",
+    "date": "2026-11-25",
+    "time": null,
+    "author": "AB9MZ",
+    "keywords": [
+      "first radio",
+      "new ham",
+      "handheld",
+      "mobile radio",
+      "voice prompts",
+      "chirp",
+      "programming",
+      "elmer",
+      "getting started",
+      "licensing",
+      "listen",
+      "braille"
+    ],
+    "status": "available",
+    "note": "How to pick your first radio and set it up. How to make your first contact. It covers handheld, mobile, and base radios. It covers voice prompts, power, and antennas. It covers programming with CHIRP. It tells where to get help, from the Saturday net to finding an elmer. Includes a Listen button and a Braille file."
+  },
+  {
     "name": "Improved audio-frequency bandpass filter for Morse code reception — Tonne",
     "file": "Improved Audio-Frequency Bandpass Filter for Morse Code Reception - Tonne.pdf",
     "category": "RADIO",
