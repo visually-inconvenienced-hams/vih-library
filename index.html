@@ -249,7 +249,7 @@
         outline-offset: 3px;
       }
 
-      h1 { font-size: 2rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
+      h1 { font-size: 1.8rem; line-height: 1.2; margin: 0.5rem 0 0.25rem; }
       h2 { font-size: 1.5rem; margin: 1.75rem 0 0.5rem; }
       h3 { font-size: 1.25rem; margin: 1.25rem 0 0.25rem; }
       p { margin: 0.5rem 0; }
@@ -280,14 +280,31 @@
         margin: 0.5rem 0;
       }
 
-      .contents {
-        border: 3px solid var(--border);
+      /* Collapsible sections. Each section heading holds a real button,
+       * so the section opens and closes with a click, a tap, or the
+       * keyboard (Enter or Space). The button says whether the section
+       * is open or closed, in words, so the state never depends on
+       * color alone; aria-expanded says the same thing to screen
+       * readers. The small arrow is decoration only (hidden from screen
+       * readers) — the word carries the meaning. The button fills the
+       * heading, so the whole heading is the target. */
+      .section-toggle {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0.75rem 1rem;
+        font: inherit;
+        font-weight: bold;
+        text-align: left;
+        color: var(--text);
         background: var(--panel);
-        padding: 1rem 1.25rem;
-        margin: 0.75rem 0;
+        border: 3px solid var(--border);
+        cursor: pointer;
+        min-height: 3.5rem;
       }
-      .contents ul { margin: 0.5rem 0; padding-left: 1.25rem; }
-      .contents li { padding: 0.3rem 0; font-size: 1.1rem; }
+      .section-toggle:hover { background: var(--panel-hover); }
+      .section-toggle .section-mark::before { content: "\25B8\00A0"; }
+      .section-toggle[aria-expanded="true"] .section-mark::before { content: "\25BE\00A0"; }
 
       .note {
         border: 3px solid var(--fair);
@@ -313,6 +330,14 @@
       .fmt-superseded { color: var(--muted); font-weight: bold; }
 
       .small { font-size: 1rem; color: var(--muted); }
+
+      /* Footer version line and classification badge. The badge is a
+       * small chip at the bottom right: white text on black, the
+       * standard TLP:WHITE presentation. It drops below the version
+       * line on narrow screens, so nothing overflows. */
+      .footer-version { margin: 0.5rem 0 0; }
+      .tlp-badge { text-align: right; margin: 0.5rem 0 0; }
+      .tlp-badge .tlp-mark { display: inline-block; background: #000; color: #fff; font-weight: bold; padding: 0.25rem 0.5rem; }
 
       label { display: block; font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0 0.25rem; }
       .hint { font-size: 1.05rem; color: var(--muted); margin: 0.25rem 0 0.5rem; }
@@ -560,7 +585,7 @@
     <a class="skip-link" href="#main">Skip to the document library</a>
     <div class="wrap">
       <header>
-      <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
+      <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to the Facebook group</a>
 
       <h1>Visually Inconvenienced Hams Document Library</h1>
       <button type="button" class="acc-btn" id="accessibility-toggle" aria-expanded="false" aria-controls="accessibility-panel" aria-label="aA Accessibility settings"><span class="aa-symbol" aria-hidden="true"><span class="aa-small">a</span><span class="aa-big">A</span></span> <span class="acc-label">Accessibility</span></button>
@@ -568,7 +593,7 @@
         <h2>Accessibility settings</h2>
         <fieldset>
           <legend>One-tap setup</legend>
-          <p class="acc-hint">Sets yellow on black, bold letters, and text size 32 (or keeps your size if it is already larger).</p>
+          <p class="acc-hint">Sets yellow on black, bold letters, and text size 24 point (or keeps your size if it is already larger).</p>
           <button type="button" class="acc-size-btn" id="low-vision-btn">Low Vision</button>
         </fieldset>
         <fieldset>
@@ -589,7 +614,7 @@
             <button type="button" class="acc-size-btn" id="text-larger">Larger text</button>
             <button type="button" class="acc-size-btn" id="text-reset">Reset text size</button>
           </div>
-          <p class="acc-readout" id="text-size-status" aria-live="polite">Text size 20 pixels</p>
+          <p class="acc-readout" id="text-size-status" aria-live="polite">Text size 15 point</p>
         </fieldset>
         <fieldset>
           <legend>Font style</legend>
@@ -610,50 +635,39 @@
           </div>
         </fieldset>
       </div>
-      <p class="intro">Every document in the group lives here. They are sorted by topic. You can search them. You can pick how the lists are sorted, and the page will keep your pick. First edition — 16 November 2026. 80 documents.</p>
-      <p class="intro">This page is now the home for the group's documents. The group's Facebook Files section holds only three things: the contest schedule, a short file explaining the move, and the full list of links. Here you get real topics, a search box, and a sort order you pick once and keep. It works the same on a phone and on a desktop.</p>
-      <p class="text-size-note" id="storage-note">Your light or dark choice, your colors, your font, and your text size are saved on this device only. They are never sent anywhere.</p>
+      <p class="intro">Every document in the group lives here — 80 of them, sorted by topic. Pick a topic below to open it, or type a word in the search box. If you are new here, open "Start here" below the search box.</p>
+      <p class="text-size-note" id="storage-note">Your display choices are saved on this device only, and never sent anywhere.</p>
       </header>
 
       <form id="search-form" role="search">
         <label for="search-input">Search the library</label>
         <p class="hint" id="search-hint">Try a word like Morse, a category like licensing, or a file type like Braille.</p>
-        <input type="search" id="search-input" name="search" aria-describedby="search-hint" autocomplete="off" spellcheck="false" />
+        <input type="search" id="search-input" name="search" aria-describedby="search-hint" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+        <button type="button" class="secondary" id="clear-search" hidden>Clear search</button>
         <label for="sort-select">Sort the lists</label>
         <p class="hint" id="sort-hint">Your choice is saved in this browser, so the lists stay sorted the way you left them.</p>
         <select id="sort-select" aria-describedby="sort-hint">
-          <option value="listed">As listed — the index order</option>
+          <option value="listed">Default</option>
           <option value="name-asc">Name, A to Z</option>
           <option value="name-desc">Name, Z to A</option>
           <option value="date-newest">Newest first</option>
           <option value="date-oldest">Oldest first</option>
         </select>
-        <button type="button" class="secondary" id="clear-search" hidden>Clear search</button>
       </form>
       <p id="load-status" class="status" role="status">Loading the library…</p>
       <p id="read-status" class="status" role="status"></p>
       <div id="search-results" hidden></div>
 
-      <nav class="contents" aria-label="Contents">
-        <h2>Contents</h2>
-        <ul>
-          <li><a href="#how-to-use">How to use this library</a></li>
-          <li><a href="#field-reference">AB9MZ Master Field Reference — Edition 2.0</a></li>
-          <li><a href="#contests">Contests</a></li>
-          <li><a href="#general">General</a></li>
-          <li><a href="#licensing">Licensing and Exams</a></li>
-          <li><a href="#radios">Radios</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#emergency">Emergency Communications</a></li>
-          <li><a href="#empty-categories">Categories with no documents yet</a></li>
-          <li><a href="#about">About this library</a></li>
-        </ul>
-      </nav>
-
       <main id="main">
-        <h2 id="how-to-use">How to use this library</h2>
-        <p>Find the topic for what you want. Or type a word in the search box above. The search looks at each file's name, topic, format, and key words. It narrows the list as you type.</p>
+        <h2 id="start-here"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-start-here"><span class="section-mark" aria-hidden="true"></span>Start here <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-start-here" hidden>
+        <p>The library holds the AB9MZ Master Field Reference in 22 parts, the Technician question pool, the contest schedule, and more.</p>
+        <h3>Find a file</h3>
+        <p>Find the topic for what you want. Each topic starts closed, so you see the list of topics first. Pick a topic heading below to open it. Pick it again to close it.</p>
+        <p>Or type a word in the search box above. The search looks at each file's name, topic, format, and key words. It narrows the list as you type.</p>
+        <p>One button just below this guide opens every section at once. Once they are all open, the same button closes them all.</p>
         <p>Each file shows its name, its format, and its topic. It also shows its version, its date, and its author, when the file name holds them. File names hold a version stamp, like v2.0-20261116-2218-AB9MZ. That stamp means version 2.0, changed 16 November 2026 at 22:18 Central, by AB9MZ. The stamp tells you at a glance if the file you found is the newest one.</p>
+        <h3>The three buttons</h3>
         <p>Each file has up to three buttons:</p>
         <ul class="doc-list">
           <li><span class="fmt-text">Open.</span> Opens the file.</li>
@@ -662,64 +676,89 @@
           <li><span class="fmt-superseded">Superseded by this page.</span> The old text index is no longer updated, because this page is the index now.</li>
         </ul>
         <p>Below the buttons is the direct link to the file. It is there as a backup, in case a button does not work.</p>
+        <h3>On Facebook</h3>
+        <p>The files used to live in the group's Facebook Files section. The list had grown long and hard to search, most of all with a screen reader. So they moved here. Nothing was lost — every file that was in Files is in the library.</p>
+        <p>The group's Facebook Files section still holds the contest schedule and the full list of links, in two formats: a PDF with buttons and a plain text file. The contest schedule is in the library too.</p>
+        <p>When you tap a file in the group's Files on your phone, Facebook shows a small menu with two choices: See Original Post and View File. Tap View File to open the file. See Original Post just takes you to the post that announced the file.</p>
         <p>To go back to the group, use the Back link at the top or the bottom of this page. Inside Facebook's own browser, that link is a close button instead.</p>
+        <p>If you have any trouble finding something, ask in the group or at the Saturday night net and we will help you find it.</p>
+        </div>
 
-        <h2 id="field-reference">AB9MZ Master Field Reference — Edition 2.0</h2>
+        <button type="button" class="secondary" id="toggle-all-sections" aria-label="Open all sections of the library">Open all sections</button>
+
+        <h2 id="field-reference"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-field-reference"><span class="section-mark" aria-hidden="true"></span>AB9MZ Master Field Reference — Edition 2.0 <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-field-reference" hidden>
         <p>This is Gregory Rosenberg AB9MZ's field reference. It has 22 parts and 112 pages, in large print (22 point text, 28 point headings). Each part is here in three forms: a large-print PDF, a Word file, and a tagged PDF that screen readers can move through by heading. The book has its own home page too. There you can pick parts and build your own edition to use offline: <a href="https://visually-inconvenienced-hams.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
         <p>Braille and plain-text copies of the whole book and each part are also in the field-reference file store: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and each part below also have their own Braille button, next to the Open button, so you can get the .brf file for just the part you want.</p>
         <h3>The whole kit</h3>
         <ul class="doc-list" data-list="field-kit"></ul>
         <h3>Sections</h3>
         <div data-section-list="field-sections"></div>
+        </div>
 
-        <h2 id="contests">Contests (CNTST)</h2>
+        <h2 id="contests"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-contests"><span class="section-mark" aria-hidden="true"></span>Contests (CNTST) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-contests" hidden>
         <ul class="doc-list" data-list="cntst"></ul>
+        </div>
 
-        <h2 id="general">General (GEN)</h2>
+        <h2 id="general"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-general"><span class="section-mark" aria-hidden="true"></span>General (GEN) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-general" hidden>
         <ul class="doc-list" data-list="gen"></ul>
+        </div>
 
-        <h2 id="licensing">Licensing and Exams (LIC)</h2>
+        <h2 id="licensing"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-licensing"><span class="section-mark" aria-hidden="true"></span>Licensing and Exams (LIC) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-licensing" hidden>
         <ul class="doc-list" data-list="lic"></ul>
+        </div>
 
-        <h2 id="radios">Radios (RADIO)</h2>
+        <h2 id="radios"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-radios"><span class="section-mark" aria-hidden="true"></span>Radios (RADIO) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-radios" hidden>
         <ul class="doc-list" data-list="radio"></ul>
+        </div>
 
-        <h2 id="resources">Resources (RES)</h2>
+        <h2 id="resources"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-resources"><span class="section-mark" aria-hidden="true"></span>Resources (RES) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-resources" hidden>
         <ul class="doc-list" data-list="res"></ul>
+        </div>
 
-        <h2 id="emergency">Emergency Communications (EMERG)</h2>
+        <h2 id="emergency"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-emergency"><span class="section-mark" aria-hidden="true"></span>Emergency Communications (EMERG) <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-emergency" hidden>
         <ul class="doc-list" data-list="emerg"></ul>
+        </div>
 
-        <h2 id="empty-categories">Categories with no documents yet</h2>
+        <h2 id="empty-categories"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-empty-categories"><span class="section-mark" aria-hidden="true"></span>Categories with no documents yet <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-empty-categories" hidden>
         <p>These topics are part of the library. They hold no files yet. They are listed here so you can see where new files will go. When a file is added to one of these topics, it shows up in its own section above.</p>
         <ul class="doc-list">
-          <li>ACCESS — Accessibility. No documents yet.</li>
-          <li>ANT — Antennas. No documents yet.</li>
-          <li>APRS — APRS. No documents yet.</li>
-          <li>ARES — ARES. No documents yet.</li>
-          <li>DIGI — Digital Modes. No documents yet.</li>
-          <li>GOVT — Government. No documents yet.</li>
-          <li>GOVT-LOC — Local government. No documents yet.</li>
-          <li>GOVT-CTY — County government. No documents yet.</li>
-          <li>GOVT-STATE — State government. No documents yet.</li>
-          <li>GOVT-RRCC — Regional government (RRCC). No documents yet.</li>
-          <li>GOVT-NAT — National government. No documents yet.</li>
-          <li>GOVT-FED — Federal government. No documents yet.</li>
-          <li>GOVT-INTL — International. No documents yet.</li>
-          <li>GOVT-SPC — Space. No documents yet.</li>
-          <li>GND — Grounding and Bonding. No documents yet.</li>
-          <li>NETS — Nets and Repeaters. No documents yet.</li>
-          <li>POL — Policies. No documents yet.</li>
-          <li>PROC — Procedures. No documents yet.</li>
-          <li>PROP — Propagation. No documents yet.</li>
-          <li>SOFT — Software. No documents yet.</li>
-          <li>WX — Weather. No documents yet.</li>
+          <li>ACCESS — Accessibility.</li>
+          <li>ANT — Antennas.</li>
+          <li>APRS — APRS.</li>
+          <li>ARES — ARES.</li>
+          <li>DIGI — Digital Modes.</li>
+          <li>GOVT — Government.</li>
+          <li>GOVT-LOC — Local government.</li>
+          <li>GOVT-CTY — County government.</li>
+          <li>GOVT-STATE — State government.</li>
+          <li>GOVT-RRCC — Regional government (RRCC).</li>
+          <li>GOVT-NAT — National government.</li>
+          <li>GOVT-FED — Federal government.</li>
+          <li>GOVT-INTL — International.</li>
+          <li>GOVT-SPC — Space.</li>
+          <li>GND — Grounding and Bonding.</li>
+          <li>NETS — Nets and Repeaters.</li>
+          <li>POL — Policies.</li>
+          <li>PROC — Procedures.</li>
+          <li>PROP — Propagation.</li>
+          <li>SOFT — Software.</li>
+          <li>WX — Weather.</li>
         </ul>
+        </div>
 
-        <h2 id="about">About this library</h2>
+        <h2 id="about"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-about"><span class="section-mark" aria-hidden="true"></span>About this library <span class="section-state">— closed</span></button></h2>
+        <div class="section-body" id="section-about" hidden>
         <p>This page takes the place of the group's old text index. Facebook does not let a group put its Files into folders. Its phone app lists files newest first, with no sort control at all. So the group keeps its library here instead. Here the files sit in real topics, the search box finds them, and the sort order stays the way you set it.</p>
         <p>Most files here are the group's own work. Others are free public material, like the Technician question pool. Each file on this page has an Open button, except the old document index, which this page replaces. Radio manuals from the makers are not part of this library. They live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
-        <p>If a link on this page stops working, post in the Visually Inconvenienced Hams group and say which file it is. If you would like a document added to the library, post in the group too. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
+        <p>If a link on this page stops working, post in the group and say which file it is. If you would like a document added to the library, post in the group too. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
         <h3>Files without a Listen or Braille button</h3>
         <p>Most files on this page have all three buttons: Open, Listen, and Braille. A few do not. Here is why, file by file.</p>
         <ul>
@@ -729,10 +768,13 @@
           <li>The read-me file and the contest schedule have no Braille button yet. Both are plain text already. The schedule changes each day, so a Braille copy would go out of date fast.</li>
         </ul>
         <p class="small">First edition — 16 November 2026. 80 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool, the Tonne filter article, the blind-population reference, the Emergency Communications Field Operations Guides link index, the PEP/IPAWS emergency alerting reference, the weather spotting and weather radio guide, and the digital voice weather and emergency resources list.</p>
+        </div>
       </main>
 
       <footer>
-      <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to Visually Inconvenienced Hams on Facebook</a>
+      <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to the Facebook group</a>
+      <p class="small footer-version">Library page version 2.0 — 23 November 2026, 21:20 Central</p>
+      <p class="tlp-badge"><span class="tlp-mark" role="note" title="Traffic Light Protocol: White — freely distributable" aria-label="Traffic Light Protocol: White — freely distributable">TLP:WHITE</span></p>
       </footer>
     </div>
 
@@ -778,7 +820,6 @@
   var clearBtn = $("clear-search");
   var loadStatus = $("load-status");
   var resultsBox = $("search-results");
-  var contentsNav = document.querySelector("nav.contents");
   var mainEl = $("main");
 
   var LIBRARY = null;
@@ -905,7 +946,6 @@
   function showBrowse() {
     resultsBox.hidden = true;
     resultsBox.innerHTML = "";
-    if (contentsNav) contentsNav.hidden = false;
     if (mainEl) mainEl.hidden = false;
     clearBtn.hidden = true;
   }
@@ -931,7 +971,6 @@
     }
     resultsBox.innerHTML = html;
     resultsBox.hidden = false;
-    if (contentsNav) contentsNav.hidden = true;
     if (mainEl) mainEl.hidden = true;
     clearBtn.hidden = false;
   }
@@ -1154,6 +1193,104 @@
     retry.addEventListener("click", function () { window.location.reload(); });
     loadStatus.parentNode.insertBefore(retry, loadStatus.nextSibling);
   });
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  /* ---- Collapsible sections -------------------------------------------------
+   * Every section starts closed, so the reader sees the list of section
+   * headings first and drills in: the headings ARE the contents, so
+   * there is no separate contents list to listen through. That covers
+   * the eight document sections, the "Start here" guide, and "About
+   * this library" — the guide text stays out of the way until a reader
+   * wants it, so the files are only a heading away. The section heading
+   * holds a real button (a disclosure): Enter or Space toggles it,
+   * aria-expanded tells a screen reader whether the section is open,
+   * and the button's own text says "open" or "closed" in words, so the
+   * state never depends on color alone. The section body is hidden with
+   * the hidden attribute, so closed sections are out of the tab order
+   * and out of what a screen reader reads. Search hides the whole
+   * browse view and shows its own results, so it is not affected by
+   * which sections are open.
+   *
+   * The single "Open all sections" / "Close all sections" button just
+   * before the first document section follows the group button
+   * standard: the visible label names the state the button switches TO,
+   * and the full action is in the aria-label, which contains the
+   * visible text. While any section is closed it reads "Open all
+   * sections"; once every section is open it reads "Close all
+   * sections". */
+  var SECTION_IDS = ["start-here", "field-reference", "contests", "general",
+    "licensing", "radios", "resources", "emergency", "empty-categories",
+    "about"];
+
+  function toggleFor(id) {
+    var heading = document.getElementById(id);
+    return heading ? heading.querySelector("button.section-toggle") : null;
+  }
+  function bodyFor(id) {
+    return document.getElementById("section-" + id);
+  }
+  function isOpen(id) {
+    var btn = toggleFor(id);
+    return !!btn && btn.getAttribute("aria-expanded") === "true";
+  }
+
+  /* The one open-all / close-all button: its label follows the state
+   * of the sections, so it always names what pressing it will do. */
+  var toggleAllBtn = document.getElementById("toggle-all-sections");
+  function refreshToggleAll() {
+    if (!toggleAllBtn) return;
+    var allOpen = SECTION_IDS.every(function (id) { return isOpen(id); });
+    if (allOpen) {
+      toggleAllBtn.textContent = "Close all sections";
+      toggleAllBtn.setAttribute("aria-label", "Close all sections of the library");
+    } else {
+      toggleAllBtn.textContent = "Open all sections";
+      toggleAllBtn.setAttribute("aria-label", "Open all sections of the library");
+    }
+  }
+
+  function setSection(id, open) {
+    var btn = toggleFor(id);
+    var body = bodyFor(id);
+    if (!btn || !body) return;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) body.removeAttribute("hidden");
+    else body.setAttribute("hidden", "");
+    var state = btn.querySelector(".section-state");
+    if (state) state.textContent = open ? "— open" : "— closed";
+    refreshToggleAll();
+  }
+
+  /* Each heading button opens and closes its own section. */
+  SECTION_IDS.forEach(function (id) {
+    var btn = toggleFor(id);
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      setSection(id, !isOpen(id));
+    });
+  });
+
+  /* The one button opens every section, or closes them all when they
+   * are already all open. A mix of open and closed counts as closed:
+   * pressing it opens the rest. */
+  if (toggleAllBtn) {
+    toggleAllBtn.addEventListener("click", function () {
+      var open = !SECTION_IDS.every(function (id) { return isOpen(id); });
+      SECTION_IDS.forEach(function (id) { setSection(id, open); });
+    });
+  }
+
+  /* A link straight to a section (from another page, or a bookmark)
+   * opens that section on arrival, so the reader lands on the files
+   * they were sent to, not on a closed heading. */
+  if (typeof window !== "undefined" && window.location && window.location.hash) {
+    var startId = window.location.hash.slice(1);
+    if (SECTION_IDS.indexOf(startId) !== -1) setSection(startId, true);
+  }
 })();
 </script>
 
@@ -1411,6 +1548,13 @@
     var size = parseInt(document.documentElement.style.fontSize, 10);
     return isNaN(size) ? TEXT_SIZE_DEFAULT : size;
   }
+  /* Points, not pixels: members think in point sizes (word processors,
+   * large print), so the readout shows points. 1 point is 4/3 of a
+   * pixel, so points = pixels x 0.75, rounded to a whole number. The
+   * size itself stays in pixels internally and in storage. */
+  function pointsText(size) {
+    return "Text size " + Math.round(size * 0.75) + " point";
+  }
   function saveSize(size) {
     try { window.localStorage.setItem(TEXT_SIZE_KEY, String(size)); } catch (e) { /* ignore */ }
   }
@@ -1421,7 +1565,7 @@
     document.documentElement.style.fontSize = size + "px";
     if (smallerBtn) smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
     if (largerBtn) largerBtn.disabled = (size >= TEXT_SIZE_MAX);
-    if (announce && statusEl) statusEl.textContent = "Text size " + size + " pixels";
+    if (announce && statusEl) statusEl.textContent = pointsText(size);
   }
   if (smallerBtn) {
     smallerBtn.addEventListener("click", function () {
@@ -1445,7 +1589,7 @@
       document.documentElement.style.fontSize = "";
       if (smallerBtn) smallerBtn.disabled = false;
       if (largerBtn) largerBtn.disabled = false;
-      if (statusEl) statusEl.textContent = "Text size " + TEXT_SIZE_DEFAULT + " pixels";
+      if (statusEl) statusEl.textContent = pointsText(TEXT_SIZE_DEFAULT);
     });
   }
 
@@ -1509,7 +1653,7 @@
     var size = currentSize();
     if (smallerBtn) smallerBtn.disabled = (size <= TEXT_SIZE_MIN);
     if (largerBtn) largerBtn.disabled = (size >= TEXT_SIZE_MAX);
-    if (statusEl) statusEl.textContent = "Text size " + size + " pixels";
+    if (statusEl) statusEl.textContent = pointsText(size);
   })();
 })();
 </script>
