@@ -279,6 +279,13 @@
         font-weight: bold;
         margin: 0.5rem 0;
       }
+      .close-banner {
+        font-size: 1.3rem;
+        font-weight: bold;
+        border: 3px solid currentColor;
+        padding: 0.75rem;
+        margin: 0 0 1rem 0;
+      }
 
       /* Collapsible sections. Each section heading holds a real button,
        * so the section opens and closes with a click, a tap, or the
@@ -808,7 +815,7 @@
 
       <footer>
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to the Facebook group</a>
-      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 17:57 Central</p>
+      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 18:50 Central</p>
       <p class="tlp-badge"><span class="tlp-mark" role="note" title="Traffic Light Protocol: White — freely distributable" aria-label="Traffic Light Protocol: White — freely distributable">TLP:WHITE</span></p>
       </footer>
     </div>
@@ -1428,13 +1435,26 @@
   // tested fresh on Gregory's phone and each ended at "Page not found"
   // (2026-11-15). So inside that browser the back-links become close
   // buttons instead: window.close() if the browser honours it, and if the
-  // page is still open a second later, a plain instruction to use the X
-  // button at the top left, which returns to the Facebook app.
+  // page is still open a moment later, scroll to the top of the page and
+  // show a banner there telling the member to use the X button at the top
+  // left of the screen, which returns to the Facebook app. The page cannot
+  // highlight or tap Facebook's own X — no web page can reach the host
+  // app's toolbar — so the banner sits at the very top of the page, right
+  // under that toolbar, and focus moves to it so a screen reader speaks it
+  // at once and the member starts from the top (Gregory's request,
+  // 2026-11-25).
   // window.close() was proven NOT to work in Facebook's iOS webview
-  // (tested on Gregory's phone 2026-11-15), so the fallback note is the
-  // working path. Outside that browser the back-links stay as they are.
+  // (tested on Gregory's phone 2026-11-15), so the banner is the working
+  // path. Outside that browser the back-links stay as they are.
   var FB_WEBVIEW = /FBAN|FBAV|FB_IAB/i.test(navigator.userAgent);
   if (FB_WEBVIEW) {
+    var closeBanner = document.createElement("p");
+    closeBanner.className = "close-banner";
+    closeBanner.setAttribute("tabindex", "-1");
+    closeBanner.hidden = true;
+    closeBanner.textContent = "This browser won't let the page close itself. Tap the X button at the top left of your screen to go back to Facebook.";
+    var headerEl = document.querySelector("header");
+    if (headerEl) headerEl.insertBefore(closeBanner, headerEl.firstChild);
     // Only the back-links (class back-link) become close buttons. The kit
     // zip entry also links to facebook.com, but it is a download link, so
     // it must stay a link.
@@ -1445,19 +1465,15 @@
         btn.type = "button";
         btn.className = "back-link";
         btn.textContent = "Close this page and return to Facebook";
-        var noteShown = false;
         btn.addEventListener("click", function () {
           window.close();
           setTimeout(function () {
-            if (!document.hidden && !noteShown) {
-              noteShown = true;
-              var note = document.createElement("p");
-              note.className = "close-note";
-              note.setAttribute("role", "status");
-              note.textContent = "This browser won't let the page close itself. To go back to Facebook, tap the X button at the top left of the screen.";
-              btn.parentNode.insertBefore(note, btn.nextSibling);
+            if (!document.hidden) {
+              closeBanner.hidden = false;
+              window.scrollTo(0, 0);
+              closeBanner.focus();
             }
-          }, 1200);
+          }, 600);
         });
         anchor.parentNode.replaceChild(btn, anchor);
       })(backAnchors[bi]);
