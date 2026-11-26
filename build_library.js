@@ -1,13 +1,14 @@
 /* Build library.json for the VIH group document library page.
  *
  * Run: node build_library.js
- * Writes: library.json (80 entries: the 77 files in the Document Index,
+ * Writes: library.json (81 entries: the 77 files in the Document Index,
  * third edition, 2026-11-16, plus the Emergency Communications FOG link
  * index and the PEP/IPAWS emergency alerting reference, both added
  * 2026-11-22, plus the weather spotting and weather radio guide and the
  * digital voice weather and emergency resources list, both added
- * 2026-11-23, minus one — the question pool's plain-text and Braille
- * files are a single entry, not two).
+ * 2026-11-23, plus the first radio guide, added 2026-11-25, minus
+ * one — the question pool's plain-text and Braille files are a single
+ * entry, not two).
  *
  * Source of truth for the inventory: the Document Index at
  * ~/workspace/goals/visually-inconvenienced-hams-automated-group-posts/files/!Document-Index.txt
@@ -37,13 +38,14 @@
  * the field-reference staging braille/ folder and fails loudly if one
  * is missing. Entries that have a .brf twin carry a brailleUrl field;
  * the three format entries of a section share one .brf file, so the
- * same brailleUrl appears on three entries (75 entries, 29 distinct
+ * same brailleUrl appears on three entries (76 entries, 30 distinct
  * .brf files: 69 field-reference entries sharing 23 files, plus the
  * FOG link index, the PEP/IPAWS reference, the weather guide, and the
  * digital voice list, each with its own .brf in this repository's
  * EMERG/ folder, plus the blind-population chart, whose .brf twin sits
  * beside it in RES/, plus the question pool, whose .brf lives in the
- * Technician-class repository's braille/ folder). The kit zip and the
+ * Technician-class repository's braille/ folder, plus the first radio
+ * guide, whose .brf sits in LIC/). The kit zip and the
  * read-me have no .brf twin and carry no brailleUrl.
  *
  * LISTEN RULE: an entry with a plain-text twin carries a textUrl
@@ -55,8 +57,23 @@
  * live in the field-reference repository's txt/ folder, carry the
  * same 2210 stamp as the .brf files, and are verified against staging
  * the same way. The three format entries of a section share one .txt
- * file, so the same textUrl appears on three entries (75 entries,
- * 29 distinct .txt files — the same shape as the Braille twins).
+ * file, so the same textUrl appears on three entries (76 entries,
+ * 30 distinct .txt files — the same shape as the Braille twins).
+ *
+ * DOWNLOAD RULE (added 2026-11-25): the page's Download button opens
+ * a panel listing the entry's formats alphabetically — Braille,
+ * eBraille (beta), EPUB, PDF, Text, Word — showing only the formats
+ * that exist. The fields behind it: brailleUrl (.brf), epubUrl
+ * (.epub), pdfUrl (the entry's PDF; a Word entry points at its
+ * section's large-print PDF), textUrl (.txt), wordUrl (.docx). No
+ * entry carries an ebrailleUrl yet; the field is reserved for the
+ * eBraille beta. EPUB and Word twins exist for the same 76 entries
+ * as the text twins (30 distinct files each): field-reference EPUBs
+ * were converted from the section DOCX files and sit beside them in
+ * sections/ (the full book's at the repository root); local EPUB and
+ * DOCX files were converted from the plain-text sources and sit
+ * beside them in EMERG/, RES/, and LIC/. Every twin is verified
+ * against staging the same way as the .brf and .txt twins.
  */
 "use strict";
 const fs = require("fs");
@@ -106,6 +123,47 @@ function textTwinUrl(stem) {
   return FR + "txt/" + name;
 }
 
+/* EPUB and Word twins (added 2026-11-25 for the Download panel).
+ * Field-reference EPUBs sit beside the section DOCX files in
+ * sections/ (the full book's EPUB sits at the repository root beside
+ * its DOCX); they were converted from those DOCX files by pandoc
+ * (build_epub_docx.py in the library goal's hidden_files). The Word
+ * twin of a field-reference entry is its section DOCX. Verify each
+ * file exists in field-reference staging, the same way brailleUrl()
+ * verifies the .brf files. */
+const FR_DIR = path.join(process.env.HOME, "workspace/github-pages-staging/field-reference");
+const FR_SECTIONS_DIR = path.join(FR_DIR, "sections");
+const frSectionsOnDisk = new Set(fs.readdirSync(FR_SECTIONS_DIR));
+const frRootOnDisk = new Set(fs.readdirSync(FR_DIR));
+function epubUrl(stem) {
+  const name = stem + ".epub";
+  if (!frSectionsOnDisk.has(name)) {
+    throw new Error("epub file missing from field-reference staging: " + name);
+  }
+  return FR + "sections/" + name;
+}
+function wordUrl(stem) {
+  const name = stem + ".docx";
+  if (!frSectionsOnDisk.has(name)) {
+    throw new Error("docx file missing from field-reference staging: " + name);
+  }
+  return FR + "sections/" + name;
+}
+function bookEpubUrl() {
+  const name = "AB9MZ_Amateur_Radio_Field_Reference.epub";
+  if (!frRootOnDisk.has(name)) {
+    throw new Error("full-book epub missing from field-reference staging: " + name);
+  }
+  return FR + name;
+}
+function bookWordUrl() {
+  const name = "AB9MZ_Amateur_Radio_Field_Reference.docx";
+  if (!frRootOnDisk.has(name)) {
+    throw new Error("full-book docx missing from field-reference staging: " + name);
+  }
+  return FR + name;
+}
+
 /* The FOG link index lives in this repository (EMERG/), with its
  * plain-text and Braille twins beside it. Verify each file exists in
  * staging, the same way stamped() verifies the renamed files. */
@@ -132,6 +190,19 @@ function resFile(name) {
   }
   return "RES/" + name;
 }
+
+/* The first radio guide lives in this repository (LIC/), with its
+ * plain-text and Braille twins beside it. Verify each file exists in
+ * staging, the same way emergFile() verifies the EMERG files. */
+const LIC_DIR = path.join(__dirname, "LIC");
+const licOnDisk = new Set(fs.readdirSync(LIC_DIR));
+function licFile(name) {
+  if (!licOnDisk.has(name)) {
+    throw new Error("LIC file missing from staging: " + name);
+  }
+  return "LIC/" + name;
+}
+const FR_STEM = "First-Radio_v1.0-20261125-AB9MZ";
 
 /* The 22 field-reference sections in BOOK order (the order in the index
  * and in the book itself), each with its title and search keywords. */
@@ -199,6 +270,9 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Large-print PDF",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  pdfUrl: FR + "AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  epubUrl: bookEpubUrl(),
+  wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "pdf", "large print", "ab9mz"],
@@ -210,6 +284,9 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Word document",
   url: FR + "AB9MZ_Amateur_Radio_Field_Reference.docx",
+  pdfUrl: FR + "AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  epubUrl: bookEpubUrl(),
+  wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "word", "docx", "ab9mz"],
@@ -221,6 +298,9 @@ add(Object.assign({}, FIELD, {
   list: "field-kit",
   format: "Tagged PDF",
   url: FR + "tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  pdfUrl: FR + "tagged/AB9MZ_Amateur_Radio_Field_Reference.pdf",
+  epubUrl: bookEpubUrl(),
+  wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "tagged", "pdf", "screen reader", "ab9mz"],
@@ -256,6 +336,11 @@ SECTIONS.forEach(function (s) {
       subsectionTitle: title,
       format: format,
       url: FR + folder + stem + ext,
+      /* The Download panel's PDF choice: a PDF entry offers its own
+       * file; a Word entry offers the section's large-print PDF. */
+      pdfUrl: format === "Word document" ? FR + "sections/" + stem + ".pdf" : FR + folder + stem + ext,
+      epubUrl: epubUrl(stem),
+      wordUrl: wordUrl(stem),
       brailleUrl: brailleUrl(stem),
       textUrl: textTwinUrl(stem),
       keywords: ["field reference"].concat(keys).concat(formatKeys),
@@ -306,8 +391,9 @@ add({
 
 /* ---- Licensing and Exams: the Technician question pool ----
  * One entry for both files (Gregory's decision 2026-11-22): Open and
- * Listen read the plain-text pool; the Braille button downloads the
- * same pool in contracted Braille from the Technician-class repo. */
+ * Listen read the plain-text pool; the Download button offers the
+ * same pool in contracted Braille from the Technician-class repo,
+ * plus EPUB and Word copies beside the text file in LIC/. */
 add({
   name: "Technician question pool 2026-2030",
   file: "Technician-Question-Pool-2026-2030.txt",
@@ -318,6 +404,8 @@ add({
   format: "Plain text",
   url: "LIC/Technician-Question-Pool-2026-2030.txt",
   textUrl: "LIC/Technician-Question-Pool-2026-2030.txt",
+  epubUrl: licFile("Technician-Question-Pool-2026-2030.epub"),
+  wordUrl: licFile("Technician-Question-Pool-2026-2030.docx"),
   brailleUrl: TECH + "braille/Technician-Question-Pool-2026-2030.brf",
   version: null,
   date: "2026-11-16",
@@ -325,7 +413,31 @@ add({
   author: null,
   keywords: ["technician", "question pool", "exam", "license", "2026-2030", "questions", "braille", "brf", "licensing"],
   status: "available",
-  note: "Public domain. The full 2026-2030 Technician question pool, all 409 questions. The Braille button gives the same pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
+  note: "Public domain. The full 2026-2030 Technician question pool, all 409 questions. The Download button gives the same pool in contracted Braille (UEB grade 2), for Braille displays and embossers."
+});
+
+/* ---- Licensing and Exams: the first radio guide ---- */
+add({
+  name: "Your First Radio — guide",
+  file: FR_STEM + ".pdf",
+  category: "LIC",
+  categoryName: "Licensing and Exams",
+  section: "Licensing and Exams",
+  list: "lic",
+  format: "Guide PDF",
+  url: licFile(FR_STEM + ".pdf"),
+  pdfUrl: licFile(FR_STEM + ".pdf"),
+  epubUrl: licFile(FR_STEM + ".epub"),
+  wordUrl: licFile(FR_STEM + ".docx"),
+  textUrl: licFile(FR_STEM + ".txt"),
+  brailleUrl: licFile(FR_STEM + ".brf"),
+  version: "1.0",
+  date: "2026-11-25",
+  time: null,
+  author: "AB9MZ",
+  keywords: ["first radio", "new ham", "handheld", "mobile radio", "voice prompts", "chirp", "programming", "elmer", "getting started", "licensing", "listen", "braille"],
+  status: "available",
+  note: "How to pick your first radio and set it up. How to make your first contact. It covers handheld, mobile, and base radios. It covers voice prompts, power, and antennas. It covers programming with CHIRP. It tells where to get help, from the Saturday net to finding an elmer. Includes a Listen button and a Braille file."
 });
 
 /* ---- Radios: the Tonne article — links to the author's own copy ---- */
@@ -357,6 +469,9 @@ add({
   list: "res",
   format: "PDF",
   url: "RES/Blind-Population-Distribution.pdf",
+  pdfUrl: "RES/Blind-Population-Distribution.pdf",
+  epubUrl: resFile("Blind-Population-Distribution.epub"),
+  wordUrl: resFile("Blind-Population-Distribution.docx"),
   textUrl: resFile("Blind-Population-Distribution.txt"),
   brailleUrl: resFile("Blind-Population-Distribution.brf"),
   version: null,
@@ -378,6 +493,9 @@ add({
   list: "emerg",
   format: "Link-index PDF",
   url: emergFile(FOG_STEM + ".pdf"),
+  pdfUrl: emergFile(FOG_STEM + ".pdf"),
+  epubUrl: emergFile(FOG_STEM + ".epub"),
+  wordUrl: emergFile(FOG_STEM + ".docx"),
   textUrl: emergFile(FOG_STEM + ".txt"),
   brailleUrl: emergFile(FOG_STEM + ".brf"),
   version: "1.0",
@@ -399,6 +517,9 @@ add({
   list: "emerg",
   format: "Reference PDF",
   url: emergFile(PEP_STEM + ".pdf"),
+  pdfUrl: emergFile(PEP_STEM + ".pdf"),
+  epubUrl: emergFile(PEP_STEM + ".epub"),
+  wordUrl: emergFile(PEP_STEM + ".docx"),
   textUrl: emergFile(PEP_STEM + ".txt"),
   brailleUrl: emergFile(PEP_STEM + ".brf"),
   version: "1.0",
@@ -420,6 +541,9 @@ add({
   list: "emerg",
   format: "Guide PDF",
   url: emergFile(WX_STEM + ".pdf"),
+  pdfUrl: emergFile(WX_STEM + ".pdf"),
+  epubUrl: emergFile(WX_STEM + ".epub"),
+  wordUrl: emergFile(WX_STEM + ".docx"),
   textUrl: emergFile(WX_STEM + ".txt"),
   brailleUrl: emergFile(WX_STEM + ".brf"),
   version: "1.0",
@@ -441,6 +565,9 @@ add({
   list: "emerg",
   format: "List PDF",
   url: emergFile(DV_STEM + ".pdf"),
+  pdfUrl: emergFile(DV_STEM + ".pdf"),
+  epubUrl: emergFile(DV_STEM + ".epub"),
+  wordUrl: emergFile(DV_STEM + ".docx"),
   textUrl: emergFile(DV_STEM + ".txt"),
   brailleUrl: emergFile(DV_STEM + ".brf"),
   version: "1.0",
@@ -453,12 +580,12 @@ add({
 });
 
 /* ---- Counts must match the index exactly ---- */
-if (entries.length !== 80) {
-  throw new Error("expected 80 entries, built " + entries.length);
+if (entries.length !== 81) {
+  throw new Error("expected 81 entries, built " + entries.length);
 }
 const byList = {};
 entries.forEach(function (e) { byList[e.list] = (byList[e.list] || 0) + 1; });
-const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 1, "radio": 1, "res": 1, "emerg": 4 };
+const expected = { "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1, "lic": 2, "radio": 1, "res": 1, "emerg": 4 };
 Object.keys(expected).forEach(function (k) {
   if (byList[k] !== expected[k]) {
     throw new Error("list " + k + ": expected " + expected[k] + ", built " + (byList[k] || 0));
@@ -468,7 +595,7 @@ const urls = entries.filter(function (e) { return e.url; }).map(function (e) { r
 if (new Set(urls).size !== urls.length) {
   throw new Error("duplicate URLs in library.json");
 }
-/* Braille links: 75 entries carry one (3 whole-book + 66 sections,
+/* Braille links: 76 entries carry one (3 whole-book + 66 sections,
  * sharing 23 distinct .brf files — the three format entries of a
  * section point at the same .brf file, so brailleUrl is deliberately
  * NOT unique per entry — plus the FOG link index, the PEP/IPAWS
@@ -476,28 +603,67 @@ if (new Set(urls).size !== urls.length) {
  * its own .brf file in this repository's EMERG/ folder, plus the
  * blind-population chart, whose .brf sits in RES/, plus the question
  * pool, whose .brf lives in the Technician-class repository's braille/
- * folder). */
+ * folder, plus the first radio guide, whose .brf sits in LIC/). */
 const withBraille = entries.filter(function (e) { return e.brailleUrl; });
-if (withBraille.length !== 75) {
-  throw new Error("expected 75 entries with a Braille link, built " + withBraille.length);
+if (withBraille.length !== 76) {
+  throw new Error("expected 76 entries with a Braille link, built " + withBraille.length);
 }
 const distinctBraille = new Set(withBraille.map(function (e) { return e.brailleUrl; }));
-if (distinctBraille.size !== 29) {
-  throw new Error("expected 29 distinct Braille files, built " + distinctBraille.size);
+if (distinctBraille.size !== 30) {
+  throw new Error("expected 30 distinct Braille files, built " + distinctBraille.size);
 }
-/* Text twins: the same 75 entries carry one (3 whole-book + 66
+/* Text twins: the same 76 entries carry one (3 whole-book + 66
  * sections, sharing 23 distinct .txt files, plus the FOG link index,
  * the PEP/IPAWS reference, the weather guide, and the digital voice
  * list, each with its own .txt file in this repository's EMERG/
  * folder, plus the blind-population chart, whose .txt twin sits in
- * RES/, plus the question pool, whose .txt file is its own Open link). */
+ * RES/, plus the question pool, whose .txt file is its own Open link,
+ * plus the first radio guide, whose .txt twin sits in LIC/). */
 const withText = entries.filter(function (e) { return e.textUrl; });
-if (withText.length !== 75) {
-  throw new Error("expected 75 entries with a text twin, built " + withText.length);
+if (withText.length !== 76) {
+  throw new Error("expected 76 entries with a text twin, built " + withText.length);
 }
 const distinctText = new Set(withText.map(function (e) { return e.textUrl; }));
-if (distinctText.size !== 29) {
-  throw new Error("expected 29 distinct text files, built " + distinctText.size);
+if (distinctText.size !== 30) {
+  throw new Error("expected 30 distinct text files, built " + distinctText.size);
+}
+/* EPUB twins: the same 76 entries carry one (3 whole-book + 66
+ * sections, sharing 23 distinct .epub files converted from the
+ * section DOCX files, plus the FOG link index, the PEP/IPAWS
+ * reference, the weather guide, and the digital voice list, each
+ * with its own .epub in EMERG/, plus the blind-population chart in
+ * RES/, the question pool and the first radio guide in LIC/). */
+const withEpub = entries.filter(function (e) { return e.epubUrl; });
+if (withEpub.length !== 76) {
+  throw new Error("expected 76 entries with an EPUB link, built " + withEpub.length);
+}
+const distinctEpub = new Set(withEpub.map(function (e) { return e.epubUrl; }));
+if (distinctEpub.size !== 30) {
+  throw new Error("expected 30 distinct EPUB files, built " + distinctEpub.size);
+}
+/* Word twins: the same 76 entries, 30 distinct .docx files (the 23
+ * field-reference DOCX files the EPUBs were converted from, plus 7
+ * local DOCX files converted from the plain-text sources). */
+const withWord = entries.filter(function (e) { return e.wordUrl; });
+if (withWord.length !== 76) {
+  throw new Error("expected 76 entries with a Word link, built " + withWord.length);
+}
+const distinctWord = new Set(withWord.map(function (e) { return e.wordUrl; }));
+if (distinctWord.size !== 30) {
+  throw new Error("expected 30 distinct Word files, built " + distinctWord.size);
+}
+/* PDF twins for the Download panel: 75 entries (the same 76 minus
+ * the question pool, which has no PDF), 52 distinct files (22
+ * large-print section PDFs shared by the large-print and Word
+ * entries, 22 tagged section PDFs, the full book's large-print and
+ * tagged PDFs, and the 6 local PDFs in EMERG/, RES/, and LIC/). */
+const withPdf = entries.filter(function (e) { return e.pdfUrl; });
+if (withPdf.length !== 75) {
+  throw new Error("expected 75 entries with a PDF link, built " + withPdf.length);
+}
+const distinctPdf = new Set(withPdf.map(function (e) { return e.pdfUrl; }));
+if (distinctPdf.size !== 52) {
+  throw new Error("expected 52 distinct PDF files, built " + distinctPdf.size);
 }
 
 fs.writeFileSync(
@@ -509,3 +675,6 @@ console.log("library.json written: " + entries.length + " entries");
 console.log("by list: " + JSON.stringify(byList));
 console.log("with download links: " + urls.length + "; without: " + (entries.length - urls.length));
 console.log("with Braille links: " + withBraille.length + " entries, " + distinctBraille.size + " distinct .brf files");
+console.log("with EPUB links: " + withEpub.length + " entries, " + distinctEpub.size + " distinct .epub files");
+console.log("with Word links: " + withWord.length + " entries, " + distinctWord.size + " distinct .docx files");
+console.log("with PDF links: " + withPdf.length + " entries, " + distinctPdf.size + " distinct .pdf files");

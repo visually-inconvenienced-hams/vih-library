@@ -315,13 +315,15 @@
       }
 
       .doc-list { list-style: none; margin: 0.5rem 0; padding: 0; font-size: 1.1rem; }
-      .doc-list li { padding: 0.6rem 0.5rem; border-bottom: 1px solid #444; }
-      .doc-list li:last-child { border-bottom: none; }
+      .doc-list > li { padding: 0.6rem 0.5rem; border-bottom: 1px solid #444; }
+      .doc-list > li:last-child { border-bottom: none; }
       /* Alternating row backgrounds, so a low-vision reader can track
        * which entry they are on. A lightness step, not a hue step, so
-       * it reads the same for every kind of color blindness. */
-      .doc-list li:nth-child(odd) { background: var(--row-odd); }
-      .doc-list li:nth-child(even) { background: var(--row-even); }
+       * it reads the same for every kind of color blindness. Direct
+       * children only, so the Download panel's own list rows (inside
+       * an entry) never take the entry striping. */
+      .doc-list > li:nth-child(odd) { background: var(--row-odd); }
+      .doc-list > li:nth-child(even) { background: var(--row-even); }
       .doc-list .label { display: block; margin-top: 0.2rem; font-size: 1rem; }
 
       .fmt-text { color: var(--good); font-weight: bold; }
@@ -412,13 +414,38 @@
        * the light button fill in both modes. */
       a.btn-open { background: #90caf9; color: #000000; border-color: #000000; }
       button.btn-listen { background: #ffe0b2; color: #000000; border-color: #000000; }
-      a.btn-braille { background: #ce93d8; color: #000000; border-color: #000000; }
+      /* The Download button keeps the purple the Braille button had:
+       * it sits in the same slot, and low-vision readers who learned
+       * "purple is the save-it button" keep that cue. The label always
+       * carries the meaning; the color is only a second cue. */
+      button.btn-download { background: #ce93d8; color: #000000; border-color: #000000; }
       a.btn-open:hover { background: #64b5f6; }
       button.btn-listen:hover { background: #ffcc80; }
-      a.btn-braille:hover { background: #c39bd3; }
-      a.btn-open:focus-visible, button.btn-listen:focus-visible, a.btn-braille:focus-visible {
+      button.btn-download:hover { background: #c39bd3; }
+      a.btn-open:focus-visible, button.btn-listen:focus-visible, button.btn-download:focus-visible {
         outline: 4px solid #000000;
         box-shadow: 0 0 0 7px #ffffff;
+      }
+      /* The Download panel: a disclosure under the button row, styled
+       * like the accessibility panel. It holds one link per format the
+       * entry has, in alphabetical order. The links are full-width
+       * rows with button-sized touch targets. */
+      .download-panel {
+        border: 3px solid var(--border);
+        background: var(--panel);
+        padding: 0.5rem 1rem;
+        margin: 0.3rem 0 0.5rem;
+        overflow-wrap: anywhere;
+      }
+      .download-lead { margin: 0.25rem 0; font-weight: bold; }
+      .download-list { list-style: none; margin: 0; padding: 0; }
+      .download-list li { margin: 0; }
+      .download-list a {
+        display: block;
+        min-height: 2.75rem;
+        padding: 0.45rem 0.5rem;
+        font-size: 1.05rem;
+        font-weight: bold;
       }
       .entry-url { font-size: 0.9rem; margin: 0.2rem 0; overflow-wrap: anywhere; }
       .entry-url a { color: var(--muted); }
@@ -672,10 +699,18 @@
         <ul class="doc-list">
           <li><span class="fmt-text">Open.</span> Opens the file.</li>
           <li><span class="fmt-text">Listen.</span> Reads the file out loud with your device's own voice. Some files do not have this button yet.</li>
-          <li><span class="fmt-text">Braille.</span> Downloads the file in Braille. Some files do not have this button yet.</li>
+          <li><span class="fmt-text">Download.</span> Opens a list of file types you can save, like Braille, EPUB, PDF, plain text, and Word. Pick the one you want. Some files do not have this button yet.</li>
           <li><span class="fmt-superseded">Superseded by this page.</span> The old text index is no longer updated, because this page is the index now.</li>
         </ul>
         <p>Below the buttons is the direct link to the file. It is there as a backup, in case a button does not work.</p>
+        <h3>Choosing a file type</h3>
+        <p>The Download button opens a list of file types. Pick the type that works best for you. Each type holds the same words. Only the form changes.</p>
+        <p><span class="fmt-text">Braille (.brf).</span> This is a Braille file. Use it with a Braille display or a Braille printer. It is in contracted Braille, grade 2.</p>
+        <p><span class="fmt-text">EPUB (.epub).</span> This is a book file. Use it with a book app on your phone, tablet, or computer. You can make the text as big as you want. Screen readers can jump from heading to heading.</p>
+        <p><span class="fmt-text">PDF (.pdf).</span> This file looks the same on every screen, like a printed page. Use it to read on screen or to print. Some of our PDFs have big print. Some are tagged, which means screen readers can jump from heading to heading.</p>
+        <p><span class="fmt-text">Text (.txt).</span> This is plain text, with no special form at all. Any device can open it. It is a good pick if your tools work best with plain text.</p>
+        <p><span class="fmt-text">Word (.docx).</span> This is a Word file. Use it if you read with Word, or if you want to write notes in the file or change it.</p>
+        <p>What changed: the old Braille button is now the Download button. The Braille file is still there. It is the first choice in the list. The list also holds the other file types, so you can save the file in the form you like best.</p>
         <h3>On Facebook</h3>
         <p>The files used to live in the group's Facebook Files section. The list had grown long and hard to search, most of all with a screen reader. So they moved here. Nothing was lost — every file that was in Files is in the library.</p>
         <p>The group's Facebook Files section still holds the contest schedule and the full list of links, in two formats: a PDF with buttons and a plain text file. The contest schedule is in the library too.</p>
@@ -689,7 +724,7 @@
         <h2 id="field-reference"><button type="button" class="section-toggle" aria-expanded="false" aria-controls="section-field-reference"><span class="section-mark" aria-hidden="true"></span>AB9MZ Master Field Reference — Edition 2.0 <span class="section-state">— closed</span></button></h2>
         <div class="section-body" id="section-field-reference" hidden>
         <p>This is Gregory Rosenberg AB9MZ's field reference. It has 22 parts and 112 pages, in large print (22 point text, 28 point headings). Each part is here in three forms: a large-print PDF, a Word file, and a tagged PDF that screen readers can move through by heading. The book has its own home page too. There you can pick parts and build your own edition to use offline: <a href="https://visually-inconvenienced-hams.github.io/field-reference/">AB9MZ Master Field Reference home page</a>.</p>
-        <p>Braille and plain-text copies of the whole book and each part are also in the field-reference file store: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and each part below also have their own Braille button, next to the Open button, so you can get the .brf file for just the part you want.</p>
+        <p>Braille and plain-text copies of the whole book and each part are also in the field-reference file store: <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/braille">Braille files (.brf, contracted UEB grade 2)</a> and <a href="https://github.com/visually-inconvenienced-hams/field-reference/tree/main/txt">plain-text files (.txt)</a>. The full book and each part below also have their own Download button, next to the Open button. It lists the Braille file and the other file types, so you can get just the part you want in the type you want.</p>
         <h3>The whole kit</h3>
         <ul class="doc-list" data-list="field-kit"></ul>
         <h3>Sections</h3>
@@ -759,13 +794,13 @@
         <p>This page takes the place of the group's old text index. Facebook does not let a group put its Files into folders. Its phone app lists files newest first, with no sort control at all. So the group keeps its library here instead. Here the files sit in real topics, the search box finds them, and the sort order stays the way you set it.</p>
         <p>Most files here are the group's own work. Others are free public material, like the Technician question pool. Each file on this page has an Open button, except the old document index, which this page replaces. Radio manuals from the makers are not part of this library. They live on the group's <a href="https://visually-inconvenienced-hams.github.io/hamradio-documentation/">amateur radio manuals page</a>, which links to the makers' own sites.</p>
         <p>If a link on this page stops working, post in the group and say which file it is. If you would like a document added to the library, post in the group too. A member who wants to share a document sends it to an admin, and an admin adds it here.</p>
-        <h3>Files without a Listen or Braille button</h3>
-        <p>Most files on this page have all three buttons: Open, Listen, and Braille. A few do not. Here is why, file by file.</p>
+        <h3>Files without a Listen or Download button</h3>
+        <p>Most files on this page have all three buttons: Open, Listen, and Download. A few do not. Here is why, file by file.</p>
         <ul>
-          <li>The complete kit zip file has no Listen or Braille button. It is a zip file full of other files, not a document to read. The files inside it have their own buttons.</li>
-          <li>The old document index has no Open, Listen, or Braille button. This page takes its place. It stays listed so people can still find it.</li>
-          <li>The Tonne filter article has no Listen or Braille button. It lives on the author's own web site, not here. This page links to his copy.</li>
-          <li>The read-me file and the contest schedule have no Braille button yet. Both are plain text already. The schedule changes each day, so a Braille copy would go out of date fast.</li>
+          <li>The complete kit zip file has no Listen or Download button. It is a zip file full of other files, not a document to read. The files inside it have their own buttons.</li>
+          <li>The old document index has no Open, Listen, or Download button. This page takes its place. It stays listed so people can still find it.</li>
+          <li>The Tonne filter article has no Listen or Download button. It lives on the author's own web site, not here. This page links to his copy.</li>
+          <li>The read-me file and the contest schedule have no Download button yet. Both are plain text already. The schedule changes each day, so a Braille copy would go out of date fast.</li>
         </ul>
         <p class="small">First edition — 16 November 2026. 81 documents listed: the AB9MZ Master Field Reference collection (71 files), the contest schedule, the document index, the Technician question pool, the Tonne filter article, the blind-population reference, the Emergency Communications Field Operations Guides link index, the PEP/IPAWS emergency alerting reference, the weather spotting and weather radio guide, the digital voice weather and emergency resources list, and the first radio guide.</p>
         </div>
@@ -773,7 +808,7 @@
 
       <footer>
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to the Facebook group</a>
-      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 17:03 Central</p>
+      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 17:57 Central</p>
       <p class="tlp-badge"><span class="tlp-mark" role="note" title="Traffic Light Protocol: White — freely distributable" aria-label="Traffic Light Protocol: White — freely distributable">TLP:WHITE</span></p>
       </footer>
     </div>
@@ -843,23 +878,46 @@
 
   /* One browse-list item, in the decided order: the document name as
    * a heading (h3 under a section heading, h4 under a subsection
-   * heading), then the three buttons — Open, Listen, Braille — then
-   * the direct URL below the buttons as the least important line
+   * heading), then the three buttons — Open, Listen, Download — then
+   * the Download panel (hidden until its button opens it), then the
+   * direct URL below the buttons as the least important line
    * (there for search engines and as a fallback if a button breaks),
    * then the file name, the format, the category, the version and
-   * date, and any note. Open and Braille are links styled as buttons;
-   * Listen is a real button that reads the text aloud (see the
-   * read-aloud block below). Listen appears whenever the entry has a
-   * plain-text twin, or whenever the document itself is plain text
-   * (its download link ends in .txt); in the second case the button
-   * reads the download link itself. */
+   * date, and any note. Open is a link styled as a button; Listen is
+   * a real button that reads the text aloud (see the read-aloud
+   * block below); Download is a real button that opens a panel
+   * listing the entry's formats alphabetically (Braille, eBraille
+   * beta, EPUB, PDF, Text, Word), each a download link. Listen
+   * appears whenever the entry has a plain-text twin, or whenever
+   * the document itself is plain text (its download link ends in
+   * .txt); in the second case the button reads the download link
+   * itself. Download appears whenever the entry has at least one
+   * format beyond the Open file itself (a Braille, EPUB, or Word
+   * twin, or an eBraille file when one exists) — the same entries
+   * that carried a Braille button before 2026-11-25. */
+  var downloadSeq = 0;
+  function downloadFormats(entry) {
+    /* Alphabetical by the name members see. Only formats that exist
+     * for this entry are listed. */
+    var formats = [];
+    if (entry.brailleUrl) formats.push(["Braille (.brf)", entry.brailleUrl]);
+    if (entry.ebrailleUrl) formats.push(["eBraille (beta) (.ebrl)", entry.ebrailleUrl]);
+    if (entry.epubUrl) formats.push(["EPUB (.epub)", entry.epubUrl]);
+    if (entry.pdfUrl) formats.push(["PDF (.pdf)", entry.pdfUrl]);
+    if (entry.textUrl) formats.push(["Text (.txt)", entry.textUrl]);
+    if (entry.wordUrl) formats.push(["Word (.docx)", entry.wordUrl]);
+    return formats;
+  }
   function browseItem(entry, level) {
     var tag = (level === 4) ? "h4" : "h3";
     var html = "<li>";
     html += "<" + tag + ">" + esc(entry.name) + "</" + tag + ">";
     var listenUrl = entry.textUrl || null;
     if (!listenUrl && entry.url && /\.txt$/i.test(entry.url)) listenUrl = entry.url;
-    if (entry.url || listenUrl || entry.brailleUrl) {
+    var formats = downloadFormats(entry);
+    var hasDownload = !!(entry.brailleUrl || entry.ebrailleUrl || entry.epubUrl || entry.wordUrl);
+    var panelId = null;
+    if (entry.url || listenUrl || hasDownload) {
       html += '<p class="entry-actions">';
       if (entry.url) {
         html += '<a class="btn btn-open" href="' + esc(entry.url) + '" aria-label="Open '
@@ -870,11 +928,25 @@
           + esc(listenUrl) + '" data-listen-name="' + esc(entry.name)
           + '">Listen</button>';
       }
-      if (entry.brailleUrl) {
-        html += ' <a class="btn btn-braille" href="' + esc(entry.brailleUrl) + '" aria-label="'
-          + esc(entry.name) + ' — Braille (.brf)">Braille</a>';
+      if (hasDownload) {
+        downloadSeq += 1;
+        panelId = "download-panel-" + downloadSeq;
+        html += ' <button type="button" class="btn btn-download" aria-expanded="false" aria-controls="'
+          + panelId + '" aria-label="Download ' + esc(entry.name)
+          + ' — choose a format">Download</button>';
       }
       html += "</p>";
+    }
+    if (hasDownload && panelId) {
+      html += '<div class="download-panel" id="' + panelId + '" hidden>';
+      html += '<p class="download-lead">Choose a format:</p>';
+      html += '<ul class="download-list">';
+      for (var f = 0; f < formats.length; f++) {
+        html += '<li><a href="' + esc(formats[f][1]) + '" aria-label="'
+          + esc(entry.name) + ' — ' + esc(formats[f][0]) + '">'
+          + esc(formats[f][0]) + "</a></li>";
+      }
+      html += "</ul></div>";
     }
     if (entry.url) {
       html += '<p class="entry-url"><a href="' + esc(entry.url) + '">' + esc(entry.url) + "</a>";
@@ -1157,9 +1229,49 @@
   }
 
   if (typeof document !== "undefined" && document.addEventListener) {
+    /* Download panels: one delegated click handler for every entry's
+     * Download button, following the accessibility panel's disclosure
+     * pattern — the button says whether its panel is open
+     * (aria-expanded), and the panel's links are only in the tab
+     * order while it is open (the hidden attribute). Opening one
+     * panel closes any other, so a screen-reader user never meets a
+     * stale open panel further down the list. Escape closes the open
+     * panel and puts focus back on its button. Focus stays on the
+     * button when a panel opens; the next Tab moves into the panel. */
+    function hasClass(el, name) {
+      return !!el && typeof el.className === "string" &&
+        (" " + el.className + " ").indexOf(" " + name + " ") !== -1;
+    }
+    function closePanel(btn, panel) {
+      panel.setAttribute("hidden", "");
+      btn.setAttribute("aria-expanded", "false");
+    }
+    function closeAllPanels(exceptId) {
+      var panels = document.querySelectorAll(".download-panel");
+      for (var i = 0; i < panels.length; i++) {
+        if (panels[i].id === exceptId) continue;
+        if (!panels[i].hasAttribute("hidden")) {
+          panels[i].setAttribute("hidden", "");
+          var b = document.querySelector('[aria-controls="' + panels[i].id + '"]');
+          if (b) b.setAttribute("aria-expanded", "false");
+        }
+      }
+    }
     document.addEventListener("click", function (event) {
       var target = event.target;
       if (!target || !target.getAttribute) return;
+      if (hasClass(target, "btn-download")) {
+        var panel = document.getElementById(target.getAttribute("aria-controls"));
+        if (!panel) return;
+        if (panel.hasAttribute("hidden")) {
+          closeAllPanels(panel.id);
+          panel.removeAttribute("hidden");
+          target.setAttribute("aria-expanded", "true");
+        } else {
+          closePanel(target, panel);
+        }
+        return;
+      }
       if (!target.getAttribute("data-listen-url")) return;
       if (!LISTEN_SUPPORTED) {
         listenSetStatus("Read-aloud is not supported in this browser.");
@@ -1172,6 +1284,20 @@
       }
       if (listenReading) listenStop();
       listenStart(target);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" && event.key !== "Esc") return;
+      var panels = document.querySelectorAll(".download-panel");
+      for (var i = 0; i < panels.length; i++) {
+        if (panels[i].hasAttribute("hidden")) continue;
+        var btn = document.querySelector('[aria-controls="' + panels[i].id + '"]');
+        var active = document.activeElement;
+        if (active === btn || (panels[i].contains && active && panels[i].contains(active))) {
+          closePanel(btn, panels[i]);
+          if (btn && btn.focus) btn.focus();
+          return;
+        }
+      }
     });
   }
 

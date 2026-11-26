@@ -1,25 +1,27 @@
 /* Node tests for library.json + library.js. Run: node test_library.js
  * Exit code 0 only when every check passes.
  *
- * COUNT NOTE: the library holds 80 entries: the 77 files in the Document
+ * COUNT NOTE: the library holds 81 entries: the 77 files in the Document
  * Index, third edition, 2026-11-16 (the 71-file field-reference
  * collection, the contest schedule, the index itself, the two
  * question-pool files, the Tonne article, and the blind-population
  * reference), plus the Emergency Communications FOG link index and the
  * PEP/IPAWS reference, both added 2026-11-22, plus the weather spotting
  * and weather radio guide and the digital voice weather and emergency
- * resources list, both added 2026-11-23, minus one — the question
- * pool's two files are a single entry. The 46 field-reference Braille
+ * resources list, both added 2026-11-23, plus the first radio guide,
+ * added 2026-11-25, minus one — the question pool's two files are a
+ * single entry. The 46 field-reference Braille
  * and plain-text files are
  * NOT entries here — they are not in the index (they are not in group
  * Files); the page links to their folders in the field-reference
  * repository instead. Since 2026-11-22 each field-reference entry also
  * carries a brailleUrl to its own .brf file, and the FOG index, the
  * PEP/IPAWS reference, the weather guide, the digital voice list, the
- * blind-population chart, and the question pool carry one too
- * (75 entries, 29 distinct .brf files); the .brf files are still not
+ * blind-population chart, the question pool, and the first radio guide
+ * carry one too
+ * (76 entries, 30 distinct .brf files); the .brf files are still not
  * entries, only secondary links next to the main download link. The
- * same 75 entries carry a textUrl, which is what their Listen button
+ * same 76 entries carry a textUrl, which is what their Listen button
  * reads aloud.
  *
  * NAME NOTE: field-reference entries carry their RENAMED file names
@@ -48,7 +50,7 @@ const FR = "https://visually-inconvenienced-hams.github.io/field-reference/";
 const STATUSES = ["available", "pending", "superseded"];
 const LISTS = {
   "field-kit": 5, "field-sections": 66, "cntst": 1, "gen": 1,
-  "lic": 1, "radio": 1, "res": 1
+  "lic": 2, "radio": 1, "res": 1
 };
 
 let failures = 0;
@@ -58,7 +60,7 @@ function check(name, cond, detail) {
 }
 
 /* ---- count and fields ---- */
-check("80 library entries", data.length === 80, "got " + data.length);
+check("81 library entries", data.length === 81, "got " + data.length);
 
 let badFields = [];
 data.forEach(function (e, i) {
@@ -78,15 +80,15 @@ check("every entry has all required fields non-empty", badFields.length === 0,
 /* ---- counts by list ---- */
 const byList = {};
 data.forEach(function (e) { byList[e.list] = (byList[e.list] || 0) + 1; });
-check("counts by list match the index (5 kit, 66 sections, 1+1+2+1+1)",
+check("counts by list match the index (5 kit, 66 sections, 1 cntst, 1 gen, 2 lic, 1 radio, 1 res)",
   Object.keys(LISTS).every(function (k) { return byList[k] === LISTS[k]; }),
   JSON.stringify(byList));
 
 /* ---- URL rules ---- */
 const withUrl = data.filter(function (e) { return e.url; });
 const withoutUrl = data.filter(function (e) { return !e.url; });
-check("79 entries have a download link, 1 does not",
-  withUrl.length === 79 && withoutUrl.length === 1,
+check("80 entries have a download link, 1 does not",
+  withUrl.length === 80 && withoutUrl.length === 1,
   withUrl.length + " with, " + withoutUrl.length + " without");
 check("the 1 link-less entry is the superseded index",
   withoutUrl.length === 1 && withoutUrl[0].status === "superseded",
@@ -137,25 +139,29 @@ const emergOnDisk = new Set(
 const resOnDisk = new Set(
   fs.readdirSync(path.join(__dirname, "RES"))
 );
+const licOnDisk = new Set(
+  fs.readdirSync(path.join(__dirname, "LIC"))
+);
 const techBrfOnDisk = new Set(
   fs.readdirSync(path.join(process.env.HOME, "workspace/github-pages-staging/technician-class/braille"))
 );
 const TECH = "https://visually-inconvenienced-hams.github.io/technician-class/";
 const withBraille = data.filter(function (e) { return e.brailleUrl; });
-check("75 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference + the weather guide + the digital voice list + the blind-population chart + the question pool)",
-  withBraille.length === 75, "got " + withBraille.length);
-check("29 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf, the PEP .brf, the weather .brf, the digital voice .brf, the chart .brf, and the pool .brf)",
-  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 29);
-check("every Braille link ends in .brf and points into the field-reference braille/ folder, this repo's EMERG/ or RES/ folder, or the Technician-class braille/ folder",
+check("76 entries carry a Braille link (3 whole-book + 66 sections + the FOG index + the PEP/IPAWS reference + the weather guide + the digital voice list + the blind-population chart + the question pool + the first radio guide)",
+  withBraille.length === 76, "got " + withBraille.length);
+check("30 distinct Braille files (the 3 formats of a section share one .brf, plus the FOG .brf, the PEP .brf, the weather .brf, the digital voice .brf, the chart .brf, the pool .brf, and the first radio .brf)",
+  new Set(withBraille.map(function (e) { return e.brailleUrl; })).size === 30);
+check("every Braille link ends in .brf and points into the field-reference braille/ folder, this repo's EMERG/, RES/, or LIC/ folder, or the Technician-class braille/ folder",
   withBraille.every(function (e) {
     return /\.brf$/.test(e.brailleUrl)
-      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0 || e.brailleUrl.indexOf("RES/") === 0 || e.brailleUrl.indexOf(TECH + "braille/") === 0);
+      && (e.brailleUrl.indexOf(FR + "braille/") === 0 || e.brailleUrl.indexOf("EMERG/") === 0 || e.brailleUrl.indexOf("RES/") === 0 || e.brailleUrl.indexOf("LIC/") === 0 || e.brailleUrl.indexOf(TECH + "braille/") === 0);
   }));
-check("every Braille file name exists in its staging folder (field-reference braille/, this repo's EMERG/ or RES/, or the Technician-class braille/ folder)",
+check("every Braille file name exists in its staging folder (field-reference braille/, this repo's EMERG/, RES/, or LIC/, or the Technician-class braille/ folder)",
   withBraille.every(function (e) {
     var name = e.brailleUrl.split("/").pop();
     if (e.brailleUrl.indexOf("EMERG/") === 0) return emergOnDisk.has(name);
     if (e.brailleUrl.indexOf("RES/") === 0) return resOnDisk.has(name);
+    if (e.brailleUrl.indexOf("LIC/") === 0) return licOnDisk.has(name);
     if (e.brailleUrl.indexOf(TECH + "braille/") === 0) return techBrfOnDisk.has(name);
     return brfOnDisk.has(name);
   }));
@@ -179,6 +185,73 @@ check("the kit zip, the read-me, and all non-field entries except the Emergency 
   && data.filter(function (e) { return e.category !== "FIELD" && e.list !== "emerg" && e.list !== "res" && e.list !== "lic"; })
     .every(function (e) { return !e.brailleUrl; }));
 
+/* ---- Download-panel format links: EPUB, Word, PDF (2026-11-25) ---- */
+const frSectionsOnDisk = new Set(
+  fs.readdirSync(path.join(process.env.HOME, "workspace/github-pages-staging/field-reference/sections"))
+);
+const frRootOnDisk = new Set(
+  fs.readdirSync(path.join(process.env.HOME, "workspace/github-pages-staging/field-reference"))
+);
+function twinOnDisk(u) {
+  var name = u.split("/").pop();
+  if (u.indexOf("EMERG/") === 0) return emergOnDisk.has(name);
+  if (u.indexOf("RES/") === 0) return resOnDisk.has(name);
+  if (u.indexOf("LIC/") === 0) return licOnDisk.has(name);
+  if (u.indexOf(FR + "sections/") === 0) return frSectionsOnDisk.has(name);
+  if (u.indexOf(FR) === 0) return frRootOnDisk.has(name);
+  return false;
+}
+const withEpub = data.filter(function (e) { return e.epubUrl; });
+check("76 entries carry an EPUB link (the same entries as the Braille links)",
+  withEpub.length === 76, "got " + withEpub.length);
+check("30 distinct EPUB files (the 3 formats of a section share one .epub)",
+  new Set(withEpub.map(function (e) { return e.epubUrl; })).size === 30);
+check("every EPUB link ends in .epub and points into the field-reference sections/ folder or root, or this repo's EMERG/, RES/, or LIC/ folder",
+  withEpub.every(function (e) {
+    return /\.epub$/.test(e.epubUrl)
+      && (e.epubUrl.indexOf(FR + "sections/") === 0 || e.epubUrl.indexOf(FR) === 0
+        || e.epubUrl.indexOf("EMERG/") === 0 || e.epubUrl.indexOf("RES/") === 0
+        || e.epubUrl.indexOf("LIC/") === 0);
+  }));
+check("every EPUB file name exists in its staging folder",
+  withEpub.every(function (e) { return twinOnDisk(e.epubUrl); }));
+const epubBySub = {};
+withEpub.filter(function (e) { return e.list === "field-sections"; }).forEach(function (e) {
+  (epubBySub[e.subsection] = epubBySub[e.subsection] || new Set()).add(e.epubUrl);
+});
+check("the 3 entries of each section share one EPUB link",
+  Object.keys(epubBySub).length === 22
+  && Object.keys(epubBySub).every(function (k) { return epubBySub[k].size === 1; }));
+const withWord = data.filter(function (e) { return e.wordUrl; });
+check("76 entries carry a Word link (the same entries as the Braille links)",
+  withWord.length === 76, "got " + withWord.length);
+check("30 distinct Word files (the 3 formats of a section share one .docx)",
+  new Set(withWord.map(function (e) { return e.wordUrl; })).size === 30);
+check("every Word link ends in .docx and every Word file exists in its staging folder",
+  withWord.every(function (e) { return /\.docx$/.test(e.wordUrl) && twinOnDisk(e.wordUrl); }));
+const withPdf = data.filter(function (e) { return e.pdfUrl; });
+check("75 entries carry a PDF link (the Braille-link entries minus the question pool, which has no PDF)",
+  withPdf.length === 75, "got " + withPdf.length);
+check("52 distinct PDF files (22 large-print + 22 tagged section PDFs, the full book's two PDFs, and 6 local PDFs)",
+  new Set(withPdf.map(function (e) { return e.pdfUrl; })).size === 52);
+check("every PDF link ends in .pdf and every PDF file exists in its staging folder",
+  withPdf.every(function (e) {
+    if (!/\.pdf$/.test(e.pdfUrl)) return false;
+    if (e.pdfUrl.indexOf(FR + "tagged/") === 0) {
+      return fs.existsSync(path.join(process.env.HOME,
+        "workspace/github-pages-staging/field-reference/tagged", e.pdfUrl.split("/").pop()));
+    }
+    return twinOnDisk(e.pdfUrl);
+  }));
+check("a Word entry's PDF link is its section's large-print PDF",
+  data.filter(function (e) { return e.list === "field-sections" && e.format === "Word document"; })
+    .every(function (e) { return e.pdfUrl === FR + "sections/" + e.subsection + ".pdf"; }));
+check("no entry carries an eBraille link yet",
+  data.every(function (e) { return !e.ebrailleUrl; }));
+check("the 5 entries without a Braille link also carry no EPUB, Word, or PDF link",
+  data.filter(function (e) { return !e.brailleUrl; })
+    .every(function (e) { return !e.epubUrl && !e.wordUrl && !e.pdfUrl; }));
+
 /* ---- Emergency Communications entries: Listen button and Braille link ---- */
 const emerg = data.filter(function (e) { return e.list === "emerg"; });
 check("four Emergency Communications entries (the FOG link index, the PEP/IPAWS reference, the weather guide, and the digital voice list)",
@@ -199,6 +272,17 @@ check("searching \"fog\" finds the FOG link index",
   L.searchLibrary(data, "fog").some(function (e) { return e.list === "emerg"; }));
 check("searching \"pep\" finds the PEP/IPAWS reference",
   L.searchLibrary(data, "pep").some(function (e) { return e.file.indexOf("PEP-IPAWS") === 0; }));
+
+/* ---- Licensing: the first radio guide ---- */
+const firstRadio = data.filter(function (e) { return e.file.indexOf("First-Radio") === 0; });
+check("the first radio guide has a plain-text twin and a Braille twin beside the PDF",
+  firstRadio.length === 1
+  && firstRadio[0].textUrl === "LIC/" + firstRadio[0].file.replace(/\.pdf$/, ".txt")
+  && firstRadio[0].brailleUrl === "LIC/" + firstRadio[0].file.replace(/\.pdf$/, ".brf"));
+check("the first radio guide text and Braille twins exist in the staging LIC/ folder",
+  firstRadio.length === 1
+  && licOnDisk.has(firstRadio[0].textUrl.split("/").pop())
+  && licOnDisk.has(firstRadio[0].brailleUrl.split("/").pop()));
 
 /* ---- group-maintained files ---- */
 const maintained = data.filter(function (e) { return e.maintained; });
@@ -239,8 +323,8 @@ check("first group is the Field Reference (71), last is Emergency Communications
   && groups[0].entries.length === 71
   && groups[groups.length - 1].section === "Emergency Communications"
   && groups[groups.length - 1].entries.length === 4);
-check("grouped entries total 80",
-  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 80);
+check("grouped entries total 81",
+  groups.reduce(function (n, g) { return n + g.entries.length; }, 0) === 81);
 const subs = L.groupBySubsection(data.filter(function (e) { return e.list === "field-sections"; }));
 check("groupBySubsection returns 22 groups in book order (guide first, reference last)",
   subs.length === 22 && subs[0].subsection === "guide"
@@ -259,9 +343,9 @@ check("\"morse\" finds the 3 Morse files, the 3 CW files, and the Tonne article"
   && morse.some(function (e) { return e.file.indexOf("Tonne") !== -1; }),
   morse.length + " results");
 
-check("\"braille\" finds the question pool and all four Emergency Communications entries (their keywords name Braille; the field-reference Braille links are still not search tokens)",
-  L.searchLibrary(data, "braille").length === 5
-  && L.searchLibrary(data, "braille").some(function (e) { return e.list === "lic" && e.brailleUrl; })
+check("\"braille\" finds the question pool, the first radio guide, and all four Emergency Communications entries (their keywords name Braille; the field-reference Braille links are still not search tokens)",
+  L.searchLibrary(data, "braille").length === 6
+  && L.searchLibrary(data, "braille").filter(function (e) { return e.list === "lic" && e.brailleUrl; }).length === 2
   && L.searchLibrary(data, "braille").filter(function (e) { return e.list === "emerg"; }).length === 4);
 
 check("\"question pool\" finds the single grouped pool entry",
@@ -270,13 +354,13 @@ check("\"question pool\" finds the single grouped pool entry",
 check("\"field reference\" finds all 71 field-reference entries",
   L.searchLibrary(data, "field reference").length === 71);
 
-check("\"licensing\" finds the single grouped pool entry",
-  L.searchLibrary(data, "licensing").length === 1);
+check("\"licensing\" finds the question pool and the first radio guide",
+  L.searchLibrary(data, "licensing").length === 2);
 
 check("\"zzzzz\" returns zero results", L.searchLibrary(data, "zzzzz").length === 0);
 
-check("blank query returns all 80 entries in data order",
-  L.searchLibrary(data, "   ").length === 80
+check("blank query returns all 81 entries in data order",
+  L.searchLibrary(data, "   ").length === 81
   && L.searchLibrary(data, "").map(function (e) { return e.file; }).join()
     === data.map(function (e) { return e.file; }).join());
 
@@ -296,10 +380,10 @@ check("name-desc is the exact reverse of name-asc",
     === nameAsc.map(function (e) { return e.file; }).reverse().join());
 
 const dateNewest = L.sortLibrary(data, "date-newest");
-check("date-newest starts with the digital voice list (2026-11-23; ties break by file name, so it comes before the weather guide of the same date) and ends with the Tonne article (no date)",
-  dateNewest[0].file === "Digital-Voice-Weather-and-Emergency-Resources_v1.0-20261123-AB9MZ.pdf"
+check("date-newest starts with the first radio guide (2026-11-25) and ends with the Tonne article (no date)",
+  dateNewest[0].file === "First-Radio_v1.0-20261125-AB9MZ.pdf"
   && dateNewest[dateNewest.length - 1].file.indexOf("Tonne") !== -1
-  && L.dateKey(dateNewest[0]) === "2026-11-23T00:00",
+  && L.dateKey(dateNewest[0]) === "2026-11-25T00:00",
   dateNewest[0].file + " ... " + dateNewest[dateNewest.length - 1].file);
 
 const dateOldest = L.sortLibrary(data, "date-oldest");

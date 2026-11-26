@@ -1,6 +1,6 @@
 /* Page-level test: runs index.html's render/search/sort inline script
  * under a minimal DOM stub in Node, loads the real library.json, and
- * checks that the browse lists it renders hold all 80 documents, that
+ * checks that the browse lists it renders hold all 81 documents, that
  * the search box and the sort control behave as specified, and that the
  * superseded entry renders without a download link.
  * Run: node test_page.js (exit 0 only when every check passes).
@@ -52,7 +52,6 @@ const elements = {};
  "search-results", "main"].forEach((id) => { elements[id] = makeElement(id); });
 elements["clear-search"].hidden = true;
 elements["search-results"].hidden = true;
-const contentsNav = makeElement("contents-nav");
 const sectionsDiv = makeElement("sections-div");
 
 /* The 7 browse-list slots, in page order, as in index.html. */
@@ -63,7 +62,9 @@ const listStubs = LIST_KEYS.map(function (key) {
   return el;
 });
 function slot(key) { return listStubs[LIST_KEYS.indexOf(key)]; }
-function countItems(el) { return (el.innerHTML.match(/<li>/g) || []).length; }
+/* Entry items only: an entry starts <li><h3> or <li><h4>. Download
+ * panel rows are <li><a ...> inside an entry and must not count. */
+function countItems(el) { return (el.innerHTML.match(/<li><h[34]>/g) || []).length; }
 
 /* In-memory localStorage stand-in, so the sort persistence path runs. */
 const storage = {};
@@ -79,7 +80,6 @@ global.window = {
 global.document = {
   getElementById: function (id) { return elements[id] || null; },
   querySelector: function (sel) {
-    if (sel === "nav.contents") return contentsNav;
     if (sel === '[data-section-list="field-sections"]') return sectionsDiv;
     return null;
   },
@@ -100,8 +100,8 @@ eval(inlineJs);
 
 /* Let the fetch promise resolve, then drive the page. */
 setTimeout(function () {
-  check("load status reports 80 documents",
-    elements["load-status"].textContent === "Library loaded: 80 documents.",
+  check("load status reports 81 documents",
+    elements["load-status"].textContent === "Library loaded: 81 documents.",
     elements["load-status"].textContent);
 
   check("sort select defaults to the listed order (nothing saved yet)",
@@ -113,13 +113,13 @@ setTimeout(function () {
     "got " + countItems(slot("field-kit")));
   check("contests list holds 1 item", countItems(slot("cntst")) === 1);
   check("general list holds 1 item", countItems(slot("gen")) === 1);
-  check("licensing list holds 1 item", countItems(slot("lic")) === 1);
+  check("licensing list holds 2 items", countItems(slot("lic")) === 2);
   check("radios list holds 1 item", countItems(slot("radio")) === 1);
   check("resources list holds 1 item", countItems(slot("res")) === 1);
   const sectionItems = countItems(sectionsDiv);
   check("field sections hold 66 items", sectionItems === 66, "got " + sectionItems);
   const total = listStubs.reduce(function (n, el) { return n + countItems(el); }, 0) + sectionItems;
-  check("rendered browse lists hold 80 items in all", total === 80, "got " + total);
+  check("rendered browse lists hold 81 items in all", total === 81, "got " + total);
 
   /* Section headings: 22, in book order, as skip points. */
   const h3s = [...sectionsDiv.innerHTML.matchAll(/<h3 id="field-([^"]+)">([^<]+)<\/h3>/g)];
@@ -150,34 +150,36 @@ setTimeout(function () {
       "https://visually-inconvenienced-hams.github.io/field-reference/AB9MZ_Field_Reference_Complete_Kit_v2.0-20261116-2218-AB9MZ.zip") !== -1);
   check("question-pool text links to the relative library path",
     slot("lic").innerHTML.indexOf('href="LIC/Technician-Question-Pool-2026-2030.txt"') !== -1);
-  check("question-pool Braille button links to the Technician class page",
+  check("question-pool Download panel links to the Technician class Braille file",
     slot("lic").innerHTML.indexOf(
       "https://visually-inconvenienced-hams.github.io/technician-class/braille/Technician-Question-Pool-2026-2030.brf") !== -1);
   check("a section file links into the field-reference repo with the plain kit name",
     sectionsDiv.innerHTML.indexOf(
       'href="https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.pdf"') !== -1);
 
-  /* Per-entry Braille links. */
+  /* Per-entry Braille links, now inside the Download panels. */
   check("kit list links the whole-book Braille file",
     slot("field-kit").innerHTML.indexOf(
       "https://visually-inconvenienced-hams.github.io/field-reference/braille/AB9MZ_Amateur_Radio_Field_Reference_v2.0-20261116-2210-AB9MZ.brf") !== -1);
   check("a section file links its own Braille file",
     sectionsDiv.innerHTML.indexOf(
       'href="https://visually-inconvenienced-hams.github.io/field-reference/braille/morse_v2.0-20261116-2210-AB9MZ.brf"') !== -1);
-  check("Braille links carry an aria-label naming the entry",
+  check("panel Braille links carry an aria-label naming the entry",
     sectionsDiv.innerHTML.indexOf(
       'aria-label="Morse code and procedural signals — Large-print PDF — Braille (.brf)"') !== -1);
   const brailleLinks = ((slot("field-kit").innerHTML + sectionsDiv.innerHTML)
-    .match(/>Braille<\/a>/g) || []).length;
-  check("browse lists render 69 Braille links (3 whole-book + 66 sections)",
+    .match(/>Braille \(\.brf\)<\/a>/g) || []).length;
+  check("browse lists render 69 panel Braille links (3 whole-book + 66 sections)",
     brailleLinks === 69, "got " + brailleLinks);
 
   /* The Emergency Communications slot renders the FOG index with its
-   * Braille link, its plain-text link, and its Listen button. */
+   * Download button and panel (Braille link inside), its plain-text
+   * link, and its Listen button. */
   const emergHtml = slot("emerg").innerHTML;
-  check("emergency slot renders the FOG index with a Braille link and a Listen button",
+  check("emergency slot renders the FOG index with a Download button, panel Braille link, and Listen button",
     emergHtml.indexOf("Emergency Communications Field Operations Guides") !== -1
-    && emergHtml.indexOf(">Braille</a>") !== -1
+    && emergHtml.indexOf('class="btn btn-download"') !== -1
+    && emergHtml.indexOf(">Braille (.brf)</a>") !== -1
     && emergHtml.indexOf(">Plain text (.txt)</a>") !== -1
     && emergHtml.indexOf('listen-btn') !== -1
     && emergHtml.indexOf('data-listen-url="EMERG/Emergency-Communications-FOG-Link-Index_v1.0-20261122-AB9MZ.txt"') !== -1,
@@ -212,11 +214,11 @@ setTimeout(function () {
     sectionsDiv.innerHTML.indexOf('data-listen-url="https://visually-inconvenienced-hams.github.io/field-reference/txt/morse_v2.0-20261116-2210-AB9MZ.txt"') !== -1);
   check("blind-population chart renders a Listen button reading its text twin",
     slot("res").innerHTML.indexOf('data-listen-url="RES/Blind-Population-Distribution.txt"') !== -1);
-  check("blind-population chart renders a Braille button to its .brf twin",
+  check("blind-population chart Download panel links to its .brf twin",
     slot("res").innerHTML.indexOf('href="RES/Blind-Population-Distribution.brf"') !== -1);
-  check("About names the files that lack a Listen or Braille button, and why",
-    html.indexOf("<h3>Files without a Listen or Braille button</h3>") !== -1
-    && html.indexOf("The complete kit zip file has no Listen or Braille button") !== -1
+  check("About names the files that lack a Listen or Download button, and why",
+    html.indexOf("<h3>Files without a Listen or Download button</h3>") !== -1
+    && html.indexOf("The complete kit zip file has no Listen or Download button") !== -1
     && html.indexOf("The schedule changes each day") !== -1);
 
   function typeSearch(value) {
@@ -236,8 +238,7 @@ setTimeout(function () {
     r1.indexOf("Morse code and procedural signals") !== -1
     && r1.indexOf("Tonne") !== -1);
   check("browse hidden while searching",
-    elements["search-results"].hidden === false
-    && contentsNav.hidden === true && elements["main"].hidden === true);
+    elements["search-results"].hidden === false && elements["main"].hidden === true);
   check("Clear search button appears while searching",
     elements["clear-search"].hidden === false);
 
@@ -253,7 +254,7 @@ setTimeout(function () {
   check("Clear search restores the browse list",
     elements["search-results"].hidden === true
     && elements["search-results"].innerHTML === ""
-    && contentsNav.hidden === false && elements["main"].hidden === false
+    && elements["main"].hidden === false
     && elements["search-input"].value === "");
 
   /* Sort: name A to Z */
@@ -303,16 +304,102 @@ setTimeout(function () {
     html.indexOf("--row-odd") !== -1 && html.indexOf("--row-even") !== -1
     && html.indexOf("--row-even: #e0e0e0") !== -1
     && html.indexOf("--row-even: #222222") !== -1);
-  check("zebra striping targets the document lists",
-    html.indexOf(".doc-list li:nth-child(odd)") !== -1
-    && html.indexOf(".doc-list li:nth-child(even)") !== -1);
+  check("zebra striping targets the document lists' own rows only",
+    html.indexOf(".doc-list > li:nth-child(odd)") !== -1
+    && html.indexOf(".doc-list > li:nth-child(even)") !== -1);
   check("entry buttons carry their color classes",
     sectionsDiv.innerHTML.indexOf("btn btn-open") !== -1
     && sectionsDiv.innerHTML.indexOf("btn listen-btn btn-listen") !== -1
-    && sectionsDiv.innerHTML.indexOf("btn btn-braille") !== -1);
-  check("Braille button label is just Braille (format stays in the aria-label)",
-    sectionsDiv.innerHTML.indexOf(">Braille</a>") !== -1
-    && sectionsDiv.innerHTML.indexOf(">Braille (.brf)</a>") === -1);
+    && sectionsDiv.innerHTML.indexOf("btn btn-download") !== -1
+    && sectionsDiv.innerHTML.indexOf("btn-braille") === -1);
+  check("Download button label is just Download, starting closed, controlling a hidden panel",
+    sectionsDiv.innerHTML.indexOf('class="btn btn-download" aria-expanded="false" aria-controls="download-panel-') !== -1
+    && sectionsDiv.innerHTML.indexOf('class="download-panel" id="download-panel-') !== -1
+    && sectionsDiv.innerHTML.indexOf('" hidden>') !== -1);
+  check("Download button aria-label contains the visible label and names the entry",
+    sectionsDiv.innerHTML.indexOf('aria-label="Download Morse code and procedural signals — Large-print PDF — choose a format">Download</button>') !== -1);
+  check("a section panel lists its formats alphabetically: Braille, EPUB, PDF, Text, Word",
+    (function () {
+      const h = sectionsDiv.innerHTML;
+      const start = h.indexOf('aria-label="Morse code and procedural signals — Large-print PDF — Braille (.brf)"');
+      const seg = h.slice(start, start + 2000);
+      const order = ["Braille (.brf)", "EPUB (.epub)", "PDF (.pdf)", "Text (.txt)", "Word (.docx)"];
+      let last = -1;
+      for (const label of order) {
+        const at = seg.indexOf(">" + label + "</a>");
+        if (at === -1 || at < last) return false;
+        last = at;
+      }
+      return true;
+    })());
+  check("a Word entry's panel PDF choice is the section's large-print PDF",
+    sectionsDiv.innerHTML.indexOf('aria-label="Morse code and procedural signals — Word document — PDF (.pdf)"') !== -1
+    && sectionsDiv.innerHTML.indexOf('href="https://visually-inconvenienced-hams.github.io/field-reference/sections/morse.pdf" aria-label="Morse code and procedural signals — Word document — PDF (.pdf)"') !== -1);
+  const allBrowse = listStubs.map(function (el) { return el.innerHTML; }).join("") + sectionsDiv.innerHTML;
+  check("browse lists render 76 Download buttons and 76 panels",
+    (allBrowse.match(/class="btn btn-download"/g) || []).length === 76
+    && (allBrowse.match(/class="download-panel"/g) || []).length === 76,
+    "buttons " + ((allBrowse.match(/class="btn btn-download"/g) || []).length)
+    + ", panels " + ((allBrowse.match(/class="download-panel"/g) || []).length));
+  check("the zip, read-me, schedule, Tonne article, and index render no Download button",
+    slot("cntst").innerHTML.indexOf("btn-download") === -1
+    && slot("radio").innerHTML.indexOf("btn-download") === -1
+    && slot("gen").innerHTML.indexOf("btn-download") === -1
+    && (slot("field-kit").innerHTML.match(/class="btn btn-download"/g) || []).length === 3);
+  check("panel ids are unique across the browse lists",
+    (function () {
+      const ids = [...allBrowse.matchAll(/id="(download-panel-\d+)"/g)].map((m) => m[1]);
+      return ids.length === 76 && new Set(ids).size === 76;
+    })());
+  check("no eBraille link renders yet (no entry carries ebrailleUrl)",
+    allBrowse.indexOf("eBraille (beta)") === -1);
+
+  /* Collapsible sections (2026-11-23): the section headings ARE the
+   * contents — there is no separate Contents list — and every section
+   * starts closed behind a real button: the eight document sections,
+   * the "Start here" guide, and "About this library". */
+  check("ten section toggle buttons: 8 document sections plus Start here and About",
+    (html.match(/class="section-toggle"/g) || []).length === 10,
+    "got " + ((html.match(/class="section-toggle"/g) || []).length));
+  check("every section toggle starts closed with aria-expanded false",
+    (html.match(/class="section-toggle" aria-expanded="false"/g) || []).length === 10);
+  check("every section toggle controls its section body, which starts hidden",
+    ["start-here", "field-reference", "contests", "general", "licensing",
+     "radios", "resources", "emergency", "empty-categories", "about"].every(function (id) {
+      return html.indexOf('aria-controls="section-' + id + '"') !== -1
+        && html.indexOf('id="section-' + id + '" hidden') !== -1;
+    }));
+  check("no separate Contents list: the headings are the contents",
+    html.indexOf('class="contents"') === -1
+    && html.indexOf("<h2>Contents</h2>") === -1);
+  check("one open-all / close-all toggle button, label naming the state it switches to",
+    html.indexOf('id="toggle-all-sections"') !== -1
+    && html.indexOf('aria-label="Open all sections of the library">Open all sections</button>') !== -1);
+  check("Start here comes first in main, before the toggle-all button",
+    html.indexOf('id="start-here"') !== -1
+    && html.indexOf('id="start-here"') < html.indexOf('id="toggle-all-sections"')
+    && html.indexOf('id="toggle-all-sections"') < html.indexOf('id="field-reference"'));
+  check("the old How to use section is gone, with no how-to-use anchor left",
+    html.indexOf("how-to-use") === -1
+    && html.indexOf("How to use this library") === -1);
+  check("header intro is one tiny paragraph naming the count and pointing to Start here",
+    (html.match(/<p class="intro">/g) || []).length === 1
+    && html.indexOf("Every document in the group lives here — 81 of them, sorted by topic.") !== -1
+    && html.indexOf('open "Start here" below the search box') !== -1);
+  check("Start here holds the guide in three headed parts",
+    html.indexOf("<h3>Find a file</h3>") !== -1
+    && html.indexOf("<h3>The three buttons</h3>") !== -1
+    && html.indexOf("<h3>On Facebook</h3>") !== -1);
+  check("Start here keeps the version stamp, the three buttons, and the Facebook pop-up tip",
+    html.indexOf("That stamp means version 2.0, changed 16 November 2026 at 22:18 Central, by AB9MZ.") !== -1
+    && html.indexOf("<span class=\"fmt-text\">Listen.</span> Reads the file out loud") !== -1
+    && html.indexOf("Tap View File to open the file.") !== -1
+    && html.indexOf("Nothing was lost — every file that was in Files is in the library.") !== -1);
+  check("About is collapsible now, keeping its id and its content",
+    html.indexOf('<h2 id="about"><button type="button" class="section-toggle"') !== -1
+    && html.indexOf("This page takes the place of the group's old text index.") !== -1);
+  check("H1 is 1.8rem, so Inconvenienced stays whole on a phone",
+    html.indexOf("h1 { font-size: 1.8rem;") !== -1);
 
   console.log("\n" + (failures === 0 ? "ALL PAGE CHECKS PASSED" : failures + " PAGE CHECK(S) FAILED"));
   process.exit(failures === 0 ? 0 : 1);
