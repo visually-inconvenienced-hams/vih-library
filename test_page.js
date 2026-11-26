@@ -318,12 +318,12 @@ setTimeout(function () {
     && sectionsDiv.innerHTML.indexOf('" hidden>') !== -1);
   check("Download button aria-label contains the visible label and names the entry",
     sectionsDiv.innerHTML.indexOf('aria-label="Download Morse code and procedural signals — Large-print PDF — choose a format">Download</button>') !== -1);
-  check("a section panel lists its formats alphabetically: Braille, EPUB, PDF, Text, Word",
+  check("a section panel lists its formats alphabetically: Braille, eBraille (beta), EPUB, PDF, Braille print file, Text, Word",
     (function () {
       const h = sectionsDiv.innerHTML;
       const start = h.indexOf('aria-label="Morse code and procedural signals — Large-print PDF — Braille (.brf)"');
-      const seg = h.slice(start, start + 2000);
-      const order = ["Braille (.brf)", "EPUB (.epub)", "PDF (.pdf)", "Text (.txt)", "Word (.docx)"];
+      const seg = h.slice(start, start + 2600);
+      const order = ["Braille (.brf)", "eBraille (beta) (.ebrl)", "EPUB (.epub)", "PDF (.pdf)", "Braille print file (.pef)", "Text (.txt)", "Word (.docx)"];
       let last = -1;
       for (const label of order) {
         const at = seg.indexOf(">" + label + "</a>");
@@ -351,8 +351,12 @@ setTimeout(function () {
       const ids = [...allBrowse.matchAll(/id="(download-panel-\d+)"/g)].map((m) => m[1]);
       return ids.length === 76 && new Set(ids).size === 76;
     })());
-  check("no eBraille link renders yet (no entry carries ebrailleUrl)",
-    allBrowse.indexOf("eBraille (beta)") === -1);
+  check("every panel renders an eBraille (beta) link (76 entries carry ebrailleUrl)",
+    (allBrowse.match(/>eBraille \(beta\) \(\.ebrl\)<\/a>/g) || []).length === 76,
+    "got " + ((allBrowse.match(/>eBraille \(beta\) \(\.ebrl\)<\/a>/g) || []).length));
+  check("every panel renders a Braille print file (.pef) link (76 entries carry pefUrl)",
+    (allBrowse.match(/>Braille print file \(\.pef\)<\/a>/g) || []).length === 76,
+    "got " + ((allBrowse.match(/>Braille print file \(\.pef\)<\/a>/g) || []).length));
 
   /* Collapsible sections (2026-11-23): the section headings ARE the
    * contents — there is no separate Contents list — and every section

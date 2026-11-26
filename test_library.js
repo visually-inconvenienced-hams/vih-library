@@ -246,11 +246,38 @@ check("every PDF link ends in .pdf and every PDF file exists in its staging fold
 check("a Word entry's PDF link is its section's large-print PDF",
   data.filter(function (e) { return e.list === "field-sections" && e.format === "Word document"; })
     .every(function (e) { return e.pdfUrl === FR + "sections/" + e.subsection + ".pdf"; }));
-check("no entry carries an eBraille link yet",
-  data.every(function (e) { return !e.ebrailleUrl; }));
-check("the 5 entries without a Braille link also carry no EPUB, Word, or PDF link",
+/* ---- Download-panel format links: eBraille and PEF (2026-11-25) ---- */
+const withEbraille = data.filter(function (e) { return e.ebrailleUrl; });
+check("76 entries carry an eBraille link (the same entries as the Braille links)",
+  withEbraille.length === 76, "got " + withEbraille.length);
+check("30 distinct eBraille files (the 3 formats of a section share one .ebrl)",
+  new Set(withEbraille.map(function (e) { return e.ebrailleUrl; })).size === 30);
+check("every eBraille link ends in .ebrl and every eBraille file exists in its staging folder",
+  withEbraille.every(function (e) { return /\.ebrl$/.test(e.ebrailleUrl) && twinOnDisk(e.ebrailleUrl); }));
+const ebrailleBySub = {};
+withEbraille.filter(function (e) { return e.list === "field-sections"; }).forEach(function (e) {
+  (ebrailleBySub[e.subsection] = ebrailleBySub[e.subsection] || new Set()).add(e.ebrailleUrl);
+});
+check("the 3 entries of each section share one eBraille link",
+  Object.keys(ebrailleBySub).length === 22
+  && Object.keys(ebrailleBySub).every(function (k) { return ebrailleBySub[k].size === 1; }));
+const withPef = data.filter(function (e) { return e.pefUrl; });
+check("76 entries carry a PEF link (the same entries as the Braille links)",
+  withPef.length === 76, "got " + withPef.length);
+check("30 distinct PEF files (the 3 formats of a section share one .pef)",
+  new Set(withPef.map(function (e) { return e.pefUrl; })).size === 30);
+check("every PEF link ends in .pef and every PEF file exists in its staging folder",
+  withPef.every(function (e) { return /\.pef$/.test(e.pefUrl) && twinOnDisk(e.pefUrl); }));
+const pefBySub = {};
+withPef.filter(function (e) { return e.list === "field-sections"; }).forEach(function (e) {
+  (pefBySub[e.subsection] = pefBySub[e.subsection] || new Set()).add(e.pefUrl);
+});
+check("the 3 entries of each section share one PEF link",
+  Object.keys(pefBySub).length === 22
+  && Object.keys(pefBySub).every(function (k) { return pefBySub[k].size === 1; }));
+check("the 5 entries without a Braille link also carry no EPUB, Word, PDF, eBraille, or PEF link",
   data.filter(function (e) { return !e.brailleUrl; })
-    .every(function (e) { return !e.epubUrl && !e.wordUrl && !e.pdfUrl; }));
+    .every(function (e) { return !e.epubUrl && !e.wordUrl && !e.pdfUrl && !e.ebrailleUrl && !e.pefUrl; }));
 
 /* ---- Emergency Communications entries: Listen button and Braille link ---- */
 const emerg = data.filter(function (e) { return e.list === "emerg"; });

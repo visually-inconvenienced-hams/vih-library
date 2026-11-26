@@ -63,11 +63,15 @@
  * DOWNLOAD RULE (added 2026-11-25): the page's Download button opens
  * a panel listing the entry's formats alphabetically — Braille,
  * eBraille (beta), EPUB, PDF, Text, Word — showing only the formats
- * that exist. The fields behind it: brailleUrl (.brf), epubUrl
- * (.epub), pdfUrl (the entry's PDF; a Word entry points at its
- * section's large-print PDF), textUrl (.txt), wordUrl (.docx). No
- * entry carries an ebrailleUrl yet; the field is reserved for the
- * eBraille beta. EPUB and Word twins exist for the same 76 entries
+ * that exist. The fields behind it: brailleUrl (.brf), ebrailleUrl
+ * (.ebrl, shown as "eBraille (beta)"), epubUrl (.epub), pdfUrl (the
+ * entry's PDF; a Word entry points at its section's large-print
+ * PDF), pefUrl (.pef, shown as "Braille print file"), textUrl
+ * (.txt), wordUrl (.docx). eBraille and PEF twins (added 2026-11-25,
+ * converted from the DOCX files by DAISY Pipeline: grade-2 UEB;
+ * PEF set up 40 cells by 25 lines, single-sided) sit beside the
+ * DOCX files, the same way the EPUB twins do. EPUB and Word twins
+ * exist for the same 76 entries
  * as the text twins (30 distinct files each): field-reference EPUBs
  * were converted from the section DOCX files and sit beside them in
  * sections/ (the full book's at the repository root); local EPUB and
@@ -160,6 +164,41 @@ function bookWordUrl() {
   const name = "AB9MZ_Amateur_Radio_Field_Reference.docx";
   if (!frRootOnDisk.has(name)) {
     throw new Error("full-book docx missing from field-reference staging: " + name);
+  }
+  return FR + name;
+}
+
+/* eBraille and PEF twins (added 2026-11-25 for the Download panel).
+ * Converted from the same DOCX files by DAISY Pipeline (grade-2 UEB;
+ * PEF 40 cells by 25 lines, single-sided); they sit beside the DOCX
+ * files in sections/ (the full book's at the repository root), and
+ * beside the local DOCX files in EMERG/, RES/, and LIC/. Verify each
+ * file exists in staging, the same way epubUrl() verifies the EPUBs. */
+function ebrailleUrl(stem) {
+  const name = stem + ".ebrl";
+  if (!frSectionsOnDisk.has(name)) {
+    throw new Error("ebraille file missing from field-reference staging: " + name);
+  }
+  return FR + "sections/" + name;
+}
+function pefUrl(stem) {
+  const name = stem + ".pef";
+  if (!frSectionsOnDisk.has(name)) {
+    throw new Error("pef file missing from field-reference staging: " + name);
+  }
+  return FR + "sections/" + name;
+}
+function bookEbrailleUrl() {
+  const name = "AB9MZ_Amateur_Radio_Field_Reference.ebrl";
+  if (!frRootOnDisk.has(name)) {
+    throw new Error("full-book ebraille missing from field-reference staging: " + name);
+  }
+  return FR + name;
+}
+function bookPefUrl() {
+  const name = "AB9MZ_Amateur_Radio_Field_Reference.pef";
+  if (!frRootOnDisk.has(name)) {
+    throw new Error("full-book pef missing from field-reference staging: " + name);
   }
   return FR + name;
 }
@@ -274,6 +313,8 @@ add(Object.assign({}, FIELD, {
   epubUrl: bookEpubUrl(),
   wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  ebrailleUrl: bookEbrailleUrl(),
+  pefUrl: bookPefUrl(),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "pdf", "large print", "ab9mz"],
   note: "The full book, all 22 sections, large-print PDF. 22 point text, 28 point headings."
@@ -288,6 +329,8 @@ add(Object.assign({}, FIELD, {
   epubUrl: bookEpubUrl(),
   wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  ebrailleUrl: bookEbrailleUrl(),
+  pefUrl: bookPefUrl(),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "word", "docx", "ab9mz"],
   note: "The full book, all 22 sections, Word document."
@@ -302,6 +345,8 @@ add(Object.assign({}, FIELD, {
   epubUrl: bookEpubUrl(),
   wordUrl: bookWordUrl(),
   brailleUrl: brailleUrl("AB9MZ_Amateur_Radio_Field_Reference"),
+  ebrailleUrl: bookEbrailleUrl(),
+  pefUrl: bookPefUrl(),
   textUrl: textTwinUrl("AB9MZ_Amateur_Radio_Field_Reference"),
   keywords: ["field reference", "full book", "complete", "tagged", "pdf", "screen reader", "ab9mz"],
   note: "The full book, all 22 sections, tagged PDF. Screen readers navigate it by heading."
@@ -342,6 +387,8 @@ SECTIONS.forEach(function (s) {
       epubUrl: epubUrl(stem),
       wordUrl: wordUrl(stem),
       brailleUrl: brailleUrl(stem),
+      ebrailleUrl: ebrailleUrl(stem),
+      pefUrl: pefUrl(stem),
       textUrl: textTwinUrl(stem),
       keywords: ["field reference"].concat(keys).concat(formatKeys),
       note: formatNote
@@ -407,6 +454,8 @@ add({
   epubUrl: licFile("Technician-Question-Pool-2026-2030.epub"),
   wordUrl: licFile("Technician-Question-Pool-2026-2030.docx"),
   brailleUrl: TECH + "braille/Technician-Question-Pool-2026-2030.brf",
+  ebrailleUrl: licFile("Technician-Question-Pool-2026-2030.ebrl"),
+  pefUrl: licFile("Technician-Question-Pool-2026-2030.pef"),
   version: null,
   date: "2026-11-16",
   time: "17:49",
@@ -431,6 +480,8 @@ add({
   wordUrl: licFile(FR_STEM + ".docx"),
   textUrl: licFile(FR_STEM + ".txt"),
   brailleUrl: licFile(FR_STEM + ".brf"),
+  ebrailleUrl: licFile(FR_STEM + ".ebrl"),
+  pefUrl: licFile(FR_STEM + ".pef"),
   version: "1.0",
   date: "2026-11-25",
   time: null,
@@ -474,6 +525,8 @@ add({
   wordUrl: resFile("Blind-Population-Distribution.docx"),
   textUrl: resFile("Blind-Population-Distribution.txt"),
   brailleUrl: resFile("Blind-Population-Distribution.brf"),
+  ebrailleUrl: resFile("Blind-Population-Distribution.ebrl"),
+  pefUrl: resFile("Blind-Population-Distribution.pef"),
   version: null,
   date: null,
   time: null,
@@ -498,6 +551,8 @@ add({
   wordUrl: emergFile(FOG_STEM + ".docx"),
   textUrl: emergFile(FOG_STEM + ".txt"),
   brailleUrl: emergFile(FOG_STEM + ".brf"),
+  ebrailleUrl: emergFile(FOG_STEM + ".ebrl"),
+  pefUrl: emergFile(FOG_STEM + ".pef"),
   version: "1.0",
   date: "2026-11-22",
   time: null,
@@ -522,6 +577,8 @@ add({
   wordUrl: emergFile(PEP_STEM + ".docx"),
   textUrl: emergFile(PEP_STEM + ".txt"),
   brailleUrl: emergFile(PEP_STEM + ".brf"),
+  ebrailleUrl: emergFile(PEP_STEM + ".ebrl"),
+  pefUrl: emergFile(PEP_STEM + ".pef"),
   version: "1.0",
   date: "2026-11-22",
   time: null,
@@ -546,6 +603,8 @@ add({
   wordUrl: emergFile(WX_STEM + ".docx"),
   textUrl: emergFile(WX_STEM + ".txt"),
   brailleUrl: emergFile(WX_STEM + ".brf"),
+  ebrailleUrl: emergFile(WX_STEM + ".ebrl"),
+  pefUrl: emergFile(WX_STEM + ".pef"),
   version: "1.0",
   date: "2026-11-23",
   time: null,
@@ -570,6 +629,8 @@ add({
   wordUrl: emergFile(DV_STEM + ".docx"),
   textUrl: emergFile(DV_STEM + ".txt"),
   brailleUrl: emergFile(DV_STEM + ".brf"),
+  ebrailleUrl: emergFile(DV_STEM + ".ebrl"),
+  pefUrl: emergFile(DV_STEM + ".pef"),
   version: "1.0",
   date: "2026-11-23",
   time: null,
@@ -652,6 +713,28 @@ const distinctWord = new Set(withWord.map(function (e) { return e.wordUrl; }));
 if (distinctWord.size !== 30) {
   throw new Error("expected 30 distinct Word files, built " + distinctWord.size);
 }
+/* eBraille twins: the same 76 entries, 30 distinct .ebrl files
+ * (converted from the 30 DOCX files by DAISY Pipeline, grade-2 UEB;
+ * the first radio guide's is the proven 2026-11-25 test file). */
+const withEbraille = entries.filter(function (e) { return e.ebrailleUrl; });
+if (withEbraille.length !== 76) {
+  throw new Error("expected 76 entries with an eBraille link, built " + withEbraille.length);
+}
+const distinctEbraille = new Set(withEbraille.map(function (e) { return e.ebrailleUrl; }));
+if (distinctEbraille.size !== 30) {
+  throw new Error("expected 30 distinct eBraille files, built " + distinctEbraille.size);
+}
+/* PEF twins ("Braille print file"): the same 76 entries, 30 distinct
+ * .pef files (same Pipeline conversion, 40 cells by 25 lines,
+ * single-sided). */
+const withPef = entries.filter(function (e) { return e.pefUrl; });
+if (withPef.length !== 76) {
+  throw new Error("expected 76 entries with a PEF link, built " + withPef.length);
+}
+const distinctPef = new Set(withPef.map(function (e) { return e.pefUrl; }));
+if (distinctPef.size !== 30) {
+  throw new Error("expected 30 distinct PEF files, built " + distinctPef.size);
+}
 /* PDF twins for the Download panel: 75 entries (the same 76 minus
  * the question pool, which has no PDF), 52 distinct files (22
  * large-print section PDFs shared by the large-print and Word
@@ -677,4 +760,6 @@ console.log("with download links: " + urls.length + "; without: " + (entries.len
 console.log("with Braille links: " + withBraille.length + " entries, " + distinctBraille.size + " distinct .brf files");
 console.log("with EPUB links: " + withEpub.length + " entries, " + distinctEpub.size + " distinct .epub files");
 console.log("with Word links: " + withWord.length + " entries, " + distinctWord.size + " distinct .docx files");
+console.log("with eBraille links: " + withEbraille.length + " entries, " + distinctEbraille.size + " distinct .ebrl files");
+console.log("with PEF links: " + withPef.length + " entries, " + distinctPef.size + " distinct .pef files");
 console.log("with PDF links: " + withPdf.length + " entries, " + distinctPdf.size + " distinct .pdf files");

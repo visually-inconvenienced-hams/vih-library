@@ -713,8 +713,10 @@
         <h3>Choosing a file type</h3>
         <p>The Download button opens a list of file types. Pick the type that works best for you. Each type holds the same words. Only the form changes.</p>
         <p><span class="fmt-text">Braille (.brf).</span> This is a Braille file. Use it with a Braille display or a Braille printer. It is in contracted Braille, grade 2.</p>
+        <p><span class="fmt-text">eBraille (beta) (.ebrl).</span> This is a new kind of Braille file. It works on newer Braille displays that can show more than one line, like the Monarch. It lets you jump from heading to heading, like a web page. It is still new, so we mark it beta. That means it may not work on every display yet.</p>
         <p><span class="fmt-text">EPUB (.epub).</span> This is a book file. Use it with a book app on your phone, tablet, or computer. You can make the text as big as you want. Screen readers can jump from heading to heading.</p>
         <p><span class="fmt-text">PDF (.pdf).</span> This file looks the same on every screen, like a printed page. Use it to read on screen or to print. Some of our PDFs have big print. Some are tagged, which means screen readers can jump from heading to heading.</p>
+        <p><span class="fmt-text">Braille print file (.pef).</span> This file is for a Braille printer, also called an embosser. Send it to the printer, or to a service that prints Braille for you. It holds the same words as the Braille (.brf) file, set up for printing.</p>
         <p><span class="fmt-text">Text (.txt).</span> This is plain text, with no special form at all. Any device can open it. It is a good pick if your tools work best with plain text.</p>
         <p><span class="fmt-text">Word (.docx).</span> This is a Word file. Use it if you read with Word, or if you want to write notes in the file or change it.</p>
         <p>What changed: the old Braille button is now the Download button. The Braille file is still there. It is the first choice in the list. The list also holds the other file types, so you can save the file in the form you like best.</p>
@@ -815,7 +817,7 @@
 
       <footer>
       <a class="back-link" href="https://m.facebook.com/groups/742838019382868">Back to the Facebook group</a>
-      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 18:50 Central</p>
+      <p class="small footer-version">Library page version 2.0 — 25 November 2026, 19:26 Central</p>
       <p class="tlp-badge"><span class="tlp-mark" role="note" title="Traffic Light Protocol: White — freely distributable" aria-label="Traffic Light Protocol: White — freely distributable">TLP:WHITE</span></p>
       </footer>
     </div>
@@ -894,13 +896,14 @@
    * a real button that reads the text aloud (see the read-aloud
    * block below); Download is a real button that opens a panel
    * listing the entry's formats alphabetically (Braille, eBraille
-   * beta, EPUB, PDF, Text, Word), each a download link. Listen
+   * beta, EPUB, PDF, Braille print file, Text, Word), each a
+   * download link. Listen
    * appears whenever the entry has a plain-text twin, or whenever
    * the document itself is plain text (its download link ends in
    * .txt); in the second case the button reads the download link
    * itself. Download appears whenever the entry has at least one
-   * format beyond the Open file itself (a Braille, EPUB, or Word
-   * twin, or an eBraille file when one exists) — the same entries
+   * format beyond the Open file itself (a Braille, eBraille, EPUB,
+   * PEF, or Word twin) — the same entries
    * that carried a Braille button before 2026-11-25. */
   var downloadSeq = 0;
   function downloadFormats(entry) {
@@ -911,6 +914,7 @@
     if (entry.ebrailleUrl) formats.push(["eBraille (beta) (.ebrl)", entry.ebrailleUrl]);
     if (entry.epubUrl) formats.push(["EPUB (.epub)", entry.epubUrl]);
     if (entry.pdfUrl) formats.push(["PDF (.pdf)", entry.pdfUrl]);
+    if (entry.pefUrl) formats.push(["Braille print file (.pef)", entry.pefUrl]);
     if (entry.textUrl) formats.push(["Text (.txt)", entry.textUrl]);
     if (entry.wordUrl) formats.push(["Word (.docx)", entry.wordUrl]);
     return formats;
@@ -922,7 +926,7 @@
     var listenUrl = entry.textUrl || null;
     if (!listenUrl && entry.url && /\.txt$/i.test(entry.url)) listenUrl = entry.url;
     var formats = downloadFormats(entry);
-    var hasDownload = !!(entry.brailleUrl || entry.ebrailleUrl || entry.epubUrl || entry.wordUrl);
+    var hasDownload = !!(entry.brailleUrl || entry.ebrailleUrl || entry.epubUrl || entry.pefUrl || entry.wordUrl);
     var panelId = null;
     if (entry.url || listenUrl || hasDownload) {
       html += '<p class="entry-actions">';
